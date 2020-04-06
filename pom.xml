@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>eg.gov.iti.jets</groupId>
+    <artifactId>iti-store</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <packaging>war</packaging>
+
+    <name>iti-store</name>
+    <description>iti store project</description>
+    <url>http://www.store.iti</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>11</maven.compiler.release>
+        <junit.jupiter.version>5.6.1</junit.jupiter.version>
+        <hibernate.version>5.4.12.Final</hibernate.version>
+        <java.ee.version>8.0.1</java.ee.version>
+        <jersey.version>2.30.1</jersey.version>
+        <jsp.jstl.version>1.2</jsp.jstl.version>
+    </properties>
+
+    <developers>
+        <developer>
+            <id>123</id>
+            <name>amin</name>
+            <email>ahmedaboulroos@gmail.com</email>
+            <organization>iti</organization>
+            <organizationUrl>http://jets.iti.gov.eg</organizationUrl>
+            <url>http://www.amin.io</url>
+        </developer>
+        <developer>
+            <id>124</id>
+            <name>ahmed shaheen</name>
+            <email>ahmedshaheen9993@gmail.com</email>
+            <organization>iti</organization>
+            <organizationUrl>http://jets.iti.gov.eg</organizationUrl>
+            <url>https://github.com/ahmedshaheen676</url>
+        </developer>
+    </developers>
+
+    <build>
+
+        <finalName>iti-store</finalName>
+
+        <plugins>
+
+            <!-- Deploying on Tomcat Server -->
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <url>http://localhost:8088/manager/text</url>
+                    <server>TomcatServer</server>
+                    <path>/iti-store</path>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+        <pluginManagement>
+
+            <plugins>
+
+                <!-- Override Compiler version to support JDK9+ releases -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.1</version>
+                </plugin>
+
+            </plugins>
+
+        </pluginManagement>
+
+    </build>
+
+    <dependencies>
+
+        <!-- Full JavaEE 8 JSRs -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>${java.ee.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- JSTL -->
+        <dependency>
+            <groupId>javax.servlet.jsp.jstl</groupId>
+            <artifactId>jstl-api</artifactId>
+            <version>${jsp.jstl.version}</version>
+        </dependency>
+
+        <!-- Hibernate 5 ORM dependency -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <!-- Oracle Database JDBC Drivers -->
+        <dependency>
+            <groupId>com.oracle.database.jdbc</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <version>11.2.0.4</version>
+        </dependency>
+
+
+    </dependencies>
+
+
+</project>
