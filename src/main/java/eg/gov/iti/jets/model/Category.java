@@ -1,14 +1,14 @@
 package eg.gov.iti.jets.model;
 
 import javax.persistence.*;
-
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Table(name = "CATEGORIES")
-public class Category {
+public class Category implements Serializable {
     /**
      * category id is a unique identifier for the category that Generated automatic
      * by jpa framework

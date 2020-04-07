@@ -1,12 +1,13 @@
 package eg.gov.iti.jets.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
 @Table(name = "ORDERS")
-public class Order {
+public class Order implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

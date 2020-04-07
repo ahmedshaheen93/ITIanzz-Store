@@ -1,6 +1,7 @@
 package eg.gov.iti.jets.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Objects;
@@ -12,7 +13,11 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "USERS")
-public class User {
+@NamedQueries(
+        @NamedQuery(name = "findByEmailAndPassword",
+                query = "SELECT u from User u where u.email=:email and u.password=:password")
+)
+public class User implements Serializable {
     /**
      * user id is a unique identifier for the user that Generated automatic by jpa
      * framework
@@ -78,7 +83,7 @@ public class User {
     }
 
     public User(String firstName, String lastName, String phone, String email, String password, Role role,
-            double balance, LocalDate birthDate, Image userImage, Address address) {
+                double balance, LocalDate birthDate, Image userImage, Address address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;

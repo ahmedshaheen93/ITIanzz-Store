@@ -7,7 +7,6 @@ import java.util.Objects;
 
 public class UserRepositoryImpl extends CrudImpl<User, Long> implements UserRepository {
     private static UserRepositoryImpl instance;
-    private final String findByMailAndPassword = "SELECT u FROM User u where u.email =:email and u.password = :password";
 
     private UserRepositoryImpl() {
         super();
@@ -19,7 +18,7 @@ public class UserRepositoryImpl extends CrudImpl<User, Long> implements UserRepo
 
     @Override
     public User findByMailAndPassword(String email, String password) {
-        return (User) getEntityManager().createQuery(findByMailAndPassword)
+        return (User) getEntityManager().createNamedQuery("findByEmailAndPassword")
                 .setParameter("email", email)
                 .setParameter("password", password).getSingleResult();
     }

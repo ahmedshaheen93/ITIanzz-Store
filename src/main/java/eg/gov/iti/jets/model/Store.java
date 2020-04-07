@@ -1,11 +1,12 @@
 package eg.gov.iti.jets.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 
 @Entity
 @Table(name = "STORE")
-public class Store {
+public class Store implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "STORE_ID", unique = true, nullable = false)
