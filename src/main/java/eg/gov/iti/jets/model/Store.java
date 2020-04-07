@@ -11,7 +11,8 @@ public class Store {
     @Column(name = "STORE_ID", unique = true, nullable = false)
     private Long storeId;
 
-    @Column(name = "STORE_LOGO")
+    @OneToOne
+    @JoinColumn(name = "IMAGE_ID", nullable = false)
     private Image logo;
 
     @Column(name = "STORE_NAME", nullable = false)
@@ -22,9 +23,6 @@ public class Store {
 
     @Column(name = "STORE_DESCRIPTION", length = 5000)
     private String description;
-
-    @Column(name = "STORE_OWNER")
-    private User owner;
 
     @Column(name = "STORE_PHONE", nullable = false)
     private String phone;
@@ -47,12 +45,11 @@ public class Store {
     public Store() {
     }
 
-    public Store(Image logo, String storeName, Address address, String description, User owner, String phone, String email, String faceBook, String youtube, String instagram, String twitter) {
+    public Store(Image logo, String storeName, Address address, String description, String phone, String email, String faceBook, String youtube, String instagram, String twitter) {
         this.logo = logo;
         this.storeName = storeName;
         this.address = address;
         this.description = description;
-        this.owner = owner;
         this.phone = phone;
         this.email = email;
         this.faceBook = faceBook;
@@ -99,14 +96,6 @@ public class Store {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public User getOwner() {
-        return owner;
-    }
-
-    public void setOwner(User owner) {
-        this.owner = owner;
     }
 
     public String getPhone() {

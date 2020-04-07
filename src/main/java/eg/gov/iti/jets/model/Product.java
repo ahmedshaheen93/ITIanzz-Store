@@ -72,7 +72,8 @@ public class Product {
     @Column(name = "PRODUCT_SELL_PRICE", nullable = false)
     private Double sellPrice;
 
-    @Column(name = "PRODUCT_PRIMARY_IMAGE", nullable = false)
+    @OneToOne
+    @JoinColumn(name = "IMAGE_ID", nullable = false)
     private Image primaryImage;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

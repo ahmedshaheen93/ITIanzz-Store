@@ -64,14 +64,12 @@ public class User {
     @Column(name = "BIRTH_DATE")
     private LocalDate birthDate;
 
-    @Column(name = "USER_IMAGE")
+    @OneToOne
+    @JoinColumn(name = "IMAGE_ID")
     private Image userImage;
 
     @Embedded
-    private Address homeAddress;
-
-    @Embedded
-    private Address shippingAddress;
+    private Address address;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Order> orders;
@@ -80,7 +78,7 @@ public class User {
     }
 
     public User(String firstName, String lastName, String phone, String email, String password, Role role,
-                double balance, LocalDate birthDate, Image userImage, Address homeAddress, Address shippingAddress) {
+            double balance, LocalDate birthDate, Image userImage, Address address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
@@ -90,8 +88,7 @@ public class User {
         this.balance = balance;
         this.birthDate = birthDate;
         this.userImage = userImage;
-        this.homeAddress = homeAddress;
-        this.shippingAddress = shippingAddress;
+        this.address = address;
     }
 
     /**
@@ -184,24 +181,16 @@ public class User {
         this.userImage = userImage;
     }
 
-    public Address getHomeAddress() {
-        return homeAddress;
-    }
-
-    public void setHomeAddress(Address homeAddress) {
-        this.homeAddress = homeAddress;
-    }
-
-    public Address getShippingAddress() {
-        return shippingAddress;
-    }
-
-    public void setShippingAddress(Address shippingAddress) {
-        this.shippingAddress = shippingAddress;
-    }
-
     public Set<Order> getOrders() {
         return Objects.requireNonNullElse(orders, new HashSet<>(0));
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
 }

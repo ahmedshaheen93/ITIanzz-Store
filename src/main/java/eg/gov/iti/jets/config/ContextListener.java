@@ -1,10 +1,6 @@
 package eg.gov.iti.jets.config;
 
 import eg.gov.iti.jets.repository.impl.UserRepositoryImpl;
-import eg.gov.iti.jets.service.impl.CategoryServiceImpl;
-import eg.gov.iti.jets.service.impl.OrderServiceImpl;
-import eg.gov.iti.jets.service.impl.ProductServiceImpl;
-import eg.gov.iti.jets.service.impl.StoreServiceImpl;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -16,8 +12,7 @@ import java.util.Enumeration;
 import java.util.logging.Logger;
 
 public class ContextListener implements ServletContextListener {
-    private final static Logger logger =
-            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     /**
      * injecting service impl on context when the app started
@@ -27,11 +22,11 @@ public class ContextListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         ServletContext context = sce.getServletContext();
-        context.setAttribute("userService", new UserRepositoryImpl());
-        context.setAttribute("storeService", new StoreServiceImpl());
-        context.setAttribute("productService", new ProductServiceImpl());
-        context.setAttribute("orderService", new OrderServiceImpl());
-        context.setAttribute("categoryService", new CategoryServiceImpl());
+        // context.setAttribute("userService", new UserRepositoryImpl());
+        // context.setAttribute("storeService", new StoreServiceImpl());
+        // context.setAttribute("productService", new ProductServiceImpl());
+        // context.setAttribute("orderService", new OrderServiceImpl());
+        // context.setAttribute("categoryService", new CategoryServiceImpl());
     }
 
     @Override
@@ -46,11 +41,13 @@ public class ContextListener implements ServletContextListener {
                 DriverManager.deregisterDriver(driver);
                 logger.info(String.format("deregistering jdbc driver: %s", driver));
             } catch (SQLException e) {
-                logger.info(String.format("Error deregistering driver %s", driver) + e );
+                logger.info(String.format("Error deregistering driver %s", driver) + e);
             }
         }
-        try { Thread.sleep(2000L); } catch (Exception e) {
-            logger.info(String.format("Error Thread sleep %s", e) );
+        try {
+            Thread.sleep(2000L);
+        } catch (Exception e) {
+            logger.info(String.format("Error Thread sleep %s", e));
         }
 
     }

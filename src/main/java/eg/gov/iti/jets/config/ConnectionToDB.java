@@ -16,13 +16,12 @@ import java.util.Objects;
 public class ConnectionToDB {
 
     private static ConnectionToDB instance;
-    private static EntityManager entityManager ;
+    private static EntityManager entityManager;
     private static EntityManagerFactory entityManagerFactory;
 
     private ConnectionToDB() {
         System.out.println("hi");
-         entityManagerFactory
-                = Persistence.createEntityManagerFactory("iti.store");
+        entityManagerFactory = Persistence.createEntityManagerFactory("iti.store");
         entityManager = entityManagerFactory.createEntityManager();
     }
 
@@ -30,14 +29,17 @@ public class ConnectionToDB {
         return entityManager;
     }
 
-    public static void close(){
-        if(entityManager.isOpen() && instance !=null){
+    public static void close() {
+        if (entityManager.isOpen() && instance != null) {
             entityManager.close();
             entityManagerFactory.close();
         }
     }
 
     public static synchronized ConnectionToDB getInstance() {
-        return Objects.requireNonNullElse(instance, new ConnectionToDB());
+        if (instance == null) {
+            instance = new ConnectionToDB();
+        }
+        return instance;
     }
 }
