@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * @author lts
  */
-public abstract class CrudImpl<T> implements Crud<T> {
+public abstract class CrudImpl<T, R> implements Crud<T, R> {
 
     private final EntityManager entityManager = ConnectionToDB.getInstance().getEntityManager();
 
@@ -24,15 +24,14 @@ public abstract class CrudImpl<T> implements Crud<T> {
 
     @Override
     public List<T> findAll() {
-        List<T> resultList = entityManager.createQuery("from " + typeName).getResultList();
+        List<T> resultList = (List<T>) entityManager.createQuery("from " + typeName).getResultList();
         return resultList;
     }
 
     @Override
-    public T findById(Long id) {
+    public T findById(R id) {
         try {
             return (T) entityManager.find(Class.forName(typeName), id);
-
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }

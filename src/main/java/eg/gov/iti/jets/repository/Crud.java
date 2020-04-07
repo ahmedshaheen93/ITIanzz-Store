@@ -11,11 +11,11 @@ import java.util.List;
  * @param <T> as Entity class
  * @author lts
  */
-public interface Crud<T> {
+public interface Crud<T, R> {
 
     List<T> findAll();
 
-    T findById(Long id);
+    T findById(R id);
 
     T save(T t);
 
