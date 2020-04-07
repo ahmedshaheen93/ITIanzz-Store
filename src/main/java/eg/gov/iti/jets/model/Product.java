@@ -1,7 +1,7 @@
 package eg.gov.iti.jets.model;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -39,23 +39,21 @@ public class Product {
      * manufacturingDate represent when does the product manufacture
      * does not accept null value
      */
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "PRODUCT_MANUFACTURING_DATE", nullable = false)
-    private Date manufacturingDate;
+    private LocalDate manufacturingDate;
     /**
      * expirationDate represent when does the product expire
      * accept null value
      */
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "PRODUCT_EXPIRATION_DATE")
-    private Date expirationDate;
+    private LocalDate expirationDate;
     /**
      * quantity  represent current product quantity
      * does not accept null value
      */
     @Column(name = "PRODUCT_QUANTITY", nullable = false)
     private int quantity;
-    
+
     @ManyToMany(cascade = {CascadeType.DETACH,
             CascadeType.MERGE,
             CascadeType.PERSIST,
@@ -68,8 +66,17 @@ public class Product {
     )
     private Set<Category> categories;
 
-    @Column(name = "PRODUCT_PRICE", nullable = false)
-    private Double price;
+    @Column(name = "PRODUCT_BUY_PRICE", nullable = false)
+    private Double buyPrice;
+
+    @Column(name = "PRODUCT_SELL_PRICE", nullable = false)
+    private Double sellPrice;
+
+    @Column(name = "PRODUCT_PRIMARY_IMAGE", nullable = false)
+    private Image primaryImage;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Image> images;
 
     public Product() {
     }
@@ -114,19 +121,19 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public Date getManufacturingDate() {
+    public LocalDate getManufacturingDate() {
         return manufacturingDate;
     }
 
-    public void setManufacturingDate(Date manufacturingDate) {
+    public void setManufacturingDate(LocalDate manufacturingDate) {
         this.manufacturingDate = manufacturingDate;
     }
 
-    public Date getExpirationDate() {
+    public LocalDate getExpirationDate() {
         return expirationDate;
     }
 
-    public void setExpirationDate(Date expirationDate) {
+    public void setExpirationDate(LocalDate expirationDate) {
         this.expirationDate = expirationDate;
     }
 
@@ -134,11 +141,32 @@ public class Product {
         return Objects.requireNonNullElse(categories, new HashSet<>(0));
     }
 
-    public Double getPrice() {
-        return price;
+    public Double getBuyPrice() {
+        return buyPrice;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setBuyPrice(Double buyPrice) {
+        this.buyPrice = buyPrice;
     }
+
+    public Double getSellPrice() {
+        return sellPrice;
+    }
+
+    public void setSellPrice(Double sellPrice) {
+        this.sellPrice = sellPrice;
+    }
+
+    public Image getPrimaryImage() {
+        return primaryImage;
+    }
+
+    public void setPrimaryImage(Image primaryImage) {
+        this.primaryImage = primaryImage;
+    }
+
+    public Set<Image> getImages() {
+        return Objects.requireNonNullElse(images, new HashSet<>(0));
+    }
+
 }

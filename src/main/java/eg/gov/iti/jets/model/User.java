@@ -1,11 +1,10 @@
 package eg.gov.iti.jets.model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
-
-import javax.persistence.*;
 
 /**
  * User class represents users the system which has a role of (CUSTOMER_ROLE OR
@@ -54,9 +53,7 @@ public class User {
     @Column(name = "PASSWORD", nullable = false)
     private String password;
     /**
-     * user password with string type and should be encrypted and not views for the
-     * upper com.iti.model has a column representation as PASSWORD at table on
-     * database
+     * user role with role type (CUSTOMER_ROLE OR ADMIN_ROLE)
      */
     @Column(name = "USER_ROLE", nullable = false)
     private Role role;
@@ -83,7 +80,7 @@ public class User {
     }
 
     public User(String firstName, String lastName, String phone, String email, String password, Role role,
-            double balance, LocalDate birthDate, Image userImage, Address homeAddress, Address shippingAddress) {
+                double balance, LocalDate birthDate, Image userImage, Address homeAddress, Address shippingAddress) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
@@ -206,5 +203,5 @@ public class User {
     public Set<Order> getOrders() {
         return Objects.requireNonNullElse(orders, new HashSet<>(0));
     }
-    
+
 }
