@@ -1,14 +1,17 @@
 package eg.gov.iti.jets.model;
 
 import javax.persistence.*;
+
+import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "CATEGORY")
+@Table(name = "CATEGORIES")
 public class Category {
     /**
-     * category id is a unique identifier for the category
-     * that Generated automatic by jpa framework
+     * category id is a unique identifier for the category that Generated automatic
+     * by jpa framework
      */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,4 +28,29 @@ public class Category {
 
     public Category() {
     }
+
+    public Category(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public Set<Product> getProducts() {
+        return Objects.requireNonNullElse(products, new HashSet<>(0));
+    }
+
 }

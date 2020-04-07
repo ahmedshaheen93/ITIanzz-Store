@@ -7,7 +7,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "PRODUCT")
+@Table(name = "PRODUCTS")
 public class Product {
     /**
      * product id is a unique identifier for the product
@@ -55,28 +55,7 @@ public class Product {
      */
     @Column(name = "PRODUCT_QUANTITY", nullable = false)
     private int quantity;
-    /**
-     * offeredDate represents the start date for offer
-     * accept null value if there is no offer
-     */
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "PRODUCT_OFFERED_DATE")
-    private Date offeredDate;
-
-    /**
-     * finishDate represents the end date for offer
-     * accept null value if there is no offer
-     */
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "PRODUCT_FINISH_DATE")
-    private Date finishDate;
-    /**
-     * stock if the product available on the sock
-     */
-    @Column(name = "PRODUCT_STOCK", nullable = false)
-    private boolean stock;
-
-
+    
     @ManyToMany(cascade = {CascadeType.DETACH,
             CascadeType.MERGE,
             CascadeType.PERSIST,
@@ -149,30 +128,6 @@ public class Product {
 
     public void setExpirationDate(Date expirationDate) {
         this.expirationDate = expirationDate;
-    }
-
-    public Date getOfferedDate() {
-        return offeredDate;
-    }
-
-    public void setOfferedDate(Date offeredDate) {
-        this.offeredDate = offeredDate;
-    }
-
-    public Date getFinishDate() {
-        return finishDate;
-    }
-
-    public void setFinishDate(Date finishDate) {
-        this.finishDate = finishDate;
-    }
-
-    public boolean isStock() {
-        return stock;
-    }
-
-    public void setStock(boolean stock) {
-        this.stock = stock;
     }
 
     public Set<Category> getCategories() {
