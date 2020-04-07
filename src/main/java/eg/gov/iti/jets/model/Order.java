@@ -34,4 +34,45 @@ public class Order {
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Purchase> purchases;
 
+    public Order() {
+    }
+
+    public Order(LocalDateTime orderTimestamp, User user, Set<Purchase> purchases) {
+        this.orderTimestamp = orderTimestamp;
+        this.user = user;
+        this.purchases = purchases;
+    }
+
+    public Long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
+    }
+
+    public LocalDateTime getOrderTimestamp() {
+        return orderTimestamp;
+    }
+
+    public void setOrderTimestamp(LocalDateTime orderTimestamp) {
+        this.orderTimestamp = orderTimestamp;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Set<Purchase> getPurchases() {
+        return purchases;
+    }
+
+    public void setPurchases(Set<Purchase> purchases) {
+        this.purchases = purchases;
+    }
+
 }
