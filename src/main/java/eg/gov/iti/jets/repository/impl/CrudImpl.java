@@ -24,8 +24,7 @@ public abstract class CrudImpl<T, R> implements Crud<T, R> {
 
     @Override
     public List<T> findAll() {
-        List<T> resultList = (List<T>) entityManager.createQuery("from " + typeName).getResultList();
-        return resultList;
+        return (List<T>) entityManager.createQuery("from " + typeName).getResultList();
     }
 
     @Override
