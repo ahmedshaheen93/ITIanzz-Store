@@ -3,13 +3,11 @@
 <html lang="en">
 
 <head>
-    <title>Products</title>
+
     <%@include file="includes/head.jsp" %>
   <title>Login</title>
   <link rel="stylesheet" href="login.css" />
-  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -17,21 +15,9 @@
         <%@include file="includes/header.jsp" %>
     </header>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
 
-    <h1>Register Page Works</h1>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
 
-    <%@include file="includes/footer.jsp" %>
 
 <div id="login">
   <h3 class="text-center text-white pt-5">Login form</h3>
@@ -54,7 +40,7 @@
               <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
             </div>
             <div id="register-link" class="text-right">
-              <a href="registration.jsp" class="text-info">Register here</a>
+              <a href="/iti-store/register" class="text-info">Register here</a>
             </div>
           </form>
         </div>
@@ -62,7 +48,7 @@
     </div>
   </div>
 </div>
-
+    <%@include file="includes/footer.jsp" %>
 </body>
 
 </html>
