@@ -1,52 +1,56 @@
-<div class="container-fluid" style="margin: 0;padding: 0;">
-    <nav class="navbar navbar-expand-lg navbar-light container-fluid" style="background-color: #e3f2fd;">
-        <a class="navbar-brand">
-            <img src="../images/home/bootstrap-solid.svg" width="30" height="30" alt="">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item nav-active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/iti-store/products">Products</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Search</a>
-                </li>
-            </ul>
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg container-fluid">
+    <a class="navbar-brand">
+        <img src="/iti-store/images/iti-logo.png" width="30" height="30" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item nav-active">
+                <a class="nav-link" href="/iti-store/index.jsp">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/iti-store/products.jsp">Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/iti-store/search.jsp">Search</a>
+            </li>
+        </ul>
 
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="login">Login</a>
-                </li>
+        <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Administration
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
+            <li class="nav-item">
+                <a class="btn btn-outline-info mx-2" href="/iti-store/cart.jsp">Cart</a>
+            </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Cart</a>
-                </li>
+            <li class="nav-item">
+                <a class="btn btn-outline-info mx-2" href="/iti-store/customers.jsp">Customers</a>
+            </li>
 
+            <li class="nav-item">
+                <a class="btn btn-outline-info mx-2" href="/iti-store/store.jsp">Store</a>
+            </li>
 
-            </ul>
-        </div>
+            <li class="nav-item">
+                <a class="btn btn-outline-info mx-2" href="/iti-store/profile.jsp">Profile</a>
+            </li>
 
+            <li class="nav-item">
+                <a class="btn btn-outline-info mx-2" href="/iti-store/register.jsp">Register</a>
+            </li>
 
-    </nav>
+            <li class="nav-item">
+                <a class="btn btn-outline-info mx-2" href="/iti-store/logout.jsp">Logout</a>
+            </li>
 
-</div>
+            <li class="nav-item">
+                <a class="btn btn-outline-info mx-2" href="/iti-store/login.jsp">Login</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>

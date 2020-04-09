@@ -24,7 +24,7 @@
     <br>
     <br>
 
-    <h1>Register Page Works</h1>
+    <h1>Logout Page Works</h1>
 
     <br>
     <br>
