@@ -24,16 +24,13 @@ public class SearchByCategoryController extends HttpServlet {
             Category category = new Category();
             category.setCategoryId(Long.parseLong(categoryId));
             Product product = new Product();
-            product.setProductName("Korsy");
+            product.setProductName("korsy");
             product.setSellPrice(5600d);
             Image image = new Image();
             image.setImagePath("images/home/img-products/product-7.png");
             product.setPrimaryImage(image);
 
             List<Product> productList = new ArrayList<>();
-            productList.add(product);
-            productList.add(product);
-            productList.add(product);
             productList.add(product);
             productList.add(product);
             productList.add(product);
