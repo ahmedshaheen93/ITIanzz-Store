@@ -19,31 +19,31 @@
         <ul class="navbar-nav ml-auto">
 
             <li class="nav-item">
-                <a class="btn btn-outline-info mx-2" href="/iti-store/cart">Cart</a>
+                <a class="nav-link" href="/iti-store/cart">Cart</a>
             </li>
 
             <li class="nav-item">
-                <a class="btn btn-outline-info mx-2" href="/iti-store/customers">Customers</a>
+                <a class="nav-link" href="/iti-store/customers">Customers</a>
             </li>
 
             <li class="nav-item">
-                <a class="btn btn-outline-info mx-2" href="/iti-store/store">Store</a>
+                <a class="nav-link mx-2" href="/iti-store/store">Store</a>
             </li>
 
             <li class="nav-item">
-                <a class="btn btn-outline-info mx-2" href="/iti-store/profile">Profile</a>
+                <a class="nav-link mx-2" href="/iti-store/profile">Profile</a>
             </li>
 
             <li class="nav-item">
-                <a class="btn btn-outline-info mx-2" href="/iti-store/register">Register</a>
+                <a class="nav-link" href="/iti-store/register">Register</a>
             </li>
 
             <li class="nav-item">
-                <a class="btn btn-outline-info mx-2" href="/iti-store/logout">Logout</a>
+                <a class="nav-link" href="/iti-store/logout">Logout</a>
             </li>
 
             <li class="nav-item">
-                <a class="btn btn-outline-info mx-2" href="/iti-store/login">Login</a>
+                <a class="nav-link" href="/iti-store/login">Login</a>
             </li>
 
         </ul>
