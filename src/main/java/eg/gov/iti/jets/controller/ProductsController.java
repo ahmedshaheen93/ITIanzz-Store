@@ -23,33 +23,15 @@ public class ProductsController extends HttpServlet {
         image.setImagePath("images/home/img-products/product-7.png");
         product.setPrimaryImage(image);
 
-        Product product2 = new Product();
-        product2.setProductName("Korsy");
-        product2.setSellPrice(5600d);
-        Image image2 = new Image();
-        image2.setImagePath("images/home/img-products/product-7.png");
-        product2.setPrimaryImage(image);
-
-        Product product3 = new Product();
-        product3.setProductName("Korsy");
-        product3.setSellPrice(5600d);
-        Image image3 = new Image();
-        image3.setImagePath("images/home/img-products/product-7.png");
-        product3.setPrimaryImage(image);
-
-        Product product4 = new Product();
-        product4.setProductName("Korsy");
-        product4.setSellPrice(5600d);
-        Image image4 = new Image();
-        image4.setImagePath("images/home/img-products/product-7.png");
-        product4.setPrimaryImage(image);
         List<Product> productList = new ArrayList<>();
         productList.add(product);
-        productList.add(product2);
-        productList.add(product3);
-        productList.add(product4);
+        productList.add(product);
+        productList.add(product);
+        productList.add(product);
+        productList.add(product);
+        productList.add(product);
         req.setAttribute("products" , productList);
-        req.getRequestDispatcher("products/products.jsp").include(req,resp);
+        req.getRequestDispatcher("products.jsp").include(req,resp);
 
     }
 }

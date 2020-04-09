@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="/iti-store/styles/main.css">
+<link rel="stylesheet" href="/iti-store/styles/font-awesome.css" />
 <nav class="navbar navbar-dark bg-dark navbar-expand-lg container-fluid">
     <a class="navbar-brand">
         <img src="/iti-store/images/iti-logo.png" width="30" height="30" alt="">
@@ -9,44 +11,41 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item nav-active">
-                <a class="nav-link" href="/iti-store/index.jsp">Home<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/iti-store/home">Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/iti-store/products.jsp">Products</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/iti-store/search.jsp">Search</a>
+                <a class="nav-link" href="/iti-store/products">Products</a>
             </li>
         </ul>
 
         <ul class="navbar-nav ml-auto">
 
             <li class="nav-item">
-                <a class="btn btn-outline-info mx-2" href="/iti-store/cart.jsp">Cart</a>
+                <a class="btn btn-outline-info mx-2" href="/iti-store/cart">Cart</a>
             </li>
 
             <li class="nav-item">
-                <a class="btn btn-outline-info mx-2" href="/iti-store/customers.jsp">Customers</a>
+                <a class="btn btn-outline-info mx-2" href="/iti-store/customers">Customers</a>
             </li>
 
             <li class="nav-item">
-                <a class="btn btn-outline-info mx-2" href="/iti-store/store.jsp">Store</a>
+                <a class="btn btn-outline-info mx-2" href="/iti-store/store">Store</a>
             </li>
 
             <li class="nav-item">
-                <a class="btn btn-outline-info mx-2" href="/iti-store/profile.jsp">Profile</a>
+                <a class="btn btn-outline-info mx-2" href="/iti-store/profile">Profile</a>
             </li>
 
             <li class="nav-item">
-                <a class="btn btn-outline-info mx-2" href="/iti-store/register.jsp">Register</a>
+                <a class="btn btn-outline-info mx-2" href="/iti-store/register">Register</a>
             </li>
 
             <li class="nav-item">
-                <a class="btn btn-outline-info mx-2" href="/iti-store/logout.jsp">Logout</a>
+                <a class="btn btn-outline-info mx-2" href="/iti-store/logout">Logout</a>
             </li>
 
             <li class="nav-item">
-                <a class="btn btn-outline-info mx-2" href="/iti-store/login.jsp">Login</a>
+                <a class="btn btn-outline-info mx-2" href="/iti-store/login">Login</a>
             </li>
 
         </ul>
