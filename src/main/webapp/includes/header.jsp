@@ -15,38 +15,38 @@
                 <a class="nav-link" href="/iti-store/products.jsp">Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Search</a>
+                <a class="nav-link" href="/iti-store/search.jsp">Search</a>
             </li>
         </ul>
 
         <ul class="navbar-nav ml-auto">
 
             <li class="nav-item">
-                <a class="btn btn-outline-info mx-2" href="cart">Cart</a>
+                <a class="btn btn-outline-info mx-2" href="/iti-store/cart.jsp">Cart</a>
             </li>
 
             <li class="nav-item">
-                <a class="btn btn-outline-info mx-2" href="customers">Customers</a>
+                <a class="btn btn-outline-info mx-2" href="/iti-store/customers.jsp">Customers</a>
             </li>
 
             <li class="nav-item">
-                <a class="btn btn-outline-info mx-2" href="store">Store</a>
+                <a class="btn btn-outline-info mx-2" href="/iti-store/store.jsp">Store</a>
             </li>
 
             <li class="nav-item">
-                <a class="btn btn-outline-info mx-2" href="profile">Profile</a>
+                <a class="btn btn-outline-info mx-2" href="/iti-store/profile.jsp">Profile</a>
             </li>
 
             <li class="nav-item">
-                <a class="btn btn-outline-info mx-2" href="register">Register</a>
+                <a class="btn btn-outline-info mx-2" href="/iti-store/register.jsp">Register</a>
             </li>
 
             <li class="nav-item">
-                <a class="btn btn-outline-info mx-2" href="logout">Logout</a>
+                <a class="btn btn-outline-info mx-2" href="/iti-store/logout.jsp">Logout</a>
             </li>
 
             <li class="nav-item">
-                <a class="btn btn-outline-info mx-2" href="login">Login</a>
+                <a class="btn btn-outline-info mx-2" href="/iti-store/login.jsp">Login</a>
             </li>
 
         </ul>
