@@ -14,6 +14,9 @@ import java.util.List;
 
 @WebServlet(name = "products", urlPatterns = "/products")
 public class ProductsController extends HttpServlet {
+    
+    private static final long serialVersionUID = 8649919520914806166L;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Product product = new Product();

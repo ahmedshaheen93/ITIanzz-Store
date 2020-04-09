@@ -9,6 +9,9 @@ import java.io.IOException;
 
 @WebServlet(name = "customers", urlPatterns = "/customers")
 public class CustomersController extends HttpServlet {
+
+    private static final long serialVersionUID = -3360620168457699080L;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("customers.jsp").include(req,resp);
