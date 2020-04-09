@@ -7,6 +7,8 @@ import java.io.Serializable;
 @Table(name = "SCRATCH_CARDS")
 public class ScratchCard implements Serializable {
 
+    private static final long serialVersionUID = -3693279181871996359L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "SCRATCH_CARD_ID", nullable = false)

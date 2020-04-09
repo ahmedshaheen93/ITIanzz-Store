@@ -8,6 +8,9 @@ import java.util.Set;
 @Entity
 @Table(name = "CATEGORIES")
 public class Category implements Serializable {
+
+    private static final long serialVersionUID = -8539853338400579180L;
+
     /**
      * category id is a unique identifier for the category that Generated automatic
      * by jpa framework

@@ -14,6 +14,8 @@ import java.io.IOException;
 @WebServlet(name = "Login", urlPatterns = "/login")
 public class Login extends HttpServlet {
 
+    private static final long serialVersionUID = -1852098991598893531L;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

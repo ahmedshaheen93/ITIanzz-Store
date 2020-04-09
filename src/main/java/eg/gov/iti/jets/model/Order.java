@@ -10,6 +10,8 @@ import java.util.Set;
 @Table(name = "ORDERS")
 public class Order implements Serializable {
 
+    private static final long serialVersionUID = 249729813053398114L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ORDER_ID")

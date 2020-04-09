@@ -7,6 +7,8 @@ import java.io.Serializable;
 @Table(name = "PURCHASES")
 public class Purchase implements Serializable {
 
+    private static final long serialVersionUID = -1464490210399240971L;
+
     @EmbeddedId
     @AttributeOverrides({
             @AttributeOverride(name = "orderId", column = @Column(name = "ORDER_ID", nullable = false)),

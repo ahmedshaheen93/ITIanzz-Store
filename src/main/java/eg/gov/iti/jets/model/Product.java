@@ -18,9 +18,12 @@ import java.util.Set;
                 query = "SELECT p from Product  p where p.sellPrice between :price1 and :price2")
 })
 public class Product implements Serializable {
+
+    private static final long serialVersionUID = 7348482741530204791L;
+
     /**
-     * product id is a unique identifier for the product
-     * that Generated automatic by jpa framework
+     * product id is a unique identifier for the product that Generated automatic by
+     * jpa framework
      */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -7,6 +7,9 @@ import java.io.Serializable;
 @Entity
 @Table(name = "STORE")
 public class Store implements Serializable {
+
+    private static final long serialVersionUID = -405961668270253161L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "STORE_ID", unique = true, nullable = false)

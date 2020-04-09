@@ -30,6 +30,9 @@ import java.util.Set;
 )
 
 public class User implements Serializable {
+
+    private static final long serialVersionUID = -621157616391850784L;
+
     /**
      * user id is a unique identifier for the user that Generated automatic by jpa
      * framework

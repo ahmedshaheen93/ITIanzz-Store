@@ -7,6 +7,8 @@ import java.io.Serializable;
 @Table(name = "IMAGES")
 public class Image implements Serializable {
 
+    private static final long serialVersionUID = -7939760290175987864L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "IMAGE_ID", nullable = false)

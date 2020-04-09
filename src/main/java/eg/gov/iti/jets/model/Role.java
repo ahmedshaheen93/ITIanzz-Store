@@ -1,7 +1,5 @@
 package eg.gov.iti.jets.model;
 
-import java.io.Serializable;
-
 /**
  * USER ROLE
  * contains two different role
@@ -10,7 +8,7 @@ import java.io.Serializable;
  * ADMIN_ROLE (can login , add product , view Customers profile , update products ,
  * review customers ,etc )
  */
-public enum Role implements Serializable {
+public enum Role {
     CUSTOMER_ROLE,
     ADMIN_ROLE
 }

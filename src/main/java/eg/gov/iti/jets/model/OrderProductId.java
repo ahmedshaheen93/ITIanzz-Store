@@ -6,6 +6,8 @@ import java.io.Serializable;
 @Embeddable
 public class OrderProductId implements Serializable {
 
+    private static final long serialVersionUID = -2171193521575891733L;
+
     private Long orderId;
 
     private Long productId;

@@ -6,6 +6,8 @@ import java.io.Serializable;
 @Embeddable
 public class Address implements Serializable {
 
+    private static final long serialVersionUID = 1953091537223398771L;
+
     private String country;
     private String state;
     private String city;
