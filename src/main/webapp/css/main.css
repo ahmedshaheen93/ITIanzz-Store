@@ -1,0 +1,141 @@
+/* GENERAL STYLES */
+:root {
+  --mainYellow: #fdbe02;
+  --mainWhite: #fff;
+  --mainBlack: #071013;
+
+}
+
+
+/* services */
+.service-icon {
+  display: inline-block;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--mainYellow);
+  background: #9b9999;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+}
+
+/* home filler */
+.home-filler {
+  min-height: 60vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/home/home-filler.jpeg") center/cover fixed no-repeat;
+}
+.collection-link {
+  color: var(--mainYellow);
+  text-decoration: none !important;
+}
+.collection-link:hover {
+  color: #9b9999;
+  text-decoration: none !important;
+}
+.collection-underline {
+  height: 0.1rem;
+  width: 5rem;
+  background: var(--mainYellow);
+  margin: 0 auto;
+}
+
+.address {
+  margin-top: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.address img {
+  width: 100%;
+}
+
+.address p {
+  color: #666663;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  left: 25px;
+  position: absolute;
+  top: 50px;
+}
+
+.footer-bottom {
+  background: #D6D6D0;
+  padding-top: 10px;
+}
+
+.footer-bottom p {
+  color: #363432;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+.footer-bottom p span a {
+  color: #FE980F;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.pull-left {
+  margin-right: 25px
+}
+
+.girl {
+  margin-left: 0;
+}
+.carousel-inner .item {
+  padding-left: 0;
+}
+footer{
+  text-align: center;
+}
+.footer-bottom,footer{
+  text-align: center;
+  background: #D6D6D0;
+  color:white;
+  font-size: 1em;
+  width: 100%;
+  justify-content: center;
+}
+
+/* featured section */
+.featured-container {
+  background: rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+.featured-search-icon {
+  background: var(--mainWhite);
+  display: inline-block;
+  padding: 0.2rem 0.4rem;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  font-size: 1.2rem;
+  transform: translateX(110%);
+  transition: all 1s ease-in-out;
+  cursor: pointer;
+}
+.featured-container:hover .featured-search-icon {
+  transform: translateX(0%);
+}
+.featured-store-link {
+  background: var(--mainYellow);
+  color: var(--mainBlack);
+  padding: 0.2rem 0.4rem;
+  position: absolute;
+  right: 0;
+  top: 70%;
+  transform: translateX(110%);
+  transition: all 1s ease-in-out;
+}
+.featured-store-link:hover {
+  color: var(--mainBlack);
+}
+.featured-container:hover .featured-store-link {
+  transform: translateX(0%);
+}
+
+.old-price {
+  text-decoration: line-through;
+}
