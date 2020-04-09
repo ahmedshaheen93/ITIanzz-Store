@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark bg-dark navbar-expand-lg container-fluid">
     <a class="navbar-brand">
-        <img src="images/iti-logo.png" width="30" height="30" alt="">
+        <img src="/iti-store/images/iti-logo.png" width="30" height="30" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
