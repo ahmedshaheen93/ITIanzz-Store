@@ -9,7 +9,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item nav-active">
-                <a class="nav-link" href="#">Home Page<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/iti-store">Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Products</a>
