@@ -1,7 +1,7 @@
 <footer class="page-footer font-small unique-color-dark">
 
-    <div style="background-color: #6351ce;">
-        <div class="container">
+    <div class="bg-dark">
+        <div class="container bg-dark">
 
             <div class="row py-4 d-flex align-items-center">
 
