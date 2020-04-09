@@ -10,10 +10,10 @@
         rel="stylesheet"
 />
 <!-- Custom CSS -->
-<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="styles/main.css">
 
 <!-- font awesome -->
-<link rel="stylesheet" href="css/font-awesome.css" />
+<link rel="stylesheet" href="styles/font-awesome.css" />
 
 <div class="container-fluid" style="margin: 0;padding: 0;">
     <nav class="navbar navbar-expand-lg navbar-light container-fluid" style="background-color: #e3f2fd;">
