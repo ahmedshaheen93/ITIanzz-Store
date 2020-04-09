@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="product" uri="/tlds/productTagLib" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,10 +25,10 @@
             rel="stylesheet"
     />
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="/iti-store/styles/main.css">
 
     <!-- font awesome -->
-    <link rel="stylesheet" href="../styles/font-awesome.css" />
+    <link rel="stylesheet" href="/iti-store/styles/font-awesome.css" />
 </head>
 
 <body>
@@ -135,102 +137,11 @@
             <!-- product img -->
             <div class="col-10 col-md-7 col-lg-9 mx-auto my-3 ">
                 <div class="row">
-                    <!-- single product -->
-                    <div class="mx-auto col-md-6 col-lg-4">
-                        <div class="featured-container p-5">
-                            <img src="../images/home/img-products/product-7.png" class="img-fluid" alt="product" />
-                            <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-                <i class="fas fa-search"></i>
-              </span>
-                            <a href="#" class="featured-store-link text-captilaze">add to cart</a>
-                        </div>
-                        <h6 class="text-capitalize text-center my-2">special product</h6>
-                        <h6 class="text-center">
-                            <span class="text-muted old-price mx-2">$200</span>
-                            <span>$100</span>
-                        </h6>
-                    </div>
-                    <!-- end single product -->
-                    <!-- single product -->
-                    <div class="mx-auto col-md-6 col-lg-4">
-                        <div class="featured-container p-5">
-                            <img src="../images/home/img-products/product-8.png" class="img-fluid" alt="product" />
-                            <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-                <i class="fas fa-search"></i>
-              </span>
-                            <a href="#" class="featured-store-link text-captilaze">add to cart</a>
-                        </div>
-                        <h6 class="text-capitalize text-center my-2">special product</h6>
-                        <h6 class="text-center">
-                            <span class="text-muted old-price mx-2">$200</span>
-                            <span>$100</span>
-                        </h6>
-                    </div>
-                    <!-- end single product -->
-                    <!-- single product -->
-                    <div class="mx-auto col-md-6 col-lg-4">
-                        <div class="featured-container p-5">
-                            <img src="../images/home/img-products/product-9.png" class="img-fluid" alt="product" />
-                            <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-                <i class="fas fa-search"></i>
-              </span>
-                            <a href="#" class="featured-store-link text-captilaze">add to cart</a>
-                        </div>
-                        <h6 class="text-capitalize text-center my-2">special product</h6>
-                        <h6 class="text-center">
-                            <span class="text-muted old-price mx-2">$200</span>
-                            <span>$100</span>
-                        </h6>
-                    </div>
-                    <!-- end single product -->
-                    <!-- single product -->
-                    <div class="mx-auto col-md-6 col-lg-4">
-                        <div class="featured-container p-5">
-                            <img src="../images/home/img-products/product-10.png" class="img-fluid" alt="product" />
-                            <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-                <i class="fas fa-search"></i>
-              </span>
-                            <a href="#" class="featured-store-link text-captilaze">add to cart</a>
-                        </div>
-                        <h6 class="text-capitalize text-center my-2">special product</h6>
-                        <h6 class="text-center">
-                            <span class="text-muted old-price mx-2">$200</span>
-                            <span>$100</span>
-                        </h6>
-                    </div>
-                    <!-- end single product -->
-                    <!-- single product -->
-                    <div class="mx-auto col-md-6 col-lg-4">
-                        <div class="featured-container p-5">
-                            <img src="../images/home/img-products/product-11.png" class="img-fluid" alt="product" />
-                            <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-                <i class="fas fa-search"></i>
-              </span>
-                            <a href="#" class="featured-store-link text-captilaze">add to cart</a>
-                        </div>
-                        <h6 class="text-capitalize text-center my-2">special product</h6>
-                        <h6 class="text-center">
-                            <span class="text-muted old-price mx-2">$200</span>
-                            <span>$100</span>
-                        </h6>
-                    </div>
-                    <!-- end single product -->
-                    <!-- single product -->
-                    <div class="mx-auto col-md-6 col-lg-4">
-                        <div class="featured-container p-5">
-                            <img src="../images/home/img-products/product-12.png" class="img-fluid" alt="product" />
-                            <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-                <i class="fas fa-search"></i>
-              </span>
-                            <a href="#" class="featured-store-link text-captilaze">add to cart</a>
-                        </div>
-                        <h6 class="text-capitalize text-center my-2">special product</h6>
-                        <h6 class="text-center">
-                            <span class="text-muted old-price mx-2">$200</span>
-                            <span>$100</span>
-                        </h6>
-                    </div>
-                    <!-- end single product -->
+                    <c:if test="${!empty requestScope.products}">
+                        <c:forEach items="${requestScope.products}" var="product">
+                            <product:productTLD product="${product}"></product:productTLD>
+                        </c:forEach>
+                    </c:if>
                 </div>
             </div>
         </div>
@@ -247,7 +158,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <!-- script js -->
-    <script src="../scripts/app.js"></script>
+    <script src="/iti-store/scripts/app.js"></script>
 </footer>
 
 
@@ -321,4 +232,3 @@
 </div>
 </body>
 </html>
-

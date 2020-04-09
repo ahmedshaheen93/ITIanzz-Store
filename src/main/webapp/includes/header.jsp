@@ -12,7 +12,7 @@
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/iti-store/products/products.jsp">Products</a>
+                    <a class="nav-link" href="/iti-store/products">Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Search</a>
