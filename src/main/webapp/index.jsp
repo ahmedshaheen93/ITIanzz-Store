@@ -18,33 +18,43 @@
 
     <section class="container-fluid">
         <div class="row">
-            <!-- compnay carousel -->
-            <div class="mx-auto">
-                <div id="partnerCarousel" class="carousel slide " data-ride="carousel">
-                    <div class="carousel-inner">
-                        <!-- single item -->
-                        <div class="carousel-item active">
-                            <img src="images/home/slider/slider (1).jpg" class="d-block w-100" alt="partner company" />
+            <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-ride="carousel" data-pause=false>
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="images/home/slider/slider (1).jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>First slide label</h5>
+                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                         </div>
-                        <!-- end single item -->
-                        <!-- single item -->
-                        <div class="carousel-item ">
-                            <img src="images/home/slider/slider (2).jpg" class="d-block w-100" alt="partner company" />
-                        </div>
-                        <!-- end single item -->
-                        <!-- single item -->
-                        <div class="carousel-item ">
-                            <img src="images/home/slider/slider (3).jpg" class="d-block w-100" alt="partner company" />
-                        </div>
-                        <!-- end single item -->
                     </div>
-                    <a href="#partnerCarousel" class="carousel-control-prev" role="button" data-slide="prev">
-                        <i class="fas fa-arrow-left"></i>
-                    </a>
-                    <a href="#partnerCarousel" class="carousel-control-next" role="button" data-slide="next">
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <div class="carousel-item">
+                        <img src="images/home/slider/slider (2).jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Second slide label</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/home/slider/slider (3).jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Third slide label</h5>
+                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        </div>
+                    </div>
                 </div>
+                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
         </div>
     </section>
@@ -257,16 +267,21 @@
         <%@include file="includes/footer.jsp" %>
     </footer>
 </body>
-<<<<<<< HEAD
+<<<<<<< HEAD </html>
+    =======
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <!-- script js -->
+    <script src="scripts/app.js"></script>
 
-</html>
-=======
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<!-- script js -->
-<script src="scripts/app.js"></script>
 </html>
 >>>>>>> badfd2f1e39473b8fd2c8dea03206d399af8f643
