@@ -1,4 +1,3 @@
-
 <!-- services section -->
 <section class="services py-5 text-center">
     <div class="container">
@@ -41,8 +40,8 @@
 </section>
 <!-- end of services section -->
 
-<div class="container-fluid" >
-    <div class="row" style="padding-top: 10px" >
+<div class="container-fluid">
+    <div class="row" style="padding-top: 10px">
         <div class="col-sm-4">
             <div class="card text-center" style="height: 20rem;background-color: transparent">
                 <div class="card-body">
@@ -58,14 +57,15 @@
         <div class="col-sm-4">
             <div class="card text-center" style="height: 20rem;background-color: transparent">
                 <div class="card-body">
-                    <h5 class="card-title text-capitalize text-uppercase" style="color: #B4B1AB;">Special title treatment</h5>
+                    <h5 class="card-title text-capitalize text-uppercase" style="color: #B4B1AB;">Special title
+                        treatment</h5>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
         </div>
 
-        <div class="col-sm-4" >
+        <div class="col-sm-4">
             <div class="card text-center" style="height: 20rem;">
                 <div class="card-body">
                     <div class="address">
@@ -83,7 +83,9 @@
 <div class="footer-bottom" style="text-align: right; justify-content: right">
     <div class="container-fluid" style="text-align: center;justify-content: center">
         <div class="row" style="margin: auto;">
-            <p class="text-dark" style="margin: auto;">Copyright <span style="color: lime">&copy;</span> 2020 E-SHOPPER Inc. All rights reserved.<p/>
+            <p class="text-dark" style="margin: auto;">Copyright <span style="color: lime">&copy;</span> 2020 E-SHOPPER
+                Inc. All rights reserved.
+            <p/>
         </div>
     </div>
 </div>
@@ -100,5 +102,5 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 <!-- script js -->
-<script src="/iti-store/scripts/app.js"></script>
+<script src="scripts/app.js"></script>
 

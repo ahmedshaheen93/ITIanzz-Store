@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "Home", urlPatterns = {"/home" , "/"  , "/index"})
+@WebServlet(name = "Home", urlPatterns = {"/home", "/index"})
 public class HomeController extends HttpServlet {
 
     private static final long serialVersionUID = 5510655071091556001L;
