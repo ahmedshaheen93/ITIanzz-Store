@@ -8,26 +8,26 @@
 </head>
 
 <body>
-<header>
-    <%@include file="includes/header.jsp" %>
-</header>
+    <header>
+        <%@include file="includes/header.jsp" %>
+    </header>
 
-<br>
-<br>
-<br>
-<br>
-<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
-<h1>Cart Page Works</h1>
+    <h1>Cart Page Works</h1>
 
-<br>
-<br>
-<br>
-<br>
-<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
-<footer id="footer">
     <%@include file="includes/footer.jsp" %>
-</footer>
+
 </body>
+
 </html>
