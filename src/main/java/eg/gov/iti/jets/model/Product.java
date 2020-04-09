@@ -9,6 +9,14 @@ import java.util.Set;
 
 @Entity
 @Table(name = "PRODUCTS")
+@NamedQueries({
+        @NamedQuery(name = "Product.findByNameLike",
+                query = "SELECT p from Product p where p.productName like :productName"),
+        @NamedQuery(name = "Product.findByCategory",
+                query = "SELECT p from Product p where :category member of p.categories"),
+        @NamedQuery(name = "Product.findBetweenTwoPrices",
+                query = "SELECT p from Product  p where p.sellPrice between :price1 and :price2")
+})
 public class Product implements Serializable {
     /**
      * product id is a unique identifier for the product
@@ -65,7 +73,7 @@ public class Product implements Serializable {
             joinColumns = @JoinColumn(name = "PRODUCT_ID"),
             inverseJoinColumns = @JoinColumn(name = "CATEGORY_ID")
     )
-    private Set<Category> categories;
+    private Set<Category> categories = new HashSet<>(0);
 
     @Column(name = "PRODUCT_BUY_PRICE", nullable = false)
     private Double buyPrice;
@@ -140,7 +148,7 @@ public class Product implements Serializable {
     }
 
     public Set<Category> getCategories() {
-        return Objects.requireNonNullElse(categories, new HashSet<>(0));
+        return categories;
     }
 
     public Double getBuyPrice() {
@@ -168,7 +176,11 @@ public class Product implements Serializable {
     }
 
     public Set<Image> getImages() {
-        return Objects.requireNonNullElse(images, new HashSet<>(0));
+        return Objects.requireNonNullElseGet(images, () -> {
+                    images = new HashSet<>(0);
+                    return images;
+                }
+        );
     }
 
 }

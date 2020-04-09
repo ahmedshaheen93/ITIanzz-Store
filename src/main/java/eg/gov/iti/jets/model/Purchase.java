@@ -7,9 +7,11 @@ import java.io.Serializable;
 @Table(name = "PURCHASES")
 public class Purchase implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long purchaseId;
+    @EmbeddedId
+    @AttributeOverrides({
+            @AttributeOverride(name = "orderId", column = @Column(name = "ORDER_ID", nullable = false)),
+            @AttributeOverride(name = "productId", column = @Column(name = "PRODUCT_ID", nullable = false))})
+    private OrderProductId orderProductId;
 
     @Column(name = "QUANTITY")
     private int quantity;
@@ -18,29 +20,28 @@ public class Purchase implements Serializable {
     private double productBuyPrice;
 
     @ManyToOne
-    @JoinColumn(name = "ORDER_ID")
+    @JoinColumn(name = "ORDER_ID", nullable = false, insertable = false, updatable = false)
     private Order order;
 
     @ManyToOne
-    @JoinColumn(name = "PRODUCT_ID")
+    @JoinColumn(name = "PRODUCT_ID", nullable = false, insertable = false, updatable = false)
     private Product product;
 
     public Purchase() {
     }
 
-    public Purchase(int quantity, double productBuyPrice, Order order, Product product) {
+    public Purchase(int quantity, double productBuyPrice, Product product) {
         this.quantity = quantity;
         this.productBuyPrice = productBuyPrice;
-        this.order = order;
         this.product = product;
     }
 
-    public Long getPurchaseId() {
-        return purchaseId;
+    public OrderProductId getOrderProductId() {
+        return orderProductId;
     }
 
-    public void setPurchaseId(Long purchaseId) {
-        this.purchaseId = purchaseId;
+    public void setOrderProductId(OrderProductId orderProductId) {
+        this.orderProductId = orderProductId;
     }
 
     public int getQuantity() {

@@ -3,7 +3,6 @@ package eg.gov.iti.jets.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -24,7 +23,7 @@ public class Category implements Serializable {
     private String categoryName;
 
     @ManyToMany(mappedBy = "categories")
-    private Set<Product> products;
+    private Set<Product> products = new HashSet<>(0);
 
     public Category() {
     }
@@ -50,7 +49,7 @@ public class Category implements Serializable {
     }
 
     public Set<Product> getProducts() {
-        return Objects.requireNonNullElse(products, new HashSet<>(0));
+        return products;
     }
 
 }

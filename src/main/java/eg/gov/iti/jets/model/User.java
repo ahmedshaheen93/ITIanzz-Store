@@ -4,19 +4,31 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /**
  * User class represents users the system which has a role of (CUSTOMER_ROLE OR
  * ADMIN_ROLE) to use the system as each role
  */
+
 @Entity
 @Table(name = "USERS")
-@NamedQueries(
-        @NamedQuery(name = "findByEmailAndPassword",
+@NamedQueries({
+        @NamedQuery(name = "User.findByEmailAndPassword",
                 query = "SELECT u from User u where u.email=:email and u.password=:password")
+        ,
+        @NamedQuery(name = "User.findByEmail",
+                query = "SELECT u from User u where u.email=:email"),
+        @NamedQuery(name = "User.getUserBalance",
+                query = "SELECT u.balance from User u where u.userId =:id")
+        ,
+        @NamedQuery(name = "User.updateUserBalance",
+                query = "UPDATE User u SET u.balance=:balance where u.userId =:id"),
+        @NamedQuery(name = "User.getAllAdminUsers",
+                query = "SELECT u from User u where u.role = eg.gov.iti.jets.model.Role.ADMIN_ROLE")
+}
 )
+
 public class User implements Serializable {
     /**
      * user id is a unique identifier for the user that Generated automatic by jpa
@@ -76,8 +88,9 @@ public class User implements Serializable {
     @Embedded
     private Address address;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<Order> orders;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
+    private Set<Order> orders = new HashSet<>(0);
+    ;
 
     public User() {
     }
@@ -187,7 +200,7 @@ public class User implements Serializable {
     }
 
     public Set<Order> getOrders() {
-        return Objects.requireNonNullElse(orders, new HashSet<>(0));
+        return orders;
     }
 
     public Address getAddress() {
@@ -198,4 +211,29 @@ public class User implements Serializable {
         this.address = address;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", role=" + role +
+                ", balance=" + balance +
+                ", birthDate=" + birthDate +
+                ", userImage=" + userImage +
+                ", address=" + address +
+                ", orders=" + orders +
+                '}';
+    }
+
+    public void add(Order order) {
+        if (orders == null) {
+            this.orders = new HashSet<>(0);
+        }
+        orders.add(order);
+        order.setUser(this);
+    }
 }

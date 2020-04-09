@@ -1,5 +1,6 @@
 package eg.gov.iti.jets.service;
 
+import eg.gov.iti.jets.exception.UserBalanceViolation;
 import eg.gov.iti.jets.exception.UserNotFoundException;
 import eg.gov.iti.jets.model.User;
 
@@ -16,5 +17,7 @@ public interface UserService {
     User register(User user);
 
     User update(User user);
+
+    Double addUserBalance(User user, Double amount) throws UserBalanceViolation;
 
 }

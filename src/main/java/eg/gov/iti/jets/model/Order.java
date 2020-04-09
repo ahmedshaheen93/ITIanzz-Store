@@ -3,6 +3,7 @@ package eg.gov.iti.jets.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -18,11 +19,11 @@ public class Order implements Serializable {
     private LocalDateTime orderTimestamp;
 
     @ManyToOne
-    @JoinColumn(name = "USER_ID")
+    @JoinColumn(name = "USER_ID", nullable = false, updatable = false)
     private User user;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Purchase> purchases;
+    private Set<Purchase> purchases = new HashSet<>(0);
 
     public Order() {
     }
@@ -58,11 +59,16 @@ public class Order implements Serializable {
     }
 
     public Set<Purchase> getPurchases() {
+
         return purchases;
     }
 
-    public void setPurchases(Set<Purchase> purchases) {
-        this.purchases = purchases;
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderId=" + orderId +
+                ", orderTimestamp=" + orderTimestamp +
+                ", purchases=" + purchases +
+                '}';
     }
-
 }
