@@ -7,14 +7,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "Home", urlPatterns = {"/home"})
-public class Home extends HttpServlet {
+@WebServlet(name = "store", urlPatterns = "/store")
+public class StoreController extends HttpServlet {
 
-    private static final long serialVersionUID = 5510655071091556001L;
+    private static final long serialVersionUID = 3867803697941680936L;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("index.jsp").include(req, resp);
+        req.getRequestDispatcher("store.jsp").include(req,resp);
     }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPost(req, resp);
+    }
 }

@@ -1,11 +1,13 @@
 package eg.gov.iti.jets.service.impl;
 
 import eg.gov.iti.jets.exception.ProductQuantityLimitExceeded;
+import eg.gov.iti.jets.model.Category;
 import eg.gov.iti.jets.model.Product;
 import eg.gov.iti.jets.repository.ProductRepository;
 import eg.gov.iti.jets.repository.impl.ProductRepositoryImpl;
 import eg.gov.iti.jets.service.ProductService;
 
+import java.util.List;
 import java.util.Objects;
 
 public class ProductServiceImpl implements ProductService {
@@ -34,5 +36,10 @@ public class ProductServiceImpl implements ProductService {
         }
         product.setQuantity(newQuantity);
         return productRepository.save(product);
+    }
+
+    @Override
+    public List<Product> searchByCategory(Category category) {
+        return productRepository.findByCategory(category);
     }
 }

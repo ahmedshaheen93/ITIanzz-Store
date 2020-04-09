@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "Login", urlPatterns = "/login")
-public class Login extends HttpServlet {
+@WebServlet(name = "login", urlPatterns = "/login")
+public class LoginController extends HttpServlet {
 
     private static final long serialVersionUID = -1852098991598893531L;
 

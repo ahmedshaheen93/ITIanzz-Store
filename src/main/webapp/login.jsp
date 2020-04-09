@@ -1,7 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <title>Products</title>
+    <%@include file="includes/head.jsp" %>
   <title>Login</title>
   <link rel="stylesheet" href="login.css" />
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -10,6 +13,25 @@
 </head>
 
 <body>
+    <header>
+        <%@include file="includes/header.jsp" %>
+    </header>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h1>Register Page Works</h1>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <%@include file="includes/footer.jsp" %>
 
 <div id="login">
   <h3 class="text-center text-white pt-5">Login form</h3>

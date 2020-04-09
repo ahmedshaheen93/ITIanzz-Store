@@ -1,7 +1,10 @@
 package eg.gov.iti.jets.service;
 
 import eg.gov.iti.jets.exception.ProductQuantityLimitExceeded;
+import eg.gov.iti.jets.model.Category;
 import eg.gov.iti.jets.model.Product;
+
+import java.util.List;
 
 public interface ProductService {
     /**
@@ -16,4 +19,6 @@ public interface ProductService {
      * @throws ProductQuantityLimitExceeded if the ProductQuantity goes to be negative
      */
     Product updateProductQuantity(Product product, int quantity) throws ProductQuantityLimitExceeded;
+
+    List<Product> searchByCategory(Category category);
 }
