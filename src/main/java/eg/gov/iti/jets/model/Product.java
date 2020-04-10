@@ -15,7 +15,11 @@ import java.util.Set;
         @NamedQuery(name = "Product.findByCategory",
                 query = "SELECT p from Product p where :category member of p.categories"),
         @NamedQuery(name = "Product.findBetweenTwoPrices",
-                query = "SELECT p from Product  p where p.sellPrice between :price1 and :price2")
+                query = "SELECT p from Product  p where p.sellPrice between :price1 and :price2"),
+        @NamedQuery(name = "Product.findByCategoryAndMinMaxPriceAndProductName",
+                query = "SELECT p from Product  p where p.sellPrice between :price1 and :price2" +
+                        " and :category member of p.categories" +
+                        " and p.productName like :productName")
 })
 public class Product implements Serializable {
 

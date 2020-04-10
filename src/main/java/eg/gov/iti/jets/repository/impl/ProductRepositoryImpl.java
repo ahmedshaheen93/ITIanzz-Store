@@ -2,6 +2,7 @@ package eg.gov.iti.jets.repository.impl;
 
 import eg.gov.iti.jets.model.Category;
 import eg.gov.iti.jets.model.Product;
+import eg.gov.iti.jets.model.dto.ProductSearchExampleDTO;
 import eg.gov.iti.jets.repository.ProductRepository;
 
 import java.util.List;
@@ -13,6 +14,8 @@ public class ProductRepositoryImpl extends CrudImpl<Product, Long>
 
     private ProductRepositoryImpl() {
     }
+
+
 
     public static synchronized ProductRepositoryImpl getInstance() {
         return Objects.requireNonNullElseGet(instance,
@@ -41,5 +44,16 @@ public class ProductRepositoryImpl extends CrudImpl<Product, Long>
                 .setParameter("price1", price1)
                 .setParameter("price2", price2)
                 .getResultList();
+    }
+    @Override
+    public List<Product> findByCategoryAndMinMaxPriceAndProductName(ProductSearchExampleDTO productSearchExampleDTO) {
+        Category category = new Category();
+        category.setCategoryId(productSearchExampleDTO.getCategoryId());
+        return ((List<Product>) getEntityManager()
+                .createNamedQuery("Product.findByCategoryAndMinMaxPriceAndProductName")
+                .setParameter("price1", (double) productSearchExampleDTO.getMin())
+                .setParameter("price2", (double) productSearchExampleDTO.getMax())
+                .setParameter("productName", "%" + productSearchExampleDTO.getProductName() + "%")
+                .setParameter("category", category).getResultList());
     }
 }

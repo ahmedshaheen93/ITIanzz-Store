@@ -42,9 +42,13 @@
                 </div>
                 <form>
                     <div class="form-group">
-                        <label for="price-range">range : $0 - $1000</label>
-                        <input type="range" name="price-range" class="form-control-range" id="price-range">
+                        <p>
+                            <label for="amount">Price range:</label>
+                            <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                        </p>
+                        <div id="slider-range"></div>
                     </div>
+
                     <div class="input-group">
                         <div class="input-group-prepend">
                                 <span class="input-group-text form-icon">
@@ -52,9 +56,10 @@
                                 </span>
                         </div>
                         <label>
-                            <input type="text" class="form-control text-capitalize" placeholder="search by name">
+                            <input id="productName" type="text" class="form-control text-capitalize" placeholder="search by name">
                         </label>
                     </div>
+                    <button type="button" id="filterBtn">filter</button>
                 </form>
                 <!-- end of title -->
                 <div class="products-categories-title my-4">

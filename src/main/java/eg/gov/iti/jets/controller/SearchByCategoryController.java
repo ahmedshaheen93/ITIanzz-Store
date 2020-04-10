@@ -16,9 +16,6 @@ import java.util.List;
 
 @WebServlet(name = "searchByProduct", urlPatterns = "/searchByCategory")
 public class SearchByCategoryController extends HttpServlet {
-
-    private static final long serialVersionUID = 2077012305145887632L;
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String categoryId = req.getParameter("categoryId");
