@@ -28,38 +28,52 @@ public class Store implements Serializable {
     @Column(name = "STORE_DESCRIPTION", length = 5000)
     private String description;
 
-    @Column(name = "STORE_PHONE", nullable = false)
-    private String phone;
+    @Column(name = "STORE_PHONE_NUMBER", nullable = false)
+    private String phoneNumber;
+
+    @Column(name = "STORE_FAX_NUMBER", nullable = false)
+    private String faxNumber;
 
     @Column(name = "STORE_EMAIL", nullable = false)
     private String email;
 
     @Column(name = "STORE_FACEBOOK")
     private String faceBook;
+    
+    @Column(name = "STORE_TWITTER")
+    private String twitter;
 
     @Column(name = "STORE_YOUTUBE")
     private String youtube;
 
+    @Column(name = "STORE_LINKEDIN")
+    private String linkedin;
+
     @Column(name = "STORE_INSTAGRAM")
     private String instagram;
-
-    @Column(name = "STORE_TWITTER")
-    private String twitter;
 
     public Store() {
     }
 
-    public Store(Image logo, String storeName, Address address, String description, String phone, String email, String faceBook, String youtube, String instagram, String twitter) {
+    public Store(Image logo, String storeName, Address address, String description, String phoneNumber,
+            String faxNumber, String email, String faceBook, String twitter, String youtube, String linkedin,
+            String instagram) {
         this.logo = logo;
         this.storeName = storeName;
         this.address = address;
         this.description = description;
-        this.phone = phone;
+        this.phoneNumber = phoneNumber;
+        this.faxNumber = faxNumber;
         this.email = email;
         this.faceBook = faceBook;
-        this.youtube = youtube;
-        this.instagram = instagram;
         this.twitter = twitter;
+        this.youtube = youtube;
+        this.linkedin = linkedin;
+        this.instagram = instagram;
+    }
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
     }
 
     public Long getStoreId() {
@@ -102,12 +116,20 @@ public class Store implements Serializable {
         this.description = description;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getFaxNumber() {
+        return faxNumber;
+    }
+
+    public void setFaxNumber(String faxNumber) {
+        this.faxNumber = faxNumber;
     }
 
     public String getEmail() {
@@ -126,12 +148,28 @@ public class Store implements Serializable {
         this.faceBook = faceBook;
     }
 
+    public String getTwitter() {
+        return twitter;
+    }
+
+    public void setTwitter(String twitter) {
+        this.twitter = twitter;
+    }
+
     public String getYoutube() {
         return youtube;
     }
 
     public void setYoutube(String youtube) {
         this.youtube = youtube;
+    }
+
+    public String getLinkedin() {
+        return linkedin;
+    }
+
+    public void setLinkedin(String linkedin) {
+        this.linkedin = linkedin;
     }
 
     public String getInstagram() {
@@ -142,11 +180,4 @@ public class Store implements Serializable {
         this.instagram = instagram;
     }
 
-    public String getTwitter() {
-        return twitter;
-    }
-
-    public void setTwitter(String twitter) {
-        this.twitter = twitter;
-    }
 }

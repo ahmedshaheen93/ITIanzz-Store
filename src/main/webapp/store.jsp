@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Products</title>
+    <title>Store Information</title>
     <%@include file="includes/head.jsp" %>
 </head>
 
@@ -11,20 +11,103 @@
     <header>
         <%@include file="includes/header.jsp" %>
     </header>
+    
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Store Details</h1>
+            <p class="lead">Customise the store to suit your needs, and make it truly yours.</p>
+        </div>
+    </div>
 
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
 
-    <h1>Store Page Works</h1>
+    <div class="container">
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+        <form method="POST">
+            <h2>Basic Information</h2>
+
+            <div class="form-group">
+                <label for="formGroupName">Store name</label>
+                <input name="name" type="text" class="form-control" id="formGroupName" placeholder="e.g John Doe">
+            </div>
+            <div class="form-group">
+                <label for="formGroupDesciption">Store description</label>
+                <input name="description" type="text" class="form-control" id="formGroupDesciption" placeholder="e.g John Doe">
+            </div>
+            <div class="form-group">
+                <label for="formGroupEmail">Store email address</label>
+                <input name="email" type="email" class="form-control" id="formGroupEmail" placeholder="e.g name@example.com">
+            </div>
+            <div class="form-group">
+                <label for="formGroupPhone">Store phone number</label>
+                <input name="phone" type="text" class="form-control" id="formGroupPhone" placeholder="e.g John Doe">
+            </div>
+            <div class="form-group">
+                <label for="formGroupFax">Store fax number</label>
+                <input name="fax" type="text" class="form-control" id="formGroupFax" placeholder="e.g John Doe">
+            </div>
+
+            <hr>
+            <br>
+            <br>
+            <h2>Address Details</h2>
+    
+            <div class="form-group">
+                <label for="formGroupCountry">Store country</label>
+                <input name="country" type="text" class="form-control" id="formGroupCountry" placeholder="e.g John Doe">
+            </div>
+            <div class="form-group">
+                <label for="formGroupState">Store state</label>
+                <input name="state" type="text" class="form-control" id="formGroupState" placeholder="e.g John Doe">
+            </div>
+            <div class="form-group">
+                <label for="formGroupCity">Store city</label>
+                <input name="city" type="text" class="form-control" id="formGroupCity" placeholder="e.g John Doe">
+            </div>
+            <div class="form-group">
+                <label for="formGroupStreet">Store street</label>
+                <input name="street" type="text" class="form-control" id="formGroupStreet" placeholder="e.g John Doe">
+            </div>
+            <div class="form-group">
+                <label for="formGroupZipcode">Store zip code</label>
+                <input name="zipcode" type="text" class="form-control" id="formGroupZipcode" placeholder="e.g John Doe">
+            </div>
+
+            <hr>
+            <br>
+            <br>
+            <h2>Social Media Accounts</h2>
+
+            <div class="form-group">
+                <label for="formGroupFacebook">Store facebook account</label>
+                <input name="facebook" type="text" class="form-control" id="formGroupFacebook" placeholder="e.g John Doe">
+            </div>
+            <div class="form-group">
+                <label for="formGroupTwitter">Store twitter account</label>
+                <input name="twitter" type="text" class="form-control" id="formGroupTwitter" placeholder="e.g John Doe">
+            </div>
+            <div class="form-group">
+                <label for="formGroupYoutube">Store youtube account</label>
+                <input name="youtube" type="text" class="form-control" id="formGroupYoutube" placeholder="e.g John Doe">
+            </div>
+            <div class="form-group">
+                <label for="formGroupLinkedin">Store linkedin account</label>
+                <input name="linkedin" type="text" class="form-control" id="formGroupLinkedin" placeholder="e.g John Doe">
+            </div>
+            <div class="form-group">
+                <label for="formGroupInstagram">Store instagram account</label>
+                <input name="instagram" type="text" class="form-control" id="formGroupInstagram" placeholder="e.g John Doe">
+            </div>
+
+            <hr>
+            <br>
+            <button class="btn btn-primary" type="submit">Update Store Information</button>
+        </form>
+
+        <br>
+        <br>
+
+    </div>
 
     <%@include file="includes/footer.jsp" %>
 

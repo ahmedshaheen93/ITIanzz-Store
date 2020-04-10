@@ -19,6 +19,25 @@ public class StoreController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        
+        System.out.println(req.getParameter("name"));
+        System.out.println(req.getParameter("description"));
+        System.out.println(req.getParameter("email"));
+        System.out.println(req.getParameter("phone"));
+        System.out.println(req.getParameter("fax"));
+        
+        System.out.println(req.getParameter("country"));
+        System.out.println(req.getParameter("state"));
+        System.out.println(req.getParameter("city"));
+        System.out.println(req.getParameter("street"));
+        System.out.println(req.getParameter("zipcode"));
+        
+        System.out.println(req.getParameter("facebook"));
+        System.out.println(req.getParameter("twitter"));
+        System.out.println(req.getParameter("youtube"));
+        System.out.println(req.getParameter("linkedin"));
+        System.out.println(req.getParameter("instagram"));
+        
+        // super.doPost(req, resp);
     }
 }
