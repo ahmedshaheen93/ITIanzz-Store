@@ -56,51 +56,13 @@
                                 </span>
                         </div>
                         <label>
-                            <input id="productName" type="text" class="form-control text-capitalize" placeholder="search by name">
+                            <input id="productName" type="text" class="form-control text-capitalize"
+                                   placeholder="search by name">
                         </label>
                     </div>
                     <button type="button" id="filterBtn">filter</button>
                 </form>
-                <!-- end of title -->
-                <div class="products-categories-title my-4">
-                    <h6 class="text-uppercase">shop by color</h6>
-                    <div class="products-categories-underline"></div>
-                </div>
-                <!-- single color -->
-                <a href="#">
-                    <p class="text-capitalize mb-0">
-                        <span class="d-inline-block products-color products-color-black mr-2"></span>black (5)
-                    </p>
-                </a>
-                <!-- end of single color -->
-                <!-- single color -->
-                <a href="#">
-                    <p class="text-capitalize mb-0">
-                        <span class="d-inline-block products-color products-color-red mr-2"></span>red (5)
-                    </p>
-                </a>
-                <!-- end of single color -->
-                <!-- single color -->
-                <a href="#">
-                    <p class="text-capitalize mb-0">
-                        <span class="d-inline-block products-color products-color-blue mr-2"></span>blue (5)
-                    </p>
-                </a>
-                <!-- end of single color -->
-                <!-- single color -->
-                <a href="#">
-                    <p class="text-capitalize mb-0">
-                        <span class="d-inline-block products-color products-color-yellow mr-2"></span>yellow (5)
-                    </p>
-                </a>
-                <!-- end of single color -->
-                <!-- single color -->
-                <a href="#">
-                    <p class="text-capitalize mb-0">
-                        <span class="d-inline-block products-color products-color-green mr-2"></span>green (5)
-                    </p>
-                </a>
-                <!-- end of single color -->
+
                 <!--  -->
             </div>
             <!-- product img -->

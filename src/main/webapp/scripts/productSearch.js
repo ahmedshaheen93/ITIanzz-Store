@@ -1,32 +1,31 @@
-
 $(document).ready(
     function () {
         var productJSON = {
-            categoryId : 0,
-            min:0,
-            max:0,
-            productName:""
+            categoryId: 0,
+            min: 0,
+            max: 0,
+            productName: ""
         }
 
-        var min = 0 , max = 300;
-        $("#slider-range" ).slider({
+        var min = 0, max = 300;
+        $("#slider-range").slider({
             range: true,
             min: 0,
             max: 500,
-            values: [ 75, 300 ],
-            option:"classes.ui-slider",
-            slide: function( event, ui ) {
-                productJSON.min = ui.values[ 0 ];
-                productJSON.max = ui.values[ 1 ];
-                $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+            values: [75, 300],
+            option: "classes.ui-slider",
+            slide: function (event, ui) {
+                productJSON.min = ui.values[0];
+                productJSON.max = ui.values[1];
+                $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
             }
         });
-        $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-            " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+        $("#amount").val("$" + $("#slider-range").slider("values", 0) +
+            " - $" + $("#slider-range").slider("values", 1));
 
 
         $(".category p").click(function (event) {
-            $("#allProducts").empty();
+            // $("#allProducts").empty();
             var catId = event.target.id;
             productJSON.categoryId = catId;
             /*jQuery.get("searchByCategory?categoryId=" + catId, function (data, status) {
@@ -52,8 +51,10 @@ $(document).ready(
 
                 }
             })
+
             function receiveMessage(data) {
-                console.log (data);
+                console.log(data);
+                updateScene(data);
             }
 
             /*$("#allProducts").empty();
@@ -63,11 +64,17 @@ $(document).ready(
         });
 
         function updateScene(data) {
+            $("#allProducts").empty();
+            if (jQuery.isEmptyObject(data)) {
+                var noData = "<p>No data founded </p>";
+                $("#allProducts").append(noData);
+            }
             data.forEach(product => {
                 console.log(product);
+                // product.primaryImage.imagePath
                 var proDiv = "<div class=\"mx-auto col-md-6 col-lg-4\">\n" +
                     "                            <div class=\"featured-container p-5\">\n" +
-                    "                                <img src=\"" + product.primaryImage.imagePath + "\" class=\"img-fluid\" alt=\"product\" />\n" +
+                    "                                <img src=\"" + "images/home/img-products/product-7.png" + "\" class=\"img-fluid\" alt=\"product\" />\n" +
                     "                                <span class=\"featured-search-icon\" data-toggle=\"modal\" data-target=\"#productModal\">\n" +
                     "                                     <i class=\"fas fa-search\"></i>\n" +
                     "                                 </span>\n" +

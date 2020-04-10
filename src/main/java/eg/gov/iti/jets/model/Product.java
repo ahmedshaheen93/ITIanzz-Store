@@ -190,4 +190,20 @@ public class Product implements Serializable {
         );
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productId=" + productId +
+                ", productName='" + productName + '\'' +
+                ", description='" + description + '\'' +
+                ", manufacturingName='" + manufacturingName + '\'' +
+                ", manufacturingDate=" + manufacturingDate +
+                ", expirationDate=" + expirationDate +
+                ", quantity=" + quantity +
+                ", buyPrice=" + buyPrice +
+                ", sellPrice=" + sellPrice +
+                ", primaryImage=" + primaryImage +
+                ", images=" + images +
+                '}';
+    }
 }
