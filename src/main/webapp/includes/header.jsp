@@ -1,11 +1,14 @@
-<nav class="navbar navbar-dark bg-dark navbar-expand-lg container-fluid">
+<nav class="navbar navbar-dark bg-dark navbar-expand-md container-fluid">
+    
     <a class="navbar-brand">
-        <img src="images/iti-logo.png" width="30" height="30" alt="">
+        <img src="images/iti-logo.png" width="30" height="30" alt="ITI Store">
     </a>
+    
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
+    
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item nav-active">
@@ -50,7 +53,6 @@
             </li>
 
         </ul>
-
     </div>
 
 </nav>
