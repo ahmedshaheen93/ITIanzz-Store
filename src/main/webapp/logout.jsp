@@ -12,19 +12,25 @@
         <%@include file="includes/header.jsp" %>
     </header>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <div class="container">
 
-    <h1>Logout Page Works</h1>
+        <br>
+        <br>
+        <br>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+        <h1>We expect you to Comeback, Right!</h1>
+        <br>
+        <h4>So as not to miss out seeing all the new fabulous souvenirs you can buy.</h4>
+        <br>
+        <br>
+        <h1>Goodbye</h1>
+        <h4>Don't forget to give us your <a href="/iti-store/feedback">Feedback</a>.</h4>
+        <h4>We would love to hear from you.</h4>
+        <br>
+        <br>
+        <br>
+
+    </div>
 
     <%@include file="includes/footer.jsp" %>
 

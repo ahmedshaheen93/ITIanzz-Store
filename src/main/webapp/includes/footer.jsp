@@ -28,7 +28,7 @@
             <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                 <h6 class="text-uppercase font-weight-bold">ITI Store</h6>
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                <p>Here you can get ITI related products such as souvnier to remember this amazing place.</p>
+                <p>ITI store is a place for all ITIans where you can buy ITI gifts and souvniers to remember this place and the AMAZING people you've met.</p>
             </div>
 
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
