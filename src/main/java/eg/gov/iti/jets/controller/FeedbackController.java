@@ -5,6 +5,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import eg.gov.iti.jets.model.Feedback;
+import eg.gov.iti.jets.service.FeedbackService;
+
 import java.io.IOException;
 
 @WebServlet(name = "feedback", urlPatterns = "/feedback")
@@ -19,6 +23,14 @@ public class FeedbackController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        
+        FeedbackService feedbackService = (FeedbackService) req.getServletContext().getAttribute("feedbackService");
+        String name = req.getParameter("name");
+        String email = req.getParameter("email");
+        String subject = req.getParameter("subject");
+        String message = req.getParameter("message");
+        feedbackService.createFeedback(new Feedback(name, email, subject, message));
+
+        resp.sendRedirect("feedback.jsp?feedback=received");
     }
 }

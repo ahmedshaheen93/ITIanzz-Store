@@ -19,23 +19,23 @@
         <p>Tell us what you think should be done more or what should be done less.</p>
         <br>
 
-        <form>
+        <form method="POST">
             <div class="form-group">
                 <label for="formGroupFullName">Full name</label>
-                <input type="text" class="form-control" id="formGroupFullName" placeholder="e.g John Doe">
+                <input name="name" type="text" class="form-control" id="formGroupFullName" placeholder="e.g John Doe">
             </div>
             <div class="form-group">
                 <label for="formGroupEmailAddress">Email address</label>
-                <input type="email" class="form-control" id="formGroupEmailAddress" placeholder="e.g name@example.com">
+                <input name="email" type="email" class="form-control" id="formGroupEmailAddress" placeholder="e.g name@example.com">
             </div>
             <div class="form-group">
                 <label for="formGroupFeedbackSubject">Feedback subject</label>
-                <input type="text" class="form-control" id="formGroupFeedbackSubject"
+                <input name="subject" type="text" class="form-control" id="formGroupFeedbackSubject"
                     placeholder="e.g i would like to complain about ...">
             </div>
             <div class="form-group">
                 <label for="formGroupFeedbackMessage">Feedback message</label>
-                <textarea class="form-control" id="formGroupFeedbackMessage" rows="7"></textarea>
+                <textarea name="message" class="form-control" id="formGroupFeedbackMessage" rows="7"></textarea>
             </div>
             <br>
             <button class="btn btn-primary" type="submit">Submit feedback</button>
