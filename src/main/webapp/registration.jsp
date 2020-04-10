@@ -1,13 +1,14 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Abeer Emad
+  Date: 4/9/2020
+  Time: 6:11 PM
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <title>register</title>
-    <%@include file="includes/head.jsp" %>
-    <meta charset="utf-8">
-
-
+    <title>registration</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -75,40 +76,33 @@
         }
     </style>
 </head>
-
 <body>
-    <header>
-        <%@include file="includes/header.jsp" %>
-    </header>
 
-    <form action="">
-        <div class="container">
-            <h1>Register</h1>
-            <p>Please fill in this form to create an account.</p>
-            <hr>
 
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" required>
+<form action="">
+    <div class="container">
+        <h1>Register</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
 
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
 
-            <label for="psw-repeat"><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-            <hr>
-            <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
 
-            <button type="submit" class="registerbtn">Register</button>
-        </div>
+        <label for="psw-repeat"><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+        <hr>
+        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
-        <div class="container signin">
-            <p>Already have an account? <a href="#">Sign in</a>.</p>
-        </div>
-    </form>
+        <button type="submit" class="registerbtn">Register</button>
+    </div>
 
-    <footer id="footer">
-        <%@include file="includes/footer.jsp" %>
-    </footer>
+    <div class="container signin">
+        <p>Already have an account? <a href="#">Sign in</a>.</p>
+    </div>
+</form>
+
 </body>
-
 </html>

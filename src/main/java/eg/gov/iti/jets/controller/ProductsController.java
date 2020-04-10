@@ -1,5 +1,6 @@
 package eg.gov.iti.jets.controller;
 
+import eg.gov.iti.jets.model.Category;
 import eg.gov.iti.jets.model.Image;
 import eg.gov.iti.jets.model.Product;
 
@@ -10,11 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @WebServlet(name = "products", urlPatterns = "/products")
 public class ProductsController extends HttpServlet {
-    
+
     private static final long serialVersionUID = 8649919520914806166L;
 
     @Override
@@ -33,8 +35,20 @@ public class ProductsController extends HttpServlet {
         productList.add(product);
         productList.add(product);
         productList.add(product);
-        req.setAttribute("products" , productList);
-        req.getRequestDispatcher("products.jsp").include(req,resp);
+
+
+        Category category = new Category("category1");
+        category.setCategoryId(1l);
+        Category category1 = new Category("category2");
+        category1.setCategoryId(2l);
+        Category category2 = new Category("category3");
+        category2.setCategoryId(3l);
+        Category category3 = new Category("category4");
+        category3.setCategoryId(4l);
+        List<Category> categoryList = Arrays.asList(category, category2, category1, category3);
+        req.setAttribute("products", productList);
+        req.setAttribute("categories", categoryList);
+        req.getRequestDispatcher("products.jsp").include(req, resp);
 
     }
 }
