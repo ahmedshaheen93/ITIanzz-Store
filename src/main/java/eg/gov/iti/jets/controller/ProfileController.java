@@ -1,5 +1,9 @@
 package eg.gov.iti.jets.controller;
 
+import eg.gov.iti.jets.exception.UserNotFoundException;
+import eg.gov.iti.jets.model.User;
+import eg.gov.iti.jets.service.UserService;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +18,18 @@ public class ProfileController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("profile.jsp").include(req,resp);
+
+        UserService userService = (UserService) getServletContext().getAttribute("userService");
+        int id = Integer.parseInt(req.getParameter("id"));
+        try {
+            User userById = userService.findUserById(id);
+            req.setAttribute("user", userById);
+        } catch (UserNotFoundException e) {
+            e.printStackTrace();
+            req.setAttribute("errorMessage", e.getMessage());
+        }
+
+        req.getRequestDispatcher("profile.jsp").include(req, resp);
     }
 
     @Override

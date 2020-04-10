@@ -25,9 +25,12 @@ import java.util.Set;
         @NamedQuery(name = "User.updateUserBalance",
                 query = "UPDATE User u SET u.balance=:balance where u.userId =:id"),
         @NamedQuery(name = "User.getAllAdminUsers",
-                query = "SELECT u from User u where u.role = eg.gov.iti.jets.model.Role.ADMIN_ROLE")
-}
-)
+                query = "SELECT u from User u where u.role = eg.gov.iti.jets.model.Role.ADMIN_ROLE"),
+        @NamedQuery(name = "User.getAllCustomerUsers",
+                query = "SELECT u from User u where u.role = eg.gov.iti.jets.model.Role.CUSTOMER_ROLE"),
+        @NamedQuery(name = "User.findById",
+                query = "SELECT u from User u where u.userId =: userId")
+})
 
 public class User implements Serializable {
 

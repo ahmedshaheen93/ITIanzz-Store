@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.1" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd">
+  <tlib-version>1.0</tlib-version>
+  <short-name>customer-custom-tag</short-name>
+  <uri>/tlds/customer-custom-tag</uri>
+
+  <tag>
+    <name>customerCustomTag</name>
+    <tag-class>eg.gov.iti.jets.tlds.UserTLD</tag-class>
+    <body-content>tagdependent</body-content>
+    <attribute>
+      <name>user</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>eg.gov.iti.jets.model.User</type>
+    </attribute>
+  </tag>
+</taglib>

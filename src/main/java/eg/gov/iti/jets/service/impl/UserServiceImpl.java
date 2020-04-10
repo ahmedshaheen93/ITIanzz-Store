@@ -8,6 +8,8 @@ import eg.gov.iti.jets.repository.impl.UserRepositoryImpl;
 import eg.gov.iti.jets.service.UserService;
 
 import javax.persistence.NoResultException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class UserServiceImpl implements UserService {
@@ -58,5 +60,24 @@ public class UserServiceImpl implements UserService {
             throw new UserBalanceViolation();
         }
         return userRepository.addUserBalance(user, amount);
+    }
+
+    @Override
+    public List<User> getAllCustomerUsers() {
+        return userRepository.findALlCustomerUsers();
+    }
+
+    @Override
+    public User findUserById(long userId) throws UserNotFoundException{
+
+        User user = null;
+        try {
+            user = userRepository.findById(userId);
+        } catch (NoResultException e) {
+            e.printStackTrace();
+            throw new UserNotFoundException(String.format("%s not found on the database or " +
+                    "incorrect id ", userId));
+        }
+        return user;
     }
 }

@@ -41,6 +41,14 @@
             <organizationUrl>http://jets.iti.gov.eg</organizationUrl>
             <url>https://github.com/ahmedshaheen676</url>
         </developer>
+        <developer>
+            <id>125</id>
+            <name>noura</name>
+            <email>nouradel975@gmail.com</email>
+            <organization>iti</organization>
+            <organizationUrl>http://jets.iti.gov.eg</organizationUrl>
+            <url>https://github.com/NourAdel98</url>
+        </developer>
     </developers>
 
     <build>

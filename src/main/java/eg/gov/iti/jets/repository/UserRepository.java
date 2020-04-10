@@ -50,4 +50,10 @@ public interface UserRepository extends Crud<User, Long> {
      */
     List<User> findALlAdminUsers();
 
+    /**
+     * find all customer users on the system
+     *
+     * @return list<User> customers
+     */
+    List<User> findALlCustomerUsers();
 }

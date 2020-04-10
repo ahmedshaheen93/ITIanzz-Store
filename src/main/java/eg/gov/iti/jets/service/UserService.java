@@ -4,6 +4,8 @@ import eg.gov.iti.jets.exception.UserBalanceViolation;
 import eg.gov.iti.jets.exception.UserNotFoundException;
 import eg.gov.iti.jets.model.User;
 
+import java.util.List;
+
 public interface UserService {
     /**
      * login to system
@@ -20,4 +22,7 @@ public interface UserService {
 
     Double addUserBalance(User user, Double amount) throws UserBalanceViolation;
 
+    List<User> getAllCustomerUsers();
+
+    User findUserById(long userId) throws UserNotFoundException;
 }
