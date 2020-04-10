@@ -21,7 +21,6 @@
                     <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
                     <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
                     <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
-                    <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -47,13 +46,6 @@
                     </div>
                     <div class="carousel-item">
                         <img src="/iti-store/images/home/slider/slider4.jpg" class="w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h2>Third slide label</h2>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/iti-store/images/home/slider/slider5.jpg" class="w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h2>Third slide label</h2>
                             <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
