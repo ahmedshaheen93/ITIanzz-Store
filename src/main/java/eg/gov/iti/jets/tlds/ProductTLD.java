@@ -46,7 +46,7 @@ public class ProductTLD extends SimpleTagSupport {
             out.println("<span class=\"featured-search-icon\" data-toggle=\"modal\" data-target=\"#productModal\">");
             out.println("<i class=\"fas fa-search\"></i>");
             out.println("</span>");
-            out.println("<a href=\"#\" class=\"featured-store-link text-captilaze\">add to cart</a>");
+            out.println("<a href=\"#\" class=\"featured-store-link text-captilaze addToCart \" id=\"" + product.getProductId() + "\">add to cart </a>");
             out.println("</div>");
             out.println("<h6 class=\"text-capitalize text-center my-2\">" + product.getProductName() + "</h6>");
             out.println("<h6 class=\"text-center\">");

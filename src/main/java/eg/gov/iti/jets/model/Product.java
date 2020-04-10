@@ -43,7 +43,7 @@ public class Product implements Serializable {
      * product description for user
      * accept null value
      */
-    @Column(name = "PRODUCT_DESCRIPTION", length = 5000)
+    @Column(name = "PRODUCT_DESCRIPTION", length = 500)
     private String description;
     /**
      * manufacturingName represent where does the product manufacture

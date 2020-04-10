@@ -67,9 +67,9 @@ public class UserRepositoryImpl extends CrudImpl<User, Long> implements UserRepo
         return (List<User>) getEntityManager().createNamedQuery("User.getAllCustomerUsers").getResultList();
     }
 
-    @Override
-    public User findById(Long id) {
-        return (User) getEntityManager().createNamedQuery("User.findById")
-                .setParameter("userId", id).getSingleResult();
-    }
+//    @Override
+//    public User findById(Long id) {
+//        return (User) getEntityManager().createNamedQuery("User.findById")
+//                .setParameter("userId", id).getSingleResult();
+//    }
 }

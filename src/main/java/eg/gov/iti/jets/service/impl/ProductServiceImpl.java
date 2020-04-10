@@ -3,11 +3,14 @@ package eg.gov.iti.jets.service.impl;
 import eg.gov.iti.jets.exception.ProductQuantityLimitExceeded;
 import eg.gov.iti.jets.model.Category;
 import eg.gov.iti.jets.model.Product;
+import eg.gov.iti.jets.model.dto.ProductDto;
 import eg.gov.iti.jets.model.dto.ProductSearchExampleDTO;
 import eg.gov.iti.jets.repository.ProductRepository;
 import eg.gov.iti.jets.repository.impl.ProductRepositoryImpl;
 import eg.gov.iti.jets.service.ProductService;
+import eg.gov.iti.jets.utilty.ProductMapper;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -52,5 +55,31 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> findAllProducts() {
         return productRepository.findAll();
+    }
+
+    @Override
+    public ProductDto findById(Long productId) {
+        ProductDto productDto = null;
+        Product product = productRepository.findById(productId);
+        if (product != null) {
+            productDto = ProductMapper.mapToProductDto(product);
+        }
+        return productDto;
+    }
+
+    @Override
+    public List<ProductDto> getAllProudects(List<ProductDto> productDtos) {
+        List<ProductDto> productDtoSet = new ArrayList<>();
+        for (ProductDto productDto : productDtos) {
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            System.out.println(productDto);
+            System.out.println(productDto.getProductId());
+
+
+            Product byId = productRepository.findById(productDto.getProductId());
+            System.out.println(byId);
+//            productDtoSet.add(byId);
+        }
+        return productDtoSet;
     }
 }
