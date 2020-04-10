@@ -5,9 +5,9 @@
 <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet"/>
 <link rel="stylesheet" href="styles/main.css">
 <link rel="stylesheet" href="styles/font-awesome.css"/>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-<link href="styles/style.css" rel="stylesheet">
-<link href="styles/now-ui-dashboard.css?v=1.5.0" rel="stylesheet">
-<link href="styles/demo.css" rel="stylesheet">
-<link href="styles/profile-style.css" rel="stylesheet">
+<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css"> -->
+<!-- <link href="styles/style.css" rel="stylesheet"> -->
+<!-- <link href="styles/now-ui-dashboard.css?v=1.5.0" rel="stylesheet"> -->
+<!-- <link href="styles/demo.css" rel="stylesheet"> -->
+<!-- <link href="styles/profile-style.css" rel="stylesheet"> -->
 
