@@ -12,19 +12,39 @@
         <%@include file="includes/header.jsp" %>
     </header>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <div class="container">
 
-    <h1>Feedback Page Works</h1>
+        <br>
+        <h2>We would love to hear from you</h2>
+        <p>Tell us what you think should be done more or what should be done less.</p>
+        <br>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+        <form>
+            <div class="form-group">
+                <label for="formGroupFullName">Full name</label>
+                <input type="text" class="form-control" id="formGroupFullName" placeholder="e.g John Doe">
+            </div>
+            <div class="form-group">
+                <label for="formGroupEmailAddress">Email address</label>
+                <input type="email" class="form-control" id="formGroupEmailAddress" placeholder="e.g name@example.com">
+            </div>
+            <div class="form-group">
+                <label for="formGroupFeedbackSubject">Feedback subject</label>
+                <input type="text" class="form-control" id="formGroupFeedbackSubject"
+                    placeholder="e.g i would like to complain about ...">
+            </div>
+            <div class="form-group">
+                <label for="formGroupFeedbackMessage">Feedback message</label>
+                <textarea class="form-control" id="formGroupFeedbackMessage" rows="7"></textarea>
+            </div>
+            <br>
+            <button class="btn btn-primary" type="submit">Submit feedback</button>
+        </form>
+
+        <br>
+        <br>
+
+    </div>
 
     <%@include file="includes/footer.jsp" %>
 
