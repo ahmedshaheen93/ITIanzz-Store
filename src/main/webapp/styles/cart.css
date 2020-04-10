@@ -285,3 +285,53 @@ textarea {
     margin-left: 20px
 }
 
+
+.value-minus,
+.value-plus{
+    margin-right: 3px;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    vertical-align: bottom;
+}
+.quantity-select .entry.value-minus:before,
+.quantity-select .entry.value-plus:before{
+    width: 13px;
+    height: 2px;
+    background: #000;
+    left: 50%;
+    margin-left: -7px;
+    top: 50%;
+    margin-top: -0.5px;
+    position: absolute;
+}
+.quantity-select .entry.value-plus:after{
+    height: 13px;
+    width: 2px;
+    background: #000;
+    left: 50%;
+    margin-left: -1.4px;
+    top: 50%;
+    margin-top: -6.2px;
+    position: absolute;
+}
+.value  {
+    cursor: default;
+    line-height: 24px;
+    text-align: center;
+    display: inline-block;
+    margin-right: 2px;
+}
+/*.quantity-select .entry.value-minus:hover,
+.quantity-select .entry.value-plus:hover{
+    background: #E5E5E5;
+}*/
+
+.quantity-select .entry.value-minus{
+    margin-left: 0;
+}
+/*-- quantity-end --*/
+

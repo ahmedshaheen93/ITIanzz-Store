@@ -29,7 +29,8 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
+
+                            <tr class="rem1">
                                 <td class="cart_product">
                                     <a href=""><img src="images/cart/one.png" alt=""></a>
                                 </td>
@@ -42,16 +43,78 @@
                                 </td>
                                 <td class="cart_quantity">
                                     <div class="cart_quantity_button">
-                                        <a class="cart_quantity_up" href=""> + </a>
-                                        <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                                        <a class="cart_quantity_down" href=""> - </a>
+                                        <div class="value-minus">
+                                            <a class="cart_quantity_down"> - </a>
+                                        </div>
+                                        <div class="entry value"><span>1</span></div>
+                                        <div class="value-plus">
+                                            <a class="cart_quantity_up"> + </a>
+                                        </div>
                                     </div>
                                 </td>
                                 <td class="cart_total">
                                     <p class="cart_total_price">$59</p>
                                 </td>
                                 <td class="cart_delete">
-                                    <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                                    <a class="cart_quantity_delete"><i class="fa fa-times close1"></i></a>
+                                </td>
+                            </tr>
+                            <tr class="rem2">
+                                <td class="cart_product">
+                                    <a href=""><img src="images/cart/one.png" alt=""></a>
+                                </td>
+                                <td class="cart_description">
+                                    <h4><a href="">Colorblock Scuba</a></h4>
+                                    <p>Web ID: 1089772</p>
+                                </td>
+                                <td class="cart_price">
+                                    <p>$59</p>
+                                </td>
+                                <td class="cart_quantity">
+                                    <div class="cart_quantity_button">
+                                        <div class="value-minus">
+                                            <a class="cart_quantity_down"> - </a>
+                                        </div>
+                                        <div class="entry value"><span>1</span></div>
+                                        <div class="value-plus">
+                                            <a class="cart_quantity_up"> + </a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="cart_total">
+                                    <p class="cart_total_price">$59</p>
+                                </td>
+                                <td class="cart_delete">
+                                    <a class="cart_quantity_delete"><i class="fa fa-times close1"></i></a>
+                                </td>
+                            </tr>
+                            <tr class="rem3">
+                                <td class="cart_product">
+                                    <a href=""><img src="images/cart/one.png" alt=""></a>
+                                </td>
+                                <td class="cart_description">
+                                    <h4><a href="">Colorblock Scuba</a></h4>
+                                    <p>Web ID: 1089772</p>
+                                </td>
+                                <td class="cart_price">
+                                    <p>$59</p>
+                                </td>
+                                <td class="cart_quantity">
+                                    <div class="cart_quantity_button">
+                                        <div class="value-minus">
+                                            <a class="cart_quantity_down"> - </a>
+                                        </div>
+                                        <div class="entry value"><span>60</span></div>
+                                        <div class="value-plus">
+                                            <a class="cart_quantity_up"> + </a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="cart_total">
+                                    <p class="cart_total_price">$59</p>
+                                </td>
+                                <td class="cart_delete">
+                                    <a class="cart_quantity_delete"><i class="fa fa-times close1"></i></a>
                                 </td>
                             </tr>
                             </tbody>
@@ -135,7 +198,6 @@
             </div>
         </div>
     </div>
-
 
     <%@include file="includes/footer.jsp" %>
 
