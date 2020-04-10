@@ -200,3 +200,54 @@
   }	
   
   /* ##############END OF SINGLE PRODUCT #################### */
+
+/* start features area css ============================================================================================ */
+
+.section_gap {
+  padding: 70px 0;
+}
+
+@media (max-width: 768px) {
+  .features-area {
+    padding-top: 0;
+ }
+}
+.features-area .col-lg-3:last-child .single-features {
+  border-right: 0;
+}
+@media (max-width: 575px) {
+  .features-area .col-lg-3:last-child .single-features {
+    margin-top: 30px;
+ }
+}
+.features-area .col-lg-3:nth-child(3) .single-features, .features-area .col-lg-3:nth-child(4) .single-features {
+  margin-bottom: 0;
+}
+.features-inner {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 40px 0;
+}
+.single-features {
+  text-align: center;
+  border-right: 1px solid #eee;
+}
+@media (max-width: 991px) {
+  .single-features {
+    border-right: none;
+    margin-bottom: 30px;
+ }
+}
+.single-features .f-icon {
+  margin-bottom: 20px;
+}
+.single-features h6 {
+  font-size: 16px;
+  margin-bottom: 0;
+}
+.single-features p {
+  margin-bottom: 0;
+}
+.single-features:hover .f-icon img {
+  opacity: 0.5;
+}
+/* start features area css ============================================================================================ */
