@@ -45,6 +45,7 @@
                 <p><a href="/iti-store/home">ITI Store Home</a></p>
                 <p><a href="/iti-store/products">Our Products</a></p>
                 <p><a href="/iti-store/about">About Store</a></p>
+                <p><a href="/iti-store/feedback">Feedback</a></p>
             </div>
 
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">

@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>About Us</title>
+    <title>Feedback</title>
     <%@include file="includes/head.jsp" %>
 </head>
 
@@ -18,7 +18,7 @@
     <br>
     <br>
 
-    <h1>About Page Works</h1>
+    <h1>Feedback Page Works</h1>
 
     <br>
     <br>
