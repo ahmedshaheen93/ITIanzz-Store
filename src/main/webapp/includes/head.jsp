@@ -7,4 +7,5 @@
 <link rel="stylesheet" href="styles/font-awesome.css"/>
 <link rel="stylesheet" href="styles/main.css">
 <link rel="stylesheet" href="styles/font-awesome.css"/>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 

@@ -2,6 +2,7 @@ package eg.gov.iti.jets.repository;
 
 import eg.gov.iti.jets.model.Category;
 import eg.gov.iti.jets.model.Product;
+import eg.gov.iti.jets.model.dto.ProductSearchExampleDTO;
 
 import java.util.List;
 
@@ -30,4 +31,11 @@ public interface ProductRepository extends Crud<Product, Long> {
      * @return list<Product> between two prices
      */
     List<Product> findBetweenTwoPrices(Double price1, Double price2);
+
+    /**
+     *
+     * @param productSearchExampleDTO search by all possible data
+     * @return List<Product>
+     */
+    List<Product> findByCategoryAndMinMaxPriceAndProductName(ProductSearchExampleDTO productSearchExampleDTO);
 }

@@ -79,4 +79,5 @@
 <!-- script js -->
 <script src="scripts/app.js"></script>
 <script src="scripts/productSearch.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
