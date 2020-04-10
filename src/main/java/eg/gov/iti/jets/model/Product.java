@@ -89,7 +89,7 @@ public class Product implements Serializable {
     private Double sellPrice;
 
     @OneToOne
-    @JoinColumn(name = "IMAGE_ID", nullable = false)
+    @JoinColumn(name = "IMAGE_ID")
     private Image primaryImage;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

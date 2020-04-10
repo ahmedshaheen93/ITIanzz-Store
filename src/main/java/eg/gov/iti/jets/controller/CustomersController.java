@@ -1,8 +1,5 @@
 package eg.gov.iti.jets.controller;
 
-import eg.gov.iti.jets.model.Address;
-import eg.gov.iti.jets.model.Image;
-import eg.gov.iti.jets.model.Role;
 import eg.gov.iti.jets.model.User;
 import eg.gov.iti.jets.service.UserService;
 
@@ -12,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "customers", urlPatterns = "/customers")

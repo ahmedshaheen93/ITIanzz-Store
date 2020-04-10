@@ -15,6 +15,9 @@ import java.util.List;
 
 @WebServlet(name = "searchForProduct", urlPatterns = "/searchForProduct")
 public class SearchForProductController extends HttpServlet {
+
+    private static final long serialVersionUID = -8115366100166977771L;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String message = req.getParameter("message");

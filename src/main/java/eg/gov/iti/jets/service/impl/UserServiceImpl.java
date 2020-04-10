@@ -8,7 +8,6 @@ import eg.gov.iti.jets.repository.impl.UserRepositoryImpl;
 import eg.gov.iti.jets.service.UserService;
 
 import javax.persistence.NoResultException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
