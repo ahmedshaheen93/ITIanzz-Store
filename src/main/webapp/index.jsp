@@ -20,26 +20,34 @@
                     <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
                     <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="/iti-store/images/home/slider/slider1.jpg" class="d-block w-100" alt="...">
+                        <img src="/iti-store/images/home/slider/slider1.jpg"  class="w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>First slide label</h5>
+                            <h2>First slide label</h2>
                             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="/iti-store/images/home/slider/slider2.jpg" class="d-block w-100" alt="...">
+                        <img src="/iti-store/images/home/slider/slider2.jpg" class="w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>Second slide label</h5>
+                            <h2>Second slide label</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="/iti-store/images/home/slider/slider3.jpg" class="d-block w-100" alt="...">
+                        <img src="/iti-store/images/home/slider/slider3.jpg" class="w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>Third slide label</h5>
+                            <h2>Third slide label</h2>
+                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/iti-store/images/home/slider/slider4.jpg" class="w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h2>Third slide label</h2>
                             <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
                         </div>
                     </div>
@@ -56,29 +64,6 @@
         </div>
     </section>
 
-    <br />
-
-    <section>
-        <div class="container-fluid">
-            <div class="row home-filler align-items-end pb-5">
-                <div class="col-10 mx-auto text-white text-center">
-                    <h4 class="text-uppercase font-weight-bold">
-                        smart furniture collection
-                    </h4>
-                    <p class="text-capitalize">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit,
-                        iure?
-                    </p>
-                    <a href="#" class="text-weight-bold text-capitalize collection-link">
-                        view collection
-                    </a>
-                    <div class="collection-underline"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- end of home filler -->
-    <!-- featured section -->
     <section class="featured py-5">
         <div class="container">
             <div class="row my-3">
@@ -190,7 +175,76 @@
             </div>
         </div>
     </section>
-    <!-- end of  featured section -->
+
+    <section>
+        <div class="container-fluid">
+            <div class="row home-filler align-items-end pb-5">
+                <div class="col-10 mx-auto text-white text-center">
+                    <h4 class="text-uppercase font-weight-bold">
+                        smart furniture collection
+                    </h4>
+                    <p class="text-capitalize">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit,
+                        iure?
+                    </p>
+                    <a href="#" class="text-weight-bold text-capitalize collection-link">
+                        view collection
+                    </a>
+                    <div class="collection-underline"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- start features Area -->
+	<section class="features-area section_gap">
+		<div class="container">
+			<div class="row features-inner">
+				<!-- single features -->
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="single-features">
+						<div class="f-icon">
+							<img src="/iti-store/images/home/features/f-icon1.png" alt="">
+						</div>
+						<h6>Free Delivery</h6>
+						<p>Free Shipping on all order</p>
+					</div>
+				</div>
+				<!-- single features -->
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="single-features">
+						<div class="f-icon">
+							<img src="/iti-store/images/home/features/f-icon2.png" alt="">
+						</div>
+						<h6>Return Policy</h6>
+						<p>Free Shipping on all order</p>
+					</div>
+				</div>
+				<!-- single features -->
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="single-features">
+						<div class="f-icon">
+							<img src="/iti-store/images/home/features/f-icon3.png" alt="">
+						</div>
+						<h6>24/7 Support</h6>
+						<p>Free Shipping on all order</p>
+					</div>
+				</div>
+				<!-- single features -->
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="single-features">
+						<div class="f-icon">
+							<img src="/iti-store/images/home/features/f-icon4.png" alt="">
+						</div>
+						<h6>Secure Payment</h6>
+						<p>Free Shipping on all order</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end features Area -->
+
     <!-- modal -->
     <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
