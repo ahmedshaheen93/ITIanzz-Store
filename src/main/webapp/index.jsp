@@ -180,17 +180,20 @@
         <div class="container-fluid">
             <div class="row home-filler align-items-end pb-5">
                 <div class="col-10 mx-auto text-white text-center">
-                    <h4 class="text-uppercase font-weight-bold">
-                        smart furniture collection
-                    </h4>
+                    <h2 class="text-uppercase font-weight-bold">
+                        world class collection
+                    </h2>
                     <p class="text-capitalize">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit,
                         iure?
                     </p>
-                    <a href="#" class="text-weight-bold text-capitalize collection-link">
+                    <a href="/iti-store/products" class="text-weight-bold text-capitalize collection-link">
                         view collection
                     </a>
                     <div class="collection-underline"></div>
+                    <br>
+                    <br>
+                    <br>
                 </div>
             </div>
         </div>
