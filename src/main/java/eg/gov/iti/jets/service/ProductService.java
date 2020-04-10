@@ -3,6 +3,7 @@ package eg.gov.iti.jets.service;
 import eg.gov.iti.jets.exception.ProductQuantityLimitExceeded;
 import eg.gov.iti.jets.model.Category;
 import eg.gov.iti.jets.model.Product;
+import eg.gov.iti.jets.model.dto.ProductDto;
 import eg.gov.iti.jets.model.dto.ProductSearchExampleDTO;
 
 import java.util.List;
@@ -26,4 +27,8 @@ public interface ProductService {
     List<Product> searchByProductDTO(ProductSearchExampleDTO exampleDTO);
 
     List<Product> findAllProducts();
+
+    ProductDto findById(Long productId);
+
+    List<ProductDto> getAllProudects(List<ProductDto> productDtos);
 }

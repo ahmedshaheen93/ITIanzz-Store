@@ -151,7 +151,7 @@
 
 <footer id="footer">
     <%@include file="includes/footer.jsp" %>
-
+    <script src="scripts/product.js"></script>
 </body>
 
 </html>
