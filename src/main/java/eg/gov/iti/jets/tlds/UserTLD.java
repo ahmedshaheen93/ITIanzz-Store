@@ -32,8 +32,8 @@ public class UserTLD extends SimpleTagSupport {
                     "        </p>" +
                     "    </td>" +
                     "    <td>" +
-                    "       <a href=\"profile?id=" +  user.getUserId() +"\" class=\"label theme-bg3 text-white f-12\">edit profile</a>" +
-                    "       <a href=\"profile?id=" +  user.getUserId() +"\" class=\"label theme-bg2 text-white f-12\">view profile</a>" +
+                    "       <a href=\"update-profile?id=" +  user.getUserId() +"\" class=\"label theme-bg3 text-white f-12\">edit profile</a>" +
+                    "       <a href=\"view-profile?id=" +  user.getUserId() +"\" class=\"label theme-bg2 text-white f-12\">view profile</a>" +
                     "    </td>" +
                     "</tr>");
 

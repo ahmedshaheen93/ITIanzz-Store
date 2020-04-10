@@ -38,6 +38,14 @@ public abstract class CrudImpl<T, R> implements Crud<T, R> {
     }
 
     @Override
+    public T update(T t) {
+        entityManager.getTransaction().begin();
+        entityManager.merge(t);
+        entityManager.getTransaction().commit();
+        return t;
+    }
+
+    @Override
     public T save(T t) {
         entityManager.getTransaction().begin();
         entityManager.persist(t);

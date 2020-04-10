@@ -20,19 +20,19 @@
                             <h5 class="title">Edit Profile</h5>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form action="profile" method="post">
                                 <div class="row">
                                     <div class="col-md-5 pr-1">
                                         <div class="form-group">
                                             <label>Phone Number</label>
-                                            <input type="tel" class="form-control" placeholder="phone"
+                                            <input type="tel" name="phone" class="form-control" placeholder="phone"
                                                    value="${requestScope.user.phone}">
                                         </div>
                                     </div>
                                     <div class="col-md-7 pl-1">
                                         <div class="form-group">
                                             <label>Email address</label>
-                                            <input type="email" class="form-control" placeholder="Email"
+                                            <input type="email" name="email" class="form-control" placeholder="Email"
                                                    value="${requestScope.user.email}">
                                         </div>
                                     </div>
@@ -41,14 +41,14 @@
                                     <div class="col-md-6 pr-1">
                                         <div class="form-group">
                                             <label>First Name</label>
-                                            <input type="text" class="form-control" placeholder="Company"
+                                            <input type="text" name="firstName" class="form-control" placeholder="Company"
                                                    value="${requestScope.user.firstName}">
                                         </div>
                                     </div>
                                     <div class="col-md-6 pl-1">
                                         <div class="form-group">
                                             <label>Last Name</label>
-                                            <input type="text" class="form-control" placeholder="Last Name"
+                                            <input type="text" name="lastName" class="form-control" placeholder="Last Name"
                                                    value="${requestScope.user.lastName}">
                                         </div>
                                     </div>
@@ -58,7 +58,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Address</label>
-                                            <input type="text" class="form-control" placeholder="Home Address"
+                                            <input type="text" name="address" class="form-control" placeholder="Home Address"
                                                    value="${requestScope.user.address}">
                                         </div>
                                     </div>
@@ -68,22 +68,31 @@
                                     <div class="col-md-4 pr-1">
                                         <div class="form-group">
                                             <label>City</label>
-                                            <input type="text" class="form-control" placeholder="City"
+                                            <input type="text" name="city" class="form-control" placeholder="City"
                                                    value="${requestScope.user.address.city}">
                                         </div>
                                     </div>
                                     <div class="col-md-4 px-1">
                                         <div class="form-group">
                                             <label>Country</label>
-                                            <input type="text" class="form-control" placeholder="Country"
+                                            <input type="text" name="country" class="form-control" placeholder="Country"
                                                    value="${requestScope.user.address.country}">
                                         </div>
                                     </div>
                                     <div class="col-md-4 pl-1">
                                         <div class="form-group">
                                             <label>Postal Code</label>
-                                            <input type="text" class="form-control" placeholder="ZIP Code"
+                                            <input type="text" name="zipCode" class="form-control" placeholder="ZIP Code"
                                                    value="${requestScope.user.address.zipCode}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-11 pr-1">
+                                        <div class="form-group">
+                                            <input type="hidden" name="id" value="${requestScope.user.userId}">
+                                            <input type="submit" style="border-radius: 15px; float: right"
+                                                   class="label theme-bg3 btn text-white f-12" value="update">
                                         </div>
                                     </div>
                                 </div>
@@ -98,7 +107,7 @@
                         </div>
                         <div class="card-body">
                             <div class="author">
-                                <img class="avatar border-gray" src="images/user/avatar-1.jpg" alt="...">
+                                <img class="avatar border-gray" src="${requestScope.user.userImage.imagePath}" alt="...">
                                 <h5 class="title">${requestScope.user.firstName}  ${requestScope.user.lastName}</h5>
                                 <p class="description">
                                     ${requestScope.user.email}
