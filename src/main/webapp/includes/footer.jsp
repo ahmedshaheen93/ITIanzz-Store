@@ -43,17 +43,17 @@
                 <h6 class="text-uppercase font-weight-bold">Useful links</h6>
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                 <p><a href="/iti-store/home">ITI Store Home</a></p>
-                <p><a href="/iti-store/products">Store Products</a></p>
+                <p><a href="/iti-store/products">Our Products</a></p>
                 <p><a href="/iti-store/about">About Store</a></p>
             </div>
 
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                 <h6 class="text-uppercase font-weight-bold">Contact</h6>
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                <p><i class="fas fa-home mr-3"></i> Smart Village, ST 10012, EG</p>
+                <p><i class="fas fa-home mr-3"></i> B148, Smart Village, EG</p>
                 <p><i class="fas fa-envelope mr-3"></i> store@jets.iti.gov.eg</p>
-                <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-                <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+                <p><i class="fas fa-phone mr-3"></i> + 02 353 556 56</p>
+                <p><i class="fas fa-print mr-3"></i> + 02 353 556 56</p>
             </div>
 
         </div>

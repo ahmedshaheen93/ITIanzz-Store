@@ -22,7 +22,7 @@
   .home-filler {	
     min-height: 60vh;	
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),	
-      url("../images/home/home-filler.jpeg") center/cover fixed no-repeat;	
+      url("../images/home/home-store.jpg") center/cover fixed no-repeat;	
   }	
   .collection-link {	
     color: var(--mainYellow);	
