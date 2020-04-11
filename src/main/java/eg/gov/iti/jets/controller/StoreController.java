@@ -5,6 +5,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import eg.gov.iti.jets.model.Address;
+import eg.gov.iti.jets.model.Store;
+import eg.gov.iti.jets.service.StoreService;
+
 import java.io.IOException;
 
 @WebServlet(name = "store", urlPatterns = "/store")
@@ -20,23 +25,35 @@ public class StoreController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
-        System.out.println(req.getParameter("name"));
-        System.out.println(req.getParameter("description"));
-        System.out.println(req.getParameter("email"));
-        System.out.println(req.getParameter("phone"));
-        System.out.println(req.getParameter("fax"));
+        StoreService storeService = (StoreService) req.getServletContext().getAttribute("storeService");
+
+        Store storeInstance = storeService.getStoreInfo();
+
+        storeInstance.setStoreName(req.getParameter("name"));
+        storeInstance.setDescription(req.getParameter("description"));
+        storeInstance.setEmail(req.getParameter("email"));
+        storeInstance.setPhoneNumber(req.getParameter("phone"));
+        storeInstance.setFaxNumber(req.getParameter("fax"));
         
-        System.out.println(req.getParameter("country"));
-        System.out.println(req.getParameter("state"));
-        System.out.println(req.getParameter("city"));
-        System.out.println(req.getParameter("street"));
-        System.out.println(req.getParameter("zipcode"));
-        
-        System.out.println(req.getParameter("facebook"));
-        System.out.println(req.getParameter("twitter"));
-        System.out.println(req.getParameter("youtube"));
-        System.out.println(req.getParameter("linkedin"));
-        System.out.println(req.getParameter("instagram"));
+        Address address = new Address();
+        address.setCountry(req.getParameter("country"));
+        address.setState(req.getParameter("state"));
+        address.setCity(req.getParameter("city"));
+        address.setStreet(req.getParameter("street"));
+        address.setZipCode(req.getParameter("zipcode"));        
+        storeInstance.setAddress(address);
+
+        storeInstance.setFaceBook(req.getParameter("facebook"));
+        storeInstance.setTwitter(req.getParameter("twitter"));
+        storeInstance.setYoutube(req.getParameter("youtube"));
+        storeInstance.setLinkedin(req.getParameter("linkedin"));
+        storeInstance.setInstagram(req.getParameter("instagram"));
+
+        storeService.updateStoreInfo(storeInstance);
+
+        Store newStoreInstance = storeService.getStoreInfo();
+
+        req.getServletContext().setAttribute("storeInstance", newStoreInstance);
         
         // super.doPost(req, resp);
     }
