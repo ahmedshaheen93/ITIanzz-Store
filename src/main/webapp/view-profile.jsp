@@ -10,6 +10,9 @@
 <body>
 <header>
     <%@include file="includes/header.jsp" %>
+    <link rel="stylesheet" href="styles/profile-style.css">
+    <link href="styles/now-ui-dashboard.css?v=1.5.0" rel="stylesheet">
+    <link href="styles/demo.css" rel="stylesheet">
 </header>
 <div class="wrapper">
     <div class="content" style="width: 80%; height: 60%; margin-left: 110px">
