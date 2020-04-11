@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "viewProfile", urlPatterns = "/view-profile")
+@WebServlet(name = "view-profile", urlPatterns = "/view-profile")
 public class ViewProfileController extends HttpServlet {
 
     private static final long serialVersionUID = 864991956010951061L;
@@ -21,7 +21,16 @@ public class ViewProfileController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         UserService userService = (UserService) getServletContext().getAttribute("userService");
-        int userId = Integer.parseInt(req.getParameter("id"));
+        String userIdParam = req.getParameter("id");
+        Long userId;
+
+        if(userIdParam == null){
+            User user = (User) req.getSession().getAttribute("user");
+            userId = user.getUserId();
+        }else{
+            userId = Long.valueOf(userIdParam);
+        }
+
         try {
             User userById = userService.findUserById(userId);
             req.setAttribute("user", userById);

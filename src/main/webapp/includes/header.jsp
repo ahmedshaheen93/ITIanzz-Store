@@ -37,7 +37,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/iti-store/profile">Profile</a>
+                <a class="nav-link" href="/iti-store/view-profile">Profile</a>
             </li>
 
             <li class="nav-item">
