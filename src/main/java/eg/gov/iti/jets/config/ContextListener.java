@@ -34,6 +34,7 @@ public class ContextListener implements ServletContextListener {
         Store storeInfo = StoreServiceImpl.getInstance().getStoreInfo();
         System.out.println(storeInfo);
         context.setAttribute("storeInstance", storeInfo);
+        UserServiceImpl.getInstance().checkAdminExistence();
     }
 
     @Override
