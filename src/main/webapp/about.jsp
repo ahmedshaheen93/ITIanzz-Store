@@ -14,8 +14,8 @@
 
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4">ITI Store</h1>
-            <p class="lead">This is where you can buy ITI souvniers to remember this place and the AMAZING people you've met.</p>
+            <h1 class="display-4">${applicationScope.storeInstance.getStoreName()}</h1>
+            <p class="lead">${applicationScope.storeInstance.getDescription()}</p>
         </div>
     </div>
 
