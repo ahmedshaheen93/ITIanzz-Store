@@ -20,6 +20,8 @@ public class ProductMapper {
         for (Category category : originalCategories) {
             categories.add(category.getCategoryName());
         }
+
+        String expireDate = (product.getExpirationDate() != null) ? product.getExpirationDate().toString() : "";
         Image primaryImage = product.getPrimaryImage();
         //String imagePath = primaryImage.getImagePath(); nulllllllllllllllllll
         String imagePath = "";
@@ -31,8 +33,8 @@ public class ProductMapper {
         return new ProductDto(product.getProductId(),
                 product.getProductName(), product.getDescription(),
                 product.getManufacturingName(),
-                "",
-                ""
+                product.getManufacturingDate().toString(),
+                expireDate
                 , product.getQuantity(),
                 categories, "" + product.getSellPrice(), imagePath, images);
 

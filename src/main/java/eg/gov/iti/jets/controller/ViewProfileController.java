@@ -1,7 +1,6 @@
 package eg.gov.iti.jets.controller;
 
 import eg.gov.iti.jets.exception.UserNotFoundException;
-import eg.gov.iti.jets.model.Address;
 import eg.gov.iti.jets.model.User;
 import eg.gov.iti.jets.service.UserService;
 
