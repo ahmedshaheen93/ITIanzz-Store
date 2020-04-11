@@ -22,7 +22,7 @@ public interface UserService {
 
     Double addUserBalance(User user, Double amount) throws UserBalanceViolation;
 
-    List<User> getAllCustomerUsers();
+    List<User> findAllUsers();
 
     User findUserById(long userId) throws UserNotFoundException;
 }

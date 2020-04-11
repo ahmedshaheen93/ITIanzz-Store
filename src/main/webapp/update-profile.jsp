@@ -5,6 +5,7 @@
 <head>
     <title>profile</title>
     <%@include file="includes/head.jsp" %>
+    <link rel="stylesheet" href="styles/profile-style.css">
 </head>
 
 <body>

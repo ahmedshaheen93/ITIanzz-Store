@@ -1,5 +1,7 @@
 package eg.gov.iti.jets.controller;
 
+import eg.gov.iti.jets.exception.UserNotFoundException;
+import eg.gov.iti.jets.model.Role;
 import eg.gov.iti.jets.model.User;
 import eg.gov.iti.jets.service.UserService;
 
@@ -9,20 +11,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet(name = "customers", urlPatterns = "/customers")
-public class CustomersController extends HttpServlet {
-
-    private static final long serialVersionUID = -3360620168457699080L;
+@WebServlet(name = "make-as-admin", urlPatterns = {"/make-as-admin"})
+public class MakeAsAdminController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         UserService userService = (UserService) getServletContext().getAttribute("userService");
-        List<User> allUsers = userService.findAllUsers();
-        req.setAttribute("users", allUsers);
-        req.getRequestDispatcher("customers.jsp").include(req,resp);
+        int id = Integer.parseInt(req.getParameter("id"));
+        try {
+            User user = userService.findUserById(id);
+            user.setRole(Role.ADMIN_ROLE);
+            userService.update(user);
+        } catch (UserNotFoundException e) {
+            e.printStackTrace();
+        }
+        resp.sendRedirect("customers");
     }
 
     @Override

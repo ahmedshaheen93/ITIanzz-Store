@@ -10,6 +10,7 @@
 <body>
 <header>
     <%@include file="includes/header.jsp" %>
+    <link rel="stylesheet" href="styles/profile-style.css">
 </header>
 <div class="wrapper">
     <div class="content" style="width: 80%; height: 60%; margin-left: 110px">
