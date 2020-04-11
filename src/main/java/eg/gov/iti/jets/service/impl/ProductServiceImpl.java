@@ -1,5 +1,6 @@
 package eg.gov.iti.jets.service.impl;
 
+import eg.gov.iti.jets.controller.ProductsController;
 import eg.gov.iti.jets.exception.ProductQuantityLimitExceeded;
 import eg.gov.iti.jets.model.Category;
 import eg.gov.iti.jets.model.Product;
@@ -13,6 +14,7 @@ import eg.gov.iti.jets.utilty.ProductMapper;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.logging.Logger;
 
 public class ProductServiceImpl implements ProductService {
 
@@ -56,7 +58,6 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> findAllProducts() {
         return productRepository.findAll();
     }
-
     @Override
     public ProductDto findById(Long productId) {
         ProductDto productDto = null;
@@ -66,19 +67,22 @@ public class ProductServiceImpl implements ProductService {
         }
         return productDto;
     }
-
     @Override
     public List<ProductDto> getAllProudects(List<ProductDto> productDtos) {
+        Logger logger
+                = Logger.getLogger(ProductServiceImpl.class.getName());
         List<ProductDto> productDtoSet = new ArrayList<>();
+        System.out.println("in the getAllProudects method");
+        logger.info("in the getAllProudects method");
         for (ProductDto productDto : productDtos) {
-            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-            System.out.println(productDto);
-            System.out.println(productDto.getProductId());
-
-
+            logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            logger.info(productDto.getProductId()+"");
             Product byId = productRepository.findById(productDto.getProductId());
-            System.out.println(byId);
-//            productDtoSet.add(byId);
+            ProductDto mapedProductDto = ProductMapper.mapToProductDto(byId);
+            logger.info("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<BID>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+byId);
+            logger.info("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<mapper>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+mapedProductDto);
+
+            productDtoSet.add(mapedProductDto);
         }
         return productDtoSet;
     }

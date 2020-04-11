@@ -17,7 +17,7 @@
         <div class="col-8">
             <section id="cart_items">
                 <div class="table-responsive cart_info">
-                    <table class="table table-condensed">
+                    <table class="table table-condensed" id="myTable">
                         <thead>
                         <tr class="cart_menu">
                             <td class="image">Item</td>
@@ -29,7 +29,6 @@
                         </tr>
                         </thead>
                         <tbody>
-
                         <tr class="rem1">
                             <td class="cart_product">
                                 <a href=""><img src="images/cart/one.png" alt=""></a>

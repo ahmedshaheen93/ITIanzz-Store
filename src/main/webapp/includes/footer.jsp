@@ -81,5 +81,5 @@
 <!-- script js -->
 <script src="scripts/app.js"></script>
 <script src="scripts/productSearch.js"></script>
-<script src="scripts/cart.js"></script>
+<%--<script src="scripts/cart.js"></script>--%>
 
