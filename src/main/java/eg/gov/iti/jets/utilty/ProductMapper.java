@@ -21,7 +21,8 @@ public class ProductMapper {
             categories.add(category.getCategoryName());
         }
         Image primaryImage = product.getPrimaryImage();
-        String imagePath = primaryImage.getImagePath();
+        //String imagePath = primaryImage.getImagePath(); nulllllllllllllllllll
+        String imagePath = "";
         Set<Image> originalImages = product.getImages();
         Set<String> images = new HashSet<>(0);
         for (Image image : originalImages) {
