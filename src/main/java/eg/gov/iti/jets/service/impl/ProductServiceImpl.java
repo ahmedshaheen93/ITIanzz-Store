@@ -1,6 +1,5 @@
 package eg.gov.iti.jets.service.impl;
 
-import eg.gov.iti.jets.controller.ProductsController;
 import eg.gov.iti.jets.exception.ProductQuantityLimitExceeded;
 import eg.gov.iti.jets.model.Category;
 import eg.gov.iti.jets.model.Product;
