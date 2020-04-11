@@ -27,32 +27,6 @@ public class ProductsController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        Product product = new Product();
-//        product.setProductName("Korsy");
-//        product.setSellPrice(5600d);
-//        Image image = new Image();
-//        image.setImagePath("images/home/img-products/product-7.png");
-//        product.setPrimaryImage(image);
-//
-//        List<Product> productList = new ArrayList<>();
-//        productList.add(product);
-//        productList.add(product);
-//        productList.add(product);
-//        productList.add(product);
-//        productList.add(product);
-//        productList.add(product);
-//
-//
-//        Category category = new Category("category1");
-//        category.setCategoryId(1l);
-//        Category category1 = new Category("category2");
-//        category1.setCategoryId(2l);
-//        Category category2 = new Category("category3");
-//        category2.setCategoryId(3l);
-//        Category category3 = new Category("category4");
-//        category3.setCategoryId(4l);
-
-
         ProductService productService = (ProductService) getServletContext().getAttribute("productService");
         List<Product> allProducts = productService.findAllProducts();
         CategoryService categoryService =
