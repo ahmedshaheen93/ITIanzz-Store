@@ -18,7 +18,6 @@ public class LoginController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         req.getRequestDispatcher("login.jsp").include(req, resp);
     }
 
@@ -27,7 +26,7 @@ public class LoginController extends HttpServlet {
         UserService userService = (UserService) getServletContext().getAttribute("userService");
         String email = req.getParameter("email");
         String password = req.getParameter("password");
-        System.out.println("email="+email +" password="+password);
+        System.out.println("email=" + email + " password=" + password);
         try {
             if (email != null && password != null) {
                 User user = userService.login(email, password);

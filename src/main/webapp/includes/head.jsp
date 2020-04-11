@@ -6,8 +6,10 @@
 <link rel="stylesheet" href="styles/main.css">
 <link rel="stylesheet" href="styles/font-awesome.css"/>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-<%--<link href="styles/customers-style.css" rel="stylesheet">--%>
-<%--<link href="styles/now-ui-dashboard.css?v=1.5.0" rel="stylesheet">--%>
-<%--<link href="styles/demo.css" rel="stylesheet">--%>
-<%--<link href="styles/profile-style.css" rel="stylesheet">--%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ page import="eg.gov.iti.jets.model.Role" %>

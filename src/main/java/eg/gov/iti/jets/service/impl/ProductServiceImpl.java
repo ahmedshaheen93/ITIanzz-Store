@@ -1,6 +1,5 @@
 package eg.gov.iti.jets.service.impl;
 
-import eg.gov.iti.jets.controller.ProductsController;
 import eg.gov.iti.jets.exception.ProductQuantityLimitExceeded;
 import eg.gov.iti.jets.model.Category;
 import eg.gov.iti.jets.model.Product;
@@ -58,15 +57,13 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> findAllProducts() {
         return productRepository.findAll();
     }
+
     @Override
-    public ProductDto findById(Long productId) {
-        ProductDto productDto = null;
-        Product product = productRepository.findById(productId);
-        if (product != null) {
-            productDto = ProductMapper.mapToProductDto(product);
-        }
-        return productDto;
+    public Product findById(Long productId) {
+        return productRepository.findById(productId);
+
     }
+
     @Override
     public List<ProductDto> getAllProudects(List<ProductDto> productDtos) {
         Logger logger
@@ -76,11 +73,12 @@ public class ProductServiceImpl implements ProductService {
         logger.info("in the getAllProudects method");
         for (ProductDto productDto : productDtos) {
             logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-            logger.info(productDto.getProductId()+"");
+            logger.info(productDto.getProductId() + "");
             Product byId = productRepository.findById(productDto.getProductId());
             ProductDto mapedProductDto = ProductMapper.mapToProductDto(byId);
-            logger.info("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<BID>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+byId);
-            logger.info("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<mapper>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+mapedProductDto);
+            mapedProductDto.setQuantity(productDto.getQuantity());
+            logger.info("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<BID>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + byId);
+            logger.info("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<mapper>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + mapedProductDto);
 
             productDtoSet.add(mapedProductDto);
         }

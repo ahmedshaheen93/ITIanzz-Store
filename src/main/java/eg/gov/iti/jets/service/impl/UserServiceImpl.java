@@ -2,12 +2,16 @@ package eg.gov.iti.jets.service.impl;
 
 import eg.gov.iti.jets.exception.UserBalanceViolation;
 import eg.gov.iti.jets.exception.UserNotFoundException;
+import eg.gov.iti.jets.model.Address;
+import eg.gov.iti.jets.model.Role;
 import eg.gov.iti.jets.model.User;
 import eg.gov.iti.jets.repository.UserRepository;
 import eg.gov.iti.jets.repository.impl.UserRepositoryImpl;
 import eg.gov.iti.jets.service.UserService;
 
 import javax.persistence.NoResultException;
+
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
@@ -79,4 +83,31 @@ public class UserServiceImpl implements UserService {
         }
         return user;
     }
+
+    @Override
+	public void checkAdminExistence() {
+        List<User> allAdmins = userRepository.findALlAdminUsers();
+        if (allAdmins.size() < 1) {
+            User user = new User();
+            user.setFirstName("Default");
+            user.setLastName("Admin");
+            user.setEmail("admin@store.com");
+            user.setPassword("admin");
+            user.setRole(Role.ADMIN_ROLE);
+            user.setBirthDate(LocalDate.now());
+            user.setBalance(0.0);
+            user.setPhone("+ 02 353 556 56");
+            user.setUserImage(null);
+
+            Address address = new Address();
+            address.setCountry("Egypt");
+            address.setState("Cairo");
+            address.setCity("6 October");
+            address.setStreet("1st Street");
+            address.setZipCode("12345");        
+            user.setAddress(address);
+            
+            userRepository.save(user);
+        }
+	}
 }

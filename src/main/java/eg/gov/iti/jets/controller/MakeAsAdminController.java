@@ -15,6 +15,8 @@ import java.io.IOException;
 @WebServlet(name = "make-as-admin", urlPatterns = {"/make-as-admin"})
 public class MakeAsAdminController extends HttpServlet {
 
+    private static final long serialVersionUID = -9136948782924948631L;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
