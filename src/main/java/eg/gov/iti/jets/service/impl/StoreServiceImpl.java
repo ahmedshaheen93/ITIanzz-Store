@@ -11,10 +11,10 @@ public class StoreServiceImpl implements StoreService {
 
     private static StoreServiceImpl instance;
 
-    StoreRepositoryImpl feedbackRepository;
+    StoreRepositoryImpl storeRepository;
 
     protected StoreServiceImpl() {
-        this.feedbackRepository = StoreRepositoryImpl.getInstance();
+        this.storeRepository = StoreRepositoryImpl.getInstance();
     }
 
     public static synchronized StoreServiceImpl getInstance() {
@@ -24,12 +24,12 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     public Store getStoreInfo() {
-        return null;
+        return storeRepository.getStoreInfo();
     }
 
     @Override
     public void updateStoreInfo(Store store) {
-
+        storeRepository.updateStoreInfo(store);
     }
     
 }
