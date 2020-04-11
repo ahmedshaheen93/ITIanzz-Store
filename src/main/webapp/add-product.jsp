@@ -12,102 +12,115 @@
     <title>Add new Product</title>
     <%@ include file="includes/head.jsp"%>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
+<style>
+.thumbnail{
+    height: 100px;
+    margin: 10px;
+}
+</style>
 </head>
+
 
 <body>
 <header>
     <%@include file="includes/header.jsp"%>
+    <link rel="stylesheet" href="styles/profile-style.css">
+    <link href="styles/now-ui-dashboard.css?v=1.5.0" rel="stylesheet">
+    <link href="styles/demo.css" rel="stylesheet">
 </header>
-<form class="container">
-    <div class="row">
-        <label class="col control-label" for="productName">PRODUCT NAME</label>
-        <div class="col">
-            <input id="productName" name="productName" placeholder="PRODUCT NAME" class="form-control"  type="text" required>
-        </div>
-        <label class="col control-label" for="productManufacture">PRODUCT MANUFACTURE</label>
-        <div class="col">
-            <input id="productManufacture" name="productManufacture" placeholder="PRODUCT MANUFACTURE" class="form-control"  type="text" required>
-        </div>
-    </div>
-
-    <!-- Select Basic -->
-    <div class="row">
-
-        <label class="col control-label" for="manufacturingDatepicker">PRODUCT MANUFACTURING DATE</label>
-        <div class="col">
-            <input class="form-control input-md" type="text"  placeholder="PRODUCT MANUFACTURING DATE" id="manufacturingDatepicker" required>
-        </div>
-        <label class="col control-label" for="expiretionDatepicker">PRODUCT EXPIRATION DATE</label>
-        <div class="col">
-            <input class="form-control input-md" type="text" placeholder="PRODUCT EXPIRATION DATE" id="expiretionDatepicker" required>
-        </div>
-    </div>
-
-
-    <!-- Text input-->
-    <div class="row">
-        <label class="col control-label " for="product_categorie">PRODUCT CATEGORY</label>
-        <div class="col">
-            <select id="product_categorie" name="product_categorie" class="form-control">
-                <c:if test="${!empty requestScope.allCategories}">
-                    <c:forEach items="${requestScope.allCategories}" var="cat">
-                        <option>${cat.categoryName}</option>
-                    </c:forEach>
-                </c:if>
-            </select>
-        </div>
-        <label class="col control-label" for="availableQuantity">AVAILABLE QUANTITY</label>
-        <div class="col">
-            <input id="availableQuantity" name="availableQuantity" placeholder="AVAILABLE QUANTITY" class="form-control input-md"  type="text" required>
-        </div>
-
-    </div>
-
-    <!-- Text input-->
-    <div class="row">
-        <label class="col control-label" for="productBUYPrice">PRODUCT BUY PRICE</label>
-        <div class="col">
-            <input type="text" class="form-control" id="productBUYPrice" name="productBUYPrice"/>
-        </div>
-        <label class="col control-label" for="productSellPrice">PRODUCT SELL PRICE</label>
-        <div class="col">
-            <input type="text" class="form-control" id="productSellPrice" name="productSellPrice"/>
-        </div>
-    </div>
-
-    <div class="container">
+<div class="wrapper">
+    <div class="content" style="width: 80%; height: 60%; margin-left: 110px">
         <div class="row">
-            <div class="col">
-                <label class="control-label" for="imgInp">MAIN IMAGE</label>
-                <input type='file' id="imgInp" class="input-file" accept="image/*"/>
-            </div>
-            <div class="col">
-                <label class="control-label" for="filebuttonAuxiliary">auxiliary_images</label>
-                <input type='file' id="filebuttonAuxiliary" class="input-file" accept="image/*" multiple/>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="title">Add Product</h5>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <label class="col control-label" for="productName">PRODUCT NAME</label>
+                                <div class="col">
+                                    <input id="productName" name="productName" placeholder="PRODUCT NAME" class="form-control"  type="text" required>
+                                </div>
+                                <label class="col control-label" for="productManufacture">PRODUCT MANUFACTURE</label>
+                                <div class="col">
+                                    <input id="productManufacture" name="productManufacture" placeholder="PRODUCT MANUFACTURE" class="form-control"  type="text" required>
+                                </div>
+                            </div>
+
+                            <!-- Select Basic -->
+                            <div class="row">
+
+                                <label class="col control-label" for="manufacturingDatepicker">PRODUCT MANUFACTURING DATE</label>
+                                <div class="col">
+                                    <input class="form-control input-md" type="text"  placeholder="PRODUCT MANUFACTURING DATE" id="manufacturingDatepicker" required>
+                                </div>
+                                <label class="col control-label" for="expiretionDatepicker">PRODUCT EXPIRATION DATE</label>
+                                <div class="col">
+                                    <input class="form-control input-md" type="text" placeholder="PRODUCT EXPIRATION DATE" id="expiretionDatepicker" required>
+                                </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="row">
+                                <label class="col control-label " for="product_categorie">PRODUCT CATEGORY</label>
+                                <div class="col">
+                                    <select id="product_categorie" name="product_categorie" class="form-control">
+                                        <c:if test="${!empty requestScope.allCategories}">
+                                            <c:forEach items="${requestScope.allCategories}" var="cat">
+                                                <option>${cat.categoryName}</option>
+                                            </c:forEach>
+                                        </c:if>
+                                    </select>
+                                </div>
+                                <label class="col control-label" for="availableQuantity">AVAILABLE QUANTITY</label>
+                                <div class="col">
+                                    <input id="availableQuantity" name="availableQuantity" placeholder="AVAILABLE QUANTITY" class="form-control input-md"  type="text" required>
+                                </div>
+
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="row">
+                                <label class="col control-label" for="productBUYPrice">PRODUCT BUY PRICE</label>
+                                <div class="col">
+                                    <input type="text" class="form-control" id="productBUYPrice" name="productBUYPrice"/>
+                                </div>
+                                <label class="col control-label" for="productSellPrice">PRODUCT SELL PRICE</label>
+                                <div class="col">
+                                    <input type="text" class="form-control" id="productSellPrice" name="productSellPrice"/>
+                                </div>
+                            </div>
+
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <article>
+                                            <label class="control-label" for="files">MAIN IMAGE</label>
+                                            <input type='file' id="files" class="input-file" accept="image/*" multiple/>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Button -->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="singlebutton">Single Button</label>
+                                <div class="col-md-4">
+                                    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Button</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-                <img id="main_image" src="#" alt="your image"height="300px" width="100%" />
-            </div>
-            <div class="col">
-                <img id="auxiliary_images" src="#" alt="your image"height="300px" width="100%"/>
-            </div>
-        </div>
+        <div class="row" id="result"></div>
     </div>
+</div>
 
 
 
-
-    <!-- Button -->
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="singlebutton">Single Button</label>
-        <div class="col-md-4">
-            <button id="singlebutton" name="singlebutton" class="btn btn-primary">Button</button>
-        </div>
-    </div>
-</form>
 <footer>
     <%@include file="includes/footer.jsp"%>
 </footer>
