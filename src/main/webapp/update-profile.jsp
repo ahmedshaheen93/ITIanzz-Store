@@ -6,6 +6,8 @@
     <title>profile</title>
     <%@include file="includes/head.jsp" %>
     <link rel="stylesheet" href="styles/profile-style.css">
+    <link href="styles/now-ui-dashboard.css?v=1.5.0" rel="stylesheet">
+    <link href="styles/demo.css" rel="stylesheet">
 </head>
 
 <body>

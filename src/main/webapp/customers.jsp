@@ -13,6 +13,8 @@
     <header>
         <%@include file="includes/header.jsp" %>
         <link rel="stylesheet" href="styles/customers-style.css">
+        <link href="styles/now-ui-dashboard.css?v=1.5.0" rel="stylesheet">
+        <link href="styles/demo.css" rel="stylesheet">
     </header>
 <div class="customers">
     <div class="col-xl-8 col-md-6" style="margin-left: 280px;">
