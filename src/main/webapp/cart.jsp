@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +15,10 @@
 </header>
 <div class="container">
     <div class="row">
-        <div class="col-8">
+        <c:if test="${requestScope.errorMessage}">
+            <p style="color: red;">${requestScope.errorMessage}</p>
+        </c:if>
+        <div class="col-8" id="cart">
             <section id="cart_items">
                 <div class="table-responsive cart_info">
                     <table class="table table-condensed" id="myTable">
@@ -35,6 +39,9 @@
                 </div>
             </section> <!--/#cart_items-->
         </div>
+        <div class="col-4" id="response">
+            <p id="response_message">dummy message</p>
+        </div>
         <div class="col-4">
             <section id="do_action">
                 <div class="total_area cart_items">
@@ -43,8 +50,8 @@
                         <li>Shipping Cost <span>Free</span></li>
                         <li>Total <span id="allCartTotalAfterShipping">0</span></li>
                     </ul>
-                    <a class="btn btn-default update" href="">Update</a>
-                    <a class="btn btn-default check_out" href="">Check Out</a>
+                    <a class="btn btn-default update">Remove All</a>
+                    <a class="btn btn-default check_out">Check Out</a>
                 </div>
             </section>
         </div>

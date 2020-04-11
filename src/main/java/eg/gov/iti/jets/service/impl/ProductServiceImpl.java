@@ -59,13 +59,9 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductDto findById(Long productId) {
-        ProductDto productDto = null;
-        Product product = productRepository.findById(productId);
-        if (product != null) {
-            productDto = ProductMapper.mapToProductDto(product);
-        }
-        return productDto;
+    public Product findById(Long productId) {
+        return productRepository.findById(productId);
+
     }
 
     @Override

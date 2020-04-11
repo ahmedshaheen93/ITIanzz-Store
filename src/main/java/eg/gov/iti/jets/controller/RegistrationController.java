@@ -1,16 +1,15 @@
 package eg.gov.iti.jets.controller;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import eg.gov.iti.jets.model.Address;
 import eg.gov.iti.jets.model.Role;
 import eg.gov.iti.jets.model.User;
 import eg.gov.iti.jets.service.UserService;
 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDate;
 
@@ -46,6 +45,6 @@ public class RegistrationController extends HttpServlet {
         UserService userService = (UserService) req.getServletContext().getAttribute("userService");
         userService.update(user);
 
-        resp.sendRedirect("login.jsp");
+        resp.sendRedirect("/iti-store/login");
     }
 }
