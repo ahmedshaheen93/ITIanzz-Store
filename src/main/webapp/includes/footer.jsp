@@ -10,11 +10,11 @@
                 </div>
 
                 <div class="col-md-6 col-lg-7 text-center text-md-right">
-                    <a class="fb-ic"><i class="fab fa-facebook-f white-text mr-4"></i></a>
-                    <a class="tw-ic"><i class="fab fa-twitter white-text mr-4"></i></a>
-                    <a class="gplus-ic"><i class="fab fa-google-plus-g white-text mr-4"></i></a>
-                    <a class="li-ic"><i class="fab fa-linkedin-in white-text mr-4"></i></a>
-                    <a class="ins-ic"><i class="fab fa-instagram white-text"></i></a>
+                    <a href="${applicationScope.storeInstance.getFaceBook()}" class="fb-ic"><i class="fab fa-facebook-f white-text mr-4"></i></a>
+                    <a href="${applicationScope.storeInstance.getTwitter()}" class="tw-ic"><i class="fab fa-twitter white-text mr-4"></i></a>
+                    <a href="${applicationScope.storeInstance.getYoutube()}" class="gplus-ic"><i class="fab fa-google-plus-g white-text mr-4"></i></a>
+                    <a href="${applicationScope.storeInstance.getLinkedin()}" class="li-ic"><i class="fab fa-linkedin-in white-text mr-4"></i></a>
+                    <a href="${applicationScope.storeInstance.getInstagram()}" class="ins-ic"><i class="fab fa-instagram white-text"></i></a>
                 </div>
 
             </div>
@@ -26,35 +26,36 @@
         <div class="row mt-3">
 
             <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                <h6 class="text-uppercase font-weight-bold">ITI Store</h6>
+                <h6 class="text-uppercase font-weight-bold">${applicationScope.storeInstance.getStoreName()}</h6>
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                <p>ITI store is a place for all ITIans where you can buy ITI gifts and souvniers to remember this place and the AMAZING people you've met.</p>
+                <p>${applicationScope.storeInstance.getDescription()}</p>
             </div>
 
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                 <h6 class="text-uppercase font-weight-bold">Products</h6>
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                <p><a href="#!">MDWordPress</a></p>
-                <p><a href="#!">BrandFlow</a></p>
-                <p><a href="#!">Bootstrap Angular</a></p>
+                <p><a href="#!">Link 1</a></p>
+                <p><a href="#!">Link 2</a></p>
+                <p><a href="#!">Link 3</a></p>
+                <p><a href="#!">Link 4</a></p>
             </div>
 
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                 <h6 class="text-uppercase font-weight-bold">Useful links</h6>
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                <p><a href="/iti-store/home">ITI Store Home</a></p>
-                <p><a href="/iti-store/products">Our Products</a></p>
-                <p><a href="/iti-store/about">About Store</a></p>
-                <p><a href="/iti-store/feedback">Feedback</a></p>
+                <p><a href="/iti-store/home"> Store Home</a></p>
+                <p><a href="/iti-store/products"> Our Products</a></p>
+                <p><a href="/iti-store/about"> About Store</a></p>
+                <p><a href="/iti-store/feedback"> Feedback</a></p>
             </div>
 
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                 <h6 class="text-uppercase font-weight-bold">Contact</h6>
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                <p><i class="fas fa-home mr-3"></i> B148, Smart Village, EG</p>
-                <p><i class="fas fa-envelope mr-3"></i> store@jets.iti.gov.eg</p>
-                <p><i class="fas fa-phone mr-3"></i> + 02 353 556 56</p>
-                <p><i class="fas fa-print mr-3"></i> + 02 353 556 56</p>
+                <p><i class="fas fa-home mr-3"></i> ${applicationScope.storeInstance.getAddress().getCountry()}, ${applicationScope.storeInstance.getAddress().getCity()}</p>
+                <p><i class="fas fa-envelope mr-3"></i> ${applicationScope.storeInstance.getEmail()}</p>
+                <p><i class="fas fa-phone mr-3"></i> ${applicationScope.storeInstance.getPhoneNumber()}</p>
+                <p><i class="fas fa-print mr-3"></i> ${applicationScope.storeInstance.getFaxNumber()}</p>
             </div>
 
         </div>

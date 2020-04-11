@@ -1,5 +1,6 @@
 package eg.gov.iti.jets.config;
 
+import eg.gov.iti.jets.model.Store;
 import eg.gov.iti.jets.service.impl.CategoryServiceImpl;
 import eg.gov.iti.jets.service.impl.FeedbackServiceImpl;
 import eg.gov.iti.jets.service.impl.OrderServiceImpl;
@@ -24,12 +25,15 @@ public class ContextListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         ServletContext context = sce.getServletContext();
-        context.setAttribute("userService", UserServiceImpl.getInstance());
         context.setAttribute("storeService", StoreServiceImpl.getInstance());
+        context.setAttribute("userService", UserServiceImpl.getInstance());
         context.setAttribute("productService", ProductServiceImpl.getInstance());
         context.setAttribute("orderService", OrderServiceImpl.getInstance());
         context.setAttribute("categoryService", CategoryServiceImpl.getInstance());
         context.setAttribute("feedbackService", FeedbackServiceImpl.getInstance());
+        Store storeInfo = StoreServiceImpl.getInstance().getStoreInfo();
+        System.out.println(storeInfo);
+        context.setAttribute("storeInstance", storeInfo);
     }
 
     @Override

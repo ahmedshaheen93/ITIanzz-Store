@@ -14,60 +14,69 @@
 
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4">ITI Store</h1>
-            <p class="lead">This is where you can buy ITI souvniers to remember this place and the AMAZING people you've
-                met.</p>
+            <h1 class="display-4">Registration</h1>
+            <p class="lead">Join our wide and vibrant community of customers, and find the products you've been looking for.</p>
         </div>
     </div>
 
-    <br>
-
     <div class="container">
-        <form>
+        <form method="POST">
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4">
+                    <label for="userfirstname">First name</label>
+                    <input name="firstname" type="text" class="form-control" id="userfirstname" required>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputPassword4">Password</label>
-                    <input type="password" class="form-control" id="inputPassword4">
+                    <label for="userlastname">Last name</label>
+                    <input name="lastname" type="text" class="form-control" id="userlastname" required>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="inputAddress">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-            </div>
-            <div class="form-group">
-                <label for="inputAddress2">Address 2</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity">
+                    <label for="useremail">Email</label>
+                    <input name="email" type="email" class="form-control" id="useremail" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="userpassword">Password</label>
+                    <input name="password" type="password" class="form-control" id="userpassword" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="userphone">Phone number</label>
+                    <input name="phone" type="text" class="form-control" id="userphone" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="userbirthdate">Birth date</label>
+                <input name="birthdate" type="date" class="form-control" id="userbirthdate" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="usercountry">Country</label>
+                    <input name="country" type="text" class="form-control" id="usercountry" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="userstate">State</label>
+                    <input name="state" type="text" class="form-control" id="userstate" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="usercity">City</label>
+                    <input name="city" type="text" class="form-control" id="usercity" required>
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="inputState">State</label>
-                    <select id="inputState" class="form-control">
-                        <option selected>Choose...</option>
-                        <option>...</option>
-                    </select>
+                    <label for="userstreet">Street</label>
+                    <input name="street" type="text" class="form-control" id="userstreet" required>
                 </div>
-                <div class="form-group col-md-2">
-                    <label for="inputZip">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
+                <div class="form-group col-md-4">
+                    <label for="userzipcode">Zip Code</label>
+                    <input name="zipcode" type="text" class="form-control" id="userzipcode" required>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        Check me out
-                    </label>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
+            
+            <button type="submit" class="btn btn-primary">Register</button>
         </form>
     </div>
 

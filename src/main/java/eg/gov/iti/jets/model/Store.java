@@ -16,7 +16,7 @@ public class Store implements Serializable {
     private Long storeId;
 
     @OneToOne
-    @JoinColumn(name = "IMAGE_ID", nullable = false)
+    @JoinColumn(name = "IMAGE_ID")
     private Image logo;
 
     @Column(name = "STORE_NAME", nullable = false)
@@ -178,6 +178,14 @@ public class Store implements Serializable {
 
     public void setInstagram(String instagram) {
         this.instagram = instagram;
+    }
+
+    @Override
+    public String toString() {
+        return "Store [address=" + address + ", description=" + description + ", email=" + email + ", faceBook="
+                + faceBook + ", faxNumber=" + faxNumber + ", instagram=" + instagram + ", linkedin=" + linkedin
+                + ", logo=" + logo + ", phoneNumber=" + phoneNumber + ", storeId=" + storeId + ", storeName="
+                + storeName + ", twitter=" + twitter + ", youtube=" + youtube + "]";
     }
 
 }
