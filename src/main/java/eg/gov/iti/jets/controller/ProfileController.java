@@ -3,11 +3,13 @@ package eg.gov.iti.jets.controller;
 import eg.gov.iti.jets.model.User;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+@WebServlet(name = "profile", urlPatterns = {"/profile"})
 public class ProfileController extends HttpServlet {
 
     @Override
