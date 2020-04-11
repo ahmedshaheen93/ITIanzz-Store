@@ -17,18 +17,6 @@ $(document).ready(function () {
 
     $(".addToCart").on('click', function (event) {
         var productId = event.target.id;
-        // private Long productId;
-        // private String productName;
-        // private String description;
-        // private String manufacturingName;
-        // private LocalDate manufacturingDate;
-        // private LocalDate expirationDate;
-        // private int quantity;
-        // private Set<Category> categories = new HashSet<>(0);
-        // private Double price;
-        // private String primaryImage;
-        // private Set<String> images = new HashSet<>(0);
-
         var product = {
             productId: productId, productName: "", description: "",
             manufacturingName: "", manufacturingDate: "",

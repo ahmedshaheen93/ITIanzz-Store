@@ -33,7 +33,7 @@ public class ProductMapper {
                 product.getManufacturingName(),
                 "",
                 ""
-                , product.getQuantity(),
+                , 1,
                 categories, "" + product.getSellPrice(), imagePath, images);
 
     }
