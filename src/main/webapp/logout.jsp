@@ -15,7 +15,7 @@
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h1 class="display-4">Comeback</h1>
-            <p class="lead">And don't miss out seeing all the new fabulous souvenirs you can buy.</p>
+            <p class="lead">And don't miss out seeing all the new fabulous products you can buy.</p>
         </div>
     </div>
 

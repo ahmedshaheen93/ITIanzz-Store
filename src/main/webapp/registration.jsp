@@ -14,9 +14,8 @@
 
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4">ITI Store</h1>
-            <p class="lead">This is where you can buy ITI souvniers to remember this place and the AMAZING people you've
-                met.</p>
+            <h1 class="display-4">Registration</h1>
+            <p class="lead">Join our wide and vibrant community of customers, and find the products you've been looking for.</p>
         </div>
     </div>
 
