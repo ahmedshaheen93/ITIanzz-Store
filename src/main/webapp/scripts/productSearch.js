@@ -82,7 +82,7 @@ $(document).ready(
                     "                            </div>\n" +
                     "                            <h6 class=\"text-capitalize text-center my-2\">" + product.productName + "</h6>\n" +
                     "                            <h6 class=\"text-center\">\n" +
-                    "                                <span>$ " + product.sellPrice + "</span>\n" +
+                    "                                <span>$ " + product.price + "</span>\n" +
                     "                            </h6>\n" +
                     "                        </div>"
                 $("#allProducts").append(proDiv);
