@@ -1,6 +1,6 @@
 package eg.gov.iti.jets.tlds;
 
-import eg.gov.iti.jets.model.Product;
+import eg.gov.iti.jets.model.dto.ProductDto;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
@@ -8,13 +8,13 @@ import javax.servlet.jsp.tagext.SimpleTagSupport;
 import java.io.IOException;
 
 public class ProductTLD extends SimpleTagSupport {
-    Product product;
+    ProductDto product;
 
-    public Product getProduct() {
+    public ProductDto getProduct() {
         return product;
     }
 
-    public void setProduct(Product product) {
+    public void setProduct(ProductDto product) {
         this.product = product;
     }
 
@@ -42,7 +42,7 @@ public class ProductTLD extends SimpleTagSupport {
         try {
             out.println("<div class=\"mx-auto col-md-6 col-lg-4\">");
             out.println("<div class=\"featured-container p-5\">");
-            out.println("<img src=\"" + "images/home/img-products/product-7.png" + "\" class=\"img-fluid\" alt=\"product\" />");
+            out.println("<img src=\"" + product.getPrimaryImage() + "\" class=\"img-fluid\" alt=\"product\" />");
             out.println("<span class=\"featured-search-icon\" data-toggle=\"modal\" data-target=\"#productModal\">");
             out.println("<i class=\"fas fa-search\"></i>");
             out.println("</span>");
@@ -50,7 +50,7 @@ public class ProductTLD extends SimpleTagSupport {
             out.println("</div>");
             out.println("<h6 class=\"text-capitalize text-center my-2\">" + product.getProductName() + "</h6>");
             out.println("<h6 class=\"text-center\">");
-            out.println("<span>$" + product.getSellPrice() + "</span>");
+            out.println("<span>$" + product.getPrice() + "</span>");
             out.println("</h6>");
             out.println("</div>");
 

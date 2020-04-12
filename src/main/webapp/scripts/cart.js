@@ -59,7 +59,7 @@ $(document).ready(function () {
         data.forEach(row => {
             var insertedRow = `<tr class="rem1">
                             <td class="cart_product">
-                                <a href=""><img src="images/cart/one.png" alt=""></a>
+                                <a href=""><img src="${product.primaryImage}" alt=""></a>
                             </td>
                             <td class="cart_description">
                                 <h4><a href="">${row.productName}</a></h4>

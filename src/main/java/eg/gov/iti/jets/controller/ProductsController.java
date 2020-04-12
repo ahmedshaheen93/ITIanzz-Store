@@ -7,6 +7,7 @@ import eg.gov.iti.jets.model.Product;
 import eg.gov.iti.jets.model.dto.ProductDto;
 import eg.gov.iti.jets.service.CategoryService;
 import eg.gov.iti.jets.service.ProductService;
+import eg.gov.iti.jets.utilty.ProductMapper;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,7 +33,11 @@ public class ProductsController extends HttpServlet {
         CategoryService categoryService =
                 (CategoryService) getServletContext().getAttribute("categoryService");
         List<Category> categoryList = categoryService.getAllCategories();
-        req.setAttribute("products", allProducts);
+        List<ProductDto> allProductDtos = new ArrayList<>();
+        for (Product product : allProducts) {
+            allProductDtos.add(ProductMapper.mapToProductDto(product));
+        }
+        req.setAttribute("products", allProductDtos);
         req.setAttribute("categories", categoryList);
         req.getRequestDispatcher("products.jsp").include(req, resp);
 
@@ -46,17 +51,18 @@ public class ProductsController extends HttpServlet {
 
         String productsPar = req.getParameter("products");
         logger.info("productsPar =>>>" + productsPar);
-            if (productsPar != null) {
-            Type listType = new TypeToken<ArrayList<ProductDto>>() {}.getType();
+        if (productsPar != null) {
+            Type listType = new TypeToken<ArrayList<ProductDto>>() {
+            }.getType();
             List<ProductDto> productDtos = new Gson().fromJson(productsPar, listType);
-            logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+productDtos);
+            logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + productDtos);
             ProductService productService = (ProductService) getServletContext().getAttribute("productService");
 
             List<ProductDto> allProudects = productService.getAllProudects(productDtos);
             logger.info("list ==============================" + allProudects);
 
 
-           // List<User> yourClassList = new Gson().fromJson(new FileReader("Listson.json"), listType);
+            // List<User> yourClassList = new Gson().fromJson(new FileReader("Listson.json"), listType);
             //System.out.println(Arrays.asList(yourClassList));
             String json = new Gson().toJson(allProudects);
             //System.out.println("=================================================");

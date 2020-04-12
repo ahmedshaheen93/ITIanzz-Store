@@ -84,4 +84,9 @@ public class ProductServiceImpl implements ProductService {
         }
         return productDtoSet;
     }
+
+    @Override
+    public Product addNewProduct(Product product) {
+        return productRepository.save(product);
+    }
 }

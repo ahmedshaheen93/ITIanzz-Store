@@ -74,7 +74,7 @@ $(document).ready(
                 // product.primaryImage.imagePath
                 var proDiv = "<div class=\"mx-auto col-md-6 col-lg-4\">\n" +
                     "                            <div class=\"featured-container p-5\">\n" +
-                    "                                <img src=\"" + "images/home/img-products/product-7.png" + "\" class=\"img-fluid\" alt=\"product\" />\n" +
+                    "                                <img src=\"" + product.primaryImage + "\" class=\"img-fluid\" alt=\"product\" />\n" +
                     "                                <span class=\"featured-search-icon\" data-toggle=\"modal\" data-target=\"#productModal\">\n" +
                     "                                     <i class=\"fas fa-search\"></i>\n" +
                     "                                 </span>\n" +

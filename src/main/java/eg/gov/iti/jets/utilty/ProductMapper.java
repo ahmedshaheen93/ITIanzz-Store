@@ -24,7 +24,7 @@ public class ProductMapper {
         String expireDate = (product.getExpirationDate() != null) ? product.getExpirationDate().toString() : "";
         Image primaryImage = product.getPrimaryImage();
         //String imagePath = primaryImage.getImagePath(); nulllllllllllllllllll
-        String imagePath = "";
+        String imagePath = "/iti-store/images?imageId=" + primaryImage.getImageId();
         Set<Image> originalImages = product.getImages();
         Set<String> images = new HashSet<>(0);
         for (Image image : originalImages) {
@@ -39,4 +39,6 @@ public class ProductMapper {
                 categories, "" + product.getSellPrice(), imagePath, images);
 
     }
+
+
 }

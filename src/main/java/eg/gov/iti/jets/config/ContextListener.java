@@ -1,12 +1,7 @@
 package eg.gov.iti.jets.config;
 
 import eg.gov.iti.jets.model.Store;
-import eg.gov.iti.jets.service.impl.CategoryServiceImpl;
-import eg.gov.iti.jets.service.impl.FeedbackServiceImpl;
-import eg.gov.iti.jets.service.impl.OrderServiceImpl;
-import eg.gov.iti.jets.service.impl.ProductServiceImpl;
-import eg.gov.iti.jets.service.impl.StoreServiceImpl;
-import eg.gov.iti.jets.service.impl.UserServiceImpl;
+import eg.gov.iti.jets.service.impl.*;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -31,6 +26,7 @@ public class ContextListener implements ServletContextListener {
         context.setAttribute("orderService", OrderServiceImpl.getInstance());
         context.setAttribute("categoryService", CategoryServiceImpl.getInstance());
         context.setAttribute("feedbackService", FeedbackServiceImpl.getInstance());
+        context.setAttribute("imageService", ImageServiceImpl.getInstance());
         Store storeInfo = StoreServiceImpl.getInstance().getStoreInfo();
         System.out.println(storeInfo);
         context.setAttribute("storeInstance", storeInfo);

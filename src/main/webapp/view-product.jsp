@@ -26,20 +26,26 @@
 
                     <!--Slides-->
                     <div class="carousel-inner text-center text-md-left" role="listbox">
-                        <c:forEach items="${requestScope.product.images}" var="image" varStatus="counter">
-                            <c:choose>
-                                <c:when test="${counter.count == 1}">
-                                    <div class="carousel-item active">
-                                        <img src="${image}" class="img-fluid" style="width: 576px; height: auto">
-                                    </div>
-                                </c:when>
-                                <c:otherwise>
-                                    <div class="carousel-item">
-                                        <img src="${image}" class="img-fluid" style="width: 576px; height: auto">
-                                    </div>
-                                </c:otherwise>
-                            </c:choose>
-                        </c:forEach>
+                        <%--                        <c:forEach items="${requestScope.product.images}" var="image" varStatus="counter">--%>
+                        <%--                            <c:choose>--%>
+                        <%--                                <c:when test="${counter.count == 1}">--%>
+                        <%--                                    <div class="carousel-item active">--%>
+                        <%--                                        <img src="${image}" class="img-fluid" style="width: 576px; height: auto">--%>
+                        <%--                                    </div>--%>
+                        <%--                                </c:when>--%>
+                        <%--                                <c:otherwise>--%>
+                        <%--                                    <div class="carousel-item">--%>
+                        <%--                                        <img src="${image}" class="img-fluid" style="width: 576px; height: auto">--%>
+                        <%--                                    </div>--%>
+                        <%--                                </c:otherwise>--%>
+                        <%--                            </c:choose>--%>
+                        <%--                        </c:forEach>--%>
+                        <c:if test="${!empty requestScope.product}">
+                            <div class="carousel-item active">
+                                <img src="${requestScope.product.primaryImage}" class="img-fluid"
+                                     style="width: 576px; height: auto">
+                            </div>
+                        </c:if>
                     </div>
                     <!--/.Slides-->
 

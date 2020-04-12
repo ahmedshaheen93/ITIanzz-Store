@@ -31,4 +31,6 @@ public interface ProductService {
     Product findById(Long productId);
 
     List<ProductDto> getAllProudects(List<ProductDto> productDtos);
+
+    Product addNewProduct(Product product);
 }
