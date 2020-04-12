@@ -134,11 +134,13 @@
                                             <!-- Default input -->
                                             <input type="number" value="1" aria-label="Search" class="form-control"
                                                    style="width: 100px">
-                                            <button class="btn btn-primary btn-md my-0 p" type="submit"
-                                                    style="border-radius: 20px">
-                                                Add to cart
-                                                <i class="fas fa-shopping-cart ml-1"></i>
-                                            </button>
+                                            <c:if test="${!empty requestScope.product}">
+                                                <a class="btn btn-primary btn-md my-0 p addToCart"  id="${requestScope.product.productId}" type="button"
+                                                        style="border-radius: 20px">
+                                                    Add to cart
+                                                    <i class="fas fa-shopping-cart ml-1"></i>
+                                                </a>
+                                            </c:if>
                                         </form>
                                     </div>
                                 </div>
@@ -156,6 +158,6 @@
 </section>
 
 <%@include file="includes/footer.jsp" %>
-
+<script src="scripts/product.js"></script>
 </body>
 </html>

@@ -80,6 +80,7 @@
                                         <c:if test="${!empty requestScope.allCategories}">
                                             <c:forEach items="${requestScope.allCategories}" var="cat">
                                                 <option>${cat.categoryName}</option>
+                                                <input name="categoryId" value="${cat.categoryId}" hidden/>
                                             </c:forEach>
                                         </c:if>
                                     </select>

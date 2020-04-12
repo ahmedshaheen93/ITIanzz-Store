@@ -16,7 +16,9 @@ $(document).ready(function () {
     }
 
     $(".addToCart").on('click', function (event) {
+        console.log("in the method")
         var productId = event.target.id;
+        console.log(productId)
         var product = {
             productId: productId, productName: "", description: "",
             manufacturingName: "", manufacturingDate: "",
@@ -28,6 +30,7 @@ $(document).ready(function () {
             images: []
         }
         var allProducts = get_AllProducts();
+        console.log(allProducts)
         let found = false;
         allProducts.forEach(i => {
             if (i.productId === product.productId) {
