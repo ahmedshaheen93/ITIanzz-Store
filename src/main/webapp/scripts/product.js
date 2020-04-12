@@ -15,7 +15,8 @@ $(document).ready(function () {
         return allProducts;
     }
 
-    $(".addToCart").on('click', function (event) {
+    var addToCart = function(event){
+
         var productId = event.target.id;
         var product = {
             productId: productId, productName: "", description: "",
@@ -38,6 +39,7 @@ $(document).ready(function () {
             allProducts.push(product);
         }
         localStorage.setItem('products', JSON.stringify(allProducts));
+    };
 
-    });
+    $(".addToCart").on('click',(event) => addToCart(event));
 });

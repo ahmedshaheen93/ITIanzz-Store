@@ -132,9 +132,11 @@
                                     <div class="col-md-12 text-center text-md-left text-md-right">
                                         <form class="d-flex justify-content-center">
                                             <!-- Default input -->
-                                            <input type="number" value="1" aria-label="Search" class="form-control"
+                                            <input type="number" min="1" max="${requestScope.product.quantity}"
+                                                   value="1" aria-label="Search" class="form-control"
                                                    style="width: 100px">
-                                            <button class="btn btn-primary btn-md my-0 p" type="submit"
+                                            <button id="${requestScope.product.productId}"
+                                                    class="addToCart btn btn-primary btn-md my-0 p" type="button"
                                                     style="border-radius: 20px">
                                                 Add to cart
                                                 <i class="fas fa-shopping-cart ml-1"></i>
@@ -156,6 +158,7 @@
 </section>
 
 <%@include file="includes/footer.jsp" %>
+<script src="scripts/product.js"></script>
 
 </body>
 </html>
