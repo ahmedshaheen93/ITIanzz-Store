@@ -79,8 +79,7 @@
                                     <select id="categories" name="categories" class="form-control">
                                         <c:if test="${!empty requestScope.allCategories}">
                                             <c:forEach items="${requestScope.allCategories}" var="cat">
-                                                <option>${cat.categoryName}</option>
-                                                <input name="categoryId" value="${cat.categoryId}" hidden/>
+                                                <option value="${cat.categoryId}">${cat.categoryName}</option>
                                             </c:forEach>
                                         </c:if>
                                     </select>
@@ -124,8 +123,11 @@
                             </div>
                             <!-- Button -->
                             <div class="form-group">
-                                <div class="col-md-4">
+                                <div class="col">
                                     <button type="submit" class="btn btn-primary submit">add product</button>
+                                    <i type="button" class="btn btn-primary submit eatured-search-icon" data-toggle="modal" data-target="#productModal">
+                                        add Category
+                                    </i>
                                 </div>
                             </div>
                         </form>
@@ -138,6 +140,36 @@
 </div>
 
 
+<!-- Add Category Modal -->
+<div class="modal fade" id="productModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <!-- modal header -->
+            <div class="modal-header">
+                <h5 class="modal-title text-capitalize">Add category</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--end of  modal header -->
+            <!-- modal body -->
+            <div class="modal-body">
+                <div class="row">
+                    <label for="categoryName" class="col control-label">Add Category</label>
+                    <div class="col">
+                        <input aria-invalid="categoryName" type="text" name="categoryName" class="form-control" id="categoryName">
+                    </div>
+
+                </div>
+            </div>
+            <!-- end modal body -->
+            <div class="modal-footer">
+                <button class="btn btn-danger my-2 mx-2 addCatgry" data-dismiss="modal" >add Category</button>
+               <%-- <button type="button" class="btn btn-danger " data-dismiss="modal">close modal</button>--%>
+            </div>
+        </div>
+    </div>
+</div>
 <footer>
     <%@include file="includes/footer.jsp" %>
 </footer>

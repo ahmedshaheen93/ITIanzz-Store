@@ -8,7 +8,7 @@ import eg.gov.iti.jets.service.CategoryService;
 import java.util.List;
 import java.util.Objects;
 
-public class CategoryServiceImpl implements CategoryService {
+public class  CategoryServiceImpl implements CategoryService {
     private static CategoryServiceImpl instance;
     CategoryRepository categoryRepository;
 
@@ -29,5 +29,10 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public Category getCategoryById(Long id) {
         return categoryRepository.findById(id);
+    }
+
+    @Override
+    public Category addCategory(Category category) {
+        return categoryRepository.save(category);
     }
 }

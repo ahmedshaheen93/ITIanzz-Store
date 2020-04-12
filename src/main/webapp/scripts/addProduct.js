@@ -33,6 +33,31 @@ $(document).ready(function () {
     } else {
         console.log("Your browser does not support File API");
     }
+    $(document).on('click', '.addCatgry', function () {
+        var newCategoryName = $("#categoryName").val();
+
+        $.ajax({
+             url: "newCategory",
+             type: "POST",
+             dataType: "JSON",
+             data: {"newCat": newCategoryName},
+            statusCode: {
+                200: function (data) {
+                    console.log(data);
+                    $('#categories').append(`<option value="${data.categoryId}"> 
+                                       ${data.categoryName} 
+                                  </option>`);
+                },
+                460: function () {
+                    console.log("error")
+                },
+                500: function () {
+                    alert("leh ya rb m 5k2tny4 m3za");
+                }
+
+            }
+         });
+    });
 
     // $(document).on('click', '.submit', function () {
     //     let myForm = document.getElementById('addProductForm');

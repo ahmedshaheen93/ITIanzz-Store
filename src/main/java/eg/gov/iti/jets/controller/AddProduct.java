@@ -44,8 +44,7 @@ public class AddProduct extends HttpServlet {
         String quantity = (String) req.getParameter("quantity");
         String buyPrice = (String) req.getParameter("buyPrice");
         String sellPrice = (String) req.getParameter("sellPrice");
-        String categories = (String) req.getParameter("categories");
-        String categoryId = (String) req.getParameter("categoryId");
+        String categoryId = (String) req.getParameter("categories");
         Part images = req.getPart("images");
         System.out.println(productName);
         System.out.println(description);
