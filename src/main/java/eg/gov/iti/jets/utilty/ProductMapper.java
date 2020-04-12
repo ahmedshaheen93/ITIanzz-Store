@@ -24,11 +24,14 @@ public class ProductMapper {
         String expireDate = (product.getExpirationDate() != null) ? product.getExpirationDate().toString() : "";
         Image primaryImage = product.getPrimaryImage();
         //String imagePath = primaryImage.getImagePath(); nulllllllllllllllllll
-        String imagePath = "/iti-store/images?imageId=" + primaryImage.getImageId();
+        String imagePath = "";
+        if(primaryImage != null)
+            imagePath = "/iti-store/images?imageId=" + primaryImage.getImageId();
+
         Set<Image> originalImages = product.getImages();
         Set<String> images = new HashSet<>(0);
         for (Image image : originalImages) {
-            images.add(image.getImagePath());
+            images.add("/iti-store/images?imageId=" + image.getImageId());
         }
         return new ProductDto(product.getProductId(),
                 product.getProductName(), product.getDescription(),
