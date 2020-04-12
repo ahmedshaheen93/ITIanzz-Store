@@ -33,6 +33,28 @@ $(document).ready(function () {
     } else {
         console.log("Your browser does not support File API");
     }
+    $(document).on('blur' , '.exDate' , function () {
+        var exDate = new Date($('#expiretionDatepicker').datepicker('getDate'));
+        exDate.setHours(0,0,0,0);
+        var today = new Date();
+        today.setHours(0,0,0,0);
+        if (today > exDate || new Date($('#manufacturingDatepicker').datepicker('getDate') > exDate))
+            $("#expiretionDateValidationError").text("Error : invalid expiration date");
+        else
+            $("#expiretionDateValidationError").text("");
+    });
+
+    $(document).on('blur' , '.manDate' , function () {
+        var manDate = new Date($('#manufacturingDatepicker').datepicker('getDate'));
+        manDate.setHours(0,0,0,0);
+        var today = new Date();
+        today.setHours(0,0,0,0);
+        if (today < manDate || new Date($('#expiretionDatepicker').datepicker('getDate') < manDate))
+            $("#manufacturingDateValidationError").text("Error : invalid manufacturing date");
+        else
+            $("#manufacturingDateValidationError").text("");
+    });
+
     $(document).on('click', '.addCatgry', function () {
         var newCategoryName = $("#categoryName").val();
 

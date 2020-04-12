@@ -59,17 +59,19 @@
                                 <label class="col control-label" for="manufacturingDatepicker">Product Manufacturing
                                     Date</label>
                                 <div class="col">
-                                    <input class="form-control input-md" type="text"
+                                    <input class="form-control input-md manDate" type="text"
                                            placeholder="Product Manufacturing Date" id="manufacturingDatepicker"
-                                           required name="manufacturingDate">
+                                           required name="manufacturingDate"><br/>
+                                    <label id="manufacturingDateValidationError"></label>
                                 </div>
-                                <label class="col control-label" for="expiretionDatepicker">Product Expiration
-                                    Date</label>
+                                <label class="col control-label" for="expiretionDatepicker">Product Expiration Date</label>
                                 <div class="col">
-                                    <input class="form-control input-md" type="text"
+                                    <input class="form-control input-md exDate" type="text"
                                            name="expirationDate" placeholder="Product Expiration Date"
-                                           id="expiretionDatepicker" required>
+                                           id="expiretionDatepicker" required><br>
+                                    <label id="expiretionDateValidationError"></label>
                                 </div>
+
                             </div>
 
                             <!-- Text input-->
