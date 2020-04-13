@@ -187,6 +187,77 @@
                 </div>
                 <!-- End Product Review card    -->
 
+                <!-- Product Review card-->
+                <div class="row">
+                    <div class="card text-center mx-5 mt-1">
+                        <div class="row no-gutters">
+                            <div class="col-md-4  m-auto ">
+                                <img src="images/products/man-one.jpg" alt="" class="align-bottom">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Amr ELbaz</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Product Review card    -->
+                <!-- Product Review card-->
+                <div class="row">
+                    <div class="card text-center mx-5 mt-1">
+                        <div class="row no-gutters">
+                            <div class="col-md-4  m-auto ">
+                                <img src="images/products/man-one.jpg" alt="" class="align-bottom">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Amr ELbaz</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Product Review card    --><!-- Product Review card-->
+                <div class="row">
+                    <div class="card text-center mx-5 mt-1">
+                        <div class="row no-gutters">
+                            <div class="col-md-4  m-auto ">
+                                <img src="images/products/man-one.jpg" alt="" class="align-bottom">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Amr ELbaz</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Product Review card    --><!-- Product Review card-->
+                <div class="row">
+                    <div class="card text-center mx-5 mt-1">
+                        <div class="row no-gutters">
+                            <div class="col-md-4  m-auto ">
+                                <img src="images/products/man-one.jpg" alt="" class="align-bottom">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Amr ELbaz</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Product Review card    -->
+
             </c:when>
             <c:otherwise>
                 <h2>product not found !!</h2>
