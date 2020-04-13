@@ -15,6 +15,7 @@ public class ProductDto {
     private String price;
     private String primaryImage;
     private Set<String> images = new HashSet<>(0);
+    private Set<ReviewDto> reviews = new HashSet<>(0);
 
     public ProductDto(Long productId, String productName, String description, String manufacturingName, String manufacturingDate, String expirationDate, int quantity, Set<String> categories, String price, String primaryImage, Set<String> images) {
         this.productId = productId;
@@ -116,6 +117,14 @@ public class ProductDto {
 
     public void setImages(Set<String> images) {
         this.images = images;
+    }
+
+    public Set<ReviewDto> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(Set<ReviewDto> reviews) {
+        this.reviews = reviews;
     }
 
     @Override

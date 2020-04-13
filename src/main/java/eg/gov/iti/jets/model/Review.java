@@ -1,25 +1,23 @@
 package eg.gov.iti.jets.model;
 
-import oracle.jdbc.driver.DatabaseError;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "REVIEWS")
-@NamedQueries(@NamedQuery(name = "Review.findByProduct" , query = "select r from Review r where r.product = :product"))
+@NamedQueries(@NamedQuery(name = "Review.findByProduct", query = "select r from Review r where r.product = :product"))
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "REVIEW_ID", nullable = false)
     private Long reviewId;
 
-   @ManyToOne(fetch = FetchType.LAZY,
-           cascade = {CascadeType.DETACH,
-           CascadeType.MERGE,
-           CascadeType.PERSIST,
-           CascadeType.REFRESH})
-   @JoinColumn(name = "USER_ID")
+    @ManyToOne(fetch = FetchType.LAZY,
+            cascade = {CascadeType.DETACH,
+                    CascadeType.MERGE,
+                    CascadeType.PERSIST,
+                    CascadeType.REFRESH})
+    @JoinColumn(name = "USER_ID")
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY,
@@ -27,19 +25,22 @@ public class Review {
                     CascadeType.MERGE,
                     CascadeType.PERSIST,
                     CascadeType.REFRESH})
-    @JoinColumn(name = "PRODUCT_ID" , nullable = false)
+    @JoinColumn(name = "PRODUCT_ID", nullable = false)
     private Product product;
 
-    @Column(name = "REVIEW_MESSAGE" , nullable = false)
+    @Column(name = "REVIEW_MESSAGE", nullable = false)
     private String reviewMessage;
 
-    @Column(name = "REVIEW_MESSAGE_DATE" , nullable = false)
+    @Column(name = "REVIEW_MESSAGE_DATE", nullable = false)
     private LocalDateTime reviewMessageTime;
 
-    @Column(name = "REVIEW_STARS" , nullable = false)
+    @Column(name = "REVIEW_STARS", nullable = false)
     private int reviewStars;
 
-    public Review(User user , Product product , String reviewMessage , LocalDateTime reviewMessageTime , int reviewStars) {
+    public Review() {
+    }
+
+    public Review(User user, Product product, String reviewMessage, LocalDateTime reviewMessageTime, int reviewStars) {
         this.user = user;
         this.product = product;
         this.reviewMessage = reviewMessage;
