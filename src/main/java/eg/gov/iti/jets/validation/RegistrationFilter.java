@@ -54,9 +54,12 @@ public class RegistrationFilter implements Filter {
     }
 
     private boolean validateEmail(String email, ServletContext context) {
-
         boolean validate = validate(email, "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+        return (validate && checkIfEmailIsUnique(email, context));
+    }
+
+    private boolean checkIfEmailIsUnique(String email, ServletContext context) {
         UserService userService = (UserService) context.getAttribute("userService");
         User user = null;
         try {
@@ -64,7 +67,7 @@ public class RegistrationFilter implements Filter {
         } catch (NoResultException e) {
             e.printStackTrace();
         }
-        return (validate && user == null);
+        return (user == null);
     }
 
     private boolean validatePhone(String phone) {
