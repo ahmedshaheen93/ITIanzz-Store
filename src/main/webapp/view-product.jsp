@@ -6,12 +6,12 @@
 <head>
     <title>product</title>
     <%@include file="includes/head.jsp" %>
-    <link rel="stylesheet" href="https://mdbootstrap.com/previews/templates/e-commerce/css/mdb.min.css">
 </head>
 
 <body class="product-v1 hidden-sn white-skin animated">
 <header>
     <%@include file="includes/header.jsp" %>
+    <link rel="stylesheet" href="https://mdbootstrap.com/previews/templates/e-commerce/css/mdb.min.css">
 </header>
 
 <section id="productDetails" class="pb-5" style="width: 80%; margin-left: 100px">

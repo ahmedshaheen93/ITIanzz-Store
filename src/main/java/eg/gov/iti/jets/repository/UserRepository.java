@@ -21,7 +21,7 @@ public interface UserRepository extends Crud<User, Long> {
      * @return
      */
 
-    User findByEmail(String email);
+    User findByEmail(String email) throws NoResultException;
 
     /**
      * check if the user has enough balance or not

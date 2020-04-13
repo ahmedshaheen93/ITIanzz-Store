@@ -4,6 +4,7 @@ import eg.gov.iti.jets.exception.UserBalanceViolation;
 import eg.gov.iti.jets.exception.UserNotFoundException;
 import eg.gov.iti.jets.model.User;
 
+import javax.persistence.NoResultException;
 import java.util.List;
 
 public interface UserService {
@@ -27,4 +28,6 @@ public interface UserService {
     User findUserById(long userId) throws UserNotFoundException;
 
     void checkAdminExistence();
+
+    User findByEmail(String email) throws NoResultException;
 }

@@ -110,4 +110,15 @@ public class UserServiceImpl implements UserService {
             userRepository.save(user);
         }
 	}
+
+    @Override
+    public User findByEmail(String email) throws NoResultException{
+        User user = null;
+        try {
+            user = userRepository.findByEmail(email);
+        } catch (NoResultException e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
 }

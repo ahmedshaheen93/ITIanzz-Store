@@ -30,7 +30,7 @@ public class UserRepositoryImpl extends CrudImpl<User, Long> implements UserRepo
     }
 
     @Override
-    public User findByEmail(String email) {
+    public User findByEmail(String email) throws NoResultException {
         return (User) getEntityManager().createNamedQuery("User.findByEmail")
                 .setParameter("email", email).getSingleResult();
     }

@@ -21,6 +21,9 @@
 
     <div class="container">
         <form method="POST">
+            <c:if test="${!empty param['invalid']}">
+                <h4 style="-webkit-text-fill-color: red">invalid inputs!!</h4>
+            </c:if>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="userfirstname">First name</label>
