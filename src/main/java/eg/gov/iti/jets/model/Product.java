@@ -95,6 +95,9 @@ public class Product implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Image> images;
 
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "product")
+    private Set<Review> reviews = new HashSet<>(0);
+
     public Product() {
     }
 
@@ -188,6 +191,18 @@ public class Product implements Serializable {
                     return images;
                 }
         );
+    }
+
+    public Set<Review> getReviews() {
+        return reviews;
+    }
+
+    public void addReview(Review review) {
+        if (reviews == null) {
+            this.reviews = new HashSet<>(0);
+        }
+        reviews.add(review);
+        review.setProduct(this);
     }
 
     @Override

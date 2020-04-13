@@ -17,11 +17,11 @@
 <section id="productDetails" class="pb-5" style="width: 80%; margin-left: 100px">
     <!--News card-->
     <div class="card mt-5 hoverable">
-        <div class="row mt-5">
-            <c:choose>
-                <c:when test="${!empty requestScope.product}">
-                    <div class="col-lg-6">
 
+        <c:choose>
+            <c:when test="${!empty requestScope.product}">
+                <div class="row mt-5">
+                    <div class="col-lg-6">
                         <!--Carousel Wrapper-->
                         <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails" data-ride="carousel">
 
@@ -29,11 +29,11 @@
                             <div class="carousel-inner text-center text-md-left" role="listbox">
                                 <div class="carousel-item active">
                                     <img src="${requestScope.product.primaryImage}" class="img-fluid"
-                                         style="width: 576px; height: auto">
+                                         style="width: 500px; height: 500px">
                                 </div>
                                 <c:forEach items="${requestScope.product.images}" var="image">
                                     <div class="carousel-item">
-                                        <img src="${image}" class="img-fluid" style="width: 576px; height: auto">
+                                        <img src="${image}" class="img-fluid" style="width: 500px; height: 500px">
                                     </div>
                                 </c:forEach>
                             </div>
@@ -62,11 +62,10 @@
                           class="badge badge-danger product mb-4 ml-xl-0 ml-4">${category}</span>
                         </c:forEach>
                         <h3 class="h3-responsive text-center text-md-left mb-5 ml-xl-0 ml-4">
-              <span class="red-text font-weight-bold">
-                <strong>${requestScope.product.price}$</strong>
-              </span>
+                          <span class="red-text font-weight-bold">
+                            <strong>${requestScope.product.price}$</strong>
+                          </span>
                         </h3>
-
                         <!--Accordion wrapper-->
                         <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
 
@@ -147,13 +146,52 @@
                             </div>
                         </section>
                         <!-- /.Add to Cart -->
+
                     </div>
-                </c:when>
-                <c:otherwise>
-                    <h2>product not found !!</h2>
-                </c:otherwise>
-            </c:choose>
-        </div>
+                </div>
+                <!-- Product Review card-->
+                <div class="row">
+                    <div class="card text-center mx-5 mt-1">
+                        <div class="row no-gutters">
+                            <div class="col-md-4  m-auto ">
+                                <img src="images/products/man-one.jpg" alt="" class="align-bottom">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Amr ELbaz</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Product Review card    -->
+
+                <!-- Product Review card-->
+                <div class="row">
+                    <div class="card text-center mx-5 mt-1">
+                        <div class="row no-gutters">
+                            <div class="col-md-4  m-auto ">
+                                <img src="images/products/man-one.jpg" alt="" class="align-bottom">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Amr ELbaz</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Product Review card    -->
+
+            </c:when>
+            <c:otherwise>
+                <h2>product not found !!</h2>
+            </c:otherwise>
+        </c:choose>
     </div>
 </section>
 

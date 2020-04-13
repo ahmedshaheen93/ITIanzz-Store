@@ -22,7 +22,7 @@ public class OrderRepositoryImpl extends CrudImpl<Order, Long> implements OrderR
     @Override
     public Order createOrder(Order order, User user, Set<Purchase> purchaseSet) {
         getEntityManager().getTransaction().begin();
-        user.add(order);
+        user.addOrder(order);
         getEntityManager().persist(order);
         System.out.println(user);
         purchaseSet.forEach(purchase -> {

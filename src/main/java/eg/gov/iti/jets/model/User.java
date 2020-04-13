@@ -96,7 +96,11 @@ public class User implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
     private Set<Order> orders = new HashSet<>(0);
-    ;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
+    private Set<Review> reviews = new HashSet<>(0);
+
+
 
     public User() {
     }
@@ -235,11 +239,24 @@ public class User implements Serializable {
                 '}';
     }
 
-    public void add(Order order) {
+    public void addOrder(Order order) {
         if (orders == null) {
             this.orders = new HashSet<>(0);
         }
         orders.add(order);
         order.setUser(this);
+    }
+
+
+
+    public Set<Review> getReviews() {
+        return reviews;
+    }
+    public void addReview(Review review) {
+        if (reviews == null) {
+            this.reviews = new HashSet<>(0);
+        }
+        reviews.add(review);
+        review.setUser(this);
     }
 }
