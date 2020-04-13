@@ -23,7 +23,7 @@ $(document).ready(function () {
         console.log("==========" + json);
         $.ajax({
             type: "POST",
-            url: "products",
+                url: "products",
             dataType: "JSON",
             data: {products: json},
             statusCode: {
@@ -56,24 +56,24 @@ $(document).ready(function () {
 
 
     function displayData(data) {
-        data.forEach(row => {
+        data.forEach(product => {
             var insertedRow = `<tr class="rem1">
                             <td class="cart_product">
-                                <a href=""><img src="${product.primaryImage}" alt=""></a>
+                                <a href=""><img src="${product.primaryImage}" style="max-width: 50px; max-height: 50px" alt=""></a>
                             </td>
                             <td class="cart_description">
-                                <h4><a href="">${row.productName}</a></h4>
-                                <p>Web ID: <span class="productId">${row.productId}</span></p>
+                                <h4><a href="">${product.productName}</a></h4>
+                                <p>Web ID: <span class="productId">${product.productId}</span></p>
                             </td>
                             <td class="cart_price">
-                                <p>${row.price}</p>
+                                <p>${product.price}</p>
                             </td>
                             <td class="cart_quantity">
                                 <div class="cart_quantity_button">
                                     <div class="value-minus">
                                         <a class="cart_quantity_down"> - </a>
                                     </div>
-                                    <div class="entry value"><span>${row.quantity}</span></div>
+                                    <div class="entry value"><span>${product.quantity}</span></div>
                                     <div class="value-plus">
                                         <a class="cart_quantity_up"> + </a>
                                     </div>
@@ -82,7 +82,7 @@ $(document).ready(function () {
                             <td class="cart_total">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <p class="cart_total_price totalPrice">${row.price * row.quantity}</p>
+                                        <p class="cart_total_price totalPrice">${product.price * product.quantity}</p>
                                     </div>
                                     <div class="col-md-4">
                                          <span class="cart_total_price">&#36;</span>

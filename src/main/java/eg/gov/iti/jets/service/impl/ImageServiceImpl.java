@@ -8,8 +8,7 @@ import eg.gov.iti.jets.service.ImageService;
 import javax.servlet.http.Part;
 import java.io.File;
 import java.io.IOException;
-import java.util.Collection;
-import java.util.Objects;
+import java.util.*;
 
 public class ImageServiceImpl implements ImageService {
     private static ImageServiceImpl instance;
@@ -29,7 +28,7 @@ public class ImageServiceImpl implements ImageService {
     }
 
     @Override
-    public Image saveImage(String path, Collection<Part> parts) throws IOException {
+    public Set<Image> saveImage(String path, Collection<Part> parts) throws IOException {
 //        String userHomeDir = System.getProperty("user.home");
 //        String path = userHomeDir + File.separator + "Code.java";
 //        String uploadPath = "/tmp/upload";
@@ -37,23 +36,30 @@ public class ImageServiceImpl implements ImageService {
         if (!uploadDir.exists()) {
             uploadDir.mkdir();
         }
-        String fileName = "file" + System.currentTimeMillis();
-        String savePath = fileName;
 
+        Map<String , String> savedPaths = new HashMap<>(0);
         for (Part part : parts) {
+            String fileName =null;
+            String savePath = null;
             fileName = getFileName(part);
-            System.out.println(fileName);
-            savePath = path + File.separator + fileName;
-            part.write(savePath);
+            if (fileName != null) {
+                System.out.println(fileName);
+                savePath = path + File.separator + fileName;
+                part.write(savePath);
+                savedPaths.put(fileName , savePath);
+            }
         }
-        Image image = new Image();
-        image.setImageName(fileName);
-        image.setImagePath(savePath);
-        image.setImageType("jpg");
-        return imageRepository.save(image);
-//        image.setImageType();
+        Set<Image> images = new HashSet<>(0);
+        savedPaths.forEach((key, value) -> {
+            Image image = new Image();
+            image.setImageName(key);
+            image.setImagePath(value);
+            image.setImageType("jpg");
+            image = imageRepository.save(image);
+            images.add(image);
+        });
 
-//        FileInfo fileInfo = new FileInfo(fileName, uploadPath + File.separator + fileName);
+        return images;
 
     }
 
@@ -62,6 +68,6 @@ public class ImageServiceImpl implements ImageService {
             if (content.trim().startsWith("filename"))
                 return content.substring(content.indexOf("=") + 2, content.length() - 1);
         }
-        return "file" + System.currentTimeMillis();
+        return null;
     }
 }

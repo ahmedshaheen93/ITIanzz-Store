@@ -18,13 +18,15 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Set;
 
 @MultipartConfig(maxFileSize = 1024 * 1024 * 2)
 @WebServlet(name = "addProduct", urlPatterns = "/addProduct")
 public class AddProduct extends HttpServlet {
+    CategoryService categoryService;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        CategoryService categoryService = (CategoryService) getServletContext().getAttribute("categoryService");
+        categoryService = (CategoryService) getServletContext().getAttribute("categoryService");
         List<Category> allCategories = categoryService.getAllCategories();
         req.setAttribute("allCategories", allCategories);
         req.setAttribute("product", new Product());
@@ -33,8 +35,7 @@ public class AddProduct extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-
+        categoryService = (CategoryService) getServletContext().getAttribute("categoryService");
         String productName = (String) req.getParameter("productName");
         String description = (String) req.getParameter("description");
         String manufacturingName = (String) req.getParameter("manufacturingName");
@@ -43,9 +44,8 @@ public class AddProduct extends HttpServlet {
         String quantity = (String) req.getParameter("quantity");
         String buyPrice = (String) req.getParameter("buyPrice");
         String sellPrice = (String) req.getParameter("sellPrice");
-
+        String categoryId = (String) req.getParameter("categories");
         Part images = req.getPart("images");
-
         System.out.println(productName);
         System.out.println(description);
         System.out.println(manufacturingName);
@@ -54,32 +54,33 @@ public class AddProduct extends HttpServlet {
         System.out.println(quantity);
         System.out.println(images);
         Product product = new Product();
+        Category categoryById = categoryService.getCategoryById(Long.parseLong(categoryId));
+
         //todo validation
         //@noura
         ImageService imageService = (ImageService) getServletContext().getAttribute("imageService");
         String userHomeDir = System.getProperty("user.home") + "/iti-store/images";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 
-        Image image = imageService.saveImage(userHomeDir, req.getParts());
+        Set<Image> allImages = imageService.saveImage(userHomeDir, req.getParts());
         product.setProductName(productName);
         product.setDescription(description);
         product.setManufacturingName(manufacturingName);
         product.setManufacturingDate(LocalDate.parse(manufacturingDate, formatter));
         product.setExpirationDate(LocalDate.parse(expirationDate, formatter));
         product.setQuantity(Integer.parseInt(quantity));
-        product.setPrimaryImage(image);
+        product.setPrimaryImage(allImages.stream().findFirst().get());
         product.setBuyPrice(Double.parseDouble(buyPrice));
         product.setSellPrice(Double.parseDouble(sellPrice));
+        product.getImages().addAll(allImages);
+        product.getCategories().add(categoryById);
+
 
         ProductService productService = (ProductService) getServletContext().getAttribute("productService");
         Product product1 = productService.addNewProduct(product);
         if (product1.getProductId() > 0) {
             System.out.println("saved scceeeeeeeeeeeeeeeeeeeeek");
         }
-//        if (product != null) {
-//            System.out.println("------------------------------------------------------------------------");
-//            System.out.println(product);
-//        } else {
-//            System.out.println("no product founded");
+         System.out.println("no product founded");
     }
 }

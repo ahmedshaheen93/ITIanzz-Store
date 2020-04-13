@@ -33,6 +33,53 @@ $(document).ready(function () {
     } else {
         console.log("Your browser does not support File API");
     }
+    $(document).on('blur' , '.exDate' , function () {
+        var exDate = new Date($('#expiretionDatepicker').datepicker('getDate'));
+        exDate.setHours(0,0,0,0);
+        var today = new Date();
+        today.setHours(0,0,0,0);
+        if (today > exDate || new Date($('#manufacturingDatepicker').datepicker('getDate') > exDate))
+            $("#expiretionDateValidationError").text("Error : invalid expiration date");
+        else
+            $("#expiretionDateValidationError").text("");
+    });
+
+    $(document).on('blur' , '.manDate' , function () {
+        var manDate = new Date($('#manufacturingDatepicker').datepicker('getDate'));
+        manDate.setHours(0,0,0,0);
+        var today = new Date();
+        today.setHours(0,0,0,0);
+        if (today < manDate || new Date($('#expiretionDatepicker').datepicker('getDate') < manDate))
+            $("#manufacturingDateValidationError").text("Error : invalid manufacturing date");
+        else
+            $("#manufacturingDateValidationError").text("");
+    });
+
+    $(document).on('click', '.addCatgry', function () {
+        var newCategoryName = $("#categoryName").val();
+
+        $.ajax({
+             url: "newCategory",
+             type: "POST",
+             dataType: "JSON",
+             data: {"newCat": newCategoryName},
+            statusCode: {
+                200: function (data) {
+                    console.log(data);
+                    $('#categories').append(`<option value="${data.categoryId}"> 
+                                       ${data.categoryName} 
+                                  </option>`);
+                },
+                460: function () {
+                    console.log("error")
+                },
+                500: function () {
+                    alert("leh ya rb m 5k2tny4 m3za");
+                }
+
+            }
+         });
+    });
 
     // $(document).on('click', '.submit', function () {
     //     let myForm = document.getElementById('addProductForm');
