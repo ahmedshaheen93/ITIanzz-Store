@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "REVIEWS")
+@NamedQueries(@NamedQuery(name = "Review.findByProduct" , query = "select r from Review r where r.product = :product"))
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -38,7 +39,12 @@ public class Review {
     @Column(name = "REVIEW_STARS" , nullable = false)
     private int reviewStars;
 
-    public Review() {
+    public Review(User user , Product product , String reviewMessage , LocalDateTime reviewMessageTime , int reviewStars) {
+        this.user = user;
+        this.product = product;
+        this.reviewMessage = reviewMessage;
+        this.reviewMessageTime = reviewMessageTime;
+        this.reviewStars = reviewStars;
     }
 
     public Long getReviewId() {
@@ -87,5 +93,17 @@ public class Review {
 
     public void setReviewStars(int reviewStars) {
         this.reviewStars = reviewStars;
+    }
+
+    @Override
+    public String toString() {
+        return "Review{" +
+                "reviewId=" + reviewId +
+                ", user=" + user +
+                ", product=" + product +
+                ", reviewMessage='" + reviewMessage + '\'' +
+                ", reviewMessageTime=" + reviewMessageTime +
+                ", reviewStars=" + reviewStars +
+                '}';
     }
 }

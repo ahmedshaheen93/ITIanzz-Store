@@ -27,6 +27,7 @@ public class ContextListener implements ServletContextListener {
         context.setAttribute("categoryService", CategoryServiceImpl.getInstance());
         context.setAttribute("feedbackService", FeedbackServiceImpl.getInstance());
         context.setAttribute("imageService", ImageServiceImpl.getInstance());
+        context.setAttribute("reviewService", ReviewServiceImpl.getInstance());
         Store storeInfo = StoreServiceImpl.getInstance().getStoreInfo();
         System.out.println(storeInfo);
         context.setAttribute("storeInstance", storeInfo);
