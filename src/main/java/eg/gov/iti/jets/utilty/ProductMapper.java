@@ -7,7 +7,9 @@ import eg.gov.iti.jets.model.Review;
 import eg.gov.iti.jets.model.dto.ProductDto;
 import eg.gov.iti.jets.model.dto.ReviewDto;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class ProductMapper {
@@ -44,10 +46,14 @@ public class ProductMapper {
                 categories, "" + product.getSellPrice(), imagePath, images);
         Set<Review> reviews = product.getReviews();
         System.out.println("reviews size = " + reviews.size());
+        List<ReviewDto> reviewDtos = new ArrayList<>();
         for (Review review : reviews) {
             ReviewDto reviewDto = ReviewMapper.mapToReviewDto(review);
-            productDto.getReviews().add(reviewDto);
+            reviewDtos.add(reviewDto);
         }
+        reviewDtos.sort((reviewDto1, reviewDto2) -> reviewDto1.getReviewStars() > reviewDto2.getReviewStars() ? reviewDto1.getReviewStars() : reviewDto2.getReviewStars());
+
+        productDto.getReviews().addAll(reviewDtos);
 
         return productDto;
 
