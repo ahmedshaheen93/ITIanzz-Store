@@ -33,4 +33,6 @@ public interface ProductService {
     List<ProductDto> getAllProudects(List<ProductDto> productDtos);
 
     Product addNewProduct(Product product);
+
+    Product updateProduct(Product product);
 }
