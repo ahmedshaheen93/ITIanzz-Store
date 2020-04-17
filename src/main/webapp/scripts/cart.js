@@ -23,7 +23,7 @@ $(document).ready(function () {
         console.log("==========" + json);
         $.ajax({
             type: "POST",
-                url: "products",
+            url: "products",
             dataType: "JSON",
             data: {products: json},
             statusCode: {
@@ -122,7 +122,7 @@ $(document).ready(function () {
                     console.log(data);
                     onSuccess(data);
                 },
-                460: function () {
+                460: function (data) {
                     console.log("error")
                     onError(data);
                 },

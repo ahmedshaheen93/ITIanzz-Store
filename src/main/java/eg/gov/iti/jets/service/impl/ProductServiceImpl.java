@@ -65,7 +65,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<ProductDto> getAllProudects(List<ProductDto> productDtos) {
+    public List<ProductDto> getAllProducts(List<ProductDto> productDtos) {
         Logger logger
                 = Logger.getLogger(ProductServiceImpl.class.getName());
         List<ProductDto> productDtoSet = new ArrayList<>();
