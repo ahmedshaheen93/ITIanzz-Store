@@ -3,6 +3,7 @@ package eg.gov.iti.jets.controller;
 import eg.gov.iti.jets.exception.UserNotFoundException;
 import eg.gov.iti.jets.model.User;
 import eg.gov.iti.jets.service.UserService;
+import eg.gov.iti.jets.utilty.ReadWriteCookei;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,14 +33,15 @@ public class LoginController extends HttpServlet {
                 User user = userService.login(email, password);
                 if (user != null) {
                     req.getSession().setAttribute("user", user);
-                    req.getRequestDispatcher("index.jsp").forward(req, resp);
+                    ReadWriteCookei.writeCookie(resp, "email", email, 60 * 60 * 60 * 24);
+                    req.getRequestDispatcher("index.jsp").include(req, resp);
                 }
             }
             req.setAttribute("errorMessage", "enter a vaild data");
-            req.getRequestDispatcher("login.jsp").include(req, resp);
         } catch (UserNotFoundException e) {
             e.printStackTrace();
             req.setAttribute("errorMessage", e.getMessage());
         }
+        req.getRequestDispatcher("login.jsp").include(req, resp);
     }
 }

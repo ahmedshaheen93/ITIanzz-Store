@@ -33,22 +33,22 @@ $(document).ready(function () {
     } else {
         console.log("Your browser does not support File API");
     }
-    $(document).on('blur' , '.exDate' , function () {
+    $(document).on('blur', '.exDate', function () {
         var exDate = new Date($('#expiretionDatepicker').datepicker('getDate'));
-        exDate.setHours(0,0,0,0);
+        exDate.setHours(0, 0, 0, 0);
         var today = new Date();
-        today.setHours(0,0,0,0);
+        today.setHours(0, 0, 0, 0);
         if (today > exDate || new Date($('#manufacturingDatepicker').datepicker('getDate') > exDate))
             $("#expiretionDateValidationError").text("Error : invalid expiration date");
         else
             $("#expiretionDateValidationError").text("");
     });
 
-    $(document).on('blur' , '.manDate' , function () {
+    $(document).on('blur', '.manDate', function () {
         var manDate = new Date($('#manufacturingDatepicker').datepicker('getDate'));
-        manDate.setHours(0,0,0,0);
+        manDate.setHours(0, 0, 0, 0);
         var today = new Date();
-        today.setHours(0,0,0,0);
+        today.setHours(0, 0, 0, 0);
         if (today < manDate || new Date($('#expiretionDatepicker').datepicker('getDate') < manDate))
             $("#manufacturingDateValidationError").text("Error : invalid manufacturing date");
         else
@@ -59,10 +59,10 @@ $(document).ready(function () {
         var newCategoryName = $("#categoryName").val();
 
         $.ajax({
-             url: "newCategory",
-             type: "POST",
-             dataType: "JSON",
-             data: {"newCat": newCategoryName},
+            url: "newCategory",
+            type: "POST",
+            dataType: "JSON",
+            data: {"newCat": newCategoryName},
             statusCode: {
                 200: function (data) {
                     console.log(data);
@@ -78,7 +78,7 @@ $(document).ready(function () {
                 }
 
             }
-         });
+        });
     });
 
     // $(document).on('click', '.submit', function () {
@@ -147,22 +147,23 @@ $(document).ready(function () {
     //
     //     }
     // })
-    // });
+// });
 
-    // $(document).ready(function () {
-    //     $('#uploadImage').click(function () {
-    //         var form = $('#uploadform');
-    //         $.ajax({
-    //             type: 'Post',
-    //             url: 'UploadImage',
-    //             data: form.serialize(),
-    //             enctype: 'multipart/form-data',
-    //             success: function (result) {
-    //                 $('#uploadResult').html(result);
-    //             }
-    //         });
-    //     });
-    // });
+// $(document).ready(function () {
+//     $('#uploadImage').click(function () {
+//         var form = $('#uploadform');
+//         $.ajax({
+//             type: 'Post',
+//             url: 'UploadImage',
+//             data: form.serialize(),
+//             enctype: 'multipart/form-data',
+//             success: function (result) {
+//                 $('#uploadResult').html(result);
+//             }
+//         });
+//     });
+// });
 
-});
+})
+;
 
