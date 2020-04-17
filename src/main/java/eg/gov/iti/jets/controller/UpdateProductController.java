@@ -8,43 +8,45 @@ import eg.gov.iti.jets.service.ImageService;
 import eg.gov.iti.jets.service.ProductService;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Set;
 
+@MultipartConfig(maxFileSize = 1024 * 1024 * 2)
 @WebServlet(name = "update-product", urlPatterns = {"/update-product"})
 public class UpdateProductController extends HttpServlet {
+
+    private ProductService productService;
+    private CategoryService categoryService;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        //TODO still work on it
-        //@noura
-        ProductService productService = (ProductService) getServletContext().getAttribute("productService");
+        productService = (ProductService) getServletContext().getAttribute("productService");
+        categoryService = (CategoryService) getServletContext().getAttribute("categoryService");
         String idParam = req.getParameter("id");
         if(idParam != null){
 
             Product product = productService.findById(Long.valueOf(idParam));
-
+            req.setAttribute("product", product);
+            List<Category> allCategories = categoryService.getAllCategories();
+            req.setAttribute("allCategories", allCategories);
+            req.getRequestDispatcher("update-product.jsp").include(req, resp);
         }
-        //List<Category> allCategories = categoryService.getAllCategories();
-        //req.setAttribute("allCategories", allCategories);
-
-        req.setAttribute("product", new Product());
-        req.getRequestDispatcher("update-product.jsp").include(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        ProductService productService = (ProductService) getServletContext().getAttribute("productService");
-        CategoryService categoryService = (CategoryService) getServletContext().getAttribute("categoryService");
+        productService = (ProductService) getServletContext().getAttribute("productService");
+        categoryService = (CategoryService) getServletContext().getAttribute("categoryService");
 
         long productId = Long.parseLong(req.getParameter("productId"));
         Product product = productService.findById(productId);
@@ -61,12 +63,13 @@ public class UpdateProductController extends HttpServlet {
 
         ImageService imageService = (ImageService) getServletContext().getAttribute("imageService");
         String userHomeDir = System.getProperty("user.home") + "/iti-store/images";
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         Set<Image> allImages = imageService.saveImage(userHomeDir, req.getParts());
 
         product.setProductName(productName);
         product.setDescription(description);
         product.setManufacturingName(manufacturingName);
+        System.out.println(manufacturingDate);
         product.setManufacturingDate(LocalDate.parse(manufacturingDate, formatter));
         product.setExpirationDate(LocalDate.parse(expirationDate, formatter));
         product.setQuantity(Integer.parseInt(quantity));
