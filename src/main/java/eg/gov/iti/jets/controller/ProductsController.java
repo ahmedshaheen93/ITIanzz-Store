@@ -58,7 +58,7 @@ public class ProductsController extends HttpServlet {
             logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + productDtos);
             ProductService productService = (ProductService) getServletContext().getAttribute("productService");
 
-            List<ProductDto> allProudects = productService.getAllProudects(productDtos);
+            List<ProductDto> allProudects = productService.getAllProducts(productDtos);
             logger.info("list ==============================" + allProudects);
 
 

@@ -14,11 +14,7 @@ import java.util.Set;
 
 public class ProductMapper {
     public static ProductDto mapToProductDto(Product product) {
-//        Long productId, String productName,
-//                String description, String manufacturingName,
-//                String manufacturingDate, String expirationDate,
-//        int quantity, Set<String> categories, String price,
-//                String primaryImage, Set<String> images) {
+
         Set<String> categories = new HashSet<>(0);
         Set<Category> originalCategories = product.getCategories();
         for (Category category : originalCategories) {
@@ -51,7 +47,7 @@ public class ProductMapper {
             ReviewDto reviewDto = ReviewMapper.mapToReviewDto(review);
             reviewDtos.add(reviewDto);
         }
-        reviewDtos.sort((reviewDto1, reviewDto2) -> reviewDto1.getReviewStars() > reviewDto2.getReviewStars() ? reviewDto1.getReviewStars() : reviewDto2.getReviewStars());
+        reviewDtos.sort((reviewDto1, reviewDto2) -> Math.max(reviewDto1.getReviewStars(), reviewDto2.getReviewStars()));
 
         productDto.getReviews().addAll(reviewDtos);
 

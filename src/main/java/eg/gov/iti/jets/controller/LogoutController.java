@@ -1,5 +1,7 @@
 package eg.gov.iti.jets.controller;
 
+import eg.gov.iti.jets.utilty.ReadWriteCookei;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +16,9 @@ public class LogoutController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("logout.jsp").include(req,resp);
+        req.getSession().removeAttribute("user");
+        ReadWriteCookei.writeCookie(resp, "email", "", -100);
+        req.getRequestDispatcher("logout.jsp").include(req, resp);
     }
 
     @Override
