@@ -34,19 +34,19 @@ public class ImageServiceImpl implements ImageService {
 //        String uploadPath = "/tmp/upload";
         File uploadDir = new File(path);
         if (!uploadDir.exists()) {
-            uploadDir.mkdir();
+            uploadDir.mkdirs();
         }
 
-        Map<String , String> savedPaths = new HashMap<>(0);
+        Map<String, String> savedPaths = new HashMap<>(0);
         for (Part part : parts) {
-            String fileName =null;
+            String fileName = null;
             String savePath = null;
             fileName = getFileName(part);
             if (fileName != null) {
                 System.out.println(fileName);
                 savePath = path + File.separator + fileName;
                 part.write(savePath);
-                savedPaths.put(fileName , savePath);
+                savedPaths.put(fileName, savePath);
             }
         }
         Set<Image> images = new HashSet<>(0);
