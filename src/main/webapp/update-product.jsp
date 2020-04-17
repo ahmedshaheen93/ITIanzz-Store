@@ -4,22 +4,6 @@
     <title>update product</title>
     <%@ include file="includes/head.jsp" %>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script>
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    var id = input.id;
-                    console.log(id);
-                    $('#image' + id + '').attr('src', e.target.result);
-                    $('#image' + id + '').show();
-                };
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-    </script>
 </head>
 <body>
 <header>
@@ -86,130 +70,130 @@
                             <div class="form-group">
                                 <label class="col control-label" for="categories">Product Categories</label>
                                 <div class="col">
-                                    <%--                                    <select id="categories" name="categories" class="mdb-select md-form" multiple>--%>
                                     <div class="button-group">
                                         <button type="button" class="btn btn-default btn-sm dropdown-toggle"
                                                 data-toggle="dropdown">
-                                            <span class="glyphicon glyphicon-cog"></span> <span class="caret"></span>
+                                            Choose product categories
                                         </button>
                                         <ul class="dropdown-menu" id="categories">
-                                            <option value="" disabled selected>Choose product categories</option>
                                             <c:if test="${!empty requestScope.product.categories}">
                                                 <c:forEach items="${requestScope.allCategories}" var="cat">
                                                     <c:choose>
                                                         <c:when test="${requestScope.product.categories.contains(cat)}">
-                                                            <li><a href="#" class="small" data-value="${cat.categoryId}"
-                                                                   tabIndex="-1">
-                                                                <input type="checkbox" checked>&nbsp;${cat.categoryName}
-                                                            </a></li>
+                                                            <li><input class="small" type="checkbox" name="categories"
+                                                                       value="${cat.categoryId}"
+                                                                       checked>&nbsp${cat.categoryName}</li>
                                                         </c:when>
                                                         <c:otherwise>
-                                                            <li><a href="#" class="small" data-value="${cat.categoryId}"
-                                                                   tabIndex="-1">
-                                                                <input type="checkbox">&nbsp;${cat.categoryName}</a>
-                                                            </li>
+                                                            <li><input class="small" type="checkbox" name="categories"
+                                                                       value="${cat.categoryId}">
+                                                                &nbsp;${cat.categoryName}</li>
                                                         </c:otherwise>
                                                     </c:choose>
                                                 </c:forEach>
                                             </c:if>
                                         </ul>
                                     </div>
-                                        <%--                                    </select>--%>
-                                        <i type="button" class="btn btn-primary submit eatured-search-icon"
-                                           data-toggle="modal" data-target="#productModal">
-                                            add Category
-                                        </i>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col control-label" for="availableQuantity">Available Quantity</label>
-                                    <div class="col">
-                                        <input id="availableQuantity" name="quantity"
-                                               placeholder="AVAILABLE QUANTITY" class="form-control input-md"
-                                               type="number"
-                                               min="1"
-                                               required value="${requestScope.product.quantity}">
-                                    </div>
                                 </div>
                             </div>
-                            <!-- Text input-->
-                            <div class="row">
-                                <div class="form-group">
-                                    <label class="col control-label" for="buyPrice">Buy Price</label>
-                                    <div class="col">
-                                        <input type="number" class="form-control" id="buyPrice"
-                                               name="buyPrice" min="0" required/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col control-label" for="sellPrice">Sell Price</label>
-                                    <div class="col">
-                                        <input type="number" class="form-control" id="sellPrice"
-                                               name="sellPrice" min="0" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="container">
-                                <textarea cols="20" rows="3" name="description"></textarea>
-                            </div>
-                            <div class="wrapper">
-                                <div class="row">
-
-                                    <div class="container1">
-                                        <p>primary image</p>
-                                        <img id="image1" alt="image" class="image" style="width:100%; display: none">
-                                        <div class="middle">
-                                            <label for="1" class="btn-2 label-custom-style"><i class="fas fa-paperclip"
-                                                                                               aria-hidden="true">upload</i>
-                                            </label>
-                                            <input type="file" name="file" id="1" onchange="readURL(this)" hidden
-                                                   required>
-                                        </div>
-                                    </div>
-                                    <div class="container1">
-                                        <img id="image2" alt="image" class="image" style="width:100%; display: none">
-                                        <div class="middle">
-                                            <label for="2" class="btn-2 label-custom-style"><i class="fas fa-paperclip"
-                                                                                               aria-hidden="true">upload</i>
-                                            </label>
-                                            <input type="file" id="2" name="file" onchange="readURL(this)" hidden>
-                                        </div>
-                                    </div>
-                                    <div class="container1">
-                                        <img id="image3" alt="image" class="image" style="width:100%; display: none">
-                                        <div class="middle">
-                                            <label for="3" class="btn-2 label-custom-style"><i class="fas fa-paperclip"
-                                                                                               aria-hidden="true">upload</i>
-                                            </label>
-                                            <input type="file" id="3" name="file" onchange="readURL(this)" hidden>
-                                        </div>
-                                    </div>
-                                    <div class="container1">
-                                        <img id="image4" alt="image" class="image" style="width:100%; display: none">
-                                        <div class="middle">
-                                            <label for="4" class="btn-2 label-custom-style"><i class="fas fa-paperclip"
-                                                                                               aria-hidden="true">upload</i>
-                                            </label>
-                                            <input type="file" id="4" name="file" onchange="readURL(this)" hidden>
-                                        </div>
-                                    </div>
-                                    <div class="container1">
-                                        <img id="image5" alt="image" class="image" style="width:100%; display: none">
-                                        <div class="middle">
-                                            <label for="5" class="btn-2 label-custom-style"><i class="fas fa-paperclip"
-                                                                                               aria-hidden="true">upload</i>
-                                            </label>
-                                            <input type="file" name="file" id="5" onchange="readURL(this)" hidden>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Button -->
                             <div class="form-group">
-                                <div class="col-md-4">
-                                    <input type="submit" class="btn btn-primary submit" value="update product">
+                                <label class="col control-label"/>
+                                <div class="col">
+                                    <i type="button" class="btn btn-primary submit eatured-search-icon"
+                                       data-toggle="modal" data-target="#productModal">
+                                        add Category
+                                    </i>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col control-label" for="availableQuantity">Available Quantity</label>
+                                <div class="col">
+                                    <input id="availableQuantity" name="quantity"
+                                           placeholder="AVAILABLE QUANTITY" class="form-control input-md"
+                                           type="number"
+                                           min="1"
+                                           required value="${requestScope.product.quantity}">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="col control-label" for="buyPrice">Buy Price</label>
+                                <div class="col">
+                                    <input type="number" class="form-control" id="buyPrice"
+                                           name="buyPrice" min="0" required/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col control-label" for="sellPrice">Sell Price</label>
+                                <div class="col">
+                                    <input type="number" class="form-control" id="sellPrice"
+                                           name="sellPrice" min="0" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <textarea cols="20" rows="3" name="description"></textarea>
+                        </div>
+                        <div class="wrapper">
+                            <div class="row">
+
+                                <div class="container1">
+                                    <p>primary image</p>
+                                    <img id="image1" alt="image" class="image" style="width:100%; display: none">
+                                    <div class="middle">
+                                        <label for="1" class="btn-2 label-custom-style"><i class="fas fa-paperclip"
+                                                                                           aria-hidden="true">upload</i>
+                                        </label>
+                                        <input type="file" name="file" id="1" onchange="readURL(this)"
+                                               required>
+                                    </div>
+                                </div>
+                                <div class="container1">
+                                    <img id="image2" alt="image" class="image" style="width:100%; display: none">
+                                    <div class="middle">
+                                        <label for="2" class="btn-2 label-custom-style"><i class="fas fa-paperclip"
+                                                                                           aria-hidden="true">upload</i>
+                                        </label>
+                                        <input type="file" id="2" name="file" onchange="readURL(this)">
+                                    </div>
+                                </div>
+                                <div class="container1">
+                                    <img id="image3" alt="image" class="image" style="width:100%; display: none">
+                                    <div class="middle">
+                                        <label for="3" class="btn-2 label-custom-style"><i class="fas fa-paperclip"
+                                                                                           aria-hidden="true">upload</i>
+                                        </label>
+                                        <input type="file" id="3" name="file" onchange="readURL(this)">
+                                    </div>
+                                </div>
+                                <div class="container1">
+                                    <img id="image4" alt="image" class="image" style="width:100%; display: none">
+                                    <div class="middle">
+                                        <label for="4" class="btn-2 label-custom-style"><i class="fas fa-paperclip"
+                                                                                           aria-hidden="true">upload</i>
+                                        </label>
+                                        <input type="file" id="4" name="file" onchange="readURL(this)">
+                                    </div>
+                                </div>
+                                <div class="container1">
+                                    <img id="image5" alt="image" class="image" style="width:100%; display: none">
+                                    <div class="middle">
+                                        <label for="5" class="btn-2 label-custom-style"><i class="fas fa-paperclip"
+                                                                                           aria-hidden="true">upload</i>
+                                        </label>
+                                        <input type="file" name="file" id="5" onchange="readURL(this)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Button -->
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <input type="submit" class="btn btn-primary submit" value="update product">
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -258,60 +242,5 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-<script>
-    $(document).ready(function () {
-        $(document).on('click', '.addCategory', function () {
-            var newCategoryName = $("#categoryName").val();
-            $.ajax({
-                url: "newCategory",
-                type: "POST",
-                dataType: "JSON",
-                data: {"newCat": newCategoryName},
-                statusCode: {
-                    200: function (data) {
-                        $('#categories').append('<li>' +
-                            '<a href="#" class="small" data-value="'+ data.categoryId + '" ' +
-                            'tabIndex="-1">' +
-                            '<input type="checkbox">&nbsp;' + data.categoryName + '</a>' +
-                            '</li>');
-                    },
-                    460: function () {
-                        console.log("error")
-                    },
-                    500: function () {
-                        alert("leh ya rb m 5k2tny4 m3za");
-                    }
-
-                }
-            });
-        });
-
-        var options = [];
-
-        $(".dropdown-menu a").on("click", function (event) {
-            var $target = $(event.currentTarget),
-                val = $target.attr("data-value"),
-                $inp = $target.find("input"),
-                idx;
-
-            if ((idx = options.indexOf(val)) > -1) {
-                options.splice(idx, 1);
-                setTimeout(function () {
-                    $inp.prop("checked", false);
-                }, 0);
-            } else {
-                options.push(val);
-                setTimeout(function () {
-                    $inp.prop("checked", true);
-                }, 0);
-            }
-
-            $(event.target).blur();
-
-            console.log(options);
-            return false;
-        });
-    });
-
-</script>
+<script src="scripts/update-product.js"></script>
 </html>

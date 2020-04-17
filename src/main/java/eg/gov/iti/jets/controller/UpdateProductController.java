@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
@@ -58,9 +60,11 @@ public class UpdateProductController extends HttpServlet {
         String quantity = req.getParameter("quantity");
         String buyPrice = req.getParameter("buyPrice");
         String sellPrice = req.getParameter("sellPrice");
-        String categoryId = req.getParameter("categories");
-        Category categoryById = categoryService.getCategoryById(Long.parseLong(categoryId));
 
+        String[] categories = req.getParameterValues("categories");
+        List<Category> categoryList = new ArrayList<>();
+        Arrays.asList(categories).forEach((categoryId) ->
+                categoryList.add(categoryService.getCategoryById(Long.valueOf(categoryId))));
         ImageService imageService = (ImageService) getServletContext().getAttribute("imageService");
         String userHomeDir = System.getProperty("user.home") + "/iti-store/images";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -69,15 +73,17 @@ public class UpdateProductController extends HttpServlet {
         product.setProductName(productName);
         product.setDescription(description);
         product.setManufacturingName(manufacturingName);
-        System.out.println(manufacturingDate);
         product.setManufacturingDate(LocalDate.parse(manufacturingDate, formatter));
         product.setExpirationDate(LocalDate.parse(expirationDate, formatter));
         product.setQuantity(Integer.parseInt(quantity));
         product.setPrimaryImage(allImages.stream().findFirst().get());
         product.setBuyPrice(Double.parseDouble(buyPrice));
         product.setSellPrice(Double.parseDouble(sellPrice));
+
+        product.getImages().clear();
         product.getImages().addAll(allImages);
-        product.getCategories().add(categoryById);
+        product.getCategories().clear();
+        product.getCategories().addAll(categoryList);
         Product product1 = productService.updateProduct(product);
         resp.sendRedirect("view-product?id=" + product1.getProductId());
     }
