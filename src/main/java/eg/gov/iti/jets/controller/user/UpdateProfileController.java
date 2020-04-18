@@ -1,4 +1,4 @@
-package eg.gov.iti.jets.controller;
+package eg.gov.iti.jets.controller.user;
 
 import eg.gov.iti.jets.exception.UserNotFoundException;
 import eg.gov.iti.jets.model.Address;

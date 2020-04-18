@@ -1,4 +1,4 @@
-package eg.gov.iti.jets.controller;
+package eg.gov.iti.jets.controller.product;
 
 import com.google.gson.Gson;
 import eg.gov.iti.jets.model.Category;
@@ -13,9 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "addCategory" , urlPatterns = "/newCategory")
+@WebServlet(name = "addCategory", urlPatterns = "/newCategory")
 public class AddCategory extends HttpServlet {
     CategoryService categoryService;
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String newCat = req.getParameter("newCat");
@@ -32,7 +33,7 @@ public class AddCategory extends HttpServlet {
             resp.setContentType("application/json");
             resp.setCharacterEncoding("UTF-8");
             resp.getWriter().println(json);
-        }else{
+        } else {
             resp.setStatus(400);
             ResponeMessage responeMessage = new ResponeMessage("Error while inserting the new category ordered", 200);
             String json = new Gson().toJson(responeMessage);

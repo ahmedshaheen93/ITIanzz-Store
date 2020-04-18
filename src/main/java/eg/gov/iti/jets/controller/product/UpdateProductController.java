@@ -1,4 +1,4 @@
-package eg.gov.iti.jets.controller;
+package eg.gov.iti.jets.controller.product;
 
 import eg.gov.iti.jets.model.Category;
 import eg.gov.iti.jets.model.Image;
@@ -34,7 +34,7 @@ public class UpdateProductController extends HttpServlet {
         productService = (ProductService) getServletContext().getAttribute("productService");
         categoryService = (CategoryService) getServletContext().getAttribute("categoryService");
         String idParam = req.getParameter("id");
-        if(idParam != null){
+        if (idParam != null) {
 
             Product product = productService.findById(Long.valueOf(idParam));
             req.setAttribute("product", product);
@@ -56,7 +56,7 @@ public class UpdateProductController extends HttpServlet {
         String description = req.getParameter("description");
         String manufacturingName = req.getParameter("manufacturingName");
         String manufacturingDate = req.getParameter("manufacturingDate");
-        String expirationDate =  req.getParameter("expirationDate");
+        String expirationDate = req.getParameter("expirationDate");
         String quantity = req.getParameter("quantity");
         String buyPrice = req.getParameter("buyPrice");
         String sellPrice = req.getParameter("sellPrice");

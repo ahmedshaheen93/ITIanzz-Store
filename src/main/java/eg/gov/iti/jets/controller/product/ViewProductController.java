@@ -1,4 +1,4 @@
-package eg.gov.iti.jets.controller;
+package eg.gov.iti.jets.controller.product;
 
 import eg.gov.iti.jets.model.Product;
 import eg.gov.iti.jets.model.dto.ProductDto;

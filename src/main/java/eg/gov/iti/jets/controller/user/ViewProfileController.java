@@ -1,7 +1,6 @@
-package eg.gov.iti.jets.controller;
+package eg.gov.iti.jets.controller.user;
 
 import eg.gov.iti.jets.exception.UserNotFoundException;
-import eg.gov.iti.jets.model.Role;
 import eg.gov.iti.jets.model.User;
 import eg.gov.iti.jets.service.UserService;
 
@@ -12,24 +11,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "make-as-admin", urlPatterns = {"/make-as-admin"})
-public class MakeAsAdminController extends HttpServlet {
+@WebServlet(name = "view-profile", urlPatterns = "/view-profile")
+public class ViewProfileController extends HttpServlet {
 
-    private static final long serialVersionUID = -9136948782924948631L;
+    private static final long serialVersionUID = 864991956010951061L;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         UserService userService = (UserService) getServletContext().getAttribute("userService");
-        int id = Integer.parseInt(req.getParameter("id"));
+        String userIdParam = req.getParameter("id");
+        Long userId;
+
+        if (userIdParam == null) {
+            User user = (User) req.getSession().getAttribute("user");
+            userId = user.getUserId();
+        } else {
+            userId = Long.valueOf(userIdParam);
+        }
+
         try {
-            User user = userService.findUserById(id);
-            user.setRole(Role.ADMIN_ROLE);
-            userService.update(user);
+            User userById = userService.findUserById(userId);
+            req.setAttribute("user", userById);
         } catch (UserNotFoundException e) {
             e.printStackTrace();
+            req.setAttribute("errorMessage", e.getMessage());
         }
-        resp.sendRedirect("customers");
+        req.getRequestDispatcher("view-profile.jsp").include(req, resp);
     }
 
     @Override

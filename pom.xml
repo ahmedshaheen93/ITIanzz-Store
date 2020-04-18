@@ -64,6 +64,7 @@
                 <version>2.2</version>
                 <configuration>
                     <url>http://localhost:8088/manager/text</url>
+<!--                    <url>http://18.217.151.50:8088/manager/text</url>-->
                     <server>TomcatServer</server>
                     <path>/iti-store</path>
                 </configuration>

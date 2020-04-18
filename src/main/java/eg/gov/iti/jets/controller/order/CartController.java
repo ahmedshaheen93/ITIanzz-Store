@@ -1,4 +1,4 @@
-package eg.gov.iti.jets.controller;
+package eg.gov.iti.jets.controller.order;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +14,7 @@ public class CartController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("cart.jsp").include(req,resp);
+        req.getRequestDispatcher("cart.jsp").include(req, resp);
     }
 
     @Override

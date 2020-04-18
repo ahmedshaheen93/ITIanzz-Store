@@ -1,10 +1,7 @@
 package eg.gov.iti.jets.service.impl;
 
 import eg.gov.iti.jets.model.ScratchCard;
-import eg.gov.iti.jets.model.ScratchCardRequest;
 import eg.gov.iti.jets.model.User;
-import eg.gov.iti.jets.repository.ScratchCardRequestRepository;
-import eg.gov.iti.jets.repository.impl.ScratchCardRequestRepositoryImpl;
 import eg.gov.iti.jets.service.MailService;
 
 import javax.mail.Message;
@@ -16,43 +13,9 @@ import javax.mail.internet.MimeMessage;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Properties;
 
 public class MailServiceImpl implements MailService {
-    ScratchCardRequestRepository scratchCardRequestRepository = ScratchCardRequestRepositoryImpl.getInstance();
-
-    @Override
-    public boolean requestBalanceMail(User user, Double amount) {
-        // request card
-        ScratchCardRequest scratchCardRequest = new ScratchCardRequest();
-        scratchCardRequest.setUser(user);
-        scratchCardRequest.setApproved(false);
-        scratchCardRequest.setAmount(amount);
-        scratchCardRequest.setRequestDateAndTime(LocalDateTime.now());
-        ScratchCardRequest save = scratchCardRequestRepository.save(scratchCardRequest);
-        if (save.getScratchCardRequestId() > 0) {
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public List<ScratchCardRequest> getApprovedRequests(Boolean approved) {
-        return scratchCardRequestRepository.getApprovedRequests(approved);
-    }
-
-    @Override
-    public List<ScratchCardRequest> getApprovedRequestsByUser(User user, Boolean approved) {
-        return scratchCardRequestRepository.getApprovedRequestsByUser(user, approved);
-    }
-
-
-    // enter card number
-    public ScratchCardRequest updateScratchCardRequest(ScratchCardRequest scratchCardRequest) {
-        return scratchCardRequestRepository.update(scratchCardRequest);
-    }
 
     // response card number
     @Override
@@ -66,7 +29,7 @@ public class MailServiceImpl implements MailService {
         stringBuilder.append("as you send us a money using Bee service \n");
         stringBuilder.append("this link is valid for one time and will add amount of " + scratchCard.getCardAmount() + "$" + " \n");
         stringBuilder.append("to your account \n");
-        String messageBody = "http://localhost:8088/iti-store/validatCard?number=" + scratchCard.getCardNumber();
+        String messageBody = "http://localhost:8088/iti-store/scratchCard?number=" + scratchCard.getCardNumber();
         stringBuilder.append(messageBody);
         String subject = "you have a new scratchCard";
         try {

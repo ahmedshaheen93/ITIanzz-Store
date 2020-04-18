@@ -1,4 +1,4 @@
-package eg.gov.iti.jets.controller;
+package eg.gov.iti.jets.controller.product;
 
 import eg.gov.iti.jets.model.Category;
 import eg.gov.iti.jets.model.Image;
@@ -24,6 +24,7 @@ import java.util.Set;
 @WebServlet(name = "addProduct", urlPatterns = "/addProduct")
 public class AddProduct extends HttpServlet {
     CategoryService categoryService;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         categoryService = (CategoryService) getServletContext().getAttribute("categoryService");
@@ -81,6 +82,6 @@ public class AddProduct extends HttpServlet {
         if (product1.getProductId() > 0) {
             System.out.println("saved scceeeeeeeeeeeeeeeeeeeeek");
         }
-         System.out.println("no product founded");
+        System.out.println("no product founded");
     }
 }

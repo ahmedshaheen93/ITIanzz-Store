@@ -1,4 +1,4 @@
-package eg.gov.iti.jets.controller;
+package eg.gov.iti.jets.controller.product;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

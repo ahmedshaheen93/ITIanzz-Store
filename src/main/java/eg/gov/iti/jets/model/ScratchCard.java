@@ -5,6 +5,8 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "SCRATCH_CARDS")
+@NamedQueries({@NamedQuery(name = "ScratchCard.findByNumberAndValid", query = "SELECT  card from  ScratchCard card" +
+        " where card.cardNumber =:cardNumber and  card.valid =:valid")})
 public class ScratchCard implements Serializable {
 
     private static final long serialVersionUID = -3693279181871996359L;

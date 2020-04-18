@@ -1,4 +1,4 @@
-package eg.gov.iti.jets.controller;
+package eg.gov.iti.jets.controller.user;
 
 import eg.gov.iti.jets.model.User;
 import eg.gov.iti.jets.service.UserService;
@@ -22,7 +22,7 @@ public class CustomersController extends HttpServlet {
         UserService userService = (UserService) getServletContext().getAttribute("userService");
         List<User> allUsers = userService.findAllUsers();
         req.setAttribute("users", allUsers);
-        req.getRequestDispatcher("customers.jsp").include(req,resp);
+        req.getRequestDispatcher("customers.jsp").include(req, resp);
     }
 
     @Override
