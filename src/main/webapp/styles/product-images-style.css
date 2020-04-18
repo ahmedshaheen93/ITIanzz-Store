@@ -1,0 +1,100 @@
+input[type=file]{
+    opacity: 0;
+}
+
+#image1, #image2, #image3, #image4, #image5 {
+    width: auto;
+    height: auto;
+}
+
+.label-custom-style {
+    background: #f15d22;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: inherit;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    outline: none;
+    padding: 10px 15px;
+    position: relative;
+    transition: all 0.3s;
+    vertical-align: middle;
+}
+
+.container1 {
+    position: relative;
+    width: 15%;
+    height: 150px;
+    margin: 10px;
+    background: white;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+p {
+    -webkit-text-fill-color: #dadada;
+}
+
+.image {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+}
+
+.container1:hover .image {
+    opacity: 0.3;
+}
+
+.container1:hover .middle {
+    opacity: 1;
+}
+
+.text {
+    background-color: #709399;
+    color: white;
+    font-size: 13px;
+    padding: 5px;
+}
+
+.btn-2 {
+    background-color: #99c793;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.btn-2::before {
+    color: #fff;
+    font-family: "Font Awesome 5 Pro", serif;
+    font-size: 100%;
+    height: 100%;
+    right: 130%;
+    line-height: 3.3;
+    position: absolute;
+    top: 0px;
+    transition: all 0.3s;
+}
+
+.btn-2:hover {
+    background-color: #497f42;
+}
+
+.btn-2:hover::before {
+    right: 75%;
+}

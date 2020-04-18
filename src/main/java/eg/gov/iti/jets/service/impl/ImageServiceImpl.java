@@ -42,7 +42,7 @@ public class ImageServiceImpl implements ImageService {
             String fileName = null;
             String savePath = null;
             fileName = getFileName(part);
-            if (fileName != null) {
+            if (fileName != null && !fileName.isBlank()) {
                 System.out.println(fileName);
                 savePath = path + File.separator + fileName;
                 part.write(savePath);
