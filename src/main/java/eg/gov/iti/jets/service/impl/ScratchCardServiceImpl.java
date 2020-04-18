@@ -5,8 +5,11 @@ import eg.gov.iti.jets.repository.ScratchCardRepository;
 import eg.gov.iti.jets.repository.impl.ScratchCardRepositoryImpl;
 import eg.gov.iti.jets.service.ScratchCardService;
 
+import java.util.Objects;
+
 public class ScratchCardServiceImpl implements ScratchCardService {
     ScratchCardRepository scratchCardRepository = ScratchCardRepositoryImpl.getInstance();
+    private static ScratchCardServiceImpl instance;
 
     @Override
     public ScratchCard checkScratchCardWithNumber(String cardNumber) {
@@ -19,4 +22,7 @@ public class ScratchCardServiceImpl implements ScratchCardService {
         return scratchCardRepository.update(scratchCard);
     }
 
+    public static synchronized ScratchCardServiceImpl getInstance() {
+        return instance = Objects.requireNonNullElseGet(instance, ScratchCardServiceImpl::new);
+    }
 }

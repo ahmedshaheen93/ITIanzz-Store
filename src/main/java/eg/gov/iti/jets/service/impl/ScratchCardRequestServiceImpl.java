@@ -8,9 +8,14 @@ import eg.gov.iti.jets.service.ScratchCardRequestService;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 public class ScratchCardRequestServiceImpl implements ScratchCardRequestService {
     ScratchCardRequestRepository scratchCardRequestRepository = ScratchCardRequestRepositoryImpl.getInstance();
+    private static ScratchCardRequestServiceImpl instance;
+
+    protected ScratchCardRequestServiceImpl() {
+    }
 
     @Override
     public List<ScratchCardRequest> getApprovedRequests(Boolean approved) {
@@ -41,5 +46,9 @@ public class ScratchCardRequestServiceImpl implements ScratchCardRequestService 
             return true;
         }
         return false;
+    }
+
+    public static synchronized ScratchCardRequestServiceImpl getInstance() {
+        return instance = Objects.requireNonNullElseGet(instance, ScratchCardRequestServiceImpl::new);
     }
 }
