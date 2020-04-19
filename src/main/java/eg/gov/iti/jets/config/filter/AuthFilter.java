@@ -11,8 +11,11 @@ import eg.gov.iti.jets.utilty.ReadWriteCookei;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.http.HttpResponse;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -51,7 +54,8 @@ public class AuthFilter implements Filter {
 
         } else {
             System.out.println("httpRequest.getRequestURI()" + httpRequest.getRequestURI());
-            request.getRequestDispatcher("login.jsp").include(request, response);
+            HttpServletResponse response1 = (HttpServletResponse) response;
+            response1.sendRedirect("login");
         }
     }
 
@@ -95,11 +99,13 @@ public class AuthFilter implements Filter {
                 httpServletRequest.getSession().setAttribute("user", user);
                 chain.doFilter(request, response);
             } else {
-                request.getRequestDispatcher("login.jsp").include(request, response);
+               /* request.getRequestDispatcher("login.jsp").include(request, response);*/
+                ((HttpServletResponse)response).sendRedirect("login");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            request.getRequestDispatcher("login.jsp").include(request, response);
+            /*request.getRequestDispatcher("login.jsp").include(request, response);*/
+            ((HttpServletResponse)response).sendRedirect("login");
         }
     }
 }

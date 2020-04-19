@@ -39,6 +39,12 @@ public class ScratchCardRequestServiceImpl implements ScratchCardRequestService 
     }
 
     @Override
+    public boolean deleteScratchCardRequest(ScratchCardRequest scratchCardRequest) {
+        scratchCardRequestRepository.delete(scratchCardRequest);
+        return true;
+    }
+
+    @Override
     public Boolean requestBalance(User user, Double amount) {
         // request card
         ScratchCardRequest scratchCardRequest = new ScratchCardRequest();
