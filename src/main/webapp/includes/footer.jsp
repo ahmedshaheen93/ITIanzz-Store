@@ -12,7 +12,7 @@
                 <div class="col-md-6 col-lg-7 text-center text-md-right">
                     <a href="${applicationScope.storeInstance.getFaceBook()}" class="fb-ic"><i class="fab fa-facebook-f white-text mr-4"></i></a>
                     <a href="${applicationScope.storeInstance.getTwitter()}" class="tw-ic"><i class="fab fa-twitter white-text mr-4"></i></a>
-                    <a href="${applicationScope.storeInstance.getYoutube()}" class="gplus-ic"><i class="fab fa-google-plus-g white-text mr-4"></i></a>
+                    <a href="${applicationScope.storeInstance.getYoutube()}" class="gplus-ic"><i class="fab fa-youtube white-text mr-4"></i></a>
                     <a href="${applicationScope.storeInstance.getLinkedin()}" class="li-ic"><i class="fab fa-linkedin-in white-text mr-4"></i></a>
                     <a href="${applicationScope.storeInstance.getInstagram()}" class="ins-ic"><i class="fab fa-instagram white-text"></i></a>
                 </div>
@@ -62,7 +62,7 @@
     </div>
 
     <div class="text-center text-muted py-1" style="background-color: #333;">
-        Made with LOVE - JETS Intake 40
+        Made with <span style="color: lightblue;"> &#9825; </span> JETS Intake 40
     </div>
 
 </footer>
