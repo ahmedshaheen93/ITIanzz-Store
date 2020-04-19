@@ -42,7 +42,7 @@
                                         <c:if test="${!scratchCardRequest.approved}">
                                             <a class="btn btn-warning approveRequest"
                                                name="${scratchCardRequest.scratchCardRequestId}">approve</a>
-                                            <a class="btn btn-danger" name="${scratchCardRequest.scratchCardRequestId}">delete</a>
+                                            <a class="btn btn-danger deleteRequest" name="${scratchCardRequest.scratchCardRequestId}">delete</a>
                                         </c:if>
                                     </td>
                                 </tr>

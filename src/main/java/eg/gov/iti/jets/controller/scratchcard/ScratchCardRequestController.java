@@ -54,31 +54,32 @@ public class ScratchCardRequestController extends HttpServlet {
             ScratchCardService scratchCardService =
                     (ScratchCardService) req.getServletContext().getAttribute("scratchCardService");
             boolean done = false;
-            switch (operation) {
-                case "approve":
-                    ScratchCardRequest scratchCardRequest = approveRequest(scratchCardRequestService, scratchCardService, id);
-                    System.out.println(scratchCardRequest);
-                    System.out.println(mailService);
-                    System.out.println(scratchCardRequest.getUser());
-                    System.out.println(scratchCardRequest.getScratchCard());
-                    done = mailService.sendScratchCardMail(scratchCardRequest.getUser(), scratchCardRequest.getScratchCard());
-                    break;
-                case "delete":
-                    System.out.println("delete");
-                    break;
+            ScratchCardRequest scratchCardRequest = scratchCardRequestService.findById(id);
+            if (scratchCardRequest != null) {
+                switch (operation) {
+                    case "approve":
+                        scratchCardRequest = createRequest( scratchCardRequest, scratchCardService);
+                        scratchCardRequest = scratchCardRequestService.updateScratchCardRequest(scratchCardRequest);
+                        done = mailService.sendScratchCardMail(scratchCardRequest.getUser(), scratchCardRequest.getScratchCard());
+                        break;
+                    case "delete":
+                        System.out.println("delete");
+                        done = scratchCardRequestService.deleteScratchCardRequest(scratchCardRequest);
+                        break;
+                }
+                resp.getWriter().write("{'done':" + done + "}");
             }
-            resp.getWriter().write("{'done':" + done + "}");
+
         }
     }
 
-    private ScratchCardRequest approveRequest(ScratchCardRequestService scratchCardRequestService,
-                                              ScratchCardService scratchCardService, Long requestId) {
-        ScratchCardRequest scratchCardRequest = scratchCardRequestService.findById(requestId);
+    private ScratchCardRequest createRequest( ScratchCardRequest scratchCardRequest,
+                                              ScratchCardService scratchCardService) {
         ScratchCard card = scratchCardService.create(scratchCardRequest.getAmount());
         scratchCardRequest.setApproved(true);
         scratchCardRequest.setApprovedDateAndTime(LocalDateTime.now());
         scratchCardRequest.setScratchCard(card);
-        scratchCardRequest = scratchCardRequestService.updateScratchCardRequest(scratchCardRequest);
         return scratchCardRequest;
     }
+
 }
