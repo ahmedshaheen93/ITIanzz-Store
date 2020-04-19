@@ -105,7 +105,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="title">Orders History</h5>
+                            <h5 class="title">Orders</h5>
                         </div>
                         <div class="card-body">
 
@@ -117,7 +117,9 @@
                                                 <p class="card-text">#${order.orderId}</p>
                                             </div>
                                             <div>
-                                                <p class="card-text"><small class="text-muted">${order.orderTimestamp.toLocalDate()}</small></p>
+                                                <p class="card-text"><small
+                                                        class="text-muted">${order.orderTimestamp.toLocalDate()}</small>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -137,7 +139,7 @@
                                                         <td>${purchase.quantity}</td>
                                                         <td>${purchase.productBuyPrice}</td>
                                                     </tr>
-                                                </c:forEach>                                                
+                                                </c:forEach>
                                             </tbody>
                                         </table>
                                     </div>
@@ -152,8 +154,19 @@
                 <div class="col-md-4">
 
                     <div class="card">
-                        <div class="card-header text-center">
-                            <h5 class="title">${sessionScope.user.firstName} ${sessionScope.user.lastName}</h5>
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h5 class="title">${sessionScope.user.firstName} ${sessionScope.user.lastName}</h5>
+                                </div>
+                                <div>
+                                    <p class="card-text"><small
+                                            class="text-muted">${sessionScope.user.role.toString().replace("_ROLE",
+                                            "")}</small></p>
+
+                                </div>
+                            </div>
+
                         </div>
 
                         <c:choose>
@@ -195,17 +208,18 @@
 
                     <br>
 
-                    <div class="card text-center">
+                    <div class="card">
                         <div class="card-header">
-                            <h5 class="title">Update Profile</h5>
+                            <h5 class="title">Navigation</h5>
                         </div>
                         <div class="card-body">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item"><a href="/iti-store/update-profile" class="card-link">Edit
-                                        Details</a></li>
+                                        Profile Details</a></li>
+                                <li class="list-group-item"><a href="/iti-store/cart" class="card-link">View Current
+                                        Cart</a></li>
                                 <li class="list-group-item" data-toggle="modal" data-target="#requestBalanceModel"><a
-                                        href="#" class="card-link">Request Balance</a></li>
-                                <li class="list-group-item"><a href="#" class="card-link">Make Admin</a></li>
+                                        href="#" class="card-link">Add Balance</a></li>
                             </ul>
                         </div>
                     </div>
