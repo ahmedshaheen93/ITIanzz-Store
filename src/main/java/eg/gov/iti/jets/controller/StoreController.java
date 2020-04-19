@@ -49,6 +49,25 @@ public class StoreController extends HttpServlet {
         storeInstance.setLinkedin(req.getParameter("linkedin"));
         storeInstance.setInstagram(req.getParameter("instagram"));
 
+        storeInstance.setLinksTitle(req.getParameter("linksTitle"));
+        storeInstance.setLink1(req.getParameter("link1"));
+        storeInstance.setLinkAddress1(req.getParameter("linkAddress1"));
+        storeInstance.setLink2(req.getParameter("link2"));
+        storeInstance.setLinkAddress2(req.getParameter("linkAddress2"));
+        storeInstance.setLink3(req.getParameter("link3"));
+        storeInstance.setLinkAddress3(req.getParameter("linkAddress3"));
+        storeInstance.setLink4(req.getParameter("link4"));
+        storeInstance.setLinkAddress4(req.getParameter("linkAddress4"));
+
+        storeInstance.setSliderTitle1(req.getParameter("sliderTitle1"));
+        storeInstance.setSliderSubTitle1(req.getParameter("sliderSubTitle1"));
+        storeInstance.setSliderTitle2(req.getParameter("sliderTitle2"));
+        storeInstance.setSliderSubTitle2(req.getParameter("sliderSubTitle2"));
+        storeInstance.setSliderTitle3(req.getParameter("sliderTitle3"));
+        storeInstance.setSliderSubTitle3(req.getParameter("sliderSubTitle3"));
+        storeInstance.setSliderTitle4(req.getParameter("sliderTitle4"));
+        storeInstance.setSliderSubTitle4(req.getParameter("sliderSubTitle4"));
+
         storeService.updateStoreInfo(storeInstance);
 
         Store newStoreInstance = storeService.getStoreInfo();
