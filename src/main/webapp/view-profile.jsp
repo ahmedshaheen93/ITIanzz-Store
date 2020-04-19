@@ -100,16 +100,50 @@
                             </form>
                         </div>
                     </div>
-                    
+
                     <br>
 
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="title">Purchase Orders</h5>
-                            <!-- <i type="button" class="btn btn-primary submit eatured-search-icon" data-toggle="modal"
-                                data-target="#requestBalanceModel">Request Balance</i> -->
+                            <h5 class="title">Orders History</h5>
                         </div>
                         <div class="card-body">
+
+                            <c:forEach var="order" items="${sessionScope.user.orders}">
+                                <div class="card bg-light mb-3">
+                                    <div class="card-header">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <p class="card-text">#${order.orderId}</p>
+                                            </div>
+                                            <div>
+                                                <p class="card-text"><small class="text-muted">${order.orderTimestamp.toLocalDate()}</small></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Product</th>
+                                                    <th scope="col">Quantity</th>
+                                                    <th scope="col">Price</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <c:forEach var="purchase" items="${order.purchases}">
+                                                    <tr>
+                                                        <td>${purchase.product.productName}</td>
+                                                        <td>${purchase.quantity}</td>
+                                                        <td>${purchase.productBuyPrice}</td>
+                                                    </tr>
+                                                </c:forEach>                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <br>
+                            </c:forEach>
 
                         </div>
                     </div>
@@ -121,13 +155,40 @@
                         <div class="card-header text-center">
                             <h5 class="title">${sessionScope.user.firstName} ${sessionScope.user.lastName}</h5>
                         </div>
-                        <!-- src="${sessionScope.user.userImage.imagePath}" -->
-                        <img src="images/user/bg5.jpg" class="card-img-top img-fluid" alt="profile image">
+
+                        <c:choose>
+                            <c:when test="${sessionScope.user.userImage != null}">
+                                <img src="${sessionScope.user.userImage.imagePath}" class="card-img-top img-fluid"
+                                    alt="Profile Image">
+                            </c:when>
+                            <c:otherwise>
+                                <img src="images/user/avatar.jpg" class="card-img-top img-fluid"
+                                    alt="Default Profile Image">
+                            </c:otherwise>
+                        </c:choose>
+
                         <div class="card-body">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Orders: 44</li>
-                                <li class="list-group-item">Products: 74</li>
-                                <li class="list-group-item">Balance: 4500</li>
+                                <li class="list-group-item">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            Orders
+                                        </div>
+                                        <div>
+                                            ${sessionScope.user.orders.size()}
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            Balance
+                                        </div>
+                                        <div>
+                                            ${sessionScope.user.balance}
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -140,8 +201,10 @@
                         </div>
                         <div class="card-body">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><a href="/iti-store/update-profile" class="card-link">Edit Details</a></li>
-                                <li class="list-group-item"data-toggle="modal" data-target="#requestBalanceModel"><a href="#" class="card-link">Request Balance</a></li>
+                                <li class="list-group-item"><a href="/iti-store/update-profile" class="card-link">Edit
+                                        Details</a></li>
+                                <li class="list-group-item" data-toggle="modal" data-target="#requestBalanceModel"><a
+                                        href="#" class="card-link">Request Balance</a></li>
                                 <li class="list-group-item"><a href="#" class="card-link">Make Admin</a></li>
                             </ul>
                         </div>
