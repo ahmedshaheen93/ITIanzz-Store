@@ -6,6 +6,7 @@
 <head>
     <title>Scratch Card Requests</title>
     <%@include file="includes/head.jsp" %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="styles/cart.css" rel="stylesheet">
 </head>
 
@@ -42,7 +43,8 @@
                                         <c:if test="${!scratchCardRequest.approved}">
                                             <a class="btn btn-warning approveRequest"
                                                name="${scratchCardRequest.scratchCardRequestId}">approve</a>
-                                            <a class="btn btn-danger deleteRequest" name="${scratchCardRequest.scratchCardRequestId}">delete</a>
+                                            <a class="btn btn-danger deleteRequest"
+                                               name="${scratchCardRequest.scratchCardRequestId}">delete</a>
                                         </c:if>
                                     </td>
                                 </tr>

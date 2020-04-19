@@ -25,10 +25,9 @@ $(document).ready(
             });
         });
         $(document).on('click', '.approveRequest', function () {
-            console.log("approveRequest for money")
-
+            console.log("approveRequest for money");
             var requestId = this.name;
-            console.log(requestId)
+            $(this).parents("tr").remove();
 
             $.ajax({
                 url: "scratchCardRequest",
@@ -37,6 +36,7 @@ $(document).ready(
                 data: {"requestId": requestId, "operation": "approve"},
                 statusCode: {
                     200: function (data) {
+
                         console.log(data);
                     },
                     460: function () {
@@ -51,11 +51,10 @@ $(document).ready(
         });
 
         $(document).on('click', '.deleteRequest', function () {
-
-            console.log("deleteRequest for money")
-
+            console.log("deleteRequest for money");
             var requestId = this.name;
-            console.log(requestId)
+            console.log(requestId);
+            $(this).parents("tr").remove();
 
             $.ajax({
                 url: "scratchCardRequest",
@@ -64,7 +63,7 @@ $(document).ready(
                 data: {"requestId": requestId, "operation": "delete"},
                 statusCode: {
                     200: function (data) {
-                       console.log(data);
+                        console.log(data);
                     },
                     460: function () {
                         console.log("error")

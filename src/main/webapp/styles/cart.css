@@ -55,7 +55,7 @@ a {
     left: 48px;
 }
 
-.breadcrumbs .breadcrumb>li+li:before {
+.breadcrumbs .breadcrumb > li + li:before {
     content: " ";
 }
 
@@ -77,7 +77,7 @@ a {
 }
 
 #cart_items .cart_info .table.table-condensed tr {
-    border-bottom: 1px solid#F7F7F0
+    border-bottom: 1px solid #F7F7F0
 }
 
 #cart_items .cart_info .table.table-condensed tr:last-child {
@@ -229,15 +229,16 @@ a {
 
 .user_info .single_field.zip-field input {
     background: transparent;
-    border: 1px solid#F0F0E9
+    border: 1px solid #F0F0E9
 }
 
-.user_info>li {
+.user_info > li {
     float: left;
     margin-right: 10px
 }
 
-.user_info>li>span {}
+.user_info > li > span {
+}
 
 .user_info input,
 select,
@@ -287,7 +288,7 @@ textarea {
 
 
 .value-minus,
-.value-plus{
+.value-plus {
     margin-right: 3px;
     display: inline-block;
     cursor: pointer;
@@ -297,8 +298,9 @@ textarea {
     -moz-user-select: none;
     vertical-align: bottom;
 }
+
 .quantity-select .entry.value-minus:before,
-.quantity-select .entry.value-plus:before{
+.quantity-select .entry.value-plus:before {
     width: 13px;
     height: 2px;
     background: #000;
@@ -308,7 +310,8 @@ textarea {
     margin-top: -0.5px;
     position: absolute;
 }
-.quantity-select .entry.value-plus:after{
+
+.quantity-select .entry.value-plus:after {
     height: 13px;
     width: 2px;
     background: #000;
@@ -318,20 +321,30 @@ textarea {
     margin-top: -6.2px;
     position: absolute;
 }
-.value  {
+
+.value {
     cursor: default;
     line-height: 24px;
     text-align: center;
     display: inline-block;
     margin-right: 2px;
 }
+
 /*.quantity-select .entry.value-minus:hover,
 .quantity-select .entry.value-plus:hover{
     background: #E5E5E5;
 }*/
-
-.quantity-select .entry.value-minus{
+.quantity-select .entry.value-minus {
     margin-left: 0;
 }
+
 /*-- quantity-end --*/
 
+/*loading button*/
+.buttonload {
+    background-color: #4CAF50; /* Green background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 12px 16px; /* Some padding */
+    font-size: 16px /* Set a font size */
+}
