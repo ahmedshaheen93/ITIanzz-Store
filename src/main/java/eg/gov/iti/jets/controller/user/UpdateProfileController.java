@@ -1,16 +1,23 @@
 package eg.gov.iti.jets.controller.user;
 
 import eg.gov.iti.jets.model.Address;
+import eg.gov.iti.jets.model.Image;
 import eg.gov.iti.jets.model.User;
+import eg.gov.iti.jets.service.ImageService;
 import eg.gov.iti.jets.service.UserService;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
+import java.util.Set;
 
+@MultipartConfig(maxFileSize = 1024 * 1024 * 2)
 @WebServlet(name = "updateProfile", urlPatterns = "/update-profile")
 public class UpdateProfileController extends HttpServlet {
 
@@ -44,7 +51,8 @@ public class UpdateProfileController extends HttpServlet {
         String country = req.getParameter("country");
         String city = req.getParameter("city");
         String zipCode = req.getParameter("zipCode");
-
+        Part userImage = req.getPart("image");
+        System.out.println("req.getPart(\"userImage\");" + req.getPart("userImage"));
         UserService userService = (UserService) getServletContext().getAttribute("userService");
 //        try {
 //            User user = userService.findUserById(id);
@@ -59,6 +67,17 @@ public class UpdateProfileController extends HttpServlet {
         address.setCity(city);
         address.setZipCode(zipCode);
         user.setAddress(address);
+
+        if (userImage != null ) {
+            System.out.println("here");
+            ImageService imageService = (ImageService) getServletContext().getAttribute("imageService");
+            String userHomeDir = System.getProperty("user.home") + "/iti-store/images";
+            Set<Image> images = imageService.saveImage(userHomeDir, req.getParts());
+            System.out.println("Set<Image> images" + images);
+            Image image = images.stream().findFirst().get();
+            System.out.println("image" + image);
+            user.setUserImage(image);
+        }
 
         userService.update(user);
 //        } catch (UserNotFoundException e) {

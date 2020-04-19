@@ -163,7 +163,7 @@
 
                     <c:choose>
                         <c:when test="${sessionScope.user.userImage != null}">
-                            <img src="${sessionScope.user.userImage.imagePath}" class="card-img-top img-fluid"
+                            <img src="/iti-store/images?imageId=${sessionScope.user.userImage.imageId}" class="card-img-top img-fluid"
                                 alt="Profile Image">
                         </c:when>
                         <c:otherwise>

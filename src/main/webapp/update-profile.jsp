@@ -22,7 +22,7 @@
                         <h5 class="title">Profile Details</h5>
                     </div>
                     <div class="card-body">
-                        <form action="/iti-store/update-profile" method="post">
+                        <form action="/iti-store/update-profile" method="post" enctype="multipart/form-data">
 
                             <div class="form-row">
                                 <div class="form-group col-md-6">

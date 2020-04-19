@@ -31,6 +31,19 @@ public class RegistrationFilter implements Filter {
             String city = request.getParameter("city");
             String street = request.getParameter("street");
             String zipCode = request.getParameter("zipcode");
+            System.out.println(firstName + " > "+ lastName + " > "+ email + " > "+ password + " > "+ phone
+                    + " > "+ birthDate + " > "+ country + " > "+ state + " > "+ city + " > "+ street + " > "+ zipCode);
+            System.out.println("validateString(firstName)" + validateString(firstName));
+            System.out.println("validateString(lastName)" + validateString(lastName));
+            System.out.println("validateEmail(email, request.getServletContext()" + validateEmail(email, request.getServletContext()));
+            System.out.println("validatePassword(password)" + validatePassword(password));
+            System.out.println("validatePhone(phone)" + validatePhone(phone));
+            System.out.println("validateBirthDate(birthDate)" + validateBirthDate(birthDate));
+            System.out.println("validateString(country)" + validateString(country));
+            System.out.println("validateString(state)" + validateString(state));
+            System.out.println("validateString(city)" + validateString(city));
+            System.out.println("validateString(street)" + validateString(street));
+            System.out.println("validateZipCode(zipCode)" + validateZipCode(zipCode));
 
             if (!validateString(firstName) || !validateString(lastName) || !validateEmail(email, request.getServletContext())
                     || !validatePassword(password) || !validatePhone(phone) || !validateBirthDate(birthDate)
@@ -75,6 +88,7 @@ public class RegistrationFilter implements Filter {
     }
 
     private boolean validatePassword(String password) {
+        // complex regex
         return validate(password, "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$");
     }
 
@@ -83,6 +97,7 @@ public class RegistrationFilter implements Filter {
     }
 
     private boolean validateZipCode(String zipCode) {
+
         return validate(zipCode, "^\\d{5}(?:[-\\s]\\d{4})?$");
     }
 }
