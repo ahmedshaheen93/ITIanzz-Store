@@ -32,16 +32,16 @@
             </div>
 
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                <h6 class="text-uppercase font-weight-bold">Products</h6>
+                <h6 class="text-uppercase font-weight-bold">${applicationScope.storeInstance.linksTitle}</h6>
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                <p><a href="#!">Link 1</a></p>
-                <p><a href="#!">Link 2</a></p>
-                <p><a href="#!">Link 3</a></p>
-                <p><a href="#!">Link 4</a></p>
+                <p><a href="${applicationScope.storeInstance.linkAddress1}">${applicationScope.storeInstance.link1}</a></p>
+                <p><a href="${applicationScope.storeInstance.linkAddress2}">${applicationScope.storeInstance.link2}</a></p>
+                <p><a href="${applicationScope.storeInstance.linkAddress3}">${applicationScope.storeInstance.link3}</a></p>
+                <p><a href="${applicationScope.storeInstance.linkAddress4}">${applicationScope.storeInstance.link4}</a></p>
             </div>
 
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+                <h6 class="text-uppercase font-weight-bold">Navigation</h6>
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                 <p><a href="/iti-store/home"> Store Home</a></p>
                 <p><a href="/iti-store/products"> Our Products</a></p>

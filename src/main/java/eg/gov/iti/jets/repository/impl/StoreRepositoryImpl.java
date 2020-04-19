@@ -71,6 +71,25 @@ public class StoreRepositoryImpl extends CrudImpl<Store, Long> implements StoreR
         storeInstance.setLinkedin("https://www.linkedin.com/");
         storeInstance.setInstagram("https://www.instagram.com/");
 
+        storeInstance.setLinksTitle("Useful Links");
+        storeInstance.setLink1("Link One");
+        storeInstance.setLinkAddress1("http://www.iti.gov.eg/");
+        storeInstance.setLink2("Link Two");
+        storeInstance.setLinkAddress2("http://www.iti.gov.eg/");
+        storeInstance.setLink3("Link Three");
+        storeInstance.setLinkAddress3("http://www.iti.gov.eg/");
+        storeInstance.setLink4("Link Four");
+        storeInstance.setLinkAddress4("http://www.iti.gov.eg/");
+
+        storeInstance.setSliderTitle1("First slide label");
+        storeInstance.setSliderSubTitle1("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+        storeInstance.setSliderTitle2("Second slide label");
+        storeInstance.setSliderSubTitle2("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+        storeInstance.setSliderTitle3("Third slide label");
+        storeInstance.setSliderSubTitle3("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+        storeInstance.setSliderTitle4("Fourth slide label");
+        storeInstance.setSliderSubTitle4("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+
         return storeInstance;
     }
 }
