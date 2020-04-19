@@ -29,7 +29,9 @@
                             <table class="table table-hover">
                                 <tbody>
                                 <c:forEach var="user" items="${requestScope.users}">
+                                    <c:if test="${!sessionScope.user.equals(user)}">
                                     <custom:customerCustomTag user="${user}"/>
+                                    </c:if>
                                 </c:forEach>
                                 </tbody>
                             </table>
@@ -38,7 +40,7 @@
                 </c:when>
                 <c:otherwise>
                     <div class="card-header">
-                        <h5>no users yes!!</h5>
+                        <h5>no users!!</h5>
                     </div>
                 </c:otherwise>
             </c:choose>

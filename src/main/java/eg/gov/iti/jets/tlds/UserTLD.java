@@ -21,8 +21,9 @@ public class UserTLD extends SimpleTagSupport {
         try {
 
             out.println("<tr class=\"unread\">" +
-                    "    <td><img class='rounded-circle' style=\"width:40px;\" src='" + user.getUserImage().getImagePath() + "'\n" +
-                    "     alt=\"activity-user\"></td>\n" +
+                    "    <td><img class='rounded-circle' style=\"width:40px;\" src='"
+                    + ((user.getUserImage() != null) ? user.getUserImage().getImagePath() : "images/user/avatar.jpg" ) + "'\n" +
+                    "     alt=\"user\"></td>\n" +
                     "    <td>\n" +
                     "      <h6 class=\"mb-1\">" + user.getFirstName() + " " + user.getLastName() + "</h6>\n" +
                     "       <p class=\"m-0\" style='font-size: 15px'>" + user.getPhone() + "</p>\n" +
