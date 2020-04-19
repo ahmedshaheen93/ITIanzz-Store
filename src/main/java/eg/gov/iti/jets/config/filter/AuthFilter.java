@@ -46,7 +46,7 @@ public class AuthFilter implements Filter {
         if (user != null || checkPublic(httpRequest)) {
             System.out.println("on chain.doFilter");
             chain.doFilter(request, response);
-        } else if (userCookie.isPresent()) {
+        } else if (userCookie.isPresent() && !userCookie.get().trim().isEmpty()) {
             performUserCookie(userCookie.get(), request, response, chain);
 
         } else {
