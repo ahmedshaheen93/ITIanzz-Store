@@ -34,7 +34,7 @@ public class LoginController extends HttpServlet {
                 if (user != null) {
                     req.getSession().setAttribute("user", user);
                     ReadWriteCookei.writeCookie(resp, "email", email, 60 * 60 * 60 * 24);
-                    req.getRequestDispatcher("index.jsp").include(req, resp);
+                    req.getRequestDispatcher("index.jsp").forward(req, resp);
                 }
             }
             req.setAttribute("errorMessage", "enter a vaild data");
