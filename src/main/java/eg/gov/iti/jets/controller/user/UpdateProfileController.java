@@ -1,6 +1,5 @@
 package eg.gov.iti.jets.controller.user;
 
-import eg.gov.iti.jets.exception.UserNotFoundException;
 import eg.gov.iti.jets.model.Address;
 import eg.gov.iti.jets.model.User;
 import eg.gov.iti.jets.service.UserService;
@@ -20,22 +19,23 @@ public class UpdateProfileController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        UserService userService = (UserService) getServletContext().getAttribute("userService");
-        int id = Integer.parseInt(req.getParameter("id"));
-        try {
-            User userById = userService.findUserById(id);
-            req.setAttribute("user", userById);
-        } catch (UserNotFoundException e) {
-            e.printStackTrace();
-            req.setAttribute("errorMessage", e.getMessage());
-        }
+//        UserService userService = (UserService) getServletContext().getAttribute("userService");
+//        int id = Integer.parseInt(req.getParameter("id"));
+//        try {
+//            User userById = userService.findUserById(id);
+//            req.setAttribute("user", userById);
+//        } catch (UserNotFoundException e) {
+//            e.printStackTrace();
+//            req.setAttribute("errorMessage", e.getMessage());
+//        }
+//
 
         req.getRequestDispatcher("update-profile.jsp").include(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        System.out.println("update user profile");
         int id = Integer.parseInt(req.getParameter("id"));
         String phone = req.getParameter("phone");
         String email = req.getParameter("email");
@@ -46,24 +46,24 @@ public class UpdateProfileController extends HttpServlet {
         String zipCode = req.getParameter("zipCode");
 
         UserService userService = (UserService) getServletContext().getAttribute("userService");
-        try {
-            User user = userService.findUserById(id);
+//        try {
+//            User user = userService.findUserById(id);
+        User user = (User) req.getSession().getAttribute("user");
+        user.setFirstName(firstName);
+        user.setPhone(phone);
+        user.setLastName(lastName);
+        user.setEmail(email);
 
-            user.setFirstName(firstName);
-            user.setPhone(phone);
-            user.setLastName(lastName);
-            user.setEmail(email);
+        Address address = new Address();
+        address.setCountry(country);
+        address.setCity(city);
+        address.setZipCode(zipCode);
+        user.setAddress(address);
 
-            Address address = new Address();
-            address.setCountry(country);
-            address.setCity(city);
-            address.setZipCode(zipCode);
-            user.setAddress(address);
-
-            userService.update(user);
-        } catch (UserNotFoundException e) {
-            e.printStackTrace();
-        }
-        resp.sendRedirect("profile?id=" + id);
+        userService.update(user);
+//        } catch (UserNotFoundException e) {
+//            e.printStackTrace();
+//        }
+        resp.sendRedirect("view-profile");
     }
 }

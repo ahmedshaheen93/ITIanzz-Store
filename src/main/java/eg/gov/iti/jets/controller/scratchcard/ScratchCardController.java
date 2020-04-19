@@ -19,13 +19,14 @@ public class ScratchCardController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String number = req.getParameter("number");
+        System.out.println(number);
         User user = (User) req.getSession().getAttribute("user");
         if (number != null) {
-            ScratchCardService scratchCardService = (ScratchCardService) req.getServletContext().getAttribute("ValidateScratchCard");
+            ScratchCardService scratchCardService = (ScratchCardService) req.getServletContext().getAttribute("scratchCardService");
             UserService userService = (UserService) req.getServletContext().getAttribute("userService");
             // validate
             ScratchCard card = scratchCardService.checkScratchCardWithNumber(number);
-            if (card != null && user != null) {
+            if (card != null) {
                 // update
                 try {
                     userService.addUserBalance(user, card.getCardAmount());
@@ -33,11 +34,13 @@ public class ScratchCardController extends HttpServlet {
                     scratchCardService.updateScratchCard(card);
                     //balance updated
                     System.out.println("balance updated");
-
+                    req.getRequestDispatcher("/view-profile").forward(req, resp);
 
                 } catch (UserBalanceViolation userBalanceViolation) {
                     userBalanceViolation.printStackTrace();
                 }
+            } else {
+                resp.getWriter().write("not vaild card number");
             }
         }
     }
@@ -52,7 +55,9 @@ public class ScratchCardController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String balance = req.getParameter("balance");
+        String balance = req.getParameter("amount");
+        System.out.println("requested balance = " + balance);
+        System.out.println(balance);
         User user = (User) req.getSession().getAttribute("user");
         if (balance != null && user != null) {
             ScratchCardRequestService scratchCardRequestService = (ScratchCardRequestService) req.getServletContext().getAttribute("scratchCardRequestService");

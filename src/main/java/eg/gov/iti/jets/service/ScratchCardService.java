@@ -7,5 +7,5 @@ public interface ScratchCardService {
 
     ScratchCard updateScratchCard(ScratchCard scratchCard);
 
-
+    ScratchCard create(Double amount);
 }

@@ -34,6 +34,11 @@ public class ScratchCardRequestServiceImpl implements ScratchCardRequestService 
     }
 
     @Override
+    public ScratchCardRequest findById(Long id) {
+        return scratchCardRequestRepository.findById(id);
+    }
+
+    @Override
     public Boolean requestBalance(User user, Double amount) {
         // request card
         ScratchCardRequest scratchCardRequest = new ScratchCardRequest();

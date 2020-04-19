@@ -22,7 +22,21 @@ public class ScratchCardServiceImpl implements ScratchCardService {
         return scratchCardRepository.update(scratchCard);
     }
 
+    @Override
+    public ScratchCard create(Double amount) {
+        ScratchCard card = new ScratchCard();
+        card.setValid(true);
+        card.setCardAmount(amount);
+        card.setCardNumber(createRandomNumber());
+        card = scratchCardRepository.save(card);
+        return card;
+    }
+
     public static synchronized ScratchCardServiceImpl getInstance() {
         return instance = Objects.requireNonNullElseGet(instance, ScratchCardServiceImpl::new);
+    }
+
+    private synchronized String createRandomNumber() {
+        return "" + System.currentTimeMillis();
     }
 }

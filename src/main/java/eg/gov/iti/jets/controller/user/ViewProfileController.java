@@ -1,8 +1,6 @@
 package eg.gov.iti.jets.controller.user;
 
-import eg.gov.iti.jets.exception.UserNotFoundException;
 import eg.gov.iti.jets.model.User;
-import eg.gov.iti.jets.service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,25 +17,30 @@ public class ViewProfileController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        UserService userService = (UserService) getServletContext().getAttribute("userService");
-        String userIdParam = req.getParameter("id");
-        Long userId;
-
-        if (userIdParam == null) {
-            User user = (User) req.getSession().getAttribute("user");
-            userId = user.getUserId();
+//        UserService userService = (UserService) getServletContext().getAttribute("userService");
+//        String userIdParam = req.getParameter("id");
+//        Long userId;
+//
+//        if (userIdParam == null) {
+//            User user = (User) req.getSession().getAttribute("user");
+//            userId = user.getUserId();
+//        } else {
+//            userId = Long.valueOf(userIdParam);
+//        }
+//
+//        try {
+//            User userById = userService.findUserById(userId);
+//            req.setAttribute("user", userById);
+//        } catch (UserNotFoundException e) {
+//            e.printStackTrace();
+//            req.setAttribute("errorMessage", e.getMessage());
+//        }
+        User user = (User) req.getSession().getAttribute("user");
+        if (user != null) {
+            req.getRequestDispatcher("view-profile.jsp").include(req, resp);
         } else {
-            userId = Long.valueOf(userIdParam);
+            req.getRequestDispatcher("login.jsp").include(req, resp);
         }
-
-        try {
-            User userById = userService.findUserById(userId);
-            req.setAttribute("user", userById);
-        } catch (UserNotFoundException e) {
-            e.printStackTrace();
-            req.setAttribute("errorMessage", e.getMessage());
-        }
-        req.getRequestDispatcher("view-profile.jsp").include(req, resp);
     }
 
     @Override

@@ -3,6 +3,7 @@ package eg.gov.iti.jets.repository.impl;
 import eg.gov.iti.jets.model.ScratchCard;
 import eg.gov.iti.jets.repository.ScratchCardRepository;
 
+import javax.persistence.NoResultException;
 import java.util.Objects;
 
 public class ScratchCardRepositoryImpl extends CrudImpl<ScratchCard, Long> implements ScratchCardRepository {
@@ -17,10 +18,16 @@ public class ScratchCardRepositoryImpl extends CrudImpl<ScratchCard, Long> imple
 
     @Override
     public ScratchCard findByNumberAndValid(String cardNumber, Boolean valid) {
-        return (ScratchCard) getEntityManager()
-                .createNamedQuery("ScratchCard.findByNumberAndValid")
-                .setParameter("cardNumber", cardNumber)
-                .setParameter("valid", valid).getSingleResult();
+        ScratchCard card = null;
+        try {
+            card = (ScratchCard) getEntityManager()
+                    .createNamedQuery("ScratchCard.findByNumberAndValid")
+                    .setParameter("cardNumber", cardNumber)
+                    .setParameter("valid", valid).getSingleResult();
+        } catch (NoResultException e) {
+            e.printStackTrace();
+        }
+        return card;
     }
 }
 

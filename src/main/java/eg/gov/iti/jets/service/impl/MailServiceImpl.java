@@ -13,9 +13,14 @@ import javax.mail.internet.MimeMessage;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Objects;
 import java.util.Properties;
 
 public class MailServiceImpl implements MailService {
+    private static MailServiceImpl instance;
+
+    protected MailServiceImpl() {
+    }
 
     // response card number
     @Override
@@ -46,11 +51,16 @@ public class MailServiceImpl implements MailService {
         return false;
     }
 
+    public static MailServiceImpl getInstance() {
+        return instance = Objects.requireNonNullElseGet(instance, MailServiceImpl::new);
+    }
+
     private boolean yahooSend(String mail, String subject, String msg) throws IOException {
 
         // Sender's email ID needs to be mentioned
         String from = "ahmedshaheen93@yahoo.com";
-        String pass = new String(Files.readAllBytes(Paths.get("credential")));
+        String credential = System.getProperty("user.home") + "/iti-store/credential";
+        String pass = new String(Files.readAllBytes(Paths.get(credential)));
         // Recipient's email ID needs to be mentioned.
         String to = mail;
         String host = "smtp.mail.yahoo.com";

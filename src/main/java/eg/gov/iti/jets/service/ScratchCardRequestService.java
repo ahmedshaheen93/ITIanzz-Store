@@ -30,4 +30,7 @@ public interface ScratchCardRequestService {
      */
 
     ScratchCardRequest updateScratchCardRequest(ScratchCardRequest scratchCardRequest);
+
+    ScratchCardRequest findById(Long id);
+
 }
