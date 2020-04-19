@@ -37,8 +37,8 @@ public class ScratchCardController extends HttpServlet {
                     scratchCardService.updateScratchCard(card);
                     //balance updated
                     System.out.println("balance updated");
-                    req.getRequestDispatcher("/view-profile").forward(req, resp);
-
+//                    req.getRequestDispatcher("/view-profile").forward(req, resp);
+                    resp.sendRedirect("view-profile");
                 } catch (UserBalanceViolation userBalanceViolation) {
                     userBalanceViolation.printStackTrace();
                 }
