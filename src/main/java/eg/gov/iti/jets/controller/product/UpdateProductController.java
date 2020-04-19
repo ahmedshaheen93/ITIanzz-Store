@@ -25,6 +25,8 @@ import java.util.Set;
 @WebServlet(name = "update-product", urlPatterns = {"/update-product"})
 public class UpdateProductController extends HttpServlet {
 
+    private static final long serialVersionUID = -7444454604349503026L;
+
     private ProductService productService;
     private CategoryService categoryService;
 

@@ -28,6 +28,9 @@ import java.util.Set;
 
 @WebServlet(name = "orders", urlPatterns = "/orders")
 public class OrderController extends HttpServlet {
+
+    private static final long serialVersionUID = -2688027528289014602L;
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = (User) req.getSession().getAttribute("user");

@@ -15,6 +15,9 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "addCategory", urlPatterns = "/newCategory")
 public class AddCategory extends HttpServlet {
+
+    private static final long serialVersionUID = 7350381752033936712L;
+
     CategoryService categoryService;
 
     @Override

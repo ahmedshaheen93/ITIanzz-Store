@@ -23,6 +23,9 @@ import java.util.Set;
 @MultipartConfig(maxFileSize = 1024 * 1024 * 2)
 @WebServlet(name = "addProduct", urlPatterns = "/addProduct")
 public class AddProduct extends HttpServlet {
+
+    private static final long serialVersionUID = 5014950216156492778L;
+
     CategoryService categoryService;
 
     @Override

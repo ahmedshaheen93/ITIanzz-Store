@@ -18,6 +18,8 @@ import java.util.List;
 @WebServlet(name = "reviewProduct", urlPatterns = "/reviewProduct")
 public class ReviewController extends HttpServlet {
 
+    private static final long serialVersionUID = 6559796700532568696L;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ReviewService reviewService = ((ReviewService) getServletContext().getAttribute("reviewService"));

@@ -1,20 +1,11 @@
 package eg.gov.iti.jets;
 
-import eg.gov.iti.jets.exception.ProductQuantityLimitExceeded;
-import eg.gov.iti.jets.exception.UserBalanceViolation;
 import eg.gov.iti.jets.model.*;
-import eg.gov.iti.jets.repository.ImageRepository;
 import eg.gov.iti.jets.repository.ProductRepository;
-import eg.gov.iti.jets.repository.UserRepository;
 import eg.gov.iti.jets.repository.impl.ImageRepositoryImpl;
 import eg.gov.iti.jets.repository.impl.ProductRepositoryImpl;
-import eg.gov.iti.jets.repository.impl.UserRepositoryImpl;
-import eg.gov.iti.jets.service.OrderService;
-import eg.gov.iti.jets.service.impl.OrderServiceImpl;
 
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {

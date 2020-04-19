@@ -15,6 +15,8 @@ import java.io.IOException;
 @WebServlet(name = "view-product", urlPatterns = {"/view-product"})
 public class ViewProductController extends HttpServlet {
 
+    private static final long serialVersionUID = -5076520322013207207L;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");

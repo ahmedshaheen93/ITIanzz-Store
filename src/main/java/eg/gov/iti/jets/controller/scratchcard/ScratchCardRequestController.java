@@ -21,6 +21,9 @@ import java.util.List;
 // create filter for this servelt => only admin users can access
 @WebServlet(name = "scratchCardRequest", urlPatterns = "/scratchCardRequest")
 public class ScratchCardRequestController extends HttpServlet {
+
+    private static final long serialVersionUID = 7365147479343973508L;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = (User) req.getSession().getAttribute("user");

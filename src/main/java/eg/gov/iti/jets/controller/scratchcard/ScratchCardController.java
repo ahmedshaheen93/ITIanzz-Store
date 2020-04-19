@@ -16,6 +16,9 @@ import java.io.IOException;
 
 @WebServlet(name = "scratchCard", urlPatterns = "/scratchCard")
 public class ScratchCardController extends HttpServlet {
+
+    private static final long serialVersionUID = -7021389694221174888L;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String number = req.getParameter("number");

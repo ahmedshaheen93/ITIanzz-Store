@@ -12,6 +12,9 @@ import java.io.*;
 
 @WebServlet(name = "images", urlPatterns = "/images")
 public class ImageController extends HttpServlet {
+
+    private static final long serialVersionUID = 5461635420883008671L;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String imageId = req.getParameter("imageId");

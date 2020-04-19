@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Objects;
 
 import eg.gov.iti.jets.model.Address;
-import eg.gov.iti.jets.model.Image;
 import eg.gov.iti.jets.model.Store;
 import eg.gov.iti.jets.repository.StoreRepository;
 
