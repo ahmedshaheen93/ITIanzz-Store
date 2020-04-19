@@ -24,7 +24,7 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="/iti-store/images/home/slider/slider1.jpg"  class="w-100" alt="...">
+                        <img src="/iti-store/images/home/slider/slider1.jpg" class="w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h2>${applicationScope.storeInstance.sliderTitle1}</h2>
                             <p>${applicationScope.storeInstance.sliderSubTitle1}</p>
@@ -70,8 +70,7 @@
                 <div class="col-10 mx-auto text-center">
                     <h1 class="text-uppercase">featured products</h1>
                     <p class="text-muted">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora,
-                        recusandae.
+                        Here are our Top Selling Products in the Store we hope you like it.
                     </p>
                 </div>
             </div>
@@ -183,13 +182,12 @@
                     <h2 class="text-uppercase font-weight-bold">
                         world class collection
                     </h2>
-                    <p class="text-capitalize">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit,
-                        iure?
-                    </p>
-                    <a href="/iti-store/products" class="text-weight-bold text-capitalize collection-link">
-                        view collection
-                    </a>
+                    <br>
+                    <h5>
+                        <a href="/iti-store/products" class="text-weight-bold text-capitalize collection-link">
+                            view our products
+                        </a>
+                    </h5>
                     <div class="collection-underline"></div>
                     <br>
                     <br>
@@ -200,53 +198,53 @@
     </section>
 
     <!-- start features Area -->
-	<section class="features-area section_gap">
-		<div class="container">
-			<div class="row features-inner">
-				<!-- single features -->
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="single-features">
-						<div class="f-icon">
-							<img src="/iti-store/images/home/features/f-icon1.png" alt="">
-						</div>
-						<h6>Free Delivery</h6>
-						<p>Free Shipping on all order</p>
-					</div>
-				</div>
-				<!-- single features -->
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="single-features">
-						<div class="f-icon">
-							<img src="/iti-store/images/home/features/f-icon2.png" alt="">
-						</div>
-						<h6>Return Policy</h6>
-						<p>Free Shipping on all order</p>
-					</div>
-				</div>
-				<!-- single features -->
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="single-features">
-						<div class="f-icon">
-							<img src="/iti-store/images/home/features/f-icon3.png" alt="">
-						</div>
-						<h6>24/7 Support</h6>
-						<p>Free Shipping on all order</p>
-					</div>
-				</div>
-				<!-- single features -->
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="single-features">
-						<div class="f-icon">
-							<img src="/iti-store/images/home/features/f-icon4.png" alt="">
-						</div>
-						<h6>Secure Payment</h6>
-						<p>Free Shipping on all order</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- end features Area -->
+    <section class="features-area section_gap">
+        <div class="container">
+            <div class="row features-inner">
+                <!-- single features -->
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="single-features">
+                        <div class="f-icon">
+                            <img src="/iti-store/images/home/features/f-icon1.png" alt="">
+                        </div>
+                        <h6>Free Delivery</h6>
+                        <p>Free Shipping on all order</p>
+                    </div>
+                </div>
+                <!-- single features -->
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="single-features">
+                        <div class="f-icon">
+                            <img src="/iti-store/images/home/features/f-icon2.png" alt="">
+                        </div>
+                        <h6>Return Policy</h6>
+                        <p>Free Shipping on all order</p>
+                    </div>
+                </div>
+                <!-- single features -->
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="single-features">
+                        <div class="f-icon">
+                            <img src="/iti-store/images/home/features/f-icon3.png" alt="">
+                        </div>
+                        <h6>24/7 Support</h6>
+                        <p>Free Shipping on all order</p>
+                    </div>
+                </div>
+                <!-- single features -->
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="single-features">
+                        <div class="f-icon">
+                            <img src="/iti-store/images/home/features/f-icon4.png" alt="">
+                        </div>
+                        <h6>Secure Payment</h6>
+                        <p>Free Shipping on all order</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end features Area -->
 
     <!-- modal -->
     <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
