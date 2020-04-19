@@ -24,37 +24,29 @@
                     <div class="card-body">
                         <form>
 
-                            <div class="row">
-                                <div class="col-md-6 pr-1">
-                                    <div class="form-group">
-                                        <label>First Name</label>
-                                        <input type="text" class="form-control" placeholder="First Name"
-                                            value="${sessionScope.user.firstName}" disabled>
-                                    </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>First Name</label>
+                                    <input type="text" class="form-control" placeholder="First Name"
+                                        value="${sessionScope.user.firstName}" disabled>
                                 </div>
-                                <div class="col-md-6 pl-1">
-                                    <div class="form-group">
-                                        <label>Last Name</label>
-                                        <input type="text" class="form-control" placeholder="Last Name"
-                                            value="${sessionScope.user.lastName}" disabled>
-                                    </div>
+                                <div class="form-group col-md-6">
+                                    <label>Last Name</label>
+                                    <input type="text" class="form-control" placeholder="Last Name"
+                                        value="${sessionScope.user.lastName}" disabled>
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-md-6 pr-1">
-                                    <div class="form-group">
-                                        <label>Phone Number</label>
-                                        <input type="tel" class="form-control" placeholder="Phone Number"
-                                            value="${sessionScope.user.phone}" disabled>
-                                    </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Phone Number</label>
+                                    <input type="tel" class="form-control" placeholder="Phone Number"
+                                        value="${sessionScope.user.phone}" disabled>
                                 </div>
-                                <div class="col-md-6 pl-1">
-                                    <div class="form-group">
-                                        <label>Email address</label>
-                                        <input type="email" class="form-control" placeholder="Email Address"
-                                            value="${sessionScope.user.email}" disabled>
-                                    </div>
+                                <div class="form-group col-md-6">
+                                    <label>Email address</label>
+                                    <input type="email" class="form-control" placeholder="Email Address"
+                                        value="${sessionScope.user.email}" disabled>
                                 </div>
                             </div>
 
@@ -226,7 +218,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="modal fade" id="requestBalanceModel" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

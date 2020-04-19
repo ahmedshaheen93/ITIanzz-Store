@@ -24,54 +24,43 @@
                     <div class="card-body">
                         <form action="/iti-store/update-profile" method="post">
 
-                            <div class="row">
-                                <div class="col-md-6 pr-1">
-                                    <div class="form-group">
-                                        <label>First Name</label>
-                                        <input name="firstName" type="text" class="form-control"
-                                            placeholder="First Name" value="${sessionScope.user.firstName}">
-                                    </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>First Name</label>
+                                    <input name="firstName" type="text" class="form-control" placeholder="First Name"
+                                        value="${sessionScope.user.firstName}">
                                 </div>
-                                <div class="col-md-6 pl-1">
-                                    <div class="form-group">
-                                        <label>Last Name</label>
-                                        <input name="lastName" type="text" class="form-control" placeholder="Last Name"
-                                            value="${sessionScope.user.lastName}">
-                                    </div>
+                                <div class="form-group col-md-6">
+                                    <label>Last Name</label>
+                                    <input name="lastName" type="text" class="form-control" placeholder="Last Name"
+                                        value="${sessionScope.user.lastName}">
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-md-6 pr-1">
-                                    <div class="form-group">
-                                        <label>Phone Number</label>
-                                        <input name="phone" type="tel" class="form-control" placeholder="Phone Number"
-                                            value="${sessionScope.user.phone}">
-                                    </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Phone Number</label>
+                                    <input name="phone" type="tel" class="form-control" placeholder="Phone Number"
+                                        value="${sessionScope.user.phone}">
                                 </div>
-                                <div class="col-md-6 pl-1">
-                                    <div class="form-group">
-                                        <label>Email address</label>
-                                        <input name="email" type="email" class="form-control"
-                                            placeholder="Email Address" value="${sessionScope.user.email}">
-                                    </div>
+
+                                <div class="form-group col-md-6">
+                                    <label>Email address</label>
+                                    <input name="email" type="email" class="form-control" placeholder="Email Address"
+                                        value="${sessionScope.user.email}">
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-md-6 pr-1">
-                                    <div class="form-group">
-                                        <label>Password</label>
-                                        <input name="password" type="password" class="form-control"
-                                            placeholder="Password" value="${sessionScope.user.password}">
-                                    </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Password</label>
+                                    <input name="password" type="password" class="form-control" placeholder="Password"
+                                        value="${sessionScope.user.password}">
                                 </div>
-                                <div class="col-md-6 pl-1">
-                                    <div class="form-group">
-                                        <label>Confirm Password</label>
-                                        <input name="confirmPassword" type="password" class="form-control"
-                                            placeholder="Confirm Password" value="${sessionScope.user.password}">
-                                    </div>
+                                <div class="form-group col-md-6">
+                                    <label>Confirm Password</label>
+                                    <input name="confirmPassword" type="password" class="form-control"
+                                        placeholder="Confirm Password" value="${sessionScope.user.password}">
                                 </div>
                             </div>
 
@@ -117,7 +106,8 @@
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label>Profile Image</label>
-                                    <input name="image" type="file" class="form-control" placeholder="Choose a new profile image...">
+                                    <input name="image" type="file" class="form-control"
+                                        placeholder="Choose a new profile image...">
                                 </div>
                                 <br>
                             </div>
