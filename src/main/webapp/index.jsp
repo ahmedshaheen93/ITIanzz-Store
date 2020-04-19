@@ -26,29 +26,29 @@
                     <div class="carousel-item active">
                         <img src="/iti-store/images/home/slider/slider1.jpg"  class="w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h2>First slide label</h2>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            <h2>${applicationScope.storeInstance.sliderTitle1}</h2>
+                            <p>${applicationScope.storeInstance.sliderSubTitle1}</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="/iti-store/images/home/slider/slider2.jpg" class="w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h2>Second slide label</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <h2>${applicationScope.storeInstance.sliderTitle2}</h2>
+                            <p>${applicationScope.storeInstance.sliderSubTitle2}</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="/iti-store/images/home/slider/slider3.jpg" class="w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h2>Third slide label</h2>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            <h2>${applicationScope.storeInstance.sliderTitle3}</h2>
+                            <p>${applicationScope.storeInstance.sliderSubTitle3}</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="/iti-store/images/home/slider/slider4.jpg" class="w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h2>Third slide label</h2>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            <h2>${applicationScope.storeInstance.sliderTitle4}</h2>
+                            <p>${applicationScope.storeInstance.sliderSubTitle4}</p>
                         </div>
                     </div>
                 </div>
