@@ -134,7 +134,10 @@
                     </div>
                 </div>
 
+                <br>
+
             </div>
+
             <div class="col-md-4">
 
                 <div class="card">
@@ -156,15 +159,14 @@
                     <c:choose>
                         <c:when test="${sessionScope.user.userImage != null}">
                             <img src="/iti-store/images?imageId=${sessionScope.user.userImage.imageId}"
-                                 class="card-img-top img-fluid"
-                                 alt="Profile Image">
+                                class="card-img-top img-fluid" alt="Profile Image">
                         </c:when>
                         <c:otherwise>
                             <img src="images/user/avatar.jpg" class="card-img-top img-fluid"
-                                 alt="Default Profile Image">
+                                alt="Default Profile Image">
                         </c:otherwise>
                     </c:choose>
-                    
+
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
@@ -211,6 +213,37 @@
 
                 <br>
 
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="requestBalanceModel" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <!-- modal header -->
+                <div class="modal-header">
+                    <h5 class="modal-title text-capitalize">Request For Balance</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!--end of  modal header -->
+                <!-- modal body -->
+                <div class="modal-body">
+                    <div class="row">
+                        <label for="requestBalance" class="col control-label">Amount of Money</label>
+                        <div class="col">
+                            <input aria-invalid="amount" type="number" name="requestBalance" class="form-control"
+                                min="1" id="requestBalance">
+                        </div>
+
+                    </div>
+                </div>
+                <!-- end modal body -->
+                <div class="modal-footer">
+                    <button class="btn btn-danger my-2 mx-2  addBalance" data-dismiss="modal">Request Balance</button>
+                    <%-- <button type="button" class="btn btn-danger " data-dismiss="modal">close modal</button>--%>
+                </div>
             </div>
         </div>
     </div>
