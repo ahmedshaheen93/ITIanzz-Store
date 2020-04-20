@@ -58,7 +58,7 @@ public class ScratchCardRequestController extends HttpServlet {
             if (scratchCardRequest != null) {
                 switch (operation) {
                     case "approve":
-                        scratchCardRequest = createRequest( scratchCardRequest, scratchCardService);
+                        scratchCardRequest = createRequest(scratchCardRequest, scratchCardService);
                         scratchCardRequest = scratchCardRequestService.updateScratchCardRequest(scratchCardRequest);
                         done = mailService.sendScratchCardMail(scratchCardRequest.getUser(), scratchCardRequest.getScratchCard());
                         break;
@@ -67,14 +67,15 @@ public class ScratchCardRequestController extends HttpServlet {
                         done = scratchCardRequestService.deleteScratchCardRequest(scratchCardRequest);
                         break;
                 }
+                System.out.println("{'done':" + done + "}");
                 resp.getWriter().write("{'done':" + done + "}");
             }
 
         }
     }
 
-    private ScratchCardRequest createRequest( ScratchCardRequest scratchCardRequest,
-                                              ScratchCardService scratchCardService) {
+    private ScratchCardRequest createRequest(ScratchCardRequest scratchCardRequest,
+                                             ScratchCardService scratchCardService) {
         ScratchCard card = scratchCardService.create(scratchCardRequest.getAmount());
         scratchCardRequest.setApproved(true);
         scratchCardRequest.setApprovedDateAndTime(LocalDateTime.now());
