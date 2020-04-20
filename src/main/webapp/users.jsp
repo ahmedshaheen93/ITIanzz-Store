@@ -110,17 +110,14 @@
 <div class="modal fade" id="modal-lg">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Large Modal</h4>
+            <div class="modal-header ">
+                <h4 class="modal-title">Profile Details</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <div class="card">
-                    <div class="card-header">
-                        <h5 class="title">Profile Details</h5>
-                    </div>
                     <div class="row">
                         <div class="col-md-4">
 
@@ -132,8 +129,7 @@
                                         </div>
                                         <div>
                                             <p class="card-text"><small
-                                                    class="text-muted" id="role"></small></p>
-
+                                                    class="text-muted fas fa-user" id="role"></small></p>
                                         </div>
                                     </div>
 

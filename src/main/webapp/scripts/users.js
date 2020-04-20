@@ -39,7 +39,13 @@ $(document).ready(function () {
         $("#zipCode").val(user.address.zipCode);
         //
         $("#title").text(user.firstName + " " + user.lastName);
-        $("#role").text(user.role.replace("_ROEL", ""));
+        console.log(user.role);
+        if (user.role === "ADMIN_ROLE") {
+            $("#role").addClass('fa-star').removeClass('fa-user');
+            $(".modal-header").addClass('bg-dark text-white');
+            $(".modal-header button span ").addClass('text-white');
+        }
+
         $("#profileImage").attr('src', user.userImage);
         $("#orders").text(user.orders);
         $("#balance").text(user.balance);
