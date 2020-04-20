@@ -27,7 +27,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="userfirstname">First name</label>
-                    <input name="firstname" type="text" class="form-control" id="userfirstname" required>
+                    <input name="firstname" type="text" class="form-control" id="userfirstname"  required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="userlastname">Last name</label>
@@ -41,7 +41,8 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="userpassword">Password</label>
-                    <input name="password" type="password" class="form-control" id="userpassword" required>
+                    <input name="password" type="password" class="form-control" id="userpassword"
+                           pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$" title="Weak Password" required>
                 </div>
             </div>
             <div class="form-row">
@@ -75,7 +76,8 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="userzipcode">Zip Code</label>
-                    <input name="zipcode" type="text" class="form-control" id="userzipcode" required>
+                    <input name="zipcode" type="text" class="form-control" id="userzipcode"
+                           pattern="^\d{5}(?:[-\s]\d{4})?$" title="invalid zip code" required>
                 </div>
             </div>
             
