@@ -5,7 +5,7 @@
 <html lang="en">
 
 <head>
-    <title>Products</title>
+    <title>${applicationScope.storeInstance.storeName} - Products</title>
     <%@include file="includes/head.jsp" %>
 </head>
 

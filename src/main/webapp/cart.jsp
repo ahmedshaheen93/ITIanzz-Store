@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-    <title>Cart</title>
+    <title>${applicationScope.storeInstance.storeName} - Cart</title>
     <%@include file="includes/head.jsp" %>
     <link href="styles/cart.css" rel="stylesheet">
 </head>

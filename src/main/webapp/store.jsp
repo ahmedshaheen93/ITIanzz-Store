@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Store Information</title>
+    <title>${applicationScope.storeInstance.storeName} - Update Store Information</title>
     <%@include file="includes/head.jsp" %>
 </head>
 

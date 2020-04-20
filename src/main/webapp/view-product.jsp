@@ -4,7 +4,7 @@
 
 <html>
 <head>
-    <title>product</title>
+    <title>${applicationScope.storeInstance.storeName} - Product</title>
     <%@include file="includes/head.jsp" %>
     <style>
 

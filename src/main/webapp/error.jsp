@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Something went wrong</title>
+    <title>${applicationScope.storeInstance.storeName} - Error</title>
     <%@include file="includes/head.jsp" %>
 </head>
 

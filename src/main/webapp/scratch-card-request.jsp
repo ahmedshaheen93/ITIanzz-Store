@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-    <title>Scratch Card Requests</title>
+    <title>${applicationScope.storeInstance.storeName} - Scratch Card Requests</title>
     <%@include file="includes/head.jsp" %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="styles/cart.css" rel="stylesheet">

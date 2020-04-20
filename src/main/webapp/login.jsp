@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Login</title>
+    <title>${applicationScope.storeInstance.storeName} - Login</title>
     <%@include file="includes/head.jsp" %>
 </head>
 

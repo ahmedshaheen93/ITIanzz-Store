@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Itinas Store</title>
+    <title>${applicationScope.storeInstance.storeName} - Home</title>
     <%@include file="includes/head.jsp" %>
 </head>
 
