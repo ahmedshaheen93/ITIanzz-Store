@@ -258,4 +258,15 @@ public class User implements Serializable {
         reviews.add(review);
         review.setUser(this);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if(obj == null) return false;
+        User user = (User) obj;
+        return   (firstName.equals(user.firstName) && lastName.equals(user.lastName)
+                && phone.equals(user.phone) && email.equals(user.email) && password.equals(user.password)
+                && balance == user.balance && birthDate.isEqual(user.birthDate) && userImage == user.userImage
+                && address.equals(user.address));
+    }
 }

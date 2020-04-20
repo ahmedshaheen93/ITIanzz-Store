@@ -64,4 +64,10 @@ public class Image implements Serializable {
         this.imagePath = imagePath;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == null) return false;
+        Image image = (Image) obj;
+        return (imageId.equals(image.imageId));
+    }
 }

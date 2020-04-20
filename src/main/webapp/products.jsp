@@ -12,27 +12,24 @@
 <body>
 <header>
     <%@include file="includes/header.jsp" %>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </header>
 
-<nav class="navbar-light navbar-fixed-bottom" style="background-color: #f6931f">
-    <div class="container-fluid">
-        <ul class="nav navbar-nav">
-            <li> <a class="btn btn-toolbar display-4" href="addProduct">
-                ADD NEW PRODUCT</a></li>
-        </ul>
-    </div>
-</nav>
 
 <!-- products -->
 <section class="products">
     <div class="container-fluid">
+
         <div class="row">
             <!-- product info -->
             <div class="col-10 col-md-5 col-lg-3 mx-auto my-3 px-5 text-capitalize">
                 <!-- categories -->
+                <div class="row">
+                    <div class="my-4">
+                        <a class="label btn-secondary text-white" href="addProduct" style="padding: 10px; border-radius: 10px">
+                            ADD NEW PRODUCT</a>
+                    </div>
+                </div>
+
                 <div class="products-categories-title my-4">
                     <h6 class="text-uppercase">shop by categories</h6>
                     <div class="products-categories-underline"></div>

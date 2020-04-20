@@ -65,4 +65,11 @@ public class Address implements Serializable {
         this.zipCode = zipCode;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        Address address = (Address) obj;
+        return (country.equalsIgnoreCase(address.country) && city.equalsIgnoreCase(address.city)
+                && state.equalsIgnoreCase(address.state) && street.equalsIgnoreCase(address.street)
+                && zipCode.equals(address.zipCode));
+    }
 }
