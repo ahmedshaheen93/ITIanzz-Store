@@ -1,4 +1,4 @@
-package eg.gov.iti.jets.validation;
+package eg.gov.iti.jets.config.filter;
 
 import eg.gov.iti.jets.model.User;
 import eg.gov.iti.jets.service.UserService;
@@ -31,8 +31,8 @@ public class RegistrationFilter implements Filter {
             String city = request.getParameter("city");
             String street = request.getParameter("street");
             String zipCode = request.getParameter("zipcode");
-            System.out.println(firstName + " > "+ lastName + " > "+ email + " > "+ password + " > "+ phone
-                    + " > "+ birthDate + " > "+ country + " > "+ state + " > "+ city + " > "+ street + " > "+ zipCode);
+            System.out.println(firstName + " > " + lastName + " > " + email + " > " + password + " > " + phone
+                    + " > " + birthDate + " > " + country + " > " + state + " > " + city + " > " + street + " > " + zipCode);
             System.out.println("validateString(firstName)" + validateString(firstName));
             System.out.println("validateString(lastName)" + validateString(lastName));
             System.out.println("validateEmail(email, request.getServletContext()" + validateEmail(email, request.getServletContext()));

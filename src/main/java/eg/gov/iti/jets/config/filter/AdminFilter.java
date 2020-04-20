@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebFilter(urlPatterns = {"/scratchCardRequest", "/customers",
-        "/make-as-admin", "/newCategory", "/addProduct", "/update-product"})
+        "/make-as-admin", "/newCategory", "/addProduct", "/update-product", "/userInfo"})
 public class AdminFilter implements Filter {
 
     @Override

@@ -90,9 +90,9 @@
                                                 <i class="fas fa-user"></i> Set As Customer
                                             </a>
                                         </c:if>
-                                        <a href="#"
-                                           class="btn btn-sm btn-primary <c:if test="${user.role == Role.ADMIN_ROLE}">
-                                                          btn-dark</c:if>">
+                                        <a id="${user.userId}"
+                                           class="btn btn-sm btn-primary text-white view-profile <c:if test="${user.role == Role.ADMIN_ROLE}">
+                                                          btn-dark</c:if>" data-toggle="modal" data-target="#modal-lg">
                                             <i class="fas fa-user"></i> View Profile
                                         </a>
                                     </div>
@@ -107,7 +107,152 @@
     </div>
 </div>
 <br>
+<div class="modal fade" id="modal-lg">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Large Modal</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="title">Profile Details</h5>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <h5 class="title" id="title"></h5>
+                                        </div>
+                                        <div>
+                                            <p class="card-text"><small
+                                                    class="text-muted" id="role"></small></p>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <img src="" id="profileImage"
+                                     class="card-img-top img-fluid"
+                                     alt="Profile Image">
+
+                                <div class="card-body">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <div class="d-flex justify-content-between">
+                                                <div>
+                                                    Orders
+                                                </div>
+                                                <div>
+                                                    <p id="orders"></p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="d-flex justify-content-between">
+                                                <div>
+                                                    Balance
+                                                </div>
+                                                <div>
+                                                    <p id="balance"></p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>First Name</label>
+                                        <input type="text" class="form-control" placeholder="First Name"
+                                               id="firstName" disabled>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Last Name</label>
+                                        <input type="text" class="form-control" placeholder="Last Name"
+                                               id="lastName" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Phone Number</label>
+                                        <input type="tel" class="form-control" placeholder="Phone Number"
+                                               id="phone" disabled>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Email address</label>
+                                        <input type="email" class="form-control" placeholder="Email Address"
+                                               id="email" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Country</label>
+                                        <input type="text" class="form-control" placeholder="Country"
+                                               id="country" disabled>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Birth Date</label>
+                                        <input type="text" class="form-control" placeholder="Birth Date"
+                                               id="birthDate" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>State</label>
+                                        <input type="text" class="form-control" placeholder="State"
+                                               id="state" disabled>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>City</label>
+                                        <input type="text" class="form-control" placeholder="City"
+                                               id="city" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Street</label>
+                                        <input type="text" class="form-control" placeholder="Street"
+                                               id="street" disabled>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Postal Code</label>
+                                        <input type="text" class="form-control" placeholder="ZIP Code"
+                                               id="zipCode" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 
 <%@include file="includes/footer.jsp" %>
+<script src="scripts/users.js"></script>
 </body>
 </html>
