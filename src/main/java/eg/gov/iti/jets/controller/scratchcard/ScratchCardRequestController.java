@@ -1,9 +1,7 @@
 package eg.gov.iti.jets.controller.scratchcard;
 
-import eg.gov.iti.jets.model.Role;
 import eg.gov.iti.jets.model.ScratchCard;
 import eg.gov.iti.jets.model.ScratchCardRequest;
-import eg.gov.iti.jets.model.User;
 import eg.gov.iti.jets.service.MailService;
 import eg.gov.iti.jets.service.ScratchCardRequestService;
 import eg.gov.iti.jets.service.ScratchCardService;
@@ -17,7 +15,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 
-//@todo
+
 // create filter for this servelt => only admin users can access
 @WebServlet(name = "scratchCardRequest", urlPatterns = "/scratchCardRequest")
 public class ScratchCardRequestController extends HttpServlet {
@@ -26,19 +24,12 @@ public class ScratchCardRequestController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        User user = (User) req.getSession().getAttribute("user");
+        ScratchCardRequestService scratchCardRequestService = (ScratchCardRequestService) req.getServletContext().getAttribute("scratchCardRequestService");
+        List<ScratchCardRequest> approvedRequests = scratchCardRequestService.getApprovedRequests(false);
+        req.setAttribute("approvedRequests", approvedRequests);
+        System.out.println("scratchCardRequest servelt");
+        req.getRequestDispatcher("scratch-card-request.jsp").include(req, resp);
 
-        if (user != null && user.getRole() == Role.ADMIN_ROLE) {
-            ScratchCardRequestService scratchCardRequestService = (ScratchCardRequestService) req.getServletContext().getAttribute("scratchCardRequestService");
-            List<ScratchCardRequest> approvedRequests = scratchCardRequestService.getApprovedRequests(false);
-            req.setAttribute("approvedRequests", approvedRequests);
-            System.out.println("scratchCardRequest servelt");
-            req.getRequestDispatcher("scratch-card-request.jsp").include(req, resp);
-        } else {
-            req.setAttribute("errorMessage", "you dont have authority to view this page , please login as admin");
-            req.getRequestDispatcher("login.jsp").include(req, resp);
-
-        }
     }
 
     @Override

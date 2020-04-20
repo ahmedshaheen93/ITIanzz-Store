@@ -21,7 +21,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
-@MultipartConfig(maxFileSize = 1024 * 1024 * 2)
+@MultipartConfig(maxFileSize = 1024 * 1024 * 4)
 @WebServlet(name = "update-product", urlPatterns = {"/update-product"})
 public class UpdateProductController extends HttpServlet {
 

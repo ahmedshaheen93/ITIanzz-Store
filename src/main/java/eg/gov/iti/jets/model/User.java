@@ -101,7 +101,6 @@ public class User implements Serializable {
     private Set<Review> reviews = new HashSet<>(0);
 
 
-
     public User() {
     }
 
@@ -221,23 +220,23 @@ public class User implements Serializable {
         this.address = address;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId=" + userId +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", role=" + role +
-                ", balance=" + balance +
-                ", birthDate=" + birthDate +
-                ", userImage=" + userImage +
-                ", address=" + address +
-                ", orders=" + orders +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "User{" +
+//                "userId=" + userId +
+//                ", firstName='" + firstName + '\'' +
+//                ", lastName='" + lastName + '\'' +
+//                ", phone='" + phone + '\'' +
+//                ", email='" + email + '\'' +
+//                ", password='" + password + '\'' +
+//                ", role=" + role +
+//                ", balance=" + balance +
+//                ", birthDate=" + birthDate +
+//                ", userImage=" + userImage +
+//                ", address=" + address +
+//                ", orders=" + orders +
+//                '}';
+//    }
 
     public void addOrder(Order order) {
         if (orders == null) {
@@ -248,10 +247,10 @@ public class User implements Serializable {
     }
 
 
-
     public Set<Review> getReviews() {
         return reviews;
     }
+
     public void addReview(Review review) {
         if (reviews == null) {
             this.reviews = new HashSet<>(0);

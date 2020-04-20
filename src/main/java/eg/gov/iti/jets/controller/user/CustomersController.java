@@ -19,10 +19,16 @@ public class CustomersController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        UserService userService = (UserService) getServletContext().getAttribute("userService");
-        List<User> allUsers = userService.findAllUsers();
-        req.setAttribute("users", allUsers);
-        req.getRequestDispatcher("customers.jsp").include(req, resp);
+//        UserService userService = (UserService) getServletContext().getAttribute("userService");
+//        List<User> allUsers = userService.findAllUsers();
+//        req.setAttribute("users", allUsers);
+//        req.getRequestDispatcher("customers.jsp").include(req, resp);
+
+        UserService userService = (UserService) req.getServletContext().getAttribute("userService");
+        List<User> users = userService.findAllUsers();
+        req.setAttribute("users", users);
+        req.getRequestDispatcher("users.jsp").include(req, resp);
+
     }
 
     @Override

@@ -37,18 +37,7 @@ public class SearchForProductController extends HttpServlet {
                 ProductDto productDto = ProductMapper.mapToProductDto(product);
                 productDtos.add(productDto);
             }
-//            Product product = new Product();
-//            product.setProductName("korsy");
-//            product.setSellPrice(5600d);
-//            Image image = new Image();
-//            image.setImagePath("images/home/img-products/product-7.png");
-//            product.setPrimaryImage(image);
-//            List<Product> productList = new ArrayList<>();
-//            productList.add(product);
-//            products.forEach(product -> product.getCategories().clear());
-//            Gson gson = new GsonBuilder()
-//                    .excludeFieldsWithoutExposeAnnotation()
-//                    .create();
+
 
             String json = new Gson().toJson(productDtos);
             resp.setContentType("application/json");
@@ -57,49 +46,4 @@ public class SearchForProductController extends HttpServlet {
         }
 
     }
-    /*
-    *  String categoryId = req.getParameter("categoryId");
-        String min = req.getParameter("min");
-        String max = req.getParameter("max");
-        if (categoryId != null) {
-            System.out.println("categoryId>>>>>>>>>>" + categoryId);
-            Category category = new Category();
-            category.setCategoryId(Long.parseLong(categoryId));
-            Product product = new Product();
-            product.setProductName("korsy");
-            product.setSellPrice(5600d);
-            Image image = new Image();
-            image.setImagePath("images/home/img-products/product-7.png");
-            product.setPrimaryImage(image);
-
-            List<Product> productList = new ArrayList<>();
-            productList.add(product);
-            productList.add(product);
-            productList.add(product);
-//            ProductService productService = (ProductService) getServletContext().getAttribute("productService");
-//            List<Product> products = productService.searchByCategory(category);
-            String json = new Gson().toJson(productList);
-            resp.setContentType("application/json");
-            resp.setCharacterEncoding("UTF-8");
-            resp.getWriter().println(json);
-//            req.setAttribute("products", products);
-//            req.getRequestDispatcher("products.jsp").include(req, resp);
-        }else if (min != null && max != null) {
-            Product product = new Product();
-            product.setProductName("korsy");
-            product.setSellPrice(5600d);
-            Image image = new Image();
-            image.setImagePath("images/home/img-products/product-7.png");
-            product.setPrimaryImage(image);
-            List<Product> productList = new ArrayList<>();
-            productList.add(product);
-
-            String json = new Gson().toJson(productList);
-            resp.setContentType("application/json");
-            resp.setCharacterEncoding("UTF-8");
-            resp.getWriter().println(json);
-
-
-        }
-    * */
 }

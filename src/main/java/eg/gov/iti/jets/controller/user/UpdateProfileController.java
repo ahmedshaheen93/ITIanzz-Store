@@ -14,10 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.io.IOException;
-import java.time.format.DateTimeFormatter;
 import java.util.Set;
 
-@MultipartConfig(maxFileSize = 1024 * 1024 * 2)
+@MultipartConfig(maxFileSize = 1024 * 1024 * 4)
 @WebServlet(name = "updateProfile", urlPatterns = "/update-profile")
 public class UpdateProfileController extends HttpServlet {
 
@@ -43,7 +42,6 @@ public class UpdateProfileController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("update user profile");
-        int id = Integer.parseInt(req.getParameter("id"));
         String phone = req.getParameter("phone");
         String email = req.getParameter("email");
         String firstName = req.getParameter("firstName");
@@ -54,8 +52,6 @@ public class UpdateProfileController extends HttpServlet {
         Part userImage = req.getPart("image");
         System.out.println("req.getPart(\"userImage\");" + req.getPart("userImage"));
         UserService userService = (UserService) getServletContext().getAttribute("userService");
-//        try {
-//            User user = userService.findUserById(id);
         User user = (User) req.getSession().getAttribute("user");
         user.setFirstName(firstName);
         user.setPhone(phone);
@@ -68,7 +64,7 @@ public class UpdateProfileController extends HttpServlet {
         address.setZipCode(zipCode);
         user.setAddress(address);
 
-        if (userImage != null ) {
+        if (userImage != null) {
             System.out.println("here");
             ImageService imageService = (ImageService) getServletContext().getAttribute("imageService");
             String userHomeDir = System.getProperty("user.home") + "/iti-store/images";

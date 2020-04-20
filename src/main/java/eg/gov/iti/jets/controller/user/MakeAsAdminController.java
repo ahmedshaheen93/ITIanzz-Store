@@ -21,14 +21,27 @@ public class MakeAsAdminController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         UserService userService = (UserService) getServletContext().getAttribute("userService");
-        int id = Integer.parseInt(req.getParameter("id"));
-        try {
-            User user = userService.findUserById(id);
-            user.setRole(Role.ADMIN_ROLE);
-            userService.update(user);
-        } catch (UserNotFoundException e) {
-            e.printStackTrace();
+        String idParameter = req.getParameter("id");
+        String adminParameter = req.getParameter("admin");
+        if (idParameter != null && adminParameter != null) {
+
+            int id = Integer.parseInt(idParameter);
+            try {
+                User user = userService.findUserById(id);
+                switch (adminParameter) {
+                    case "true":
+                        user.setRole(Role.ADMIN_ROLE);
+                        break;
+                    case "false":
+                        user.setRole(Role.CUSTOMER_ROLE);
+                        break;
+                }
+                userService.update(user);
+            } catch (UserNotFoundException e) {
+                e.printStackTrace();
+            }
         }
+
         resp.sendRedirect("customers");
     }
 

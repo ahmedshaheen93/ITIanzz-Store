@@ -22,7 +22,7 @@ public class UserTLD extends SimpleTagSupport {
 
             out.println("<tr class=\"unread\">" +
                     "    <td><img class='rounded-circle' style=\"width:40px;\" src='"
-                    + ((user.getUserImage() != null) ? user.getUserImage().getImagePath() : "images/user/avatar.jpg" ) + "'\n" +
+                    + ((user.getUserImage() != null) ? "/iti-store/images?imageId=" + user.getUserImage().getImageId() : "images/user/avatar.jpg") + "'\n" +
                     "     alt=\"user\"></td>\n" +
                     "    <td>\n" +
                     "      <h6 class=\"mb-1\">" + user.getFirstName() + " " + user.getLastName() + "</h6>\n" +
@@ -32,7 +32,7 @@ public class UserTLD extends SimpleTagSupport {
                     "         <a href=view-profile?id=" + user.getUserId() +
                     "            class='label theme-bg3 text-white f-12'>view profile</a>");
 
-            if(user.getRole() == Role.CUSTOMER_ROLE){
+            if (user.getRole() == Role.CUSTOMER_ROLE) {
                 out.println("<a href=make-as-admin?id=" + user.getUserId() +
                         "            class='label theme-bg2 text-white f-12'>make as admin</a>");
             }

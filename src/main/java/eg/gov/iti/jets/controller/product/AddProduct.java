@@ -20,7 +20,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Set;
 
-@MultipartConfig(maxFileSize = 1024 * 1024 * 2)
+@MultipartConfig(maxFileSize = 1024 * 1024 * 4)
 @WebServlet(name = "addProduct", urlPatterns = "/addProduct")
 public class AddProduct extends HttpServlet {
 
