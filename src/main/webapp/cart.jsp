@@ -32,7 +32,7 @@
                             <td></td>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="myTableBody">
 
                         </tbody>
                     </table>
@@ -50,7 +50,7 @@
                         <li>Shipping Cost <span>Free</span></li>
                         <li>Total <span id="allCartTotalAfterShipping">0</span></li>
                     </ul>
-                    <a class="btn btn-default update">Remove All</a>
+                    <a class="btn btn-default update removeAll">Remove All</a>
                     <a class="btn btn-default check_out">Check Out</a>
                 </div>
             </section>

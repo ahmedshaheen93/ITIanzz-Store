@@ -1,13 +1,6 @@
 $(document).ready(function () {
     // get_AllProducts();
     onloadPage();
-
-    // document ready => load from storage
-    // JsonArray => storage ?
-
-    // click on add to cart adding 
-    // open cart => update qty
-    //
     function get_AllProducts() {
         let allProducts = new Array;
         var products_str = localStorage.getItem('products');
@@ -137,6 +130,15 @@ $(document).ready(function () {
         })
 
     });
+
+    $(document).on('click', '.removeAll', function () {
+        localStorage.removeItem("products");
+        $("#myTable tbody tr").remove();
+        $("#myTable tbody tr").empty();
+        $("#allCartTotal").text(0);
+        $("#allCartTotalAfterShipping").text(0);
+    });
+
     $(document).on('click', '.value-minus', function () {
         var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) - 1;
         if (newVal >= 1) {
@@ -148,7 +150,7 @@ $(document).ready(function () {
 
     });
     $(document).on('click', '.close1', function () {
-        $(this).parents("tr").remove();
+            $(this).parents("tr").remove();
         calcTotal();
     });
 
