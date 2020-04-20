@@ -155,15 +155,16 @@
 
                     <c:choose>
                         <c:when test="${sessionScope.user.userImage != null}">
-                            <img src="${sessionScope.user.userImage.imagePath}" class="card-img-top img-fluid"
-                                alt="Profile Image">
+                            <img src="/iti-store/images?imageId=${sessionScope.user.userImage.imageId}"
+                                 class="card-img-top img-fluid"
+                                 alt="Profile Image">
                         </c:when>
                         <c:otherwise>
                             <img src="images/user/avatar.jpg" class="card-img-top img-fluid"
-                                alt="Default Profile Image">
+                                 alt="Default Profile Image">
                         </c:otherwise>
                     </c:choose>
-
+                    
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
