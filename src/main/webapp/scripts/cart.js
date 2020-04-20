@@ -36,9 +36,10 @@ $(document).ready(function () {
         $("#response").hide();
     }
 
+    var totalSum;
     function calcTotal() {
         var alltot = $(".totalPrice");
-        var totalSum = 0;
+        totalSum = 0;
         for (var i = 0; i < alltot.length; i++) {
             totalSum += parseFloat($(alltot[i]).text());
         }
@@ -104,7 +105,7 @@ $(document).ready(function () {
 
     $(document).on('click', '.check_out', function () {
         var json = JSON.stringify(get_AllProducts());
-        console.log("==========" + json);
+        //console.log("==========" + json);
         $.ajax({
             type: "POST",
             url: "orders",
@@ -112,7 +113,6 @@ $(document).ready(function () {
             data: {products: json},
             statusCode: {
                 201: function (data) {
-                    console.log(data);
                     onSuccess(data);
                 },
                 460: function (data) {
@@ -125,7 +125,6 @@ $(document).ready(function () {
                 302: function (data) {
                     setRedirect(data);
                 }
-
             }
         })
 
@@ -187,17 +186,18 @@ $(document).ready(function () {
     }
 
     function onSuccess(data) {
-        // var json = JSON.parse(data);
         $("#do_action").hide();
         $("#response").show();
-        $("#response_message").val(data.message);
+        $("#response_message").text(data.Message);
+        localStorage.removeItem("products");
+        window.location = "/iti-store/";
     }
 
     function setRedirect(data) {
         // var json = JSON.parse(data);
         $("#do_action").hide();
         $("#response").show();
-        $("#response_message").val(data.message);
+        $("#response_message").val(data.Message);
         // similar behavior as clicking on a link
         // window.location.href = "http://stackoverflow.com";
 
