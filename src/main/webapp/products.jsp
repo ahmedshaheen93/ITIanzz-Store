@@ -12,7 +12,20 @@
 <body>
 <header>
     <%@include file="includes/header.jsp" %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </header>
+
+<nav class="navbar-light navbar-fixed-bottom" style="background-color: #f6931f">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li> <a class="btn btn-toolbar display-4" href="addProduct">
+                ADD NEW PRODUCT</a></li>
+        </ul>
+    </div>
+</nav>
+
 <!-- products -->
 <section class="products">
     <div class="container-fluid">
@@ -80,6 +93,16 @@
 </section>
 <!-- end of products -->
 
+<%--
+<nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-bottom navbar-toggleable-sm">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-buttons mbr-section-btn">
+            <a class="btn btn-sm btn-black display-4" href="addProduct">
+            ADD NEW PRODUCT</a>
+        </div>
+    </div>
+</nav>
+--%>
 <!-- modal -->
 <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
