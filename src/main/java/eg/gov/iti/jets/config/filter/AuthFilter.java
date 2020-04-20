@@ -11,11 +11,9 @@ import eg.gov.iti.jets.utilty.ReadWriteCookei;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.net.http.HttpResponse;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -26,9 +24,10 @@ import java.util.Optional;
 @WebFilter(urlPatterns = "/*")
 public class AuthFilter implements Filter {
 
-    private static final List<String> PUBLIC_MACHES = Arrays.asList("/login", "/index", "/home", "/products",
-            "/about", "/registration", "/fonts", "/images", "/include", "/scripts", "/style");
-    FilterConfig filterConfig = null;
+    private static final List<String> PUBLIC_MACHES = Arrays.asList(
+            "/login", "/index", "/home", "/products", "/cart", "/view-product",
+            "/about", "/registration", "/feedback", "/fonts",
+            "/images", "/include", "/scripts", "/style");
 
     /**
      * @param request  The servlet request we are processing
@@ -53,43 +52,29 @@ public class AuthFilter implements Filter {
             performUserCookie(userCookie.get(), request, response, chain);
 
         } else {
-            System.out.println("httpRequest.getRequestURI()" + httpRequest.getRequestURI());
-            HttpServletResponse response1 = (HttpServletResponse) response;
-            response1.sendRedirect("login");
+            goLogin(response);
         }
-    }
-
-    /**
-     * Destroy method for this filter
-     */
-    @Override
-    public void destroy() {
-        System.out.println(this.getClass().getName() + " destroy called ");
-    }
-
-    /**
-     * Init method for this filter
-     */
-    @Override
-    public void init(FilterConfig filterConfig) {
-        this.filterConfig = filterConfig;
-        System.out.println(this.getClass().getName() + " init called ");
-
     }
 
     private boolean checkPublic(HttpServletRequest httpRequest) {
         boolean startsWith = false;
         String path = httpRequest.getRequestURI();
-        for (String publicPath : PUBLIC_MACHES) {
-            if (path.startsWith(httpRequest.getContextPath() + publicPath)) {
-                startsWith = true;
+        System.out.println(path);
+        System.out.println(httpRequest.getContextPath());
+        if (path.equals(httpRequest.getContextPath() + "/")) {
+            startsWith = true;
+        } else {
+            for (String publicPath : PUBLIC_MACHES) {
+                if (path.startsWith(httpRequest.getContextPath() + publicPath)) {
+                    startsWith = true;
+                }
             }
         }
         return startsWith;
     }
 
     private void performUserCookie(String cookie, ServletRequest request, ServletResponse response,
-                                   FilterChain chain) throws IOException, ServletException {
+                                   FilterChain chain) throws IOException {
         try {
             HttpServletRequest httpServletRequest = (HttpServletRequest) request;
             UserService userService = (UserService) httpServletRequest.getServletContext().getAttribute("userService");
@@ -99,13 +84,15 @@ public class AuthFilter implements Filter {
                 httpServletRequest.getSession().setAttribute("user", user);
                 chain.doFilter(request, response);
             } else {
-               /* request.getRequestDispatcher("login.jsp").include(request, response);*/
-                ((HttpServletResponse)response).sendRedirect("login");
+                goLogin(response);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            /*request.getRequestDispatcher("login.jsp").include(request, response);*/
-            ((HttpServletResponse)response).sendRedirect("login");
+            goLogin(response);
         }
+    }
+
+    private void goLogin(ServletResponse response) throws IOException {
+        ((HttpServletResponse) response).sendRedirect("login");
     }
 }

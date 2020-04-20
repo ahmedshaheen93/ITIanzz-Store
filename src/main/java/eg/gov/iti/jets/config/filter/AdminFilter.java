@@ -19,7 +19,6 @@ public class AdminFilter implements Filter {
         User user = (User) httpRequest.getSession().getAttribute("user");
         if (user != null && user.getRole() == Role.ADMIN_ROLE) {
             filterChain.doFilter(request, response);
-
         } else {
             request.setAttribute("errorMessage", "you dont have authority to view this page , please login as admin");
             ((HttpServletResponse) response).sendRedirect("login?authorize=false");

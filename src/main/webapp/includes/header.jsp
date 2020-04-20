@@ -59,6 +59,9 @@
                 </c:when>
                 <c:otherwise>
                     <li class="nav-item">
+                        <a class="nav-link" href="/iti-store/cart">Cart</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/iti-store/registration">Registration</a>
                     </li>
                     <li class="nav-item">
