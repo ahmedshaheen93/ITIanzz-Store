@@ -32,7 +32,7 @@
                             <td></td>
                         </tr>
                         </thead>
-                        <tbody class="myTableBody">
+                        <tbody id="myTableBody">
 
                         </tbody>
                     </table>

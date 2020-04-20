@@ -133,8 +133,7 @@ $(document).ready(function () {
 
     $(document).on('click', '.removeAll', function () {
         localStorage.removeItem("products");
-        $("#myTable tbody tr").remove();
-        $("#myTable tbody tr").empty();
+        $(".rem1").empty()
         $("#allCartTotal").text(0);
         $("#allCartTotalAfterShipping").text(0);
     });
