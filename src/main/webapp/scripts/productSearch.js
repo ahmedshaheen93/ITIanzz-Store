@@ -24,7 +24,7 @@ $(document).ready(
             " - $" + $("#slider-range").slider("values", 1));
 
 
-        $(".category p").click(function (event) {
+        $(".category  :input").click(function (event) {
             // $("#allProducts").empty();
             var catId = event.target.id;
             productJSON.categoryId = catId;

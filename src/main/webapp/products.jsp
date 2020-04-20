@@ -38,7 +38,8 @@
                 <c:if test="${!empty requestScope.categories}">
                     <c:forEach items="${requestScope.categories}" var="category">
                         <a class="d-block products-categories-link category">
-                            <p id="${category.categoryId}" class="mb-0">${category.categoryName}</p>
+                            <p id="${category.categoryId}" class="mb-0" hidden>${category.categoryName}</p>
+                            <input id="${category.categoryId}" type="radio" name="gender" value="male">${category.categoryName}
                         </a>
                     </c:forEach>
                 </c:if>
