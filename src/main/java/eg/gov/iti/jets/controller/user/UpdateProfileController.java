@@ -49,6 +49,8 @@ public class UpdateProfileController extends HttpServlet {
         String country = req.getParameter("country");
         String city = req.getParameter("city");
         String zipCode = req.getParameter("zipCode");
+        String state = req.getParameter("state");
+        String street = req.getParameter("street");
         Part userImage = req.getPart("image");
         System.out.println("req.getPart(\"userImage\");" + req.getPart("userImage"));
         UserService userService = (UserService) getServletContext().getAttribute("userService");
@@ -62,6 +64,8 @@ public class UpdateProfileController extends HttpServlet {
         address.setCountry(country);
         address.setCity(city);
         address.setZipCode(zipCode);
+        address.setState(state);
+        address.setStreet(street);
         user.setAddress(address);
 
         if (userImage != null) {
