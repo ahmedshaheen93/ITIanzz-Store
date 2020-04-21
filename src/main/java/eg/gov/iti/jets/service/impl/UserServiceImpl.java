@@ -116,7 +116,7 @@ public class UserServiceImpl implements UserService {
             address.setZipCode("12345");        
             user.setAddress(address);
             
-            userRepository.save(user);
+            update(user);
         }
 	}
 
