@@ -22,7 +22,7 @@
                         <h5 class="title">Profile Details</h5>
                     </div>
                     <div class="card-body">
-                        <form action="/iti-store/update-profile" method="post" enctype="multipart/form-data">
+                        <form action="/iti-store/update-profile" id="userForm" method="post" enctype="multipart/form-data">
 
                             <div class="form-row">
                                 <div class="form-group col-md-6">
@@ -54,13 +54,13 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Password</label>
-                                    <input name="password" type="password" class="form-control" placeholder="Password"
-                                        value="${sessionScope.user.password}">
+                                    <input name="password" id="userpassword" type="password" class="form-control"
+                                           placeholder="Password" value="">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Confirm Password</label>
-                                    <input name="confirmPassword" type="password" class="form-control"
-                                        placeholder="Confirm Password" value="${sessionScope.user.password}">
+                                    <input name="confirmPassword" id="confirmPassword" type="password" class="form-control"
+                                        placeholder="Confirm Password" value="" onblur="validatePassword()">
                                 </div>
                             </div>
 
@@ -250,5 +250,7 @@
 
     <%@include file="includes/footer.jsp" %>
 </body>
-
+<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+<script src="scripts/confirm-password.js"></script>
 </html>

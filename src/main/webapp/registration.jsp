@@ -20,7 +20,7 @@
     </div>
 
     <div class="container">
-        <form id="registrationForm" method="POST">
+        <form id="userForm" method="POST">
             <c:if test="${!empty param['invalid']}">
                 <h4 style="-webkit-text-fill-color: red">invalid inputs!!</h4>
             </c:if>
@@ -97,23 +97,5 @@
 
 <script src="//code.jquery.com/jquery-1.9.1.js"></script>
 <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
-<script>
-    function validatePassword() {
-        var validator = $("#registrationForm").validate({
-            rules: {
-                userpassword: "required",
-                confirmPassword: {
-                    equalTo: "#userpassword"
-                }
-            },
-            messages: {
-                userpassword: "enter password",
-                confirmPassword: "confirm password must be as password"
-            }
-        });
-        if (validator.form()) {
-            alert('Success');
-        }
-    }
-</script>
+<script src="scripts/confirm-password.js"></script>
 </html>
