@@ -1,8 +1,6 @@
 function checkOut(user){
-    console.log(user);
     if(typeof user != 'undefined') {
         var json = JSON.stringify(get_AllProducts());
-        //console.log("==========" + json);
         $.ajax({
             type: "POST",
             url: "orders",
@@ -132,7 +130,7 @@ $(document).ready(function () {
 
 
     });
-    
+
     $(document).on('click', '.removeAll', function () {
         localStorage.removeItem("products");
         $(".rem1").empty();
