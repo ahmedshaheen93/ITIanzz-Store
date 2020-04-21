@@ -2,6 +2,8 @@ package eg.gov.iti.jets.model.dto;
 
 import eg.gov.iti.jets.model.Address;
 
+import java.util.List;
+
 public class UserDto {
     private Long userId;
     private String firstName;
@@ -13,12 +15,12 @@ public class UserDto {
     private String birthDate;
     private String userImage;
     private Address address;
-    private int orders;
+    private List<OrderDto> orders;
 
     public UserDto(Long userId, String firstName, String lastName,
                    String phone, String email, String role,
                    double balance, String birthDate,
-                   String userImage, Address address, int orders) {
+                   String userImage, Address address, List<OrderDto> orders) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -112,11 +114,11 @@ public class UserDto {
         this.address = address;
     }
 
-    public int getOrders() {
+    public List<OrderDto> getOrders() {
         return orders;
     }
 
-    public void setOrders(int orders) {
+    public void setOrders(List<OrderDto> orders) {
         this.orders = orders;
     }
 }

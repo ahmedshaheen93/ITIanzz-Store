@@ -41,13 +41,71 @@ $(document).ready(function () {
         $("#title").text(user.firstName + " " + user.lastName);
         console.log(user.role);
         if (user.role === "ADMIN_ROLE") {
+            console.log("user is admin");
             $("#role").addClass('fa-star').removeClass('fa-user');
             $(".modal-header").addClass('bg-dark text-white');
             $(".modal-header button span ").addClass('text-white');
+        } else {
+            console.log("user is customer");
+            $("#role").addClass('fa-user').removeClass('fa-star');
+            $(".modal-header").removeClass('bg-dark text-white');
+            $(".modal-header button span ").removeClass('text-white');
         }
 
+
         $("#profileImage").attr('src', user.userImage);
-        $("#orders").text(user.orders);
+        $("#orders").text(user.orders.length);
+        var orderHtml = "";
+        user.orders.forEach(order => {
+                console.log("add");
+                var orderHeader = `<div class="card bg-light mb-3">
+                                       <div class="card-header">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <p class="card-text">#${order.orderId}</p>
+                                            </div>
+                                            <div>
+                                                <p class="card-text"><small
+                                                        class="text-muted">${order.orderTimestamp}</small>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                      <div class="card-body">
+                                        <table class="table table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">Product</th>
+                                                <th scope="col">Quantity</th>
+                                                <th scope="col">Price</th>
+                                            </tr>
+                                            </thead>
+                                                            `;
+                orderHtml += orderHeader;
+                order.purchases.forEach(purchase => {
+                    var orderBody = `
+                        <tbody>
+                         <tr>
+                           <td>${purchase.product.productName}</td>
+                             <td>${purchase.quantity} </td>
+                            <td>${purchase.productBuyPrice} </td>
+                             </tr>
+                        </tbody>
+                    
+            `
+
+                    orderHtml += orderBody;
+                })
+                orderHtml += `</table>
+                                    </div>
+                                </div>
+                                <br>`
+            }
+        );
+        $("#orderHistory").html(orderHtml);
+
         $("#balance").text(user.balance);
-    };
-});
+    }
+    ;
+})
+;
