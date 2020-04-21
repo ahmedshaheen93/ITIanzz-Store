@@ -11,7 +11,6 @@ import eg.gov.iti.jets.service.UserService;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import javax.persistence.NoResultException;
-
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
@@ -54,8 +53,6 @@ public class UserServiceImpl implements UserService {
             boolean validPass = BCrypt.checkpw(password, user.getPassword());
             if ((!validPass)) {
                 user = null;
-            } else {
-                user.setPassword("");
             }
         } catch (NoResultException e) {
             e.printStackTrace();
@@ -80,7 +77,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findUserById(long userId) throws UserNotFoundException{
+    public User findUserById(long userId) throws UserNotFoundException {
 
         User user = null;
         try {
@@ -94,7 +91,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-	public void checkAdminExistence() {
+    public void checkAdminExistence() {
         List<User> allAdmins = userRepository.findALlAdminUsers();
         if (allAdmins.size() < 1) {
             User user = new User();
@@ -113,15 +110,15 @@ public class UserServiceImpl implements UserService {
             address.setState("Cairo");
             address.setCity("6 October");
             address.setStreet("1st Street");
-            address.setZipCode("12345");        
+            address.setZipCode("12345");
             user.setAddress(address);
-            
+
             update(user);
         }
-	}
+    }
 
     @Override
-    public User findByEmail(String email) throws NoResultException{
+    public User findByEmail(String email) throws NoResultException {
         User user = null;
         try {
             user = userRepository.findByEmail(email);
