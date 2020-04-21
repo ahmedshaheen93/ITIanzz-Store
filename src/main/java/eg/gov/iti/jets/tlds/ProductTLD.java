@@ -57,10 +57,8 @@ public class ProductTLD extends SimpleTagSupport {
             out.println("<span>$" + product.getPrice() + "</span>");
             out.println("</h6>");
             if (user!= null && user.getRole() == Role.ADMIN_ROLE ) {
-                out.println("<input type=\"hidden\" id="+"\""+ product.getProductId() +"\"  name=\"productId\">");
-                out.println("<button class=\"btn btn-primary\" type=\"button\">Update Product</button>");
-                out.println("<button class=\"btn btn-primary\" type=\"button\">Delete Product</button>");
-
+                out.println("<button id=\"" + product.getProductId()+ "\" class=\"btn btn-primary updateProduct\" type=\"button\">Update Product</button>");
+                out.println("<button id=\""+product.getProductId()+"\"class=\"btn btn-primary deleteProduct\" type=\"button\">Delete Product</button>");
             }
             out.println("</div>");
 

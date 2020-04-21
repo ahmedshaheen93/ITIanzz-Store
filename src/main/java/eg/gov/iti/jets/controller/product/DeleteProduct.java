@@ -21,9 +21,9 @@ public class DeleteProduct extends HttpServlet {
         ProductService productService = (ProductService) getServletContext().getAttribute("productService");
         String idParam = req.getParameter("id");
         if (idParam != null) {
-            Product product = productService.findById(Long.valueOf(idParam));
+            Product product = productService.findById(Long.parseLong(idParam));
             productService.remveProduct(product);
         }
-        req.getRequestDispatcher("products.jsp").include(req, resp);
+       resp.sendRedirect("products.jsp");
     }
 }
