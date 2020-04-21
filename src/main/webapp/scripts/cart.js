@@ -1,3 +1,32 @@
+function checkOut(user){
+    if(typeof user != 'undefined') {
+        var json = JSON.stringify(get_AllProducts());
+        $.ajax({
+            type: "POST",
+            url: "orders",
+            dataType: "JSON",
+            data: {products: json},
+            statusCode: {
+                201: function (data) {
+                    onSuccess(data);
+                },
+                460: function (data) {
+                    console.log("error")
+                    onError(data);
+                },
+                500: function () {
+                    alert("leh ya rb m 5k2tny4 m3za");
+                },
+                302: function (data) {
+                    setRedirect(data);
+                }
+            }
+        });
+    }else {
+        window.location = '/iti-store/login';
+    }
+}
+
 $(document).ready(function () {
     // get_AllProducts();
     onloadPage();
@@ -102,34 +131,6 @@ $(document).ready(function () {
 
     });
 
-
-    $(document).on('click', '.check_out', function () {
-        var json = JSON.stringify(get_AllProducts());
-        //console.log("==========" + json);
-        $.ajax({
-            type: "POST",
-            url: "orders",
-            dataType: "JSON",
-            data: {products: json},
-            statusCode: {
-                201: function (data) {
-                    onSuccess(data);
-                },
-                460: function (data) {
-                    console.log("error")
-                    onError(data);
-                },
-                500: function () {
-                    alert("leh ya rb m 5k2tny4 m3za");
-                },
-                302: function (data) {
-                    setRedirect(data);
-                }
-            }
-        })
-
-    });
-
     $(document).on('click', '.removeAll', function () {
         localStorage.removeItem("products");
         $(".rem1").empty();
@@ -200,14 +201,12 @@ $(document).ready(function () {
         $("#response_message").val(data.Message);
         // similar behavior as clicking on a link
         // window.location.href = "http://stackoverflow.com";
-
-
     }
 
     function onError(data) {
         // var json = JSON.parse(data);
         $("#do_action").hide();
         $("#response").show();
-        $("#response_message").val(data.message);
+        $("#response_message").val(data.Message);
     }
 });

@@ -49,10 +49,12 @@
                         <li>Cart Sub Total <span id="allCartTotal">0</span></li>
                         <li>Shipping Cost <span>Free</span></li>
                         <li>Total <span id="allCartTotalAfterShipping">0</span></li>
-                        <li>Balance <span id="currentUserBalance">${sessionScope.user.balance}</span></li>
+                        <c:if test="${!empty sessionScope.user}">
+                            <li>Balance <span id="currentUserBalance">${sessionScope.user.balance}</span></li>
+                        </c:if>
                     </ul>
                     <a class="btn btn-default update removeAll">Remove All</a>
-                    <a class="btn btn-default check_out">Check Out</a>
+                    <a class="btn btn-default check_out" onclick="checkOut(${sessionScope.user})">Check Out</a>
                 </div>
             </section>
         </div>

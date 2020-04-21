@@ -8,6 +8,7 @@ import eg.gov.iti.jets.model.User;
 import eg.gov.iti.jets.repository.UserRepository;
 import eg.gov.iti.jets.repository.impl.UserRepositoryImpl;
 import eg.gov.iti.jets.service.UserService;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import javax.persistence.NoResultException;
 
@@ -40,6 +41,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User update(User user) {
+        //hashing the password before store it in db
+        user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
         return userRepository.save(user);
     }
 
@@ -47,7 +50,13 @@ public class UserServiceImpl implements UserService {
     public User login(String email, String password) throws UserNotFoundException {
         User user = null;
         try {
-            user = userRepository.findByMailAndPassword(email, password);
+            user = userRepository.findByEmail(email);
+            boolean validPass = BCrypt.checkpw(password, user.getPassword());
+            if ((!validPass)) {
+                user = null;
+            } else {
+                user.setPassword("");
+            }
         } catch (NoResultException e) {
             e.printStackTrace();
             throw new UserNotFoundException(String.format("%s not found on the database or " +
@@ -107,7 +116,7 @@ public class UserServiceImpl implements UserService {
             address.setZipCode("12345");        
             user.setAddress(address);
             
-            userRepository.save(user);
+            update(user);
         }
 	}
 

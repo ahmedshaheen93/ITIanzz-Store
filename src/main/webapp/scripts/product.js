@@ -42,4 +42,16 @@ $(document).ready(function () {
     };
 
     $(".addToCart").on('click',(event) => addToCart(event));
+
+    $(".updateProduct").on('click',function (event) {
+        var productId = event.target.id;
+        window.location.href = "update-product?id="+productId;
+
+    });
+
+    $(".deleteProduct").on('click',function (event) {
+        var productId = event.target.id;
+        window.location.href = "deleteProduct?id="+productId;
+    });
+
 });
