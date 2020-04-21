@@ -20,7 +20,7 @@
     </div>
 
     <div class="container">
-        <form method="POST">
+        <form id="registrationForm" method="POST">
             <c:if test="${!empty param['invalid']}">
                 <h4 style="-webkit-text-fill-color: red">invalid inputs!!</h4>
             </c:if>
@@ -39,10 +39,15 @@
                     <label for="useremail">Email</label>
                     <input name="email" type="email" class="form-control" id="useremail" required>
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-3">
                     <label for="userpassword">Password</label>
                     <input name="password" type="password" class="form-control" id="userpassword"
                            pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$" title="Weak Password" required>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input name="confirmPassword" type="password" class="form-control"
+                           id="confirmPassword" required onblur="validatePassword()">
                 </div>
             </div>
             <div class="form-row">
@@ -90,4 +95,25 @@
     <%@include file="includes/footer.jsp" %>
 </body>
 
+<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+<script>
+    function validatePassword() {
+        var validator = $("#registrationForm").validate({
+            rules: {
+                userpassword: "required",
+                confirmPassword: {
+                    equalTo: "#userpassword"
+                }
+            },
+            messages: {
+                userpassword: "enter password",
+                confirmPassword: "confirm password must be as password"
+            }
+        });
+        if (validator.form()) {
+            alert('Success');
+        }
+    }
+</script>
 </html>
