@@ -54,7 +54,7 @@
                         </c:if>
                     </ul>
                     <a class="btn btn-default update removeAll">Remove All</a>
-                    <a class="btn btn-default check_out">Check Out</a>
+                    <a class="btn btn-default check_out" onclick="checkOut(${sessionScope.user})">Check Out</a>
                 </div>
             </section>
         </div>
