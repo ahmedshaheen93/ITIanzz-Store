@@ -1,9 +1,12 @@
 package eg.gov.iti.jets.tlds;
 
+import eg.gov.iti.jets.model.Role;
+import eg.gov.iti.jets.model.User;
 import eg.gov.iti.jets.model.dto.ProductDto;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 import java.io.IOException;
 
@@ -38,6 +41,7 @@ public class ProductTLD extends SimpleTagSupport {
     @Override
     public void doTag() throws JspException, IOException {
         JspWriter out = getJspContext().getOut();
+        User user = (User) getJspContext().getAttribute("user", PageContext.SESSION_SCOPE);
 //        product.getPrimaryImage().getImagePath()
         try {
             out.println("<div class=\"mx-auto col-md-6 col-lg-4\">");
@@ -52,6 +56,10 @@ public class ProductTLD extends SimpleTagSupport {
             out.println("<h6 class=\"text-center\">");
             out.println("<span>$" + product.getPrice() + "</span>");
             out.println("</h6>");
+            if (user!= null && user.getRole() == Role.ADMIN_ROLE ) {
+                out.println("<button id=\"" + product.getProductId()+ "\" class=\"btn btn-primary updateProduct\" type=\"button\">Update Product</button>");
+                out.println("<button id=\""+product.getProductId()+"\"class=\"btn btn-primary deleteProduct\" type=\"button\">Delete Product</button>");
+            }
             out.println("</div>");
 
         } catch (java.io.IOException ex) {
