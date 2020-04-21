@@ -200,14 +200,12 @@ $(document).ready(function () {
         $("#response_message").val(data.Message);
         // similar behavior as clicking on a link
         // window.location.href = "http://stackoverflow.com";
-
-
     }
 
     function onError(data) {
         // var json = JSON.parse(data);
         $("#do_action").hide();
         $("#response").show();
-        $("#response_message").val(data.message);
+        $("#response_message").val(data.Message);
     }
 });

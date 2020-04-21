@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @WebServlet(name = "registration", urlPatterns = "/registration")
 public class RegistrationController extends HttpServlet {
@@ -33,6 +34,9 @@ public class RegistrationController extends HttpServlet {
         String phone = req.getParameter("phone");
         String birthDate = req.getParameter("birthdate");
 
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate bDate = LocalDate.parse(birthDate, formatter);
+
         String country = req.getParameter("country");
         String state = req.getParameter("state");
         String city = req.getParameter("city");
@@ -40,7 +44,7 @@ public class RegistrationController extends HttpServlet {
         String zipCode = req.getParameter("zipcode");
         Address address = new Address(country, state, city, street, zipCode);
 
-        User user = new User(firstName, lastName, phone, email, password, Role.CUSTOMER_ROLE, 0.0, LocalDate.now(), null, address);
+        User user = new User(firstName, lastName, phone, email, password, Role.CUSTOMER_ROLE, 0.0, bDate, null, address);
 
         UserService userService = (UserService) req.getServletContext().getAttribute("userService");
         userService.update(user);
