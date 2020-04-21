@@ -15,16 +15,30 @@
                 <a class="nav-link" href="/iti-store/home">Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/iti-store/products">Products</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="/iti-store/about">About</a>
             </li>
+            <c:choose>
+                <c:when test="${sessionScope.user.role == Role.ADMIN_ROLE}">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Products
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/iti-store/addProduct">Add Product</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/iti-store/products">View All Products</a>
+                        </div>
+                    </li>
+                </c:when>
+                <c:otherwise>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/iti-store/products">Products</a>
+                    </li>
+                </c:otherwise>
+            </c:choose>
         </ul>
 
         <ul class="navbar-nav ml-auto">
-
-
             <c:choose>
                 <c:when test="${sessionScope.user.role == Role.ADMIN_ROLE}">
                     <li class="nav-item">
