@@ -42,16 +42,21 @@ public class AuthFilter implements Filter {
             throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         User user = (User) httpRequest.getSession().getAttribute("user");
-
+        // read cookie from request
         Optional<String> userCookie = ReadWriteCookei.readCookie("email", httpRequest);
-
-        if (user != null || checkPublic(httpRequest)) {
-            System.out.println("on chain.doFilter");
+        // if request have an email cookie
+        boolean haveCookie = userCookie.isPresent() && !userCookie.get().trim().isEmpty();
+        //public and does't have cookie Or login
+        if ((checkPublic(httpRequest) && !haveCookie) || user != null) {
             chain.doFilter(request, response);
-        } else if (userCookie.isPresent() && !userCookie.get().trim().isEmpty()) {
-            performUserCookie(userCookie.get(), request, response, chain);
+        }
+        //public and have cookie
+        else if (checkPublic(httpRequest) && haveCookie) {
 
-        } else {
+            performUserCookie(userCookie.get(), request, response, chain);
+        }
+        // not auth
+        else {
             goLogin(response);
         }
     }
