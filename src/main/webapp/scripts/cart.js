@@ -1,5 +1,5 @@
 function checkOut(user){
-    if(typeof user != 'undefined') {
+    if(typeof user != 'undefined' && user !== '') {
         var json = JSON.stringify(get_AllProducts());
         $.ajax({
             type: "POST",
@@ -27,18 +27,43 @@ function checkOut(user){
     }
 }
 
+function get_AllProducts() {
+    let allProducts = new Array;
+    var products_str = localStorage.getItem('products');
+    if (products_str !== null) {
+        allProducts = JSON.parse(products_str);
+        console.log(allProducts);
+    }
+    return allProducts;
+}
+
+function onSuccess(data) {
+    $("#do_action").hide();
+    $("#response").show();
+    $("#response_message").text(data.Message);
+    localStorage.removeItem("products");
+    window.location = "/iti-store/";
+}
+
+function setRedirect(data) {
+    // var json = JSON.parse(data);
+    $("#do_action").hide();
+    $("#response").show();
+    $("#response_message").val(data.Message);
+    // similar behavior as clicking on a link
+    // window.location.href = "http://stackoverflow.com";
+}
+
+function onError(data) {
+    // var json = JSON.parse(data);
+    $("#do_action").hide();
+    $("#response").show();
+    $("#response_message").val(data.Message);
+}
+
 $(document).ready(function () {
     // get_AllProducts();
     onloadPage();
-    function get_AllProducts() {
-        let allProducts = new Array;
-        var products_str = localStorage.getItem('products');
-        if (products_str !== null) {
-            allProducts = JSON.parse(products_str);
-            console.log(allProducts);
-        }
-        return allProducts;
-    }
 
     function onloadPage() {
         var json = JSON.stringify(get_AllProducts());
@@ -184,29 +209,5 @@ $(document).ready(function () {
             console.log(product);
         }
         localStorage.setItem('products', JSON.stringify(allProducts));
-    }
-
-    function onSuccess(data) {
-        $("#do_action").hide();
-        $("#response").show();
-        $("#response_message").text(data.Message);
-        localStorage.removeItem("products");
-        window.location = "/iti-store/";
-    }
-
-    function setRedirect(data) {
-        // var json = JSON.parse(data);
-        $("#do_action").hide();
-        $("#response").show();
-        $("#response_message").val(data.Message);
-        // similar behavior as clicking on a link
-        // window.location.href = "http://stackoverflow.com";
-    }
-
-    function onError(data) {
-        // var json = JSON.parse(data);
-        $("#do_action").hide();
-        $("#response").show();
-        $("#response_message").val(data.Message);
     }
 });
