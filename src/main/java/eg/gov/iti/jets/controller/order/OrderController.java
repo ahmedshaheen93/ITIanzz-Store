@@ -33,7 +33,9 @@ public class OrderController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("in the OrderController==========================================================");
         User user = (User) req.getSession().getAttribute("user");
+        System.out.println(user);
         if (user != null) {
             String productsPar = req.getParameter("products");
             if (productsPar != null) {

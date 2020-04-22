@@ -238,6 +238,15 @@ public class User implements Serializable {
 //                '}';
 //    }
 
+
+    @Override
+    public String toString() {
+        return "{" +
+                "userId:" + userId +
+                ", firstName:'" + firstName + '\'' +
+                '}';
+    }
+
     public void addOrder(Order order) {
         if (orders == null) {
             this.orders = new HashSet<>(0);

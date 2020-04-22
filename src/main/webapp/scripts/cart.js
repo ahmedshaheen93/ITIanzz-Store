@@ -1,32 +1,3 @@
-function checkOut(user){
-    if(typeof user != 'undefined') {
-        var json = JSON.stringify(get_AllProducts());
-        $.ajax({
-            type: "POST",
-            url: "orders",
-            dataType: "JSON",
-            data: {products: json},
-            statusCode: {
-                201: function (data) {
-                    onSuccess(data);
-                },
-                460: function (data) {
-                    console.log("error")
-                    onError(data);
-                },
-                500: function () {
-                    alert("leh ya rb m 5k2tny4 m3za");
-                },
-                302: function (data) {
-                    setRedirect(data);
-                }
-            }
-        });
-    }else {
-        window.location = '/iti-store/login';
-    }
-}
-
 $(document).ready(function () {
     // get_AllProducts();
     onloadPage();
@@ -199,6 +170,7 @@ $(document).ready(function () {
         $("#do_action").hide();
         $("#response").show();
         $("#response_message").val(data.Message);
+        window.location= data.message;
         // similar behavior as clicking on a link
         // window.location.href = "http://stackoverflow.com";
     }
@@ -209,4 +181,29 @@ $(document).ready(function () {
         $("#response").show();
         $("#response_message").val(data.Message);
     }
+
+    $(".CheckOut").on("click", function () {
+        var json = JSON.stringify(get_AllProducts());
+        $.ajax({
+            type: "POST",
+            url: "orders",
+            dataType: "JSON",
+            data: {products: json},
+            statusCode: {
+                201: function (data) {
+                    onSuccess(data);
+                },
+                460: function (data) {
+                    console.log("error")
+                    onError(data);
+                },
+                500: function () {
+                    alert("Error 500");
+                },
+                302: function (data) {
+                    setRedirect(data);
+                }
+            }
+        });
+    });
 });
