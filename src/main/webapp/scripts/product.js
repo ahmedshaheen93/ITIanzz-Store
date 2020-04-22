@@ -1,4 +1,5 @@
-$(document).ready(function () {
+$(document).ready(function ()
+{
     // document ready => load from storage
     // JsonArray => storage ?
 

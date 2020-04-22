@@ -1,5 +1,5 @@
-$(document).ready(
-    function () {
+$(document).ready(function () {
+
         var productJSON = {
             categoryId: 0,
             min: 0,
@@ -34,7 +34,8 @@ $(document).ready(
 
         });
 
-        $("#filterBtn").click(function () {
+        $(".filterBtn").click(function () {
+            let userRole =this.id;
             productJSON.productName = $("#productName").val();
             $.ajax({
                 type: "GET",
@@ -43,18 +44,18 @@ $(document).ready(
                 data: {message: JSON.stringify(productJSON)},
                 statusCode: {
                     200: function (data) {
-                        receiveMessage(data);
+                        receiveMessage(data , userRole);
                     },
                     404: function () {
                         console.log("error")
                     }
 
                 }
-            })
+            });
 
-            function receiveMessage(data) {
+            function receiveMessage(data , userRole) {
                 console.log(data);
-                updateScene(data);
+                updateScene(data , userRole);
             }
 
             /*$("#allProducts").empty();
@@ -63,7 +64,9 @@ $(document).ready(
             })*/
         });
 
-        function updateScene(data) {
+//out.println("<button id=\"" + product.getProductId()+ "\" class=\"btn btn-primary updateProduct\" type=\"button\">Update Product</button>");
+//                 out.println("<button id=\""+product.getProductId()+"\"class=\"btn btn-primary deleteProduct\" type=\"button\">Delete Product</button>");
+        function updateScene(data,userRole) {
             $("#allProducts").empty();
             if (jQuery.isEmptyObject(data)) {
                 var noData = "<p>No data founded </p>";
@@ -83,9 +86,23 @@ $(document).ready(
                     "                            <h6 class=\"text-capitalize text-center my-2\">" + product.productName + "</h6>\n" +
                     "                            <h6 class=\"text-center\">\n" +
                     "                                <span>$ " + product.price + "</span>\n" +
-                    "                            </h6>\n" +
-                    "                        </div>"
+                    "                            </h6>\n";
+                if (userRole=='ADMIN_ROLE') {
+                    var adminRole= `<button id="${product.productId}" class="btn btn-primary updateProduct" type="button">Update Product</button>
+                                <button id="${product.productId}"class="btn btn-primary deleteProduct" type="button">Delete Product</button>
+                    </div>`;
+                    proDiv+=adminRole;
+
+                }else{
+                    proDiv+="                        </div>";
+                }
+
                 $("#allProducts").append(proDiv);
             })
         }
-    })
+
+    function updatePro() {
+
+    }
+});
+

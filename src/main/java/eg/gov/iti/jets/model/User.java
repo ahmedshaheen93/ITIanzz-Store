@@ -242,8 +242,8 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "{" +
-                "userId:" + userId +
-                ", firstName:'" + firstName + '\'' +
+                "userId=" + userId +
+                ", role=" + role.toString() +
                 '}';
     }
 

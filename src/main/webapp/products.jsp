@@ -71,7 +71,7 @@
                                    placeholder="search by name">
                         </label>
                     </div>
-                    <button type="button" id="filterBtn">filter</button>
+                    <button type="button" id='${sessionScope.user.role}' class="filterBtn">filter</button>
                 </form>
 
                 <!--  -->
@@ -173,6 +173,7 @@
 <footer id="footer">
     <%@include file="includes/footer.jsp" %>
     <script src="scripts/product.js"></script>
+    <script src="scripts/productSearch.js"></script>
 </body>
 
 </html>
