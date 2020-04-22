@@ -25,7 +25,7 @@ import java.util.Optional;
 public class AuthFilter implements Filter {
 
     private static final List<String> PUBLIC_MACHES = Arrays.asList(
-            "/login", "/index", "/home", "/products", "/cart", "/view-product", "/searchForProduct",
+            "/login", "/index", "/home", "/products", "/cart", "/view-product", "/searchForProduct","/forgetPassword",
             "/about", "/registration", "/feedback", "/fonts",
             "/images", "/include", "/scripts", "/style");
 

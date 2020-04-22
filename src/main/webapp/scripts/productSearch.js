@@ -78,7 +78,7 @@ $(document).ready(
                     "                                <span class=\"featured-search-icon\" data-toggle=\"modal\" data-target=\"#productModal\">\n" +
                     "                                     <i class=\"fas fa-search\"></i>\n" +
                     "                                 </span>\n" +
-                    "                                    <a href=\"#\" class=\"featured-store-link text-captilaze\">add to cart</a>\n" +
+                    "                                    <a href=\"#\" class=\"featured-store-link text-captilaze addToCart \" id=\"" + product.productId + "\">add to cart</a>\n" +
                     "                            </div>\n" +
                     "                            <h6 class=\"text-capitalize text-center my-2\">" + product.productName + "</h6>\n" +
                     "                            <h6 class=\"text-center\">\n" +

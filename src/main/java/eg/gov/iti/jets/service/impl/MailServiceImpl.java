@@ -48,6 +48,18 @@ public class MailServiceImpl implements MailService {
 
     @Override
     public boolean sendForgetPasswordMail(User user, String randomPassword) {
+        String to = user.getEmail();
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("welcome our Dear " + user.getFirstName() + " " + user.getLastName() + "\n");
+        stringBuilder.append("you have requested a new password \n");
+        stringBuilder.append("as you send your email \n");
+        stringBuilder.append("this is your new password \n" + randomPassword +  " \n");
+        String subject = "Reset Password";
+        try {
+            return yahooSend(to, subject, stringBuilder.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return false;
     }
 

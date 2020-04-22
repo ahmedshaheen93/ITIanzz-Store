@@ -7,5 +7,5 @@ public interface MailService {
 
     boolean sendScratchCardMail(User user, ScratchCard scratchCard);
 
-    boolean sendForgetPasswordMail(User user, String randomPassword);
+    boolean sendForgetPasswordMail(User user , String randomPassword);
 }
