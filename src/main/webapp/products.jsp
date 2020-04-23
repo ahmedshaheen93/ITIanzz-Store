@@ -23,15 +23,8 @@
             <!-- product info -->
             <div class="col-10 col-md-5 col-lg-3 mx-auto my-3 px-5 text-capitalize">
                 <!-- categories -->
-                <div class="row">
-                    <div class="my-4">
-                        <a class="label btn-secondary text-white" href="addProduct" style="padding: 10px; border-radius: 10px">
-                            ADD NEW PRODUCT</a>
-                    </div>
-                </div>
-
                 <div class="products-categories-title my-4">
-                    <h6 class="text-uppercase">shop by categories</h6>
+                    <h6 class="text-uppercase">Shop by Categories</h6>
                     <div class="products-categories-underline"></div>
                 </div>
                 <!-- single link -->
@@ -48,19 +41,19 @@
                 <!-- end of single link -->
                 <!-- end of title -->
                 <div class="products-categories-title my-4">
-                    <h6 class="text-uppercase">shop by price</h6>
+                    <h6 class="text-uppercase">Shop by Price</h6>
                     <div class="products-categories-underline"></div>
                 </div>
                 <form>
                     <div class="form-group">
                         <p>
-                            <label for="amount">Price range:</label>
+                            <label for="amount">Price Range:</label>
                             <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
                         </p>
                         <div id="slider-range"></div>
                     </div>
 
-                    <div class="input-group">
+                    <!-- <div class="input-group">
                         <div class="input-group-prepend">
                                 <span class="input-group-text form-icon">
                                     <i class="fa fa-search"></i>
@@ -70,8 +63,8 @@
                             <input id="productName" type="text" class="form-control text-capitalize"
                                    placeholder="search by name">
                         </label>
-                    </div>
-                    <button type="button" id='${sessionScope.user.role}' class="filterBtn">filter</button>
+                    </div> -->
+                    <button type="button" id='${sessionScope.user.role}' class="filterBtn btn btn-primary">filter</button>
                 </form>
 
                 <!--  -->
@@ -91,16 +84,6 @@
 </section>
 <!-- end of products -->
 
-<%--
-<nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-bottom navbar-toggleable-sm">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="navbar-buttons mbr-section-btn">
-            <a class="btn btn-sm btn-black display-4" href="addProduct">
-            ADD NEW PRODUCT</a>
-        </div>
-    </div>
-</nav>
---%>
 <!-- modal -->
 <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
