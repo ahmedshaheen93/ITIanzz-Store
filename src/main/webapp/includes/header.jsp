@@ -5,7 +5,7 @@
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -14,13 +14,11 @@
             <li class="nav-item nav-active">
                 <a class="nav-link" href="/iti-store/home">Home<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/iti-store/about">About</a>
-            </li>
             <c:choose>
                 <c:when test="${sessionScope.user.role == Role.ADMIN_ROLE}">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Products
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -36,23 +34,43 @@
                     </li>
                 </c:otherwise>
             </c:choose>
+            <li class="nav-item">
+                <a class="nav-link" href="/iti-store/about">About</a>
+            </li>
         </ul>
 
         <ul class="navbar-nav ml-auto">
+
             <c:choose>
                 <c:when test="${sessionScope.user.role == Role.ADMIN_ROLE}">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Adminstration
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                            <a class="dropdown-item" href="/iti-store/scratchCardRequest">Scratch Card Requests</a>
+                            
+                            <div class="dropdown-divider"></div>
+                            
+                            <a class="dropdown-item" href="/iti-store/customers">Customers</a>
+
+                            <div class="dropdown-divider"></div>
+
+                            <a class="dropdown-item" href="/iti-store/feedbacks">Feedbacks</a>
+                            
+                            <div class="dropdown-divider"></div>
+                            
+                            <a class="dropdown-item" href="/iti-store/store">Store</a>
+
+                        </div>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="/iti-store/cart">Cart</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/iti-store/customers">Customers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/iti-store/scratchCardRequest">Scratch Card Requests</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/iti-store/store">Store</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="/iti-store/view-profile">Profile</a>
                     </li>
