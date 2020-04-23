@@ -162,7 +162,7 @@ $(document).ready(function () {
         $("#response").show();
         $("#response_message").text(data.Message);
         localStorage.removeItem("products");
-        window.location = "/iti-store/";
+        window.location = "/iti-store/view-profile";
     }
 
     function setRedirect(data) {
