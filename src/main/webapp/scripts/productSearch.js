@@ -36,7 +36,9 @@ $(document).ready(function () {
 
         $(".filterBtn").click(function () {
             let userRole =this.id;
+            console.log("usereRole: " + userRole)
             productJSON.productName = $("#productName").val();
+            console.log($("#productName").val())
             $.ajax({
                 type: "GET",
                 url: "searchForProduct",
@@ -44,6 +46,7 @@ $(document).ready(function () {
                 data: {message: JSON.stringify(productJSON)},
                 statusCode: {
                     200: function (data) {
+                        console.log(data)
                         receiveMessage(data , userRole);
                     },
                     404: function () {
@@ -88,21 +91,30 @@ $(document).ready(function () {
                     "                                <span>$ " + product.price + "</span>\n" +
                     "                            </h6>\n";
                 if (userRole=='ADMIN_ROLE') {
-                    var adminRole= `<button id="${product.productId}" class="btn btn-primary updateProduct" type="button">Update Product</button>
+                    proDiv+= `<button id="${product.productId}" class="btn btn-primary updateProduct xxx" type="button">Update Product</button>
                                 <button id="${product.productId}"class="btn btn-primary deleteProduct" type="button">Delete Product</button>
                     </div>`;
-                    proDiv+=adminRole;
+
 
                 }else{
-                    proDiv+="                        </div>";
+                    proDiv+=" </div>";
                 }
 
                 $("#allProducts").append(proDiv);
             })
+
+            $(".updateProduct").on('click',function (event) {
+                var productId = event.target.id;
+                window.location.href = "update-product?id="+productId;
+
+            });
+
+
+            $(".deleteProduct").on('click',function (event) {
+                var productId = event.target.id;
+                window.location.href = "deleteProduct?id="+productId;
+            });
         }
 
-    function updatePro() {
-
-    }
 });
 

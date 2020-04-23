@@ -53,7 +53,7 @@
                         <div id="slider-range"></div>
                     </div>
 
-                    <!-- <div class="input-group">
+                     <div class="input-group">
                         <div class="input-group-prepend">
                                 <span class="input-group-text form-icon">
                                     <i class="fa fa-search"></i>
@@ -63,7 +63,7 @@
                             <input id="productName" type="text" class="form-control text-capitalize"
                                    placeholder="search by name">
                         </label>
-                    </div> -->
+                    </div>
                     <button type="button" id='${sessionScope.user.role}' class="filterBtn btn btn-primary">filter</button>
                 </form>
 
