@@ -2,7 +2,8 @@ package eg.gov.iti.jets.service;
 
 import eg.gov.iti.jets.exception.UserBalanceViolation;
 import eg.gov.iti.jets.exception.UserNotFoundException;
-import eg.gov.iti.jets.model.User;
+import eg.gov.iti.jets.model.Role;
+import eg.gov.iti.jets.model.dto.UserDto;
 
 import javax.persistence.NoResultException;
 import java.util.List;
@@ -15,19 +16,21 @@ public interface UserService {
      * @param password user password to login with
      * @return user if exists on the system
      */
-    User login(String email, String password) throws UserNotFoundException;
+    UserDto login(String email, String password) throws UserNotFoundException;
 
-    User register(User user);
+    UserDto register(UserDto userDto, String password);
 
-    User update(User user);
+    UserDto update(UserDto userDto, String password);
 
-    Double addUserBalance(User user, Double amount) throws UserBalanceViolation;
+    UserDto updateUserRole(String email, Role role);
 
-    List<User> findAllUsers();
+    Double addUserBalance(UserDto user, Double amount) throws UserBalanceViolation;
 
-    User findUserById(long userId) throws UserNotFoundException;
+    List<UserDto> findAllUsers();
+
+    UserDto findUserById(long userId) throws UserNotFoundException;
 
     void checkAdminExistence();
 
-    User findByEmail(String email) throws NoResultException;
+    UserDto findByEmail(String email) throws NoResultException;
 }

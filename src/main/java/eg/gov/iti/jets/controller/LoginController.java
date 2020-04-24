@@ -1,7 +1,7 @@
 package eg.gov.iti.jets.controller;
 
 import eg.gov.iti.jets.exception.UserNotFoundException;
-import eg.gov.iti.jets.model.User;
+import eg.gov.iti.jets.model.dto.UserDto;
 import eg.gov.iti.jets.service.UserService;
 import eg.gov.iti.jets.utilty.ReadWriteCookei;
 
@@ -34,7 +34,7 @@ public class LoginController extends HttpServlet {
         System.out.println("email=" + email + " password=" + password);
         try {
             if (email != null && password != null) {
-                User user = userService.login(email, password);
+                UserDto user = userService.login(email, password);
                 if (user != null) {
                     req.getSession().setAttribute("user", user);
                     ReadWriteCookei.writeCookie(resp, "email", email, 60 * 60 * 60 * 24);

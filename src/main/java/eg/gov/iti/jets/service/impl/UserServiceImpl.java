@@ -5,15 +5,18 @@ import eg.gov.iti.jets.exception.UserNotFoundException;
 import eg.gov.iti.jets.model.Address;
 import eg.gov.iti.jets.model.Role;
 import eg.gov.iti.jets.model.User;
+import eg.gov.iti.jets.model.dto.UserDto;
 import eg.gov.iti.jets.repository.UserRepository;
 import eg.gov.iti.jets.repository.impl.UserRepositoryImpl;
 import eg.gov.iti.jets.service.UserService;
+import eg.gov.iti.jets.utilty.UserMapper;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import javax.persistence.NoResultException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class UserServiceImpl implements UserService {
 
@@ -33,72 +36,93 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User register(User user) {
-        //todo validate data first
-        return userRepository.save(user);
+    public UserDto register(UserDto userDto, String password) {
+        User user = UserMapper.mapUser(userDto, password);
+        user = userRepository.save(user);
+        return UserMapper.mapUser(user);
     }
 
     @Override
-    public User update(User user) {
+    public UserDto update(UserDto userDto, String password) {
         //hashing the password before store it in db
-        user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
-        return userRepository.save(user);
+        String hashpw = BCrypt.hashpw(password, BCrypt.gensalt());
+        User user = UserMapper.mapUser(userDto, hashpw);
+        user = userRepository.update(user);
+        return UserMapper.mapUser(user);
     }
 
     @Override
-    public User login(String email, String password) throws UserNotFoundException {
-        User user = null;
+    public UserDto updateUserRole(String email, Role role) {
+        UserDto userDto = null;
+        User user = userRepository.updateUserRole(email, role);
+        if (user != null) {
+            userDto = UserMapper.mapUser(user);
+        }
+        return userDto;
+    }
+
+    @Override
+    public UserDto login(String email, String password) throws UserNotFoundException {
+        UserDto userDto = null;
         try {
-            user = userRepository.findByEmail(email);
+            User user = userRepository.findByEmail(email);
             boolean validPass = BCrypt.checkpw(password, user.getPassword());
-            if ((!validPass)) {
-                user = null;
+            if (validPass) {
+                userDto = UserMapper.mapUser(user);
             }
+
         } catch (NoResultException e) {
             e.printStackTrace();
             throw new UserNotFoundException(String.format("%s not found on the database or " +
                     "incorrect password", email));
         }
-        return user;
+        return userDto;
     }
 
     @Override
-    public Double addUserBalance(User user, Double amount) throws UserBalanceViolation {
-        Double newBalance = user.getBalance() + amount;
+    public Double addUserBalance(UserDto userDto, Double amount) throws UserBalanceViolation {
+        Double newBalance = userDto.getBalance() + amount;
         if (newBalance < 0) {
             throw new UserBalanceViolation();
         }
-        return userRepository.addUserBalance(user, amount);
+        User user = new User();
+        user.setUserId(userDto.getUserId());
+        return userRepository.addUserBalance(user, newBalance);
     }
 
     @Override
-    public List<User> findAllUsers() {
-        return userRepository.findAll();
+    public List<UserDto> findAllUsers() {
+        List<UserDto> collect = userRepository.findAll().stream().map(UserMapper::mapUser).collect(Collectors.toList());
+        return collect;
     }
 
     @Override
-    public User findUserById(long userId) throws UserNotFoundException {
+    public UserDto findUserById(long userId) throws UserNotFoundException {
 
-        User user = null;
+        UserDto userDto = null;
         try {
-            user = userRepository.findById(userId);
+            User user = userRepository.findById(userId);
+            if (user != null) {
+                userDto = UserMapper.mapUser(user);
+            }
         } catch (NoResultException e) {
             e.printStackTrace();
             throw new UserNotFoundException(String.format("%s not found on the database or " +
                     "incorrect id ", userId));
         }
-        return user;
+        return userDto;
     }
 
     @Override
     public void checkAdminExistence() {
         List<User> allAdmins = userRepository.findALlAdminUsers();
         if (allAdmins.size() < 1) {
+            String password = "admin";
             User user = new User();
             user.setFirstName("Default");
             user.setLastName("Admin");
             user.setEmail("admin@store.com");
-            user.setPassword("admin");
+            user.setPassword(password);
             user.setRole(Role.ADMIN_ROLE);
             user.setBirthDate(LocalDate.now());
             user.setBalance(0.0);
@@ -112,19 +136,22 @@ public class UserServiceImpl implements UserService {
             address.setStreet("1st Street");
             address.setZipCode("12345");
             user.setAddress(address);
-
-            update(user);
+            UserDto userDto = UserMapper.mapUser(user);
+            update(userDto, password);
         }
     }
 
     @Override
-    public User findByEmail(String email) throws NoResultException {
-        User user = null;
+    public UserDto findByEmail(String email) throws NoResultException {
+        UserDto userDto = null;
         try {
-            user = userRepository.findByEmail(email);
+            User user = userRepository.findByEmail(email);
+            if (user != null) {
+                userDto = UserMapper.mapUser(user);
+            }
         } catch (NoResultException e) {
             e.printStackTrace();
         }
-        return user;
+        return userDto;
     }
 }

@@ -3,7 +3,7 @@ package eg.gov.iti.jets.controller.user;
 import eg.gov.iti.jets.exception.NoUpdatesException;
 import eg.gov.iti.jets.model.Address;
 import eg.gov.iti.jets.model.Image;
-import eg.gov.iti.jets.model.User;
+import eg.gov.iti.jets.model.dto.UserDto;
 import eg.gov.iti.jets.service.ImageService;
 import eg.gov.iti.jets.service.UserService;
 
@@ -70,18 +70,17 @@ public class UpdateProfileController extends HttpServlet {
         address.setState(state);
         address.setStreet(street);
 
-        User temp = new User();
-        User user = (User) req.getSession().getAttribute("user");
+        UserDto temp = new UserDto();
+        UserDto user = (UserDto) req.getSession().getAttribute("user");
 
         temp.setFirstName(firstName);
         temp.setLastName(lastName);
         temp.setPhone(phone);
         temp.setEmail(email);
         temp.setAddress(address);
-        temp.setPassword(password);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        temp.setBirthDate(LocalDate.parse(birthDate, formatter));
+        temp.setBirthDate(LocalDate.parse(birthDate, formatter).toString());
 
         Image image = null;
         if (!userImage.getSubmittedFileName().isBlank()) {
@@ -90,26 +89,28 @@ public class UpdateProfileController extends HttpServlet {
             Set<Image> images = imageService.saveImage(userHomeDir, req.getParts());
             image = images.stream().findFirst().get();
             System.out.println("image" + image);
-            temp.setUserImage(image);
-        }else{
+            temp.setUserImage("/iti-store/images/?imageId=" + image.getImageId());
+        } else {
             temp.setUserImage(user.getUserImage());
         }
 
-        if(user.equals(temp)){
+        if (user.equals(temp)) {
             try {
                 throw new NoUpdatesException();
             } catch (NoUpdatesException e) {
                 resp.sendRedirect("error.jsp");
                 return;
             }
-        }else {
+        } else {
             user.setFirstName(firstName);
             user.setPhone(phone);
             user.setLastName(lastName);
             user.setEmail(email);
             user.setAddress(address);
-            user.setUserImage(image);
-            userService.update(user);
+            if (image != null) {
+                user.setUserImage("/iti-store/images?imageId=" + image.getImageId());
+            }
+            userService.update(user, password);
         }
 //        } catch (UserNotFoundException e) {
 //            e.printStackTrace();
