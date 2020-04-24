@@ -34,9 +34,6 @@
                     </li>
                 </c:otherwise>
             </c:choose>
-            <li class="nav-item">
-                <a class="nav-link" href="/iti-store/about">About</a>
-            </li>
         </ul>
 
         <ul class="navbar-nav ml-auto">
