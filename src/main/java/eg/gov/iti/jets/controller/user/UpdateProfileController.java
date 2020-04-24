@@ -44,7 +44,6 @@ public class UpdateProfileController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("update user profile");
         String phone = req.getParameter("phone");
         String email = req.getParameter("email");
         String password = req.getParameter("password");
@@ -57,8 +56,6 @@ public class UpdateProfileController extends HttpServlet {
         String state = req.getParameter("state");
         String street = req.getParameter("street");
         Part userImage = req.getPart("image");
-        System.out.println(userImage);
-        System.out.println("req.getPart(\"userImage\");" + req.getPart("userImage"));
         UserService userService = (UserService) getServletContext().getAttribute("userService");
 //        try {
 //            User user = userService.findUserById(id);
@@ -88,7 +85,6 @@ public class UpdateProfileController extends HttpServlet {
             String userHomeDir = System.getProperty("user.home") + "/iti-store/images";
             Set<Image> images = imageService.saveImage(userHomeDir, req.getParts());
             image = images.stream().findFirst().get();
-            System.out.println("image" + image);
             temp.setUserImage("/iti-store/images/?imageId=" + image.getImageId());
         } else {
             temp.setUserImage(user.getUserImage());

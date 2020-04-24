@@ -28,11 +28,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public static synchronized UserServiceImpl getInstance() {
-        return Objects.requireNonNullElseGet(instance,
-                () -> {
-                    instance = new UserServiceImpl();
-                    return instance;
-                });
+        return instance = Objects.requireNonNullElseGet(instance, UserServiceImpl::new);
     }
 
     @Override
@@ -86,8 +82,7 @@ public class UserServiceImpl implements UserService {
         if (newBalance < 0) {
             throw new UserBalanceViolation();
         }
-        User user = new User();
-        user.setUserId(userDto.getUserId());
+        User user = userRepository.findById(userDto.getUserId());
         return userRepository.addUserBalance(user, newBalance);
     }
 
@@ -147,6 +142,7 @@ public class UserServiceImpl implements UserService {
         UserDto userDto = null;
         try {
             User user = userRepository.findByEmail(email);
+            System.out.println(user);
             if (user != null) {
                 userDto = UserMapper.mapUser(user);
             }

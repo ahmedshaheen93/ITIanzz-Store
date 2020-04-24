@@ -29,7 +29,6 @@ public class ScratchCardRequestController extends HttpServlet {
         ScratchCardRequestService scratchCardRequestService = (ScratchCardRequestService) req.getServletContext().getAttribute("scratchCardRequestService");
         List<ScratchCardRequest> approvedRequests = scratchCardRequestService.getApprovedRequests(false);
         req.setAttribute("approvedRequests", approvedRequests);
-        System.out.println("scratchCardRequest servelt");
         req.getRequestDispatcher("scratch-card-request.jsp").include(req, resp);
 
     }
@@ -57,11 +56,9 @@ public class ScratchCardRequestController extends HttpServlet {
                         done = mailService.sendScratchCardMail(userDto, scratchCardRequest.getScratchCard());
                         break;
                     case "delete":
-                        System.out.println("delete");
                         done = scratchCardRequestService.deleteScratchCardRequest(scratchCardRequest);
                         break;
                 }
-                System.out.println("{'done':" + done + "}");
                 resp.getWriter().write("{'done':" + done + "}");
             }
 

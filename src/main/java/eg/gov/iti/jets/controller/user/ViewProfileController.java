@@ -36,8 +36,8 @@ public class ViewProfileController extends HttpServlet {
 //            req.setAttribute("errorMessage", e.getMessage());
 //        }
         UserDto user = (UserDto) req.getSession().getAttribute("user");
-        System.out.println(user);
         if (user != null) {
+            System.out.println("final user befpr going to view is : " + user);
             req.getRequestDispatcher("view-profile.jsp").include(req, resp);
         } else {
             req.getRequestDispatcher("login.jsp").include(req, resp);

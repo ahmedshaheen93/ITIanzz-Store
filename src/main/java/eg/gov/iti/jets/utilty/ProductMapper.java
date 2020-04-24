@@ -15,7 +15,8 @@ import java.util.List;
 import java.util.Set;
 
 public class ProductMapper {
-   private static ProductService productService = ProductServiceImpl.getInstance();
+    private static ProductService productService = ProductServiceImpl.getInstance();
+
     public static ProductDto mapToProductDto(Product product) {
 
         Set<String> categories = new HashSet<>(0);
@@ -26,7 +27,6 @@ public class ProductMapper {
 
         String expireDate = (product.getExpirationDate() != null) ? product.getExpirationDate().toString() : "";
         Image primaryImage = product.getPrimaryImage();
-        //String imagePath = primaryImage.getImagePath(); nulllllllllllllllllll
         String imagePath = "";
         if (primaryImage != null)
             imagePath = "/iti-store/images?imageId=" + primaryImage.getImageId();
@@ -44,7 +44,6 @@ public class ProductMapper {
                 , product.getQuantity(),
                 categories, "" + product.getSellPrice(), imagePath, images);
         Set<Review> reviews = product.getReviews();
-        System.out.println("reviews size = " + reviews.size());
         List<ReviewDto> reviewDtos = new ArrayList<>();
         for (Review review : reviews) {
             ReviewDto reviewDto = ReviewMapper.mapToReviewDto(review);
@@ -59,7 +58,7 @@ public class ProductMapper {
     }
 
     public static Product mapToProductDto(ProductDto productDto) {
-       return productService.findById(productDto.getProductId());
+        return productService.findById(productDto.getProductId());
     }
 
 }

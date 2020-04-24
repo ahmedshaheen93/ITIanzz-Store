@@ -221,32 +221,32 @@ public class User implements Serializable {
         this.address = address;
     }
 
-//    @Override
-//    public String toString() {
-//        return "User{" +
-//                "userId=" + userId +
-//                ", firstName='" + firstName + '\'' +
-//                ", lastName='" + lastName + '\'' +
-//                ", phone='" + phone + '\'' +
-//                ", email='" + email + '\'' +
-//                ", password='" + password + '\'' +
-//                ", role=" + role +
-//                ", balance=" + balance +
-//                ", birthDate=" + birthDate +
-//                ", userImage=" + userImage +
-//                ", address=" + address +
-//                ", orders=" + orders +
-//                '}';
-//    }
-
-
     @Override
     public String toString() {
-        return "{" +
+        return "User{" +
                 "userId=" + userId +
-                ", role=" + role.toString() +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", role=" + role +
+                ", balance=" + balance +
+                ", birthDate=" + birthDate +
+                ", userImage=" + userImage +
+                ", address=" + address +
+                ", orders=" + orders +
                 '}';
     }
+
+
+//    @Override
+//    public String toString() {
+//        return "{" +
+//                "userId=" + userId +
+//                ", role=" + role.toString() +
+//                '}';
+//    }
 
     public void addOrder(Order order) {
         if (orders == null) {

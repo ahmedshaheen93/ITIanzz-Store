@@ -10,7 +10,6 @@ import eg.gov.iti.jets.repository.OrderRepository;
 import eg.gov.iti.jets.repository.impl.OrderRepositoryImpl;
 import eg.gov.iti.jets.service.OrderService;
 import eg.gov.iti.jets.service.UserService;
-import eg.gov.iti.jets.utilty.OrderMapper;
 import eg.gov.iti.jets.utilty.UserMapper;
 
 import java.time.LocalDateTime;
@@ -43,10 +42,10 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public synchronized Order createOrder(UserDto userDto, Set<Purchase> purchases)
             throws UserBalanceViolation, ProductQuantityLimitExceeded {
-        orderRepository = OrderRepositoryImpl.getInstance();
-        System.err.println("orderRepository >>>>>>>>>>>>>>>>" + orderRepository);
         AtomicReference<Double> orderTotalMoney = getTotalOfOrder(purchases);
+
         System.err.println(userDto.getBalance());
+
         if (userDto.getBalance() < orderTotalMoney.get()) {
             throw new UserBalanceViolation();
         }
@@ -56,12 +55,8 @@ public class OrderServiceImpl implements OrderService {
 
         Order order = createNewOder();
         System.err.println(-orderTotalMoney.get());
-
-        Double balance = userService.addUserBalance(userDto, -orderTotalMoney.get());
         User user = UserMapper.mapUser(userDto);
-        userDto.setBalance(balance);
-        order = orderRepository.createOrder(order, user, purchases);
-        userDto.getOrders().add(OrderMapper.mapOrder(order));
+        order = orderRepository.createOrder(order, user, purchases, orderTotalMoney.get());
         return order;
     }
 

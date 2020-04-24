@@ -36,7 +36,6 @@ public class UpdateProductController extends HttpServlet {
         productService = (ProductService) getServletContext().getAttribute("productService");
         categoryService = (CategoryService) getServletContext().getAttribute("categoryService");
         String idParam = req.getParameter("id");
-        System.out.println(req.getParameter("id") + "            req.getParameter(\"id\")");
         if (idParam != null) {
             Product product = productService.findById(Long.valueOf(idParam));
             req.setAttribute("product", product);
@@ -51,7 +50,6 @@ public class UpdateProductController extends HttpServlet {
 
         productService = (ProductService) getServletContext().getAttribute("productService");
         categoryService = (CategoryService) getServletContext().getAttribute("categoryService");
-        System.out.println("req.getParameter(\"productId\")" + req.getParameter("productId"));
         long productId = Long.parseLong(req.getParameter("productId"));
         Product product = productService.findById(productId);
         String productName = req.getParameter("productName");

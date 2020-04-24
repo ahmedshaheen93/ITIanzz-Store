@@ -28,10 +28,8 @@ public class SearchForProductController extends HttpServlet {
 
             ProductSearchExampleDTO
                     productSearchExampleDTO = new Gson().fromJson(message, ProductSearchExampleDTO.class);
-            System.out.println(productSearchExampleDTO);
             ProductService productService = (ProductService) getServletContext().getAttribute("productService");
             List<Product> products = productService.searchByProductDTO(productSearchExampleDTO);
-            System.out.println(products);
             List<ProductDto> productDtos = new ArrayList<>();
             for (Product product : products) {
                 ProductDto productDto = ProductMapper.mapToProductDto(product);

@@ -24,7 +24,6 @@ public class ScratchCardController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String number = req.getParameter("number");
-        System.out.println(number);
         UserDto userDto = (UserDto) req.getSession().getAttribute("user");
         if (number != null) {
             ScratchCardService scratchCardService = (ScratchCardService) req.getServletContext().getAttribute("scratchCardService");
@@ -39,7 +38,6 @@ public class ScratchCardController extends HttpServlet {
                     card.setValid(false);
                     scratchCardService.updateScratchCard(card);
                     //balance updated
-                    System.out.println("balance updated");
                     userDto.setBalance(userBalance);
 //                    req.getRequestDispatcher("/view-profile").forward(req, resp);
                     resp.sendRedirect("view-profile");
@@ -63,8 +61,6 @@ public class ScratchCardController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String balance = req.getParameter("amount");
-        System.out.println("requested balance = " + balance);
-        System.out.println(balance);
         UserDto userDto = (UserDto) req.getSession().getAttribute("user");
         if (balance != null && userDto != null) {
             ScratchCardRequestService scratchCardRequestService = (ScratchCardRequestService) req.getServletContext().getAttribute("scratchCardRequestService");

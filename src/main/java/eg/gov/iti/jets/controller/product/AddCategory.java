@@ -31,8 +31,6 @@ public class AddCategory extends HttpServlet {
         if (persistedCategory != null) {
             resp.setStatus(200);
             String json = new Gson().toJson(persistedCategory);
-            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-            System.out.println(json);
             resp.setContentType("application/json");
             resp.setCharacterEncoding("UTF-8");
             resp.getWriter().println(json);

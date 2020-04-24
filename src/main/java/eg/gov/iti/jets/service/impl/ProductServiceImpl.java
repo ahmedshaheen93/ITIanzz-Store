@@ -69,7 +69,6 @@ public class ProductServiceImpl implements ProductService {
         Logger logger
                 = Logger.getLogger(ProductServiceImpl.class.getName());
         List<ProductDto> productDtoSet = new ArrayList<>();
-        System.out.println("in the getAllProudects method");
         logger.info("in the getAllProudects method");
         for (ProductDto productDto : productDtos) {
             logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");

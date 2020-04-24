@@ -13,6 +13,9 @@ import java.util.List;
 public class UserMapper {
 
     public static UserDto mapUser(User user) {
+
+        System.out.println(user);
+
         List<OrderDto> orders = new ArrayList<>(0);
         for (Order order : user.getOrders()) {
             orders.add(OrderMapper.mapOrder(order));
@@ -23,6 +26,7 @@ public class UserMapper {
         UserDto userDto = new UserDto(user.getUserId(), user.getFirstName(), user.getLastName(), user.getPhone(), user.getEmail(), user.getRole(), user.getBalance(),
                 "" + user.getBirthDate(),
                 image, user.getAddress(), orders);
+        System.out.println(userDto);
         return userDto;
     }
 
@@ -33,6 +37,7 @@ public class UserMapper {
     }
 
     public static User mapUser(UserDto userDto) {
+        System.out.println(userDto);
         User user = new User();
         user.setUserId(userDto.getUserId());
         user.setBalance(userDto.getBalance());
@@ -54,8 +59,12 @@ public class UserMapper {
         }
         if (userDto.getOrders() != null && userDto.getOrders().size() > 0) {
             List<OrderDto> orders = userDto.getOrders();
-            orders.forEach(OrderMapper::mapOrder);
+            orders.forEach(orderDto -> {
+                Order order = OrderMapper.mapOrder(orderDto);
+                user.addOrder(order);
+            });
         }
+        System.out.println(user);
         return user;
     }
 

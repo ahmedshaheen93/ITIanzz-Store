@@ -14,6 +14,7 @@ import eg.gov.iti.jets.model.dto.UserDto;
 import eg.gov.iti.jets.service.OrderService;
 import eg.gov.iti.jets.service.ProductService;
 import eg.gov.iti.jets.service.UserService;
+import eg.gov.iti.jets.utilty.OrderMapper;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,7 +38,7 @@ public class OrderController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("in the OrderController==========================================================");
         UserDto userDto = (UserDto) req.getSession().getAttribute("user");
-        System.out.println(userDto);
+        System.out.println("checkOut" + userDto);
         if (userDto != null) {
             String productsPar = req.getParameter("products");
             if (productsPar != null) {
@@ -64,12 +65,17 @@ public class OrderController extends HttpServlet {
                         UserService userService = (UserService) getServletContext().getAttribute("userService");
                         userDto = userService.findUserById(userDto.getUserId());
                         System.out.println(userDto);
+                        userDto.getOrders().add(OrderMapper.mapOrder(order));
+                        System.out.println("iBn el kalb" + userDto);
+
                         req.getSession().setAttribute("user", userDto);
 
 
+                        System.out.println("iBn el kalb" + req.getSession().getAttribute("user"));
+
+
                         ResponeMessage responeMessage = new ResponeMessage("successfully ordered", 201);
-//                        req.setAttribute("errorMessage", "successfully orderd");
-//                        req.getRequestDispatcher("cart.jsp").include(req, resp);
+
                         String json = new Gson().toJson(responeMessage);
                         writer.write(json);
                     }

@@ -3,21 +3,20 @@ package eg.gov.iti.jets.config;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.Objects;
 
 public class ConnectionToDB {
-
     private static ConnectionToDB instance;
     private static EntityManager entityManager;
     private static EntityManagerFactory entityManagerFactory;
 
     private ConnectionToDB() {
-        System.out.println("hi");
         entityManagerFactory = Persistence.createEntityManagerFactory("iti.store");
         entityManager = entityManagerFactory.createEntityManager();
     }
 
-    public EntityManager getEntityManager() {
-        return entityManager;
+    public static synchronized ConnectionToDB getInstance() {
+        return instance = Objects.requireNonNullElseGet(instance, ConnectionToDB::new);
     }
 
     public static void close() {
@@ -27,10 +26,8 @@ public class ConnectionToDB {
         }
     }
 
-    public static synchronized ConnectionToDB getInstance() {
-        if (instance == null) {
-            instance = new ConnectionToDB();
-        }
-        return instance;
+    public EntityManager getEntityManager() {
+        System.out.println("session " + entityManager);
+        return entityManager;
     }
 }

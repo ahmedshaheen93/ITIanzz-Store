@@ -20,11 +20,11 @@ public class OrderRepositoryImpl extends CrudImpl<Order, Long> implements OrderR
     }
 
     @Override
-    public Order createOrder(Order order, User user, Set<Purchase> purchaseSet) {
+    public Order createOrder(Order order, User user, Set<Purchase> purchaseSet, Double orderTotal) {
         getEntityManager().getTransaction().begin();
         user.addOrder(order);
         getEntityManager().persist(order);
-        System.out.println(user);
+        user.setBalance(user.getBalance() - orderTotal);
         purchaseSet.forEach(purchase -> {
             purchase.setOrderProductId(createOrderProductId(order, purchase));
             Product product = purchase.getProduct();
@@ -33,8 +33,8 @@ public class OrderRepositoryImpl extends CrudImpl<Order, Long> implements OrderR
             getEntityManager().persist(purchase);
             order.getPurchases().add(purchase);
         });
+//        getEntityManager().createQuery(user);
         getEntityManager().getTransaction().commit();
-        System.out.println(user);
         return order;
     }
 
