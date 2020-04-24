@@ -11,15 +11,15 @@ import java.util.Set;
 @Table(name = "PRODUCTS")
 @NamedQueries({
         @NamedQuery(name = "Product.findByNameLike",
-                query = "SELECT p from Product p where p.productName like :productName"),
+                query = "SELECT p from Product p where p.productName like :productName and p.deleted = false"),
         @NamedQuery(name = "Product.findByCategory",
-                query = "SELECT p from Product p where :category member of p.categories"),
+                query = "SELECT p from Product p where :category member of p.categories and p.deleted = false"),
         @NamedQuery(name = "Product.findBetweenTwoPrices",
-                query = "SELECT p from Product  p where p.sellPrice between :price1 and :price2"),
+                query = "SELECT p from Product  p where p.sellPrice between :price1 and :price2 and p.deleted = false"),
         @NamedQuery(name = "Product.findByCategoryAndMinMaxPriceAndProductName",
                 query = "SELECT p from Product  p where p.sellPrice between :price1 and :price2" +
                         " and :category member of p.categories" +
-                        " and p.productName like :productName")
+                        " and p.productName like :productName and p.deleted = false")
 })
 public class Product implements Serializable {
 
@@ -69,6 +69,8 @@ public class Product implements Serializable {
      */
     @Column(name = "PRODUCT_QUANTITY", nullable = false)
     private int quantity;
+    @Column(name = "PRODUCT_DELETED", nullable = false)
+    private boolean deleted;
 
     @ManyToMany(cascade = {CascadeType.DETACH,
             CascadeType.MERGE,
@@ -203,6 +205,14 @@ public class Product implements Serializable {
         }
         reviews.add(review);
         review.setProduct(this);
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
     }
 
     @Override

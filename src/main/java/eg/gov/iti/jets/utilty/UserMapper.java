@@ -5,12 +5,15 @@ import eg.gov.iti.jets.model.Order;
 import eg.gov.iti.jets.model.User;
 import eg.gov.iti.jets.model.dto.OrderDto;
 import eg.gov.iti.jets.model.dto.UserDto;
+import eg.gov.iti.jets.service.UserService;
+import eg.gov.iti.jets.service.impl.UserServiceImpl;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserMapper {
+
     public static UserDto mapUser(User user) {
         List<OrderDto> orders = new ArrayList<>(0);
         for (Order order : user.getOrders()) {
@@ -51,9 +54,13 @@ public class UserMapper {
                 user.setUserImage(image);
             }
         }
+        List<OrderDto> orders = userDto.getOrders();
+        orders.forEach(orderDto -> {
+
+            OrderMapper.mapOrder(orderDto);
+        });
         return user;
     }
-
     private static Long getImageId(String imagePath) {
         if (imagePath.contains("?imageId=")) {
             String[] split = imagePath.split("imageId=");
@@ -62,4 +69,6 @@ public class UserMapper {
         }
         return null;
     }
+
+
 }

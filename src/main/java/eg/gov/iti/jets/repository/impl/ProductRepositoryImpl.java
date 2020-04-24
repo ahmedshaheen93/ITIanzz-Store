@@ -7,6 +7,7 @@ import eg.gov.iti.jets.repository.ProductRepository;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class ProductRepositoryImpl extends CrudImpl<Product, Long>
         implements ProductRepository {
@@ -55,5 +56,18 @@ public class ProductRepositoryImpl extends CrudImpl<Product, Long>
                 .setParameter("price2", (double) productSearchExampleDTO.getMax())
                 .setParameter("productName", "%" + productSearchExampleDTO.getProductName() + "%")
                 .setParameter("category", category).getResultList());
+    }
+
+    @Override
+    public void delete(Product product) {
+        //super.delete(product);
+        product.setDeleted(true);
+        update(product);
+    }
+
+    @Override
+    public List<Product> findAll() {
+        List<Product> all = super.findAll();
+        return all.stream().filter(product -> !product.isDeleted()).collect(Collectors.toList());
     }
 }

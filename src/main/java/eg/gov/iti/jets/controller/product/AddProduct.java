@@ -68,6 +68,7 @@ public class AddProduct extends HttpServlet {
 
         Set<Image> allImages = imageService.saveImage(userHomeDir, req.getParts());
         product.setProductName(productName);
+        product.setDeleted(false);
         product.setDescription(description);
         product.setManufacturingName(manufacturingName);
         product.setManufacturingDate(LocalDate.parse(manufacturingDate, formatter));

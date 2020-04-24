@@ -38,4 +38,5 @@ public interface ProductRepository extends Crud<Product, Long> {
      * @return List<Product>
      */
     List<Product> findByCategoryAndMinMaxPriceAndProductName(ProductSearchExampleDTO productSearchExampleDTO);
+
 }

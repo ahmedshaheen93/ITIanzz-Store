@@ -55,9 +55,16 @@ public class OrderServiceImpl implements OrderService {
 
         Order order = createNewOder();
         System.err.println(-orderTotalMoney.get());
-        userService.addUserBalance(userDto, -orderTotalMoney.get());
+
+        Double balance = userService.addUserBalance(userDto, -orderTotalMoney.get());
+        userDto.setBalance(balance);
         User user = UserMapper.mapUser(userDto);
         return orderRepository.createOrder(order, user, purchases);
+    }
+
+    @Override
+    public Order findById(Long id) {
+        return orderRepository.findById(id);
     }
 
     private AtomicReference<Double> getTotalOfOrder(Set<Purchase> purchases) {

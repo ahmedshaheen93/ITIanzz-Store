@@ -12,4 +12,5 @@ public interface OrderService {
 
     Order createOrder(UserDto user, Set<Purchase> purchases) throws UserBalanceViolation
             , ProductQuantityLimitExceeded;
+    Order findById(Long id);
 }

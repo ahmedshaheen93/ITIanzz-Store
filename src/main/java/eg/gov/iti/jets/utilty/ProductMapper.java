@@ -6,6 +6,8 @@ import eg.gov.iti.jets.model.Product;
 import eg.gov.iti.jets.model.Review;
 import eg.gov.iti.jets.model.dto.ProductDto;
 import eg.gov.iti.jets.model.dto.ReviewDto;
+import eg.gov.iti.jets.service.ProductService;
+import eg.gov.iti.jets.service.impl.ProductServiceImpl;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -13,6 +15,7 @@ import java.util.List;
 import java.util.Set;
 
 public class ProductMapper {
+   private static ProductService productService = ProductServiceImpl.getInstance();
     public static ProductDto mapToProductDto(Product product) {
 
         Set<String> categories = new HashSet<>(0);
@@ -55,5 +58,8 @@ public class ProductMapper {
 
     }
 
+    public static Product mapToProductDto(ProductDto productDto) {
+       return productService.findById(productDto.getProductId());
+    }
 
 }
