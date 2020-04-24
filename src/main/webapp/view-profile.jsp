@@ -111,7 +111,7 @@
                                             </div>
                                             <div>
                                                 <p class="card-text"><small
-                                                        class="text-muted">${order.orderTimestamp.toLocalDate()}</small>
+                                                        class="text-muted">${order.orderTimestamp}</small>
                                                 </p>
                                             </div>
                                         </div>
@@ -168,16 +168,16 @@
 
                 </div>
 
-                <c:choose>
-                    <c:when test="${sessionScope.user.userImage != null}">
-                        <img src="${sessionScope.user.userImage}"
-                             class="card-img-top img-fluid" alt="Profile Image">
-                    </c:when>
-                    <c:otherwise>
-                        <img src="images/user/avatar.jpg" class="card-img-top img-fluid"
-                             alt="Default Profile Image">
-                    </c:otherwise>
-                </c:choose>
+                <%--                <c:choose>--%>
+                <%--                    <c:when test="${sessionScope.user.userImage != null}">--%>
+                <img src="${sessionScope.user.userImage}"
+                     class="card-img-top img-fluid" alt="Profile Image">
+                <%--                    </c:when>--%>
+                <%--                    <c:otherwise>--%>
+                <%--                        <img src="images/user/avatar.jpg" class="card-img-top img-fluid"--%>
+                <%--                             alt="Default Profile Image">--%>
+                <%--                    </c:otherwise>--%>
+                <%--                </c:choose>--%>
 
 
                 <div class="card-body">

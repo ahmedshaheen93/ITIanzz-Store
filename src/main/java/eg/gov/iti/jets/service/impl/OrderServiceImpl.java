@@ -10,6 +10,7 @@ import eg.gov.iti.jets.repository.OrderRepository;
 import eg.gov.iti.jets.repository.impl.OrderRepositoryImpl;
 import eg.gov.iti.jets.service.OrderService;
 import eg.gov.iti.jets.service.UserService;
+import eg.gov.iti.jets.utilty.OrderMapper;
 import eg.gov.iti.jets.utilty.UserMapper;
 
 import java.time.LocalDateTime;
@@ -57,9 +58,11 @@ public class OrderServiceImpl implements OrderService {
         System.err.println(-orderTotalMoney.get());
 
         Double balance = userService.addUserBalance(userDto, -orderTotalMoney.get());
-        userDto.setBalance(balance);
         User user = UserMapper.mapUser(userDto);
-        return orderRepository.createOrder(order, user, purchases);
+        userDto.setBalance(balance);
+        order = orderRepository.createOrder(order, user, purchases);
+        userDto.getOrders().add(OrderMapper.mapOrder(order));
+        return order;
     }
 
     @Override

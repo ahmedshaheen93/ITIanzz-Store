@@ -125,4 +125,21 @@ public class UserDto {
     public void setOrders(List<OrderDto> orders) {
         this.orders = orders;
     }
+
+    @Override
+    public String toString() {
+        return "UserDto{" +
+                "userId=" + userId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", role=" + role +
+                ", balance=" + balance +
+                ", birthDate='" + birthDate + '\'' +
+                ", userImage='" + userImage + '\'' +
+                ", address=" + address +
+                ", orders=" + orders +
+                '}';
+    }
 }

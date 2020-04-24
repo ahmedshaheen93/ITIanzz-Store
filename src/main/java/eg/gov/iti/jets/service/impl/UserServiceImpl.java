@@ -37,8 +37,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto register(UserDto userDto, String password) {
-        User user = UserMapper.mapUser(userDto, password);
-        user = userRepository.save(user);
+        String hashpw = BCrypt.hashpw(password, BCrypt.gensalt());
+        User user = UserMapper.mapUser(userDto, hashpw);
+        user = userRepository.update(user);
         return UserMapper.mapUser(user);
     }
 

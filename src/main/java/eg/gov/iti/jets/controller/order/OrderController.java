@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import eg.gov.iti.jets.exception.ProductQuantityLimitExceeded;
 import eg.gov.iti.jets.exception.UserBalanceViolation;
+import eg.gov.iti.jets.exception.UserNotFoundException;
 import eg.gov.iti.jets.model.Order;
 import eg.gov.iti.jets.model.Product;
 import eg.gov.iti.jets.model.Purchase;
@@ -12,6 +13,7 @@ import eg.gov.iti.jets.model.dto.ResponeMessage;
 import eg.gov.iti.jets.model.dto.UserDto;
 import eg.gov.iti.jets.service.OrderService;
 import eg.gov.iti.jets.service.ProductService;
+import eg.gov.iti.jets.service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,9 +36,9 @@ public class OrderController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("in the OrderController==========================================================");
-        UserDto user = (UserDto) req.getSession().getAttribute("user");
-        System.out.println(user);
-        if (user != null) {
+        UserDto userDto = (UserDto) req.getSession().getAttribute("user");
+        System.out.println(userDto);
+        if (userDto != null) {
             String productsPar = req.getParameter("products");
             if (productsPar != null) {
                 Type listType = new TypeToken<ArrayList<ProductDto>>() {
@@ -55,10 +57,15 @@ public class OrderController extends HttpServlet {
                 OrderService orderService = (OrderService) getServletContext().getAttribute("orderService");
 
                 try {
-                    Order order = orderService.createOrder(user, purchaseSet);
+                    Order order = orderService.createOrder(userDto, purchaseSet);
                     if (order != null) {
                         PrintWriter writer = resp.getWriter();
                         resp.setStatus(201);
+                        UserService userService = (UserService) getServletContext().getAttribute("userService");
+                        userDto = userService.findUserById(userDto.getUserId());
+                        System.out.println(userDto);
+                        req.getSession().setAttribute("user", userDto);
+
 
                         ResponeMessage responeMessage = new ResponeMessage("successfully ordered", 201);
 //                        req.setAttribute("errorMessage", "successfully orderd");
@@ -67,7 +74,7 @@ public class OrderController extends HttpServlet {
                         writer.write(json);
                     }
 
-                } catch (UserBalanceViolation | ProductQuantityLimitExceeded ex) {
+                } catch (UserBalanceViolation | ProductQuantityLimitExceeded | UserNotFoundException ex) {
                     ex.printStackTrace();
                     PrintWriter writer = resp.getWriter();
                     resp.setStatus(460);

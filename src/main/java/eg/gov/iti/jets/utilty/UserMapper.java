@@ -5,8 +5,6 @@ import eg.gov.iti.jets.model.Order;
 import eg.gov.iti.jets.model.User;
 import eg.gov.iti.jets.model.dto.OrderDto;
 import eg.gov.iti.jets.model.dto.UserDto;
-import eg.gov.iti.jets.service.UserService;
-import eg.gov.iti.jets.service.impl.UserServiceImpl;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -54,13 +52,13 @@ public class UserMapper {
                 user.setUserImage(image);
             }
         }
-        List<OrderDto> orders = userDto.getOrders();
-        orders.forEach(orderDto -> {
-
-            OrderMapper.mapOrder(orderDto);
-        });
+        if (userDto.getOrders() != null && userDto.getOrders().size() > 0) {
+            List<OrderDto> orders = userDto.getOrders();
+            orders.forEach(OrderMapper::mapOrder);
+        }
         return user;
     }
+
     private static Long getImageId(String imagePath) {
         if (imagePath.contains("?imageId=")) {
             String[] split = imagePath.split("imageId=");
