@@ -1,16 +1,76 @@
+function get_AllProducts() {
+    let allProducts = new Array;
+    var products_str = localStorage.getItem('products');
+    if (products_str !== null) {
+        allProducts = JSON.parse(products_str);
+        console.log(allProducts);
+    }
+    return allProducts;
+}
+
+function onSuccess(data) {
+    $("#do_action").hide();
+    $("#response").show();
+    $("#response_message").text(data.Message);
+    localStorage.removeItem("products");
+    window.location = "/iti-store/view-profile";
+}
+
+function setRedirect(data) {
+    // var json = JSON.parse(data);
+    $("#do_action").hide();
+    $("#response").show();
+    $("#response_message").val(data.Message);
+    window.location= data.message;
+    // similar behavior as clicking on a link
+    // window.location.href = "http://stackoverflow.com";
+}
+
+function onError(data) {
+    // var json = JSON.parse(data);
+    $("#do_action").hide();
+    $("#response").show();
+    $("#response_message").val(data.Message);
+}
+
+function checkOut(userId) {
+    if(typeof userId !== 'undefined' && userId !== '') {
+
+        var allProducts = get_AllProducts();
+        if(allProducts.length !== 0) {
+            var json = JSON.stringify(allProducts);
+            $.ajax({
+                type: "POST",
+                url: "orders",
+                dataType: "JSON",
+                data: {products: json},
+                statusCode: {
+                    201: function (data) {
+                        onSuccess(data);
+                    },
+                    460: function (data) {
+                        console.log("error")
+                        onError(data);
+                    },
+                    500: function () {
+                        alert("Error 500");
+                    },
+                    302: function (data) {
+                        setRedirect(data);
+                    }
+                }
+            });
+        }else{
+            $('#myModal').modal('show');
+        }
+    }else {
+        window.location = '/iti-store/login';
+    }
+}
+
 $(document).ready(function () {
     // get_AllProducts();
     onloadPage();
-    function get_AllProducts() {
-        let allProducts = new Array;
-        var products_str = localStorage.getItem('products');
-        if (products_str !== null) {
-            allProducts = JSON.parse(products_str);
-            console.log(allProducts);
-        }
-        return allProducts;
-    }
-
     function onloadPage() {
         var json = JSON.stringify(get_AllProducts());
         console.log("==========" + json);
@@ -156,54 +216,4 @@ $(document).ready(function () {
         }
         localStorage.setItem('products', JSON.stringify(allProducts));
     }
-
-    function onSuccess(data) {
-        $("#do_action").hide();
-        $("#response").show();
-        $("#response_message").text(data.Message);
-        localStorage.removeItem("products");
-        window.location = "/iti-store/view-profile";
-    }
-
-    function setRedirect(data) {
-        // var json = JSON.parse(data);
-        $("#do_action").hide();
-        $("#response").show();
-        $("#response_message").val(data.Message);
-        window.location= data.message;
-        // similar behavior as clicking on a link
-        // window.location.href = "http://stackoverflow.com";
-    }
-
-    function onError(data) {
-        // var json = JSON.parse(data);
-        $("#do_action").hide();
-        $("#response").show();
-        $("#response_message").val(data.Message);
-    }
-
-    $(".CheckOut").on("click", function () {
-        var json = JSON.stringify(get_AllProducts());
-        $.ajax({
-            type: "POST",
-            url: "orders",
-            dataType: "JSON",
-            data: {products: json},
-            statusCode: {
-                201: function (data) {
-                    onSuccess(data);
-                },
-                460: function (data) {
-                    console.log("error")
-                    onError(data);
-                },
-                500: function () {
-                    alert("Error 500");
-                },
-                302: function (data) {
-                    setRedirect(data);
-                }
-            }
-        });
-    });
 });

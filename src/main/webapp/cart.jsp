@@ -103,14 +103,32 @@
                                 <a class="btn btn-danger text-white update removeAll">Clear</a>
                             </div>
                             <div>
-                                <a class="btn btn-success text-white check_out CheckOut">Check Out</a>
+                                <a class="btn btn-success text-white check_out" data-toggle="modal" data-target="#myModel"
+                                   onclick="checkOut('${sessionScope.user.userId}')">Check Out</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-
+            <div class="modal fade" id="myModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Sorry</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h6>no items in the cart.. <img src="images/cart/emoji.jpg" style="width: 50px; height: 50px"></h6>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-4" id="response">
                 <p id="response_message">dummy message</p>
             </div>
