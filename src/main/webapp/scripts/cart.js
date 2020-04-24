@@ -55,7 +55,9 @@ function checkOut(userId) {
                         onError(data.responseJSON.message);
                     },
                     500: function () {
-                        alert("Error 500");
+                        $("#Message").text("500 Internal Server Error")
+                        $('#myModal').modal('show');
+
                     },
                     302: function (data) {
                         setRedirect(data);
