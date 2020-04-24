@@ -55,8 +55,8 @@ public class ProductTLD extends SimpleTagSupport {
             out.println("</div>");
             out.println("</div>");
                         
-            out.println("<div class=\"featured-container\">");
-            out.println("<img src=\"" + product.getPrimaryImage() + "\" class=\"img-fluid\" alt=\"product\" />");
+            out.println("<div class=\"featured-container text-center\">");
+            out.println("<img src=\"" + product.getPrimaryImage() + "\" class=\"img-fluid\" alt=\"product\" style=\"height: 15rem;\" />");
             out.println("<span class=\"featured-search-icon\" data-toggle=\"modal\" data-target=\"#productModal\">");
             out.println("<i class=\"fas fa-search\"></i>");
             out.println("</span>");
@@ -72,6 +72,7 @@ public class ProductTLD extends SimpleTagSupport {
                 out.println("</div>");
             }
             out.println("</div>");
+            out.println("<br>");
             out.println("</div>");
 
         } catch (java.io.IOException ex) {
