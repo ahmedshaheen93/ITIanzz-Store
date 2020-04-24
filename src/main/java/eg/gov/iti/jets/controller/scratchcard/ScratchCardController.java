@@ -3,9 +3,11 @@ package eg.gov.iti.jets.controller.scratchcard;
 import eg.gov.iti.jets.exception.UserBalanceViolation;
 import eg.gov.iti.jets.model.ScratchCard;
 import eg.gov.iti.jets.model.User;
+import eg.gov.iti.jets.model.dto.UserDto;
 import eg.gov.iti.jets.service.ScratchCardRequestService;
 import eg.gov.iti.jets.service.ScratchCardService;
 import eg.gov.iti.jets.service.UserService;
+import eg.gov.iti.jets.utilty.UserMapper;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,7 +25,7 @@ public class ScratchCardController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String number = req.getParameter("number");
         System.out.println(number);
-        User user = (User) req.getSession().getAttribute("user");
+        UserDto userDto = (UserDto) req.getSession().getAttribute("user");
         if (number != null) {
             ScratchCardService scratchCardService = (ScratchCardService) req.getServletContext().getAttribute("scratchCardService");
             UserService userService = (UserService) req.getServletContext().getAttribute("userService");
@@ -32,11 +34,13 @@ public class ScratchCardController extends HttpServlet {
             if (card != null) {
                 // update
                 try {
-                    userService.addUserBalance(user, card.getCardAmount());
+
+                    Double userBalance = userService.addUserBalance(userDto, card.getCardAmount());
                     card.setValid(false);
                     scratchCardService.updateScratchCard(card);
                     //balance updated
                     System.out.println("balance updated");
+                    userDto.setBalance(userBalance);
 //                    req.getRequestDispatcher("/view-profile").forward(req, resp);
                     resp.sendRedirect("view-profile");
                 } catch (UserBalanceViolation userBalanceViolation) {
@@ -61,9 +65,10 @@ public class ScratchCardController extends HttpServlet {
         String balance = req.getParameter("amount");
         System.out.println("requested balance = " + balance);
         System.out.println(balance);
-        User user = (User) req.getSession().getAttribute("user");
-        if (balance != null && user != null) {
+        UserDto userDto = (UserDto) req.getSession().getAttribute("user");
+        if (balance != null && userDto != null) {
             ScratchCardRequestService scratchCardRequestService = (ScratchCardRequestService) req.getServletContext().getAttribute("scratchCardRequestService");
+            User user = UserMapper.mapUser(userDto);
             Boolean requestBalance = scratchCardRequestService.requestBalance(user, Double.parseDouble(balance.trim()));
             if (requestBalance) {
                 // balance requested

@@ -1,7 +1,7 @@
 package eg.gov.iti.jets.service.impl;
 
 import eg.gov.iti.jets.model.ScratchCard;
-import eg.gov.iti.jets.model.User;
+import eg.gov.iti.jets.model.dto.UserDto;
 import eg.gov.iti.jets.service.MailService;
 
 import javax.mail.Message;
@@ -24,7 +24,7 @@ public class MailServiceImpl implements MailService {
 
     // response card number
     @Override
-    public boolean sendScratchCardMail(User user, ScratchCard scratchCard) {
+    public boolean sendScratchCardMail(UserDto user, ScratchCard scratchCard) {
 
         // Recipient's email ID needs to be mentioned.
         String to = user.getEmail();
@@ -47,13 +47,13 @@ public class MailServiceImpl implements MailService {
 
 
     @Override
-    public boolean sendForgetPasswordMail(User user, String randomPassword) {
+    public boolean sendForgetPasswordMail(UserDto user, String randomPassword) {
         String to = user.getEmail();
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("welcome our Dear " + user.getFirstName() + " " + user.getLastName() + "\n");
         stringBuilder.append("you have requested a new password \n");
         stringBuilder.append("as you send your email \n");
-        stringBuilder.append("this is your new password \n" + randomPassword +  " \n");
+        stringBuilder.append("this is your new password \n" + randomPassword + " \n");
         String subject = "Reset Password";
         try {
             return yahooSend(to, subject, stringBuilder.toString());

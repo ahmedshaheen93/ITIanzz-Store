@@ -1,5 +1,6 @@
 package eg.gov.iti.jets.repository.impl;
 
+import eg.gov.iti.jets.model.Role;
 import eg.gov.iti.jets.model.User;
 import eg.gov.iti.jets.repository.UserRepository;
 
@@ -44,15 +45,14 @@ public class UserRepositoryImpl extends CrudImpl<User, Long> implements UserRepo
 
     @Override
     public Double addUserBalance(User user, Double balance) {
-        Double newBalance = user.getBalance() + balance;
         getEntityManager().getTransaction().begin();
         int executeUpdate = getEntityManager().createNamedQuery("User.updateUserBalance")
-                .setParameter("balance", newBalance)
+                .setParameter("balance", balance)
                 .setParameter("id", user.getUserId()).executeUpdate();
         getEntityManager().getTransaction().commit();
         if (executeUpdate > 0) {
-            user.setBalance(newBalance);
-            return newBalance;
+            user.setBalance(balance);
+            return balance;
         }
         return -1d;
     }
@@ -65,6 +65,20 @@ public class UserRepositoryImpl extends CrudImpl<User, Long> implements UserRepo
     @Override
     public List<User> findALlCustomerUsers() {
         return (List<User>) getEntityManager().createNamedQuery("User.getAllCustomerUsers").getResultList();
+    }
+
+    @Override
+    public User updateUserRole(String email, Role role) {
+        User user = null;
+        int executeUpdate = getEntityManager().createNamedQuery("User.updateUserRole")
+                .setParameter("email", email)
+                .setParameter("role", role)
+                .executeUpdate();
+        if (executeUpdate > 0) {
+            user = findByEmail(email);
+        }
+
+        return user;
     }
 
 //    @Override

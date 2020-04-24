@@ -84,6 +84,7 @@ public class AddProduct extends HttpServlet {
         Product product1 = productService.addNewProduct(product);
         if (product1.getProductId() > 0) {
             System.out.println("saved scceeeeeeeeeeeeeeeeeeeeek");
+            resp.sendRedirect("/iti-store/products");
         }
         System.out.println("no product founded");
     }

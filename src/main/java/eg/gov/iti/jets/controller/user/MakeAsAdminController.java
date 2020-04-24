@@ -2,7 +2,7 @@ package eg.gov.iti.jets.controller.user;
 
 import eg.gov.iti.jets.exception.UserNotFoundException;
 import eg.gov.iti.jets.model.Role;
-import eg.gov.iti.jets.model.User;
+import eg.gov.iti.jets.model.dto.UserDto;
 import eg.gov.iti.jets.service.UserService;
 
 import javax.servlet.ServletException;
@@ -26,17 +26,13 @@ public class MakeAsAdminController extends HttpServlet {
         if (idParameter != null && adminParameter != null) {
 
             int id = Integer.parseInt(idParameter);
+            Role role = Role.CUSTOMER_ROLE;
             try {
-                User user = userService.findUserById(id);
-                switch (adminParameter) {
-                    case "true":
-                        user.setRole(Role.ADMIN_ROLE);
-                        break;
-                    case "false":
-                        user.setRole(Role.CUSTOMER_ROLE);
-                        break;
+                UserDto user = userService.findUserById(id);
+                if (adminParameter.equals("true")) {
+                    role = Role.ADMIN_ROLE;
                 }
-                userService.update(user);
+                userService.updateUserRole(user.getEmail(), role);
             } catch (UserNotFoundException e) {
                 e.printStackTrace();
             }

@@ -1,6 +1,6 @@
 package eg.gov.iti.jets.controller.user;
 
-import eg.gov.iti.jets.model.User;
+import eg.gov.iti.jets.model.dto.UserDto;
 import eg.gov.iti.jets.service.UserService;
 
 import javax.servlet.ServletException;
@@ -20,7 +20,7 @@ public class CustomersController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         UserService userService = (UserService) req.getServletContext().getAttribute("userService");
-        List<User> users = userService.findAllUsers();
+        List<UserDto> users = userService.findAllUsers();
         req.setAttribute("users", users);
         req.getRequestDispatcher("customers.jsp").include(req, resp);
 

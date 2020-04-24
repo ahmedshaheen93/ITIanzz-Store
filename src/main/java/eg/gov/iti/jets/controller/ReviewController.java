@@ -3,8 +3,10 @@ package eg.gov.iti.jets.controller;
 import eg.gov.iti.jets.model.Product;
 import eg.gov.iti.jets.model.Review;
 import eg.gov.iti.jets.model.User;
+import eg.gov.iti.jets.model.dto.UserDto;
 import eg.gov.iti.jets.service.ProductService;
 import eg.gov.iti.jets.service.ReviewService;
+import eg.gov.iti.jets.utilty.UserMapper;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,13 +44,14 @@ public class ReviewController extends HttpServlet {
 //        ProductService productService = (ProductService) getServletContext().getAttribute("productService");
 //        ReviewService reviewService = (ReviewService) getServletContext().getAttribute("reviewService");
         Product product = productService.findById(Long.parseLong(productId));
-        User user = ((User) req.getSession().getAttribute("user"));
+        UserDto userDto = ((UserDto) req.getSession().getAttribute("user"));
         String reviewMessage = req.getParameter("reviewMessage");
         String reviewStars = req.getParameter("reviewStars");
         System.out.println("message" + reviewMessage);
         System.out.println("reviewStarsr" + reviewStars);
 
-        if (user != null) {
+        if (userDto != null) {
+            User user = UserMapper.mapUser(userDto);
             Review review = new Review(user, product, reviewMessage, LocalDateTime.now(), Integer.parseInt(reviewStars));
             product.addReview(review);
             review = reviewService.createReview(review);

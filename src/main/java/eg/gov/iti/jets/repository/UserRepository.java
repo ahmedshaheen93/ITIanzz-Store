@@ -1,5 +1,6 @@
 package eg.gov.iti.jets.repository;
 
+import eg.gov.iti.jets.model.Role;
 import eg.gov.iti.jets.model.User;
 
 import javax.persistence.NoResultException;
@@ -56,4 +57,6 @@ public interface UserRepository extends Crud<User, Long> {
      * @return list<User> customers
      */
     List<User> findALlCustomerUsers();
+
+    User updateUserRole(String email, Role role);
 }
