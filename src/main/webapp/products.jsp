@@ -14,74 +14,67 @@
         <%@include file="includes/header.jsp" %>
     </header>
 
+    <div class="container-fluid">
 
-    <!-- products -->
-    <section class="products">
-        <div class="container-fluid">
+        <br>
 
-            <div class="row">
-                <!-- product info -->
-                <div class="col-10 col-md-5 col-lg-3 mx-auto my-3 px-5 text-capitalize">
-                    <!-- categories -->
-                    <div class="products-categories-title my-4">
-                        <h6 class="text-uppercase">Category</h6>
-                        <div class="products-categories-underline"></div>
+        <div class="row">
+
+            <div class="col-md-3">
+
+                <div class="card text-center">
+                    <h5 class="card-header">Filter Products</h5>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item text-left">
+                                <c:if test="${!empty requestScope.categories}">
+                                    <c:forEach items="${requestScope.categories}" var="category">
+                                        <a class="d-block products-categories-link category">
+                                            <input id="${category.categoryId}" class="form-check-input" type="radio"
+                                                name="gender" value="male">
+                                            <label class="form-check-label" for="${category.categoryId}">
+                                                ${category.categoryName}
+                                            </label>
+                                        </a>
+                                    </c:forEach>
+                                </c:if>
+                            </li>
+                            <li class="list-group-item">
+                                <p><input type="text" id="amount" readonly
+                                        style="border:0; font-weight:bold;"></p>
+                                <div id="slider-range"></div>
+                            </li>
+                            <li class="list-group-item">
+                                <input id="productName" type="text" class="form-control text-capitalize"
+                                    placeholder="keyword">
+                            </li>
+                        </ul>
                     </div>
-                    <!-- single link -->
-                    <c:if test="${!empty requestScope.categories}">
-                        <c:forEach items="${requestScope.categories}" var="category">
-                            <a class="d-block products-categories-link category">
-                                <p id="${category.categoryId}" class="mb-0" hidden>${category.categoryName}</p>
-                                <input id="${category.categoryId}" type="radio" name="gender"
-                                    value="male">${category.categoryName}
-                            </a>
-                        </c:forEach>
-                    </c:if>
-
-
-                    <!-- end of single link -->
-                    <!-- end of title -->
-                    <div class="products-categories-title my-4">
-                        <h6 class="text-uppercase">Price Range</h6>
-                        <div class="products-categories-underline"></div>
-                    </div>
-                    <form>
-                        <div class="form-group">
-                            <p>
-                                <input type="text" id="amount" readonly
-                                    style="border:0; color:#f6931f; font-weight:bold;">
-                            </p>
-                            <div id="slider-range"></div>
-                        </div>
-
-                        <div class="products-categories-title my-4">
-                            <h6 class="text-uppercase">Keyword</h6>
-                            <div class="products-categories-underline"></div>
-                        </div>
-                        <div class="input-group">
-                            <input id="productName" type="text" class="form-control text-capitalize">
-                        </div>
-                        <br>
+                    <div class="card-footer text-muted">
                         <button type="button" id='${sessionScope.user.role}' class="filterBtn btn btn-primary">Filter
                             Products</button>
-                    </form>
-
-                    <!--  -->
-                </div>
-                <!-- product img -->
-                <div class="col-10 col-md-7 col-lg-9 mx-auto my-3 ">
-                    <div class="row" id="allProducts">
-                        <c:if test="${!empty requestScope.products}">
-                            <c:forEach items="${requestScope.products}" var="product">
-                                <product:productTLD product="${product}"></product:productTLD>
-                            </c:forEach>
-                        </c:if>
                     </div>
                 </div>
+
             </div>
+
+
+            <div class="col-md-9">
+                <div class="row" id="allProducts">
+                    <c:if test="${!empty requestScope.products}">
+                        <c:forEach items="${requestScope.products}" var="product">
+                            <product:productTLD product="${product}"></product:productTLD>
+                        </c:forEach>
+                    </c:if>
+                </div>
+            </div>
+
+
         </div>
-    </section>
-    <!-- end of products -->
+        <br>
+    </div>
+
+
 
     <!-- modal -->
     <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
