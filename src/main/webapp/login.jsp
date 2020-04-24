@@ -36,9 +36,8 @@
             <label for="userPassword">Password</label>
             <input name="password" type="password" class="form-control" id="userPassword">
         </div>
-        <div class="form-group form-check">
-            <input name="rememberMe" type="checkbox" class="form-check-input" id="rememberMe">
-            <label class="form-check-label" for="rememberMe">Remember me</label>
+        <div class="form-group">
+            <a href="forgetPassword">forget password ?</a>
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
     </form>
