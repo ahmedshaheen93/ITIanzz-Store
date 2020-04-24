@@ -111,20 +111,21 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="myModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="myModel" tabindex="-1" role="dialog" style="display: none;"
+                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Sorry</h5>
+                            <h5 class="modal-title" id="exampleModalLabel" style="-webkit-text-fill-color: #1dc4e9">Sorry</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
-                            <h6 id="Message">no items in the cart.. <img src="images/cart/emoji.jpg" style="width: 50px; height: 50px"></h6>
+                        <div class="modal-body" id="message">
+
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
