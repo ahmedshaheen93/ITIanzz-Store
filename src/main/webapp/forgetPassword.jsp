@@ -11,18 +11,17 @@
 <head>
     <title>${applicationScope.storeInstance.storeName} - Forget Password</title>
     <%@include file="includes/head.jsp" %>
+    <LINK href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://formden.com/static/cdn/bootstrap-iso.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <%@include file="includes/header.jsp" %>
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    </header>
-    <c:if test="${!empty requestScope.errorMessage}">
-        <p>${requestScope.errorMessage}</p>
-    </c:if>
+<header>
+    <%@include file="includes/header.jsp" %>
+</header>
+<c:if test="${!empty requestScope.errorMessage}">
+    <p>${requestScope.errorMessage}</p>
+</c:if>
+<div class="bootstrap-iso" style="padding-top: 35px">
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
@@ -34,21 +33,24 @@
                             <p>You can reset your password here.</p>
                             <div class="panel-body">
 
-                                <form id="register-form" action="/iti-store/forgetPassword" role="form" class="form" method="post">
+                                <form id="register-form" action="/iti-store/forgetPassword" role="form" class="form"
+                                      method="post">
 
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
-                                            <input id="email" name="email" placeholder="email address" class="form-control"  type="email">
+                                            <div class="input-group-addon">
+                                                <span class="glyphicon glyphicon-envelope"></span>
+                                            </div>
+                                            <input class="form-control" id="email" name="email" type="text" placeholder="email address"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="Reset Password" type="submit">
+                                        <input name="recover-submit" class="btn btn-lg btn-primary btn-block"
+                                               value="Reset Password" type="submit">
                                     </div>
 
                                     <input type="hidden" class="hide" name="token" id="token" value="">
                                 </form>
-
                             </div>
                         </div>
                     </div>
@@ -56,8 +58,9 @@
             </div>
         </div>
     </div>
-    <footer>
-        <%@include file="includes/footer.jsp" %>
-    </footer>
+</div>
+<footer>
+    <%@include file="includes/footer.jsp" %>
+</footer>
 </body>
 </html>
