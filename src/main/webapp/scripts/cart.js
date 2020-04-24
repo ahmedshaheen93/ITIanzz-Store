@@ -37,7 +37,17 @@ function checkOut(userId) {
     if(typeof userId !== 'undefined' && userId !== '') {
 
         var allProducts = get_AllProducts();
-        if(allProducts.length !== 0) {
+        var totalPrice = parseFloat($('#allCartTotalAfterShipping').text());
+        var userBalance = parseFloat($('#currentUserBalance').text());
+        console.log("tootallll pricce: " + totalPrice);
+        console.log("balaaannnnceeee: " + userBalance);
+        if(allProducts.length === 0) {
+            $('#message').html("no items in the cart.. <img src='images/cart/emoji.jpg' style='width: 50px; height: 50px'>");
+            $('#myModal').modal('show');
+        }else if(totalPrice > userBalance){
+            $('#message').html("your balance is less than required to perform the operation <img src='images/cart/emoji.jpg' style='width: 50px; height: 50px'>");
+            $('#myModal').modal('show');
+        }else{
             var json = JSON.stringify(allProducts);
             $.ajax({
                 type: "POST",
@@ -60,8 +70,6 @@ function checkOut(userId) {
                     }
                 }
             });
-        }else{
-            $('#myModal').modal('show');
         }
     }else {
         window.location = '/iti-store/login';
