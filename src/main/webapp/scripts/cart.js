@@ -11,7 +11,7 @@ function get_AllProducts() {
 function onSuccess(data) {
     $("#do_action").hide();
     $("#response").show();
-    $("#response_message").text(data.Message);
+    $("#response_message").text(data.message);
     localStorage.removeItem("products");
     window.location = "/iti-store/view-profile";
 }
@@ -30,7 +30,9 @@ function onError(data) {
     // var json = JSON.parse(data);
     $("#do_action").hide();
     $("#response").show();
-    $("#response_message").val(data.Message);
+    $("#response_message").val(data);
+    $("#Message").text(data)
+    $('#myModal').modal('show');
 }
 
 function checkOut(userId) {
@@ -50,7 +52,7 @@ function checkOut(userId) {
                     },
                     460: function (data) {
                         console.log("error")
-                        onError(data);
+                        onError(data.responseJSON.message);
                     },
                     500: function () {
                         alert("Error 500");

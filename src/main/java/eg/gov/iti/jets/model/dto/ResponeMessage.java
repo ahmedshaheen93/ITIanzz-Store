@@ -1,20 +1,20 @@
 package eg.gov.iti.jets.model.dto;
 
 public class ResponeMessage {
-    String Message;
+    String message;
     int statusCode;
 
     public ResponeMessage(String message, int statusCode) {
-        Message = message;
+        this.message = message;
         this.statusCode = statusCode;
     }
 
     public String getMessage() {
-        return Message;
+        return message;
     }
 
     public void setMessage(String message) {
-        Message = message;
+        message = message;
     }
 
     public int getStatusCode() {

@@ -121,7 +121,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <h6>no items in the cart.. <img src="images/cart/emoji.jpg" style="width: 50px; height: 50px"></h6>
+                            <h6 id="Message">no items in the cart.. <img src="images/cart/emoji.jpg" style="width: 50px; height: 50px"></h6>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
