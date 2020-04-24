@@ -34,7 +34,7 @@ public class MailServiceImpl implements MailService {
         stringBuilder.append("as you send us a money using Bee service \n");
         stringBuilder.append("this link is valid for one time and will add amount of " + scratchCard.getCardAmount() + "$" + " \n");
         stringBuilder.append("to your account \n");
-        String messageBody = "http://localhost:8088/iti-store/scratchCard?number=" + scratchCard.getCardNumber();
+        String messageBody = "http://3.22.194.64:8088/iti-store/scratchCard?number=" + scratchCard.getCardNumber();
         stringBuilder.append(messageBody);
         String subject = "you have a new scratchCard";
         try {

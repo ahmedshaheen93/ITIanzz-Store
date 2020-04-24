@@ -69,16 +69,20 @@ public class UserRepositoryImpl extends CrudImpl<User, Long> implements UserRepo
 
     @Override
     public User updateUserRole(String email, Role role) {
-        User user = null;
-        int executeUpdate = getEntityManager().createNamedQuery("User.updateUserRole")
-                .setParameter("email", email)
-                .setParameter("role", role)
-                .executeUpdate();
-        if (executeUpdate > 0) {
-            user = findByEmail(email);
-        }
-
-        return user;
+        User user = findByEmail(email);
+        user.setRole(role);
+        return update(user);
+//        getEntityManager().getTransaction().begin();
+//        int executeUpdate = getEntityManager().createNamedQuery("User.updateUserRole")
+//                .setParameter("email", email)
+//                .setParameter("role", role)
+//                .executeUpdate();
+//        getEntityManager().getTransaction().commit();
+//        if (executeUpdate > 0) {
+//            user = findByEmail(email);
+//        }
+//
+//        return user;
     }
 
 //    @Override

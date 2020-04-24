@@ -11,7 +11,7 @@ public class ConnectionToDB {
     private static EntityManagerFactory entityManagerFactory;
 
     private ConnectionToDB() {
-        entityManagerFactory = Persistence.createEntityManagerFactory("iti.store");
+        entityManagerFactory = Persistence.createEntityManagerFactory("iti.store.mysql");
         entityManager = entityManagerFactory.createEntityManager();
     }
 
