@@ -17,24 +17,6 @@ public class ViewProfileController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-//        UserService userService = (UserService) getServletContext().getAttribute("userService");
-//        String userIdParam = req.getParameter("id");
-//        Long userId;
-//
-//        if (userIdParam == null) {
-//            User user = (User) req.getSession().getAttribute("user");
-//            userId = user.getUserId();
-//        } else {
-//            userId = Long.valueOf(userIdParam);
-//        }
-//
-//        try {
-//            User userById = userService.findUserById(userId);
-//            req.setAttribute("user", userById);
-//        } catch (UserNotFoundException e) {
-//            e.printStackTrace();
-//            req.setAttribute("errorMessage", e.getMessage());
-//        }
         UserDto user = (UserDto) req.getSession().getAttribute("user");
         if (user != null) {
             System.out.println("final user befpr going to view is : " + user);

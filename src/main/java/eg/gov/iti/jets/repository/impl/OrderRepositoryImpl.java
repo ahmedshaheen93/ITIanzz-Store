@@ -3,6 +3,7 @@ package eg.gov.iti.jets.repository.impl;
 import eg.gov.iti.jets.model.*;
 import eg.gov.iti.jets.repository.OrderRepository;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.Set;
 
@@ -20,11 +21,17 @@ public class OrderRepositoryImpl extends CrudImpl<Order, Long> implements OrderR
     }
 
     @Override
-    public Order createOrder(Order order, User user, Set<Purchase> purchaseSet, Double orderTotal) {
+    public Order createOrder(User user, Set<Purchase> purchaseSet, Double orderTotal) {
+        System.out.println("createOrder ****************************" + user.getOrders().size());
+        System.out.println("createOrder ****************************" + user.getBalance());
+        Order order = new Order();
+        order.setOrderTimestamp(LocalDateTime.now());
+
         getEntityManager().getTransaction().begin();
         user.addOrder(order);
-        getEntityManager().persist(order);
         user.setBalance(user.getBalance() - orderTotal);
+        getEntityManager().persist(order);
+
         purchaseSet.forEach(purchase -> {
             purchase.setOrderProductId(createOrderProductId(order, purchase));
             Product product = purchase.getProduct();
@@ -33,8 +40,13 @@ public class OrderRepositoryImpl extends CrudImpl<Order, Long> implements OrderR
             getEntityManager().persist(purchase);
             order.getPurchases().add(purchase);
         });
-//        getEntityManager().createQuery(user);
         getEntityManager().getTransaction().commit();
+        System.out.println("createOrder ****************************" + user.getOrders().size());
+        System.out.println("createOrder ****************************" + user.getBalance());
+        User byId = UserRepositoryImpl.getInstance().findById(user.getUserId());
+        System.out.println("from db ****************************" + byId.getOrders().size());
+        System.out.println("from db ****************************" + byId.getBalance());
+
         return order;
     }
 

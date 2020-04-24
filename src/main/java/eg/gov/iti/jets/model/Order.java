@@ -20,7 +20,7 @@ public class Order implements Serializable {
     @Column(name = "ORDER_TIMESTAMP")
     private LocalDateTime orderTimestamp;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "USER_ID", nullable = false, updatable = false)
     private User user;
 

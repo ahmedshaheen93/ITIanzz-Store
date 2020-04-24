@@ -8,11 +8,10 @@ import eg.gov.iti.jets.model.User;
 import eg.gov.iti.jets.model.dto.UserDto;
 import eg.gov.iti.jets.repository.OrderRepository;
 import eg.gov.iti.jets.repository.impl.OrderRepositoryImpl;
+import eg.gov.iti.jets.repository.impl.UserRepositoryImpl;
 import eg.gov.iti.jets.service.OrderService;
 import eg.gov.iti.jets.service.UserService;
-import eg.gov.iti.jets.utilty.UserMapper;
 
-import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -44,8 +43,6 @@ public class OrderServiceImpl implements OrderService {
             throws UserBalanceViolation, ProductQuantityLimitExceeded {
         AtomicReference<Double> orderTotalMoney = getTotalOfOrder(purchases);
 
-        System.err.println(userDto.getBalance());
-
         if (userDto.getBalance() < orderTotalMoney.get()) {
             throw new UserBalanceViolation();
         }
@@ -53,11 +50,8 @@ public class OrderServiceImpl implements OrderService {
             throw new ProductQuantityLimitExceeded();
         }
 
-        Order order = createNewOder();
-        System.err.println(-orderTotalMoney.get());
-        User user = UserMapper.mapUser(userDto);
-        order = orderRepository.createOrder(order, user, purchases, orderTotalMoney.get());
-        return order;
+        User user = UserRepositoryImpl.getInstance().findById(userDto.getUserId());
+        return orderRepository.createOrder(user, purchases, orderTotalMoney.get());
     }
 
     @Override
@@ -82,9 +76,4 @@ public class OrderServiceImpl implements OrderService {
         return isAvailable.get();
     }
 
-    private Order createNewOder() {
-        Order order = new Order();
-        order.setOrderTimestamp(LocalDateTime.now());
-        return order;
-    }
 }

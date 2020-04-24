@@ -28,7 +28,7 @@ public interface UserService {
 
     List<UserDto> findAllUsers();
 
-    UserDto findUserById(long userId) throws UserNotFoundException;
+    UserDto findUserById(Long userId) throws UserNotFoundException;
 
     void checkAdminExistence();
 

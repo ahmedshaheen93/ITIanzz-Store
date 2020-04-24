@@ -25,7 +25,7 @@ public class MakeAsAdminController extends HttpServlet {
         String adminParameter = req.getParameter("admin");
         if (idParameter != null && adminParameter != null) {
 
-            int id = Integer.parseInt(idParameter);
+            Long id = Long.parseLong(idParameter);
             Role role = Role.CUSTOMER_ROLE;
             try {
                 UserDto user = userService.findUserById(id);

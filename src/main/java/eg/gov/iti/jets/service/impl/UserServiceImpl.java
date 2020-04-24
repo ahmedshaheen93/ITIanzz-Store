@@ -93,11 +93,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto findUserById(long userId) throws UserNotFoundException {
+    public UserDto findUserById(Long userId) throws UserNotFoundException {
 
         UserDto userDto = null;
         try {
             User user = userRepository.findById(userId);
+            System.out.println("from repo" + user);
             if (user != null) {
                 userDto = UserMapper.mapUser(user);
             }
