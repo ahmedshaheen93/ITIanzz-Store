@@ -70,105 +70,57 @@
                 <div class="col-10 mx-auto text-center">
                     <h1 class="text-uppercase">featured products</h1>
                     <p class="text-muted">
-                        Here are our Top Selling Products in the Store we hope you like it.
+                        We Sell EVERYTHING! What to expect?
                     </p>
                 </div>
             </div>
             <div class="row">
                 <!-- single product -->
                 <div class="col-10 mx-auto col-md-6 col-lg-4">
-                    <div class="featured-container p-5">
-                        <img src="images/home/img-products/product-1.png" class="img-fluid" alt="product" />
-                        <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-                            <i class="fas fa-search"></i>
-                        </span>
-                        <a href="#" class="featured-store-link text-captilaze">add to cart</a>
+                    <div class="featured-container p-5 text-center">
+                        <img style="height: 13rem;" src="images/home/img-products/product-1.png" class="img-fluid" alt="product" />
                     </div>
-                    <h6 class="text-capitalize text-center my-2">special product</h6>
-                    <h6 class="text-center">
-                        <span class="text-muted old-price mx-2">$200</span>
-                        <span>$100</span>
-                    </h6>
+                    <h6 class="text-capitalize text-center my-2">Computer Parts</h6>
                 </div>
                 <!-- end single product -->
                 <!-- single product -->
                 <div class="col-10 mx-auto col-md-6 col-lg-4">
-                    <div class="featured-container p-5">
-                        <img src="images/home/img-products/product-2.png" class="img-fluid" alt="product" />
-                        <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-                            <i class="fas fa-search"></i>
-                        </span>
-                        <a href="#" class="featured-store-link text-captilaze">add to cart</a>
+                    <div class="featured-container p-5 text-center">
+                        <img style="height: 13rem;" src="images/home/img-products/product-2.png" class="img-fluid" alt="product" />
                     </div>
-                    <h6 class="text-capitalize text-center my-2">special product</h6>
-                    <h6 class="text-center">
-                        <span class="text-muted old-price mx-2">$200</span>
-                        <span>$100</span>
-                    </h6>
+                    <h6 class="text-capitalize text-center my-2">Home Appliances</h6>
                 </div>
                 <!-- end single product -->
                 <!-- single product -->
                 <div class="col-10 mx-auto col-md-6 col-lg-4">
-                    <div class="featured-container p-5">
-                        <img src="images/home/img-products/product-3.png" class="img-fluid" alt="product" />
-                        <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-                            <i class="fas fa-search"></i>
-                        </span>
-                        <a href="#" class="featured-store-link text-captilaze">add to cart</a>
+                    <div class="featured-container p-5 text-center">
+                        <img style="height: 13rem;" src="images/home/img-products/product-3.png" class="img-fluid" alt="product" />
                     </div>
-                    <h6 class="text-capitalize text-center my-2">special product</h6>
-                    <h6 class="text-center">
-                        <span class="text-muted old-price mx-2">$200</span>
-                        <span>$100</span>
-                    </h6>
+                    <h6 class="text-capitalize text-center my-2">Electronic Parts</h6>
                 </div>
                 <!-- end single product -->
                 <!-- single product -->
                 <div class="col-10 mx-auto col-md-6 col-lg-4">
-                    <div class="featured-container p-5">
-                        <img src="images/home/img-products/product-4.png" class="img-fluid" alt="product" />
-                        <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-                            <i class="fas fa-search"></i>
-                        </span>
-                        <a href="#" class="featured-store-link text-captilaze">add to cart</a>
+                    <div class="featured-container p-5 text-center">
+                        <img style="height: 13rem;" src="images/home/img-products/product-4.png" class="img-fluid" alt="product" />
                     </div>
-                    <h6 class="text-capitalize text-center my-2">special product</h6>
-                    <h6 class="text-center">
-                        <span class="text-muted old-price mx-2">$200</span>
-                        <span>$100</span>
-                    </h6>
+                    <h6 class="text-capitalize text-center my-2">Mobiles</h6>
                 </div>
                 <!-- end single product -->
                 <!-- single product -->
                 <div class="col-10 mx-auto col-md-6 col-lg-4">
-                    <div class="featured-container p-5">
-                        <img src="images/home/img-products/product-5.png" class="img-fluid" alt="product" />
-                        <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-                            <i class="fas fa-search"></i>
-                        </span>
-                        <a href="#" class="featured-store-link text-captilaze">add to cart</a>
+                    <div class="featured-container p-5 text-center">
+                        <img style="height: 13rem;" src="images/home/img-products/product-5.png" class="img-fluid" alt="product" />
                     </div>
-                    <h6 class="text-capitalize text-center my-2">special product</h6>
-                    <h6 class="text-center">
-                        <span class="text-muted old-price mx-2">$200</span>
-                        <span>$100</span>
-                    </h6>
+                    <h6 class="text-capitalize text-center my-2">Furnature</h6>
                 </div>
                 <!-- end single product -->
                 <!-- single product -->
                 <div class="col-10 mx-auto col-md-6 col-lg-4">
-                    <div class="featured-container p-5">
-                        <img src="images/home/img-products/product-6.png" class="img-fluid" alt="product" />
-                        <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
-                            <i class="fas fa-search"></i>
-                        </span>
-                        <a href="#" class="featured-store-link text-captilaze">add to cart</a>
+                    <div class="featured-container p-5 text-center">
+                        <img style="height: 13rem;" src="images/home/img-products/product-6.png" class="img-fluid" alt="product" />
                     </div>
-                    <h6 class="text-capitalize text-center my-2">special product</h6>
-                    <h6 class="text-center">
-                        <span class="text-muted old-price mx-2">$200</span>
-                        <span>$100</span>
-                    </h6>
+                    <h6 class="text-capitalize text-center my-2">Books</h6>
                 </div>
                 <!-- end single product -->
             </div>
