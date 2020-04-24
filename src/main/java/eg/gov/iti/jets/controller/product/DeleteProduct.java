@@ -1,8 +1,6 @@
 package eg.gov.iti.jets.controller.product;
 
-import eg.gov.iti.jets.model.Category;
 import eg.gov.iti.jets.model.Product;
-import eg.gov.iti.jets.service.CategoryService;
 import eg.gov.iti.jets.service.ProductService;
 
 import javax.servlet.ServletException;
@@ -11,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet(name = "DeleteProduct", urlPatterns = {"/deleteProduct"})
 public class DeleteProduct extends HttpServlet {
@@ -24,6 +21,6 @@ public class DeleteProduct extends HttpServlet {
             Product product = productService.findById(Long.parseLong(idParam));
             productService.remveProduct(product);
         }
-       resp.sendRedirect("products.jsp");
+        resp.sendRedirect("/iti-store/products");
     }
 }
