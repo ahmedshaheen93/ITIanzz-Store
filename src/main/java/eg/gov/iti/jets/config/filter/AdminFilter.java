@@ -1,7 +1,7 @@
 package eg.gov.iti.jets.config.filter;
 
 import eg.gov.iti.jets.model.Role;
-import eg.gov.iti.jets.model.User;
+import eg.gov.iti.jets.model.dto.UserDto;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -16,7 +16,7 @@ public class AdminFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
-        User user = (User) httpRequest.getSession().getAttribute("user");
+        UserDto user = (UserDto) httpRequest.getSession().getAttribute("user");
         if (user != null && user.getRole() == Role.ADMIN_ROLE) {
             filterChain.doFilter(request, response);
         } else {

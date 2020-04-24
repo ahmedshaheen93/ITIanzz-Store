@@ -7,9 +7,9 @@ import eg.gov.iti.jets.exception.UserBalanceViolation;
 import eg.gov.iti.jets.model.Order;
 import eg.gov.iti.jets.model.Product;
 import eg.gov.iti.jets.model.Purchase;
-import eg.gov.iti.jets.model.User;
 import eg.gov.iti.jets.model.dto.ProductDto;
 import eg.gov.iti.jets.model.dto.ResponeMessage;
+import eg.gov.iti.jets.model.dto.UserDto;
 import eg.gov.iti.jets.service.OrderService;
 import eg.gov.iti.jets.service.ProductService;
 
@@ -34,7 +34,7 @@ public class OrderController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("in the OrderController==========================================================");
-        User user = (User) req.getSession().getAttribute("user");
+        UserDto user = (UserDto) req.getSession().getAttribute("user");
         System.out.println(user);
         if (user != null) {
             String productsPar = req.getParameter("products");

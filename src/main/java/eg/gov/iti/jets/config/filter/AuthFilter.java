@@ -5,7 +5,7 @@
  */
 package eg.gov.iti.jets.config.filter;
 
-import eg.gov.iti.jets.model.User;
+import eg.gov.iti.jets.model.dto.UserDto;
 import eg.gov.iti.jets.service.UserService;
 import eg.gov.iti.jets.utilty.ReadWriteCookei;
 
@@ -25,7 +25,7 @@ import java.util.Optional;
 public class AuthFilter implements Filter {
 
     private static final List<String> PUBLIC_MACHES = Arrays.asList(
-            "/login", "/index", "/home", "/products", "/cart", "/view-product", "/searchForProduct","/forgetPassword",
+            "/login", "/index", "/home", "/products", "/cart", "/view-product", "/searchForProduct", "/forgetPassword",
             "/about", "/registration", "/feedback", "/fonts",
             "/images", "/include", "/scripts", "/style");
 
@@ -41,7 +41,7 @@ public class AuthFilter implements Filter {
                          FilterChain chain)
             throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
-        User user = (User) httpRequest.getSession().getAttribute("user");
+        UserDto user = (UserDto) httpRequest.getSession().getAttribute("user");
         // read cookie from request
         Optional<String> userCookie = ReadWriteCookei.readCookie("email", httpRequest);
         // if request have an email cookie
@@ -83,7 +83,7 @@ public class AuthFilter implements Filter {
         try {
             HttpServletRequest httpServletRequest = (HttpServletRequest) request;
             UserService userService = (UserService) httpServletRequest.getServletContext().getAttribute("userService");
-            User user = userService.findByEmail(cookie);
+            UserDto user = userService.findByEmail(cookie);
 
             if (user != null) {
                 httpServletRequest.getSession().setAttribute("user", user);

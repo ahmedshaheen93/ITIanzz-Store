@@ -5,10 +5,12 @@ import eg.gov.iti.jets.exception.UserBalanceViolation;
 import eg.gov.iti.jets.model.Order;
 import eg.gov.iti.jets.model.Purchase;
 import eg.gov.iti.jets.model.User;
+import eg.gov.iti.jets.model.dto.UserDto;
 import eg.gov.iti.jets.repository.OrderRepository;
 import eg.gov.iti.jets.repository.impl.OrderRepositoryImpl;
 import eg.gov.iti.jets.service.OrderService;
 import eg.gov.iti.jets.service.UserService;
+import eg.gov.iti.jets.utilty.UserMapper;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -38,22 +40,23 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public synchronized Order createOrder(User user, Set<Purchase> purchases)
+    public synchronized Order createOrder(UserDto userDto, Set<Purchase> purchases)
             throws UserBalanceViolation, ProductQuantityLimitExceeded {
         orderRepository = OrderRepositoryImpl.getInstance();
         System.err.println("orderRepository >>>>>>>>>>>>>>>>" + orderRepository);
         AtomicReference<Double> orderTotalMoney = getTotalOfOrder(purchases);
-        System.err.println(user.getBalance());
-        if (user.getBalance() < orderTotalMoney.get()) {
+        System.err.println(userDto.getBalance());
+        if (userDto.getBalance() < orderTotalMoney.get()) {
             throw new UserBalanceViolation();
         }
         if (!checkIfIsStockEnough(purchases)) {
             throw new ProductQuantityLimitExceeded();
         }
 
-        Order order = createNewOder(user, purchases);
+        Order order = createNewOder();
         System.err.println(-orderTotalMoney.get());
-        userService.addUserBalance(user, -orderTotalMoney.get());
+        userService.addUserBalance(userDto, -orderTotalMoney.get());
+        User user = UserMapper.mapUser(userDto);
         return orderRepository.createOrder(order, user, purchases);
     }
 
@@ -74,12 +77,9 @@ public class OrderServiceImpl implements OrderService {
         return isAvailable.get();
     }
 
-    private Order createNewOder(User user, Set<Purchase> purchases) {
+    private Order createNewOder() {
         Order order = new Order();
         order.setOrderTimestamp(LocalDateTime.now());
-//        order.getPurchases().addAll(purchases);
-//        order.setUser(user);
-//        user.getOrders().add(order);
         return order;
     }
 }

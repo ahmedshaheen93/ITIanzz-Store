@@ -2,10 +2,8 @@ package eg.gov.iti.jets.controller.user;
 
 import com.google.gson.Gson;
 import eg.gov.iti.jets.exception.UserNotFoundException;
-import eg.gov.iti.jets.model.User;
 import eg.gov.iti.jets.model.dto.UserDto;
 import eg.gov.iti.jets.service.UserService;
-import eg.gov.iti.jets.utilty.UserMapper;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,8 +20,7 @@ public class UserInfoController extends HttpServlet {
         if (id != null) {
             try {
                 UserService userService = (UserService) getServletContext().getAttribute("userService");
-                User userById = userService.findUserById(Long.parseLong(id));
-                UserDto userDto = UserMapper.mapUser(userById);
+                UserDto userDto = userService.findUserById(Long.parseLong(id));
                 String json = new Gson().toJson(userDto);
                 resp.getWriter().write(json);
             } catch (UserNotFoundException e) {

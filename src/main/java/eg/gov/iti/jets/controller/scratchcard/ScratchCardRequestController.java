@@ -2,9 +2,11 @@ package eg.gov.iti.jets.controller.scratchcard;
 
 import eg.gov.iti.jets.model.ScratchCard;
 import eg.gov.iti.jets.model.ScratchCardRequest;
+import eg.gov.iti.jets.model.dto.UserDto;
 import eg.gov.iti.jets.service.MailService;
 import eg.gov.iti.jets.service.ScratchCardRequestService;
 import eg.gov.iti.jets.service.ScratchCardService;
+import eg.gov.iti.jets.utilty.UserMapper;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -51,7 +53,8 @@ public class ScratchCardRequestController extends HttpServlet {
                     case "approve":
                         scratchCardRequest = createRequest(scratchCardRequest, scratchCardService);
                         scratchCardRequest = scratchCardRequestService.updateScratchCardRequest(scratchCardRequest);
-                        done = mailService.sendScratchCardMail(scratchCardRequest.getUser(), scratchCardRequest.getScratchCard());
+                        UserDto userDto = UserMapper.mapUser(scratchCardRequest.getUser());
+                        done = mailService.sendScratchCardMail(userDto, scratchCardRequest.getScratchCard());
                         break;
                     case "delete":
                         System.out.println("delete");

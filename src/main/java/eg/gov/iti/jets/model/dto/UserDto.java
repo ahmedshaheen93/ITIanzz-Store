@@ -1,6 +1,7 @@
 package eg.gov.iti.jets.model.dto;
 
 import eg.gov.iti.jets.model.Address;
+import eg.gov.iti.jets.model.Role;
 
 import java.util.List;
 
@@ -10,15 +11,18 @@ public class UserDto {
     private String lastName;
     private String phone;
     private String email;
-    private String role;
+    private Role role;
     private double balance;
     private String birthDate;
     private String userImage;
     private Address address;
     private List<OrderDto> orders;
 
+    public UserDto() {
+    }
+
     public UserDto(Long userId, String firstName, String lastName,
-                   String phone, String email, String role,
+                   String phone, String email, Role role,
                    double balance, String birthDate,
                    String userImage, Address address, List<OrderDto> orders) {
         this.userId = userId;
@@ -74,11 +78,11 @@ public class UserDto {
         this.email = email;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 

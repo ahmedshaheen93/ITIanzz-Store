@@ -54,7 +54,7 @@
                                         </div>
                                         <div class="col-5 text-center">
                                             <c:if test="${!empty user.userImage}">
-                                                <img src="/iti-store/images?imageId=${user.userImage.imageId}" alt=""
+                                                <img src="${user.userImage}" alt=""
                                                      class="img-circle img-fluid">
                                             </c:if>
                                             <c:if test="${empty user.userImage}">
@@ -71,13 +71,13 @@
                                         <c:if test="${user.role != Role.ADMIN_ROLE}">
                                             <a class="btn btn-sm btn-dark text-white"
                                                href="make-as-admin?id=${user.userId}&admin=true">
-                                                <i class="fas fa-star"></i> Set As Admin
+                                                <i class="fas fa-star"></i> Set Admin
                                             </a>
                                         </c:if>
                                         <c:if test="${user.role == Role.ADMIN_ROLE}">
                                             <a class="btn btn-sm btn-dark text-white"
                                                href="make-as-admin?id=${user.userId}&admin=false">
-                                                <i class="fas fa-user"></i> Set As Customer
+                                                <i class="fas fa-user"></i> Set Customer
                                             </a>
                                         </c:if>
                                         <a id="${user.userId}"

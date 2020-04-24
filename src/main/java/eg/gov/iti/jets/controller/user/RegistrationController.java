@@ -2,7 +2,7 @@ package eg.gov.iti.jets.controller.user;
 
 import eg.gov.iti.jets.model.Address;
 import eg.gov.iti.jets.model.Role;
-import eg.gov.iti.jets.model.User;
+import eg.gov.iti.jets.model.dto.UserDto;
 import eg.gov.iti.jets.service.UserService;
 
 import javax.servlet.ServletException;
@@ -43,11 +43,14 @@ public class RegistrationController extends HttpServlet {
         String street = req.getParameter("street");
         String zipCode = req.getParameter("zipcode");
         Address address = new Address(country, state, city, street, zipCode);
-
-        User user = new User(firstName, lastName, phone, email, password, Role.CUSTOMER_ROLE, 0.0, bDate, null, address);
+//        String firstName, String lastName,
+//                String phone, String email, Role role,
+//        double balance, String birthDate,
+//                String userImage, Address address, List< OrderDto > orders
+        UserDto user = new UserDto(0l, firstName, lastName, phone, email, Role.CUSTOMER_ROLE, 0.0, bDate.toString(), null, address, null);
 
         UserService userService = (UserService) req.getServletContext().getAttribute("userService");
-        userService.update(user);
+        userService.register(user, password);
 
         resp.sendRedirect("/iti-store/login");
     }

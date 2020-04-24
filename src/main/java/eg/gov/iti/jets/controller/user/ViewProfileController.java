@@ -1,6 +1,6 @@
 package eg.gov.iti.jets.controller.user;
 
-import eg.gov.iti.jets.model.User;
+import eg.gov.iti.jets.model.dto.UserDto;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,7 +35,7 @@ public class ViewProfileController extends HttpServlet {
 //            e.printStackTrace();
 //            req.setAttribute("errorMessage", e.getMessage());
 //        }
-        User user = (User) req.getSession().getAttribute("user");
+        UserDto user = (UserDto) req.getSession().getAttribute("user");
         if (user != null) {
             req.getRequestDispatcher("view-profile.jsp").include(req, resp);
         } else {

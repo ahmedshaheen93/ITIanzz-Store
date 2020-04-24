@@ -1,6 +1,6 @@
 package eg.gov.iti.jets.config.filter;
 
-import eg.gov.iti.jets.model.User;
+import eg.gov.iti.jets.model.dto.UserDto;
 import eg.gov.iti.jets.service.UserService;
 
 import javax.persistence.NoResultException;
@@ -74,7 +74,7 @@ public class RegistrationFilter implements Filter {
 
     private boolean checkIfEmailIsUnique(String email, ServletContext context) {
         UserService userService = (UserService) context.getAttribute("userService");
-        User user = null;
+        UserDto user = null;
         try {
             user = userService.findByEmail(email);
         } catch (NoResultException e) {

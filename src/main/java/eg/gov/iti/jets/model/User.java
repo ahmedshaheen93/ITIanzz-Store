@@ -29,7 +29,8 @@ import java.util.Set;
         @NamedQuery(name = "User.getAllCustomerUsers",
                 query = "SELECT u from User u where u.role = eg.gov.iti.jets.model.Role.CUSTOMER_ROLE"),
         @NamedQuery(name = "User.findById",
-                query = "SELECT u from User u where u.userId =: userId")
+                query = "SELECT u from User u where u.userId =: userId"),
+        @NamedQuery(name = "User.updateUserRole", query = "UPDATE User u set u.role =:role WHERE u.email =:email")
 })
 
 public class User implements Serializable {
@@ -271,9 +272,9 @@ public class User implements Serializable {
     @Override
     public boolean equals(Object obj) {
 
-        if(obj == null) return false;
+        if (obj == null) return false;
         User user = (User) obj;
-        return   (firstName.equals(user.firstName) && lastName.equals(user.lastName)
+        return (firstName.equals(user.firstName) && lastName.equals(user.lastName)
                 && phone.equals(user.phone) && email.equals(user.email) && password.equals(user.password)
                 && balance == user.balance && birthDate.isEqual(user.birthDate) && userImage == user.userImage
                 && address.equals(user.address));
