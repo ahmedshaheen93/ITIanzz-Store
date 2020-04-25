@@ -96,7 +96,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <label class="control-label" for="files">Add Product Images</label>
-                        <input name="images" type='file' id="files" class="input-file" accept="image/*" multiple/>
+                        <input name="images" type='file' id="files" class="input-file" onchange="validateNumberOFiles(this.files.length, 5)" accept="image/*" multiple/>
                     </div>
                 </div>
                 <br>
@@ -105,7 +105,7 @@
 
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <button type="submit" class="btn btn-primary submit">Add Product</button>
+                        <button type="submit" id="addProductBtn" class="btn btn-primary submit">Add Product</button>
                         <button type="button" class="btn btn-primary submit" data-toggle="modal"
                                 data-target="#productModal">
                             Add Category
@@ -151,10 +151,43 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="filesValidator" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title text-capitalize">Warning!!</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                sorry, you can't upload more than 5 images..
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <footer>
     <%@include file="includes/footer.jsp" %>
 </footer>
 </body>
 <script src="scripts/addProduct.js"></script>
+<script>
+    function validateNumberOFiles(length, len) {
 
+        if (length > len) {
+            $('#filesValidator').modal('show');
+            $('#addProductBtn').attr('disabled', 'disabled');
+        }else {
+            $('#addProductBtn').removeAttr('disabled');
+        }
+    }
+</script>
 </html>
