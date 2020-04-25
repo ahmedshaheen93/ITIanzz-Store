@@ -107,7 +107,6 @@ public class MailServiceImpl implements MailService {
 
             // Now set the actual message
             message.setText(msg);
-            System.out.print("Sending msg " + msg);
             // Send message
             Transport transport = session.getTransport("smtp");
             transport.connect(host, 587, from, pass);
@@ -116,7 +115,6 @@ public class MailServiceImpl implements MailService {
             System.out.println("Sent message successfully....");
             return true;
         } catch (MessagingException mex) {
-            System.out.print(mex);
             mex.printStackTrace();
         }
         return false;

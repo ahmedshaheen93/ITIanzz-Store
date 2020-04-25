@@ -47,9 +47,6 @@ public class ReviewController extends HttpServlet {
         UserDto userDto = ((UserDto) req.getSession().getAttribute("user"));
         String reviewMessage = req.getParameter("reviewMessage");
         String reviewStars = req.getParameter("reviewStars");
-        System.out.println("message" + reviewMessage);
-        System.out.println("reviewStarsr" + reviewStars);
-
         if (userDto != null) {
             UserService userService = (UserService) getServletContext().getAttribute("userService");
             User user = userService.findById(userDto.getUserId());

@@ -35,7 +35,6 @@ public class OrderController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("in the OrderController==========================================================");
         UserDto userDto = (UserDto) req.getSession().getAttribute("user");
         if (userDto != null) {
             String productsPar = req.getParameter("products");
@@ -60,15 +59,9 @@ public class OrderController extends HttpServlet {
                     if (order != null) {
                         PrintWriter writer = resp.getWriter();
                         resp.setStatus(201);
-                        System.out.println(userDto);
-                        System.out.println("iBn el kalb" + userDto);
                         UserService userService = (UserService) getServletContext().getAttribute("userService");
                         userDto = userService.findUserById(userDto.getUserId());
                         req.getSession().setAttribute("user", userDto);
-
-
-                        System.out.println("iBn el kalb" + req.getSession().getAttribute("user"));
-
 
                         ResponeMessage responeMessage = new ResponeMessage("successfully ordered", 201);
 

@@ -32,7 +32,6 @@ public class ContextListener implements ServletContextListener {
         context.setAttribute("scratchCardService", ScratchCardServiceImpl.getInstance());
         context.setAttribute("mailService", MailServiceImpl.getInstance());
         Store storeInfo = StoreServiceImpl.getInstance().getStoreInfo();
-        System.out.println(storeInfo);
         context.setAttribute("storeInstance", storeInfo);
         UserServiceImpl.getInstance().checkAdminExistence();
     }

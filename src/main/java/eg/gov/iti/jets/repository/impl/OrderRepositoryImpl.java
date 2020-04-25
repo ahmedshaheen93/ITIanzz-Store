@@ -22,8 +22,6 @@ public class OrderRepositoryImpl extends CrudImpl<Order, Long> implements OrderR
 
     @Override
     public Order createOrder(User user, Set<Purchase> purchaseSet, Double orderTotal) {
-        System.out.println("createOrder ****************************" + user.getOrders().size());
-        System.out.println("createOrder ****************************" + user.getBalance());
         Order order = new Order();
         order.setOrderTimestamp(LocalDateTime.now());
 
@@ -41,11 +39,7 @@ public class OrderRepositoryImpl extends CrudImpl<Order, Long> implements OrderR
             order.getPurchases().add(purchase);
         });
         getEntityManager().getTransaction().commit();
-        System.out.println("createOrder ****************************" + user.getOrders().size());
-        System.out.println("createOrder ****************************" + user.getBalance());
         User byId = UserRepositoryImpl.getInstance().findById(user.getUserId());
-        System.out.println("from db ****************************" + byId.getOrders().size());
-        System.out.println("from db ****************************" + byId.getBalance());
 
         return order;
     }

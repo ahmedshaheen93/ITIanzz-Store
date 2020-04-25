@@ -21,7 +21,7 @@ function setRedirect(data) {
     $("#do_action").hide();
     $("#response").show();
     $("#response_message").val(data.Message);
-    window.location= data.message;
+    window.location = data.message;
     // similar behavior as clicking on a link
     // window.location.href = "http://stackoverflow.com";
 }
@@ -32,24 +32,24 @@ function onError(data) {
     $("#response").show();
     $("#response_message").val(data);
     $("#Message").text(data)
-    $('#myModal').modal('show');
+    $('#myModel').modal('show');
 }
 
 function checkOut(userId) {
-    if(typeof userId !== 'undefined' && userId !== '') {
+    if (typeof userId !== 'undefined' && userId !== '') {
 
         var allProducts = get_AllProducts();
         var totalPrice = parseFloat($('#allCartTotalAfterShipping').text());
         var userBalance = parseFloat($('#currentUserBalance').text());
         console.log("tootallll pricce: " + totalPrice);
         console.log("balaaannnnceeee: " + userBalance);
-        if(allProducts.length === 0) {
+        if (allProducts.length === 0) {
             $('#message').html("no items in the cart.. <img src='images/cart/emoji.jpg' style='width: 50px; height: 50px'>");
-            $('#myModal').modal('show');
-        }else if(totalPrice > userBalance){
+            $('#myModel').modal('show');
+        } else if (totalPrice > userBalance) {
             $('#message').html("your balance is less than required to perform the operation <img src='images/cart/emoji.jpg' style='width: 50px; height: 50px'>");
-            $('#myModal').modal('show');
-        }else{
+            $('#myModel').modal('show');
+        } else {
             var json = JSON.stringify(allProducts);
             $.ajax({
                 type: "POST",
@@ -65,8 +65,8 @@ function checkOut(userId) {
                         onError(data.responseJSON.message);
                     },
                     500: function () {
-                        $("#Message").text("500 Internal Server Error")
-                        $('#myModal').modal('show');
+                        $("#message").text("500 Internal Server Error")
+                        $('#myModel').modal('show');
 
                     },
                     302: function (data) {
@@ -75,7 +75,7 @@ function checkOut(userId) {
                 }
             });
         }
-    }else {
+    } else {
         window.location = '/iti-store/login';
     }
 }
@@ -83,6 +83,7 @@ function checkOut(userId) {
 $(document).ready(function () {
     // get_AllProducts();
     onloadPage();
+
     function onloadPage() {
         var json = JSON.stringify(get_AllProducts());
         console.log("==========" + json);
@@ -109,6 +110,7 @@ $(document).ready(function () {
     }
 
     var totalSum;
+
     function calcTotal() {
         var alltot = $(".totalPrice");
         totalSum = 0;
@@ -192,7 +194,7 @@ $(document).ready(function () {
 
     });
     $(document).on('click', '.close1', function () {
-            $(this).parents("tr").remove();
+        $(this).parents("tr").remove();
         calcTotal();
     });
 

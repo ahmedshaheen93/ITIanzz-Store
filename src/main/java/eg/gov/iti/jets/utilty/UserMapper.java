@@ -34,7 +34,6 @@ public class UserMapper {
     }
 
     public static User mapUser(UserDto userDto) {
-        System.out.println(userDto);
         User user = new User();
         user.setUserId(userDto.getUserId());
         user.setBalance(userDto.getBalance());

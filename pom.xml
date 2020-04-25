@@ -63,8 +63,8 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <url>http://localhost:8088/manager/text</url>
-                    <!--                    <url>http://3.22.194.64:8088/manager/text</url>-->
+                    <!--                    <url>http://localhost:8088/manager/text</url>-->
+                    <url>http://3.22.194.64:8088/manager/text</url>
                     <server>TomcatServer</server>
                     <path>/iti-store</path>
                 </configuration>

@@ -168,18 +168,8 @@
 
                 </div>
 
-                <%--                <c:choose>--%>
-                <%--                    <c:when test="${sessionScope.user.userImage != null}">--%>
                 <img src="${sessionScope.user.userImage}"
                      class="card-img-top img-fluid" alt="Profile Image">
-                <%--                    </c:when>--%>
-                <%--                    <c:otherwise>--%>
-                <%--                        <img src="images/user/avatar.jpg" class="card-img-top img-fluid"--%>
-                <%--                             alt="Default Profile Image">--%>
-                <%--                    </c:otherwise>--%>
-                <%--                </c:choose>--%>
-
-
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
@@ -258,6 +248,25 @@
     </div>
 </div>
 
+<div class="modal fade" id="myModel" tabindex="-1" role="dialog" style="display: none;"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="-webkit-text-fill-color: #1dc4e9">Request for
+                    Balance</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="message">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 <br>
 
 <%@include file="includes/footer.jsp" %>

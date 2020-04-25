@@ -26,7 +26,6 @@ public class ImageController extends HttpServlet {
 
     private void writeFileOnResponse(HttpServletResponse response, Image image) {
         try {
-            System.out.println(image.getImagePath());
             File file = new File(image.getImagePath());
             PrintWriter out = response.getWriter();
             response.setContentType("APPLICATION/OCTET-STREAM");
