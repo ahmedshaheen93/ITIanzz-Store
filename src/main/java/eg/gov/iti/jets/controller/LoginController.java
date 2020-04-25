@@ -20,8 +20,12 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String notAuthorize = req.getParameter("authorize");
+        String mail = req.getParameter("mail");
         if (notAuthorize != null) {
-            req.setAttribute("errorMessage", "you dont have authority to view this page , please login as admin");
+            req.setAttribute("errorMessage", "You dont have authority to view this page , please login as admin");
+        }
+        if (mail != null) {
+            req.setAttribute("errorMessage", "An Email has been send Please Check your inbox");
         }
         req.getRequestDispatcher("login.jsp").include(req, resp);
     }

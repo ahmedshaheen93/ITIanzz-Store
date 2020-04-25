@@ -29,7 +29,7 @@ public class ForgetPasswordController extends HttpServlet {
             String randomPassword = RandomPassword.getRandomPassword(10);
             user = userService.update(user, randomPassword);
             mailService.sendForgetPasswordMail(user, randomPassword);
-            resp.sendRedirect("/iti-store/login");
+            resp.sendRedirect("/iti-store/login?mail=true");
         } else {
             req.setAttribute("errorMessage", "this email isn't found please check your data");
             req.getRequestDispatcher("forgetPassword.jsp").include(req, resp);
