@@ -81,8 +81,8 @@ $(document).ready(function () {
             var proDiv = "<div class=\"mx-auto col-md-6 col-lg-4\">\n" +
                 "                            <div class=\"featured-container p-5\">\n" +
                 "                                <img src=\"" + product.primaryImage + "\" class=\"img-fluid\" alt=\"product\" />\n" +
-                "                                <span class=\"featured-search-icon\" data-toggle=\"modal\" data-target=\"#productModal\">\n" +
-                "                                     <i class=\"fas fa-search\"></i>\n" +
+                "                                <span class=\"featured-search-icon\" >\n" +
+                "                                     <i class=\"fas fa-search view-product\"></i>\n" +
                 "                                 </span>\n" +
                 "                                    <a href=\"#\" class=\"featured-store-link text-captilaze addToCart \" id=\"" + product.productId + "\">add to cart</a>\n" +
                 "                            </div>\n" +
@@ -115,6 +115,13 @@ $(document).ready(function () {
             window.location.href = "deleteProduct?id=" + productId;
         });
     }
+
+    $(".view-product").on('click', function (event) {
+
+        var productId = $(this).parent().parent().find("a")[0].id;
+        console.log("on view-product click " + productId);
+        window.location.href = "view-product?id=" + productId;
+    });
 
 });
 
