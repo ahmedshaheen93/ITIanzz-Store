@@ -13,7 +13,7 @@ $(document).ready(
                 statusCode: {
                     200: function (data) {
                         console.log(data);
-                        $("#Message").text("request for money has been sent , please pay " + amount + " to our account number ")
+                        $("#message").text("request for money has been sent , please pay " + amount + " to our account number ")
                         $('#myModel').modal('show');
                     },
                     460: function () {

@@ -65,7 +65,7 @@ function checkOut(userId) {
                         onError(data.responseJSON.message);
                     },
                     500: function () {
-                        $("#Message").text("500 Internal Server Error")
+                        $("#message").text("500 Internal Server Error")
                         $('#myModel').modal('show');
 
                     },
