@@ -33,11 +33,16 @@ public class ProductsController extends HttpServlet {
                 (CategoryService) getServletContext().getAttribute("categoryService");
         List<Category> categoryList = categoryService.getAllCategories();
         List<ProductDto> allProductDtos = new ArrayList<>();
+        Double max = 0d;
         for (Product product : allProducts) {
             allProductDtos.add(ProductMapper.mapToProductDto(product));
+            if (product.getSellPrice() > max) {
+                max = product.getSellPrice();
+            }
         }
         req.setAttribute("products", allProductDtos);
         req.setAttribute("categories", categoryList);
+        req.setAttribute("maxPrice", max);
         req.getRequestDispatcher("products.jsp").include(req, resp);
 
 
