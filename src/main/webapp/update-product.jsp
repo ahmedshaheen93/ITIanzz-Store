@@ -17,24 +17,6 @@
             width: 85px;
         }
 
-        body {
-            margin: 25px;
-        }
-
-        /*
-        div.polaroid {
-            width: 25%;
-            background-color: white;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            margin: 25px;
-        }
-
-        div.container {
-            height: 10%;
-            text-align: center;
-            padding: 10px 20px;
-        }*/
-
         .container1 {
             position: relative;
             width: 15%;
@@ -186,8 +168,9 @@
                                 <div class="row">
                                     <div class="container1">
                                         <p>primary image</p>
-                                        <img id="image1" alt="image" src="/iti-store/images?imageId=${requestScope.product.primaryImage.imageId}"
-                                             class="image" style="width:100%; display: none">
+                                        <img id="image1" alt="image"
+                                             src="/iti-store/images?imageId=${requestScope.product.primaryImage.imageId}"
+                                             class="image" style="width:100%;">
                                         <div class="middle">
                                             <label for="1" class="btn-2 label-custom-style"><i class="fas fa-paperclip"
                                                                                                aria-hidden="true">upload</i>
@@ -197,18 +180,24 @@
                                         </div>
                                     </div>
                                     <c:if test="${!empty requestScope.product.images}">
-                                        <c:forEach items="${requestScope.product.images}" var="image" varStatus="count" begin="2" end="7">
-                                            <div class="container1">
-                                                <img id="image${count.index+1}" alt="image" src="/iti-store/images?imageId=${image.imageId}"
-                                                     class="image" style="width:100%;">
-                                                <div class="middle">
-                                                    <label for="${count.index+1}" class="btn-2 label-custom-style"><i class="fas fa-paperclip"
-                                                                                                              aria-hidden="true">upload</i>
-                                                    </label>
-                                                    <input type="file" name="images" id="${count.index+1}" onchange="readURL(this)"
-                                                           required style="display: none;">
+                                        <c:forEach items="${requestScope.product.images}" var="image">
+                                            <c:if test="${requestScope.product.primaryImage.imageId != image.imageId}">
+                                                <div class="container1">
+                                                    <img id="image${image.imageId}" alt="image"
+                                                         src="/iti-store/images?imageId=${image.imageId}"
+                                                         class="image" style="width:100%;">
+                                                    <div class="middle">
+                                                        <label for="${image.imageId}"
+                                                               class="btn-2 label-custom-style"><i
+                                                                class="fas fa-paperclip"
+                                                                aria-hidden="true">upload</i>
+                                                        </label>
+                                                        <input type="file" name="images" id="${image.imageId}"
+                                                               onchange="readURL(this)"
+                                                               required style="display: none;">
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            </c:if>
                                         </c:forEach>
                                     </c:if>
                                 </div>
@@ -218,7 +207,7 @@
                             <div class="form-group col-md-12">
                                 <label class="control-label" for="files">Add Product Images</label>
                                 <input name="images" type='file' id="files" class="input-file" accept="image/*"
-                                    multiple/>
+                                       multiple/>
                             </div>
                         </div>
                         <div class="form-row">
