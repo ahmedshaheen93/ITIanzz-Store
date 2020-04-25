@@ -186,7 +186,7 @@
                                 <div class="row">
                                     <div class="container1">
                                         <p>primary image</p>
-                                        <img id="image1" alt="image" src="${requestScope.product.primaryImage.imagePath}"
+                                        <img id="image1" alt="image" src="/iti-store/images?imageId=${requestScope.product.primaryImage.imageId}"
                                              class="image" style="width:100%; display: none">
                                         <div class="middle">
                                             <label for="1" class="btn-2 label-custom-style"><i class="fas fa-paperclip"
@@ -196,20 +196,22 @@
                                                    required style="display: none;">
                                         </div>
                                     </div>
-                                    <c:forEach items="${requestScope.product.images}" var="image" varStatus="count">
-                                    <div class="container1">
-                                        <img id="image${count+1}" alt="image" src="${image.imagePath}"
-                                             class="image" style="width:100%; display: none">
-                                        <div class="middle">
-                                            <label for="${count+1}" class="btn-2 label-custom-style"><i class="fas fa-paperclip"
-                                                                                               aria-hidden="true">upload</i>
-                                            </label>
-                                            <input type="file" name="images" id="${count+1}" onchange="readURL(this)"
-                                                   required style="display: none;">
-                                        </div>
-                                    </div>
+                                    <c:if test="${!empty requestScope.product.images}">
+                                        <c:forEach items="${requestScope.product.images}" var="image" varStatus="count" begin="2" end="7">
+                                            <div class="container1">
+                                                <img id="image${count.index+1}" alt="image" src="/iti-store/images?imageId=${image.imageId}"
+                                                     class="image" style="width:100%;">
+                                                <div class="middle">
+                                                    <label for="${count.index+1}" class="btn-2 label-custom-style"><i class="fas fa-paperclip"
+                                                                                                              aria-hidden="true">upload</i>
+                                                    </label>
+                                                    <input type="file" name="images" id="${count.index+1}" onchange="readURL(this)"
+                                                           required style="display: none;">
+                                                </div>
+                                            </div>
+                                        </c:forEach>
+                                    </c:if>
                                 </div>
-                                </c:forEach>
                             </div>
                         </div>
                         <div class="form-row">
