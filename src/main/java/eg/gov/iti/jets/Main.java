@@ -76,6 +76,5 @@ public class Main {
         User user = UserRepositoryImpl.getInstance().findByEmail("ahmedshaheen676@yahoo.com");
 //        boolean validPass = BCrypt.checkpw("password", user.getPassword());
         boolean ahm741741 = BCrypt.checkpw("Ahm741741", user.getPassword());
-        System.out.println(ahm741741);
     }
 }

@@ -65,8 +65,6 @@ public class AuthFilter implements Filter {
     private boolean checkPublic(HttpServletRequest httpRequest) {
         boolean startsWith = false;
         String path = httpRequest.getRequestURI();
-        System.out.println(path);
-        System.out.println(httpRequest.getContextPath());
         if (path.equals(httpRequest.getContextPath() + "/")) {
             startsWith = true;
         } else {

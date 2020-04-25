@@ -35,7 +35,6 @@ public class LoginController extends HttpServlet {
         UserService userService = (UserService) getServletContext().getAttribute("userService");
         String email = req.getParameter("email");
         String password = req.getParameter("password");
-        System.out.println("email=" + email + " password=" + password);
         try {
             if (email != null && password != null) {
                 UserDto user = userService.login(email, password);

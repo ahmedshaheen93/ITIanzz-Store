@@ -34,7 +34,7 @@ public class ViewProductController extends HttpServlet {
             }
 
         } else {
-            System.out.println("else");
+            resp.sendRedirect("/iti-store/products");
         }
 
     }

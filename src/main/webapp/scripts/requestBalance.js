@@ -13,12 +13,14 @@ $(document).ready(
                 statusCode: {
                     200: function (data) {
                         console.log(data);
+                        $("#Message").text("request for money has been sent , please pay " + amount + " to our account number ")
+                        $('#myModal').modal('show');
                     },
                     460: function () {
                         console.log("error")
                     },
                     500: function () {
-                        alert("leh ya rb m 5k2tny4 m3za");
+                        alert("error on server");
                     }
 
                 }
@@ -36,14 +38,13 @@ $(document).ready(
                 data: {"requestId": requestId, "operation": "approve"},
                 statusCode: {
                     200: function (data) {
-
                         console.log(data);
                     },
                     460: function () {
                         console.log("error")
                     },
                     500: function () {
-                        alert("leh ya rb m 5k2tny4 m3za");
+                        alert("error on server");
                     }
 
                 }
@@ -69,7 +70,7 @@ $(document).ready(
                         console.log("error")
                     },
                     500: function () {
-                        alert("leh ya rb m 5k2tny4 m3za");
+                        alert("error on server");
                     }
 
                 }

@@ -27,7 +27,6 @@ public class ConnectionToDB {
     }
 
     public EntityManager getEntityManager() {
-        System.out.println("session " + entityManager);
         return entityManager;
     }
 }
