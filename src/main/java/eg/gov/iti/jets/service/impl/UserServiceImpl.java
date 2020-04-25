@@ -152,4 +152,11 @@ public class UserServiceImpl implements UserService {
         }
         return userDto;
     }
+
+    @Override
+    public User findById(Long id) throws NoResultException {
+        return userRepository.findById(id);
+    }
+
+
 }

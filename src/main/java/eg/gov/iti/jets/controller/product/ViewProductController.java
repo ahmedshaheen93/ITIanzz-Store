@@ -22,10 +22,19 @@ public class ViewProductController extends HttpServlet {
         String id = req.getParameter("id");
         if (id != null) {
             ProductService productService = (ProductService) getServletContext().getAttribute("productService");
-            Product product = productService.findById(Long.parseLong(id));
-            ProductDto productDto = ProductMapper.mapToProductDto(product);
-            req.setAttribute("product", productDto);
-            req.getRequestDispatcher("view-product.jsp").include(req, resp);
+            try {
+                Product product = productService.findById(Long.parseLong(id));
+
+                ProductDto productDto = ProductMapper.mapToProductDto(product);
+                req.setAttribute("product", productDto);
+                req.getRequestDispatcher("view-product.jsp").include(req, resp);
+            } catch (Exception e) {
+                e.printStackTrace();
+                resp.sendRedirect("/iti-store/error");
+            }
+
+        } else {
+            System.out.println("else");
         }
 
     }

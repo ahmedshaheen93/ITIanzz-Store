@@ -1,25 +1,18 @@
 package eg.gov.iti.jets.model.dto;
 
 public class ReviewDto {
-    private Long id;
     private String reviewMessage;
     private String reviewMessageTime;
     private int reviewStars;
     private String userName;
+    private String imagePath;
 
-    public ReviewDto(String reviewMessage, String reviewMessageTime, int reviewStars, String userName) {
+    public ReviewDto(String reviewMessage, String reviewMessageTime, int reviewStars, String userName, String imagePath) {
         this.reviewMessage = reviewMessage;
         this.reviewMessageTime = reviewMessageTime;
         this.reviewStars = reviewStars;
         this.userName = userName;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+        this.imagePath = imagePath;
     }
 
     public String getReviewMessage() {
@@ -52,5 +45,13 @@ public class ReviewDto {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }

@@ -6,7 +6,7 @@ import eg.gov.iti.jets.model.User;
 import eg.gov.iti.jets.model.dto.UserDto;
 import eg.gov.iti.jets.service.ProductService;
 import eg.gov.iti.jets.service.ReviewService;
-import eg.gov.iti.jets.utilty.UserMapper;
+import eg.gov.iti.jets.service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -51,7 +51,9 @@ public class ReviewController extends HttpServlet {
         System.out.println("reviewStarsr" + reviewStars);
 
         if (userDto != null) {
-            User user = UserMapper.mapUser(userDto);
+            UserService userService = (UserService) getServletContext().getAttribute("userService");
+            User user = userService.findById(userDto.getUserId());
+
             Review review = new Review(user, product, reviewMessage, LocalDateTime.now(), Integer.parseInt(reviewStars));
             product.addReview(review);
             review = reviewService.createReview(review);
