@@ -14,7 +14,7 @@ $(document).ready(
                     200: function (data) {
                         console.log(data);
                         $("#Message").text("request for money has been sent , please pay " + amount + " to our account number ")
-                        $('#myModal').modal('show');
+                        $('#myModel').modal('show');
                     },
                     460: function () {
                         console.log("error")

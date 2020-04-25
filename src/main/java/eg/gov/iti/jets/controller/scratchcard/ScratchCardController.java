@@ -67,8 +67,9 @@ public class ScratchCardController extends HttpServlet {
             User user = UserMapper.mapUser(userDto);
             Boolean requestBalance = scratchCardRequestService.requestBalance(user, Double.parseDouble(balance.trim()));
             resp.getWriter().write("{\"requestBalance\":" + requestBalance + "}");
+        } else {
+            resp.getWriter().write("{\"error\":" + true + "}");
         }
-        resp.getWriter().write("{\"error\":" + true + "}");
 
     }
 }
