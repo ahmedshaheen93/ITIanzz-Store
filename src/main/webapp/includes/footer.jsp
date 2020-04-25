@@ -10,11 +10,16 @@
                 </div>
 
                 <div class="col-md-6 col-lg-7 text-center text-md-right">
-                    <a href="${applicationScope.storeInstance.getFaceBook()}" class="fb-ic"><i class="fab fa-facebook-f white-text mr-4"></i></a>
-                    <a href="${applicationScope.storeInstance.getTwitter()}" class="tw-ic"><i class="fab fa-twitter white-text mr-4"></i></a>
-                    <a href="${applicationScope.storeInstance.getYoutube()}" class="gplus-ic"><i class="fab fa-youtube white-text mr-4"></i></a>
-                    <a href="${applicationScope.storeInstance.getLinkedin()}" class="li-ic"><i class="fab fa-linkedin-in white-text mr-4"></i></a>
-                    <a href="${applicationScope.storeInstance.getInstagram()}" class="ins-ic"><i class="fab fa-instagram white-text"></i></a>
+                    <a href="${applicationScope.storeInstance.getFaceBook()}" class="fb-ic"><i
+                            class="fab fa-facebook-f white-text mr-4"></i></a>
+                    <a href="${applicationScope.storeInstance.getTwitter()}" class="tw-ic"><i
+                            class="fab fa-twitter white-text mr-4"></i></a>
+                    <a href="${applicationScope.storeInstance.getYoutube()}" class="gplus-ic"><i
+                            class="fab fa-youtube white-text mr-4"></i></a>
+                    <a href="${applicationScope.storeInstance.getLinkedin()}" class="li-ic"><i
+                            class="fab fa-linkedin-in white-text mr-4"></i></a>
+                    <a href="${applicationScope.storeInstance.getInstagram()}" class="ins-ic"><i
+                            class="fab fa-instagram white-text"></i></a>
                 </div>
 
             </div>
@@ -34,10 +39,14 @@
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                 <h6 class="text-uppercase font-weight-bold">${applicationScope.storeInstance.linksTitle}</h6>
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                <p><a href="${applicationScope.storeInstance.linkAddress1}">${applicationScope.storeInstance.link1}</a></p>
-                <p><a href="${applicationScope.storeInstance.linkAddress2}">${applicationScope.storeInstance.link2}</a></p>
-                <p><a href="${applicationScope.storeInstance.linkAddress3}">${applicationScope.storeInstance.link3}</a></p>
-                <p><a href="${applicationScope.storeInstance.linkAddress4}">${applicationScope.storeInstance.link4}</a></p>
+                <p><a href="${applicationScope.storeInstance.linkAddress1}">${applicationScope.storeInstance.link1}</a>
+                </p>
+                <p><a href="${applicationScope.storeInstance.linkAddress2}">${applicationScope.storeInstance.link2}</a>
+                </p>
+                <p><a href="${applicationScope.storeInstance.linkAddress3}">${applicationScope.storeInstance.link3}</a>
+                </p>
+                <p><a href="${applicationScope.storeInstance.linkAddress4}">${applicationScope.storeInstance.link4}</a>
+                </p>
             </div>
 
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -52,7 +61,9 @@
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                 <h6 class="text-uppercase font-weight-bold">Contact</h6>
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                <p><i class="fas fa-home mr-3"></i> ${applicationScope.storeInstance.getAddress().getCountry()}, ${applicationScope.storeInstance.getAddress().getCity()}</p>
+                <p>
+                    <i class="fas fa-home mr-3"></i> ${applicationScope.storeInstance.getAddress().getCountry()}, ${applicationScope.storeInstance.getAddress().getCity()}
+                </p>
                 <p><i class="fas fa-envelope mr-3"></i> ${applicationScope.storeInstance.getEmail()}</p>
                 <p><i class="fas fa-phone mr-3"></i> ${applicationScope.storeInstance.getPhoneNumber()}</p>
                 <p><i class="fas fa-print mr-3"></i> ${applicationScope.storeInstance.getFaxNumber()}</p>

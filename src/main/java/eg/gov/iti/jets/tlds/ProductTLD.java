@@ -44,22 +44,35 @@ public class ProductTLD extends SimpleTagSupport {
         UserDto user = (UserDto) getJspContext().getAttribute("user", PageContext.SESSION_SCOPE);
 //        product.getPrimaryImage().getImagePath()
         try {
-            out.println("<div class=\"mx-auto col-md-6 col-lg-4\">");
-            out.println("<div class=\"featured-container p-5\">");
-            out.println("<img src=\"" + product.getPrimaryImage() + "\" class=\"img-fluid\" alt=\"product\" />");
+            out.println("<div class=\"col-md-4\">");
+            out.println("<div class=\"card\">");
+            out.println("<div class=\"card-header\">");
+            out.println("<div class=\"d-flex justify-content-between\">");
+            
+            out.println("<div> <h6> " + product.getProductName() + " </h6> </div>");
+            out.println("<div> <p class=\"card-text\"><small class=\"text-muted\"> " + product.getPrice() + "$ </small></p> </div>");
+            
+            out.println("</div>");
+            out.println("</div>");
+                        
+            out.println("<div class=\"featured-container text-center\">");
+            out.println("<img src=\"" + product.getPrimaryImage() + "\" class=\"img-fluid\" alt=\"product\" style=\"height: 15rem;\" />");
             out.println("<span class=\"featured-search-icon\" data-toggle=\"modal\" data-target=\"#productModal\">");
             out.println("<i class=\"fas fa-search\"></i>");
             out.println("</span>");
             out.println("<a href=\"#\" class=\"featured-store-link text-captilaze addToCart \" id=\"" + product.getProductId() + "\">add to cart </a>");
             out.println("</div>");
-            out.println("<h6 class=\"text-capitalize text-center my-2\">" + product.getProductName() + "</h6>");
-            out.println("<h6 class=\"text-center\">");
-            out.println("<span>$" + product.getPrice() + "</span>");
-            out.println("</h6>");
+
             if (user != null && user.getRole() == Role.ADMIN_ROLE) {
-                out.println("<button id=\"" + product.getProductId() + "\" class=\"btn btn-primary updateProduct\" type=\"button\">Update Product</button>");
-                out.println("<button id=\"" + product.getProductId() + "\"class=\"btn btn-primary deleteProduct\" type=\"button\">Delete Product</button>");
+                out.println("<div class=\"card-footer text-muted\">");
+                out.println("<div class=\"d-flex justify-content-between\">");
+                out.println("<div><button id=\"" + product.getProductId() + "\" class=\"btn btn-success updateProduct\" type=\"button\">Update</button></div>");
+                out.println("<div><button id=\"" + product.getProductId() + "\"class=\"btn btn-danger deleteProduct\" type=\"button\">Delete</button></div>");
+                out.println("</div>");
+                out.println("</div>");
             }
+            out.println("</div>");
+            out.println("<br>");
             out.println("</div>");
 
         } catch (java.io.IOException ex) {

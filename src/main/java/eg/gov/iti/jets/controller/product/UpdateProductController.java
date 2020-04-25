@@ -38,9 +38,11 @@ public class UpdateProductController extends HttpServlet {
         String idParam = req.getParameter("id");
         if (idParam != null) {
             Product product = productService.findById(Long.valueOf(idParam));
+            System.out.println("the incoming product is " + product);
             req.setAttribute("product", product);
             List<Category> allCategories = categoryService.getAllCategories();
             req.setAttribute("allCategories", allCategories);
+            System.out.println("the incoming allCats is " + allCategories);
             req.getRequestDispatcher("update-product.jsp").include(req, resp);
         }
     }

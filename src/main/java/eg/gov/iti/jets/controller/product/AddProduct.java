@@ -13,7 +13,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -49,7 +48,7 @@ public class AddProduct extends HttpServlet {
         String buyPrice = (String) req.getParameter("buyPrice");
         String sellPrice = (String) req.getParameter("sellPrice");
         String categoryId = (String) req.getParameter("categories");
-        Part images = req.getPart("images");
+//        Part images = req.getPart("images");
         Product product = new Product();
         Category categoryById = categoryService.getCategoryById(Long.parseLong(categoryId));
 
@@ -65,7 +64,9 @@ public class AddProduct extends HttpServlet {
         product.setDescription(description);
         product.setManufacturingName(manufacturingName);
         product.setManufacturingDate(LocalDate.parse(manufacturingDate, formatter));
-        product.setExpirationDate(LocalDate.parse(expirationDate, formatter));
+        if (expirationDate != null && !expirationDate.trim().isEmpty()) {
+            product.setExpirationDate(LocalDate.parse(expirationDate, formatter));
+        }
         product.setQuantity(Integer.parseInt(quantity));
         product.setPrimaryImage(allImages.stream().findFirst().get());
         product.setBuyPrice(Double.parseDouble(buyPrice));
