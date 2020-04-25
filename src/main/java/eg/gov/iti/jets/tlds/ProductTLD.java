@@ -48,17 +48,17 @@ public class ProductTLD extends SimpleTagSupport {
             out.println("<div class=\"card\">");
             out.println("<div class=\"card-header\">");
             out.println("<div class=\"d-flex justify-content-between\">");
-            
+
             out.println("<div> <h6> " + product.getProductName() + " </h6> </div>");
             out.println("<div> <p class=\"card-text\"><small class=\"text-muted\"> " + product.getPrice() + "$ </small></p> </div>");
-            
+
             out.println("</div>");
             out.println("</div>");
-                        
+
             out.println("<div class=\"featured-container text-center\">");
             out.println("<img src=\"" + product.getPrimaryImage() + "\" class=\"img-fluid\" alt=\"product\" style=\"height: 15rem;\" />");
-            out.println("<span class=\"featured-search-icon\" data-toggle=\"modal\" data-target=\"#productModal\">");
-            out.println("<i class=\"fas fa-search\"></i>");
+            out.println("<span class=\"featured-search-icon\" >");
+            out.println("<i class=\"fas fa-search view-product \"></i>");
             out.println("</span>");
             out.println("<a href=\"#\" class=\"featured-store-link text-captilaze addToCart \" id=\"" + product.getProductId() + "\">add to cart </a>");
             out.println("</div>");

@@ -17,7 +17,7 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     public static ReviewServiceImpl getInstance() {
-        return instance = Objects.requireNonNullElseGet(instance , ReviewServiceImpl::new);
+        return instance = Objects.requireNonNullElseGet(instance, ReviewServiceImpl::new);
     }
 
     @Override
@@ -27,6 +27,7 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Override
     public Review createReview(Review review) {
-        return reviewRepository.save(review);
+        return
+                reviewRepository.save(review);
     }
 }

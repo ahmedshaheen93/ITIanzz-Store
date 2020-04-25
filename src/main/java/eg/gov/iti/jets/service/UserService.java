@@ -3,6 +3,7 @@ package eg.gov.iti.jets.service;
 import eg.gov.iti.jets.exception.UserBalanceViolation;
 import eg.gov.iti.jets.exception.UserNotFoundException;
 import eg.gov.iti.jets.model.Role;
+import eg.gov.iti.jets.model.User;
 import eg.gov.iti.jets.model.dto.UserDto;
 
 import javax.persistence.NoResultException;
@@ -33,4 +34,7 @@ public interface UserService {
     void checkAdminExistence();
 
     UserDto findByEmail(String email) throws NoResultException;
+
+    User findById(Long id) throws NoResultException;
+
 }

@@ -121,6 +121,7 @@
             color: #FF912C;
         }
 
+
     </style>
 </head>
 
@@ -264,12 +265,6 @@
                                                 Add to cart
                                                 <i class="fas fa-shopping-cart ml-1"></i>
                                             </button>
-                                            <button id="${requestScope.product.productId}"
-                                                    class="btn btn-primary btn-md my-0 p" type="button"
-                                                    style="border-radius: 20px">
-                                                add review
-                                                <i class="fas fa-shopping-cart ml-1"></i>
-                                            </button>
                                         </form>
                                     </div>
                                 </div>
@@ -279,85 +274,117 @@
 
                     </div>
                 </div>
-                <!-- Product Review card-->
-                <div id="newReview" class="card text-center mx-5 mt-1">
-                    <div class="row no-gutters">
-                        <form action="/iti-store/reviewProduct" method="post">
-                            <input type="hidden" name="productId" value="${requestScope.product.productId}">
-                            <input type="text" name="reviewMessage" required>
+                <div class="card" id="newReview">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <form action="/iti-store/reviewProduct" method="post">
+                                    <input type="hidden" name="productId" value="${requestScope.product.productId}">
+                                    <textarea class="form-control" id="reviewMessage" cols="50" rows="5"
+                                              name="reviewMessage"></textarea>
+                                    <section class='rating-widget'>
 
-                            <section class='rating-widget'>
-
-                                <!-- Rating Stars Box -->
-                                <div class='rating-stars text-center'>
-                                    <ul id='stars'>
-                                        <li class='star' title='Poor' data-value='1'>
-                                            <i class='fa fa-star fa-fw'></i>
-                                        </li>
-                                        <li class='star' title='Fair' data-value='2'>
-                                            <i class='fa fa-star fa-fw'></i>
-                                        </li>
-                                        <li class='star' title='Good' data-value='3'>
-                                            <i class='fa fa-star fa-fw'></i>
-                                        </li>
-                                        <li class='star' title='Excellent' data-value='4'>
-                                            <i class='fa fa-star fa-fw'></i>
-                                        </li>
-                                        <li class='star' title='WOW!!!' data-value='5'>
-                                            <i class='fa fa-star fa-fw'></i>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </section>
+                                        <!-- Rating Stars Box -->
+                                        <div class='rating-stars text-center'>
+                                            <ul id='stars'>
+                                                <li class='star' title='Poor' data-value='1'>
+                                                    <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                                <li class='star' title='Fair' data-value='2'>
+                                                    <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                                <li class='star' title='Good' data-value='3'>
+                                                    <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                                <li class='star' title='Excellent' data-value='4'>
+                                                    <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                                <li class='star' title='WOW!!!' data-value='5'>
+                                                    <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </section>
 
 
-                            <input type="number" name="reviewStars" min="1" max="5">
-                            <input type="submit">
-                        </form>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="card text-center mx-5 mt-1">
-                        <div class="row no-gutters">
-                            <div class="col-md-4  m-auto ">
-                                <img src="images/products/man-one.jpg" alt="" class="align-bottom">
+                                    <input type="hidden" name="reviewStars" class="reviewStars" min="1" max="5">
+                                    <button class="btn btn-primary btn-md my-0 p pull-right" type="submit"
+                                            style="border-radius: 20px">add review
+                                        <i class="fas fa-reply ml-1"></i>
+                                    </button>
+                                </form>
                             </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Amr ELbaz</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
                 <!-- End Product Review card -->
                 <c:if test="${!empty requestScope.product.reviews}">
                     <c:forEach var="review" items="${requestScope.product.reviews}">
-
-                        <div class="row">
-
-                            <div class="card text-center mx-5 mt-1">
-                                <div class="row no-gutters">
-                                    <div class="col  m-auto ">
-                                        <img src="images/products/man-one.jpg" alt="" class="align-bottom">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <img src="${review.imagePath}"
+                                             alt=""
+                                             class="img img-rounded img-fluid">
+                                        <p class="text-secondary text-center">${review.reviewMessageTime}</p>
                                     </div>
-                                    <div class="col">
-                                        <div class="card-body">
-                                            <h5 class="card-title">${review.userName}</h5>
-                                            <p class="card-text">${review.reviewMessage}</p>
-                                            <p class="card-text"><small
-                                                    class="text-muted">${review.reviewMessageTime}</small>
-                                            </p>
-                                        </div>
+                                    <div class="col-md-10">
+                                        <p>
+                                            <a class="float-left"><strong>${review.userName}</strong></a>
+
+                                            <c:forEach begin="1" end="5" varStatus="loop">
+                                                <c:choose>
+                                                    <c:when test="${loop.index le review.reviewStars}">
+                                                    <span class="float-right"><i
+                                                            class="text-warning fa fa-star"></i></span>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <span class="float-right"><i class="fa fa-star"></i></span>
+                                                    </c:otherwise>
+                                                </c:choose>
+
+                                            </c:forEach>
+                                        </p>
+                                        <div class="clearfix"></div>
+                                        <p>${review.reviewMessage}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </c:forEach>
 
+                        <%--                        <div class="row" style="width: 100%">--%>
+
+                        <%--                            <div class="card text-center mx-5 mt-1">--%>
+                        <%--                                <div class="row no-gutters">--%>
+                        <%--                                    <div class="col  m-auto ">--%>
+                        <%--                                        <c:choose>--%>
+                        <%--                                            <c:when test="${sessionScope.user.userImage != null}">--%>
+                        <%--                                                <img src="/iti-store/images?imageId=${review.user.userImage.imageId}"--%>
+                        <%--                                                     alt=""--%>
+                        <%--                                                     class="align-bottom" style="width: 100%; height: 100%;">--%>
+                        <%--                                            </c:when>--%>
+                        <%--                                            <c:otherwise>--%>
+                        <%--                                                <img src="images/user/avatar.jpg" alt=""--%>
+                        <%--                                                     class="align-bottom" style="width: 100%; height: 100%;">--%>
+                        <%--                                            </c:otherwise>--%>
+                        <%--                                        </c:choose>--%>
+
+                        <%--                                    </div>--%>
+                        <%--                                    <div class="col">--%>
+                        <%--                                        <div class="card-body">--%>
+                        <%--                                            <h5 class="card-title">${review.userName}</h5>--%>
+                        <%--                                            <p class="card-text">${review.reviewMessage}</p>--%>
+                        <%--                                            <p class="card-text"><small--%>
+                        <%--                                                    class="text-muted">${review.reviewMessageTime}</small>--%>
+                        <%--                                            </p>--%>
+                        <%--                                        </div>--%>
+                        <%--                                    </div>--%>
+                        <%--                                </div>--%>
+                        <%--                            </div>--%>
+                        <%--                        </div>--%>
+                    </c:forEach>
                 </c:if>
             </c:when>
             <c:otherwise>
@@ -407,6 +434,7 @@
 
             // JUST RESPONSE (Not needed)
             var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
+            $(".reviewStars").val(ratingValue);
             var msg = "";
             if (ratingValue > 1) {
                 msg = "Thanks! You rated this " + ratingValue + " stars.";
@@ -416,7 +444,6 @@
             responseMessage(msg);
 
         });
-
 
     });
 
