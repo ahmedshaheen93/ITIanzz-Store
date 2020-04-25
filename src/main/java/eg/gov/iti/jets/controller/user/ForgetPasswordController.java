@@ -3,6 +3,7 @@ package eg.gov.iti.jets.controller.user;
 import eg.gov.iti.jets.model.dto.UserDto;
 import eg.gov.iti.jets.service.MailService;
 import eg.gov.iti.jets.service.UserService;
+import eg.gov.iti.jets.utilty.RandomPassword;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,9 +26,9 @@ public class ForgetPasswordController extends HttpServlet {
         UserDto user = userService.findByEmail(email);
         if (user != null) {
             MailService mailService = (MailService) getServletContext().getAttribute("mailService");
-//            user.setPassword("randomPassword");
-            user = userService.update(user, "randomPassword");
-            mailService.sendForgetPasswordMail(user, "randomPassword");
+            String randomPassword = RandomPassword.getRandomPassword(10);
+            user = userService.update(user, randomPassword);
+            mailService.sendForgetPasswordMail(user, randomPassword);
             resp.sendRedirect("/iti-store/login");
         } else {
             req.setAttribute("errorMessage", "this email isn't found please check your data");
